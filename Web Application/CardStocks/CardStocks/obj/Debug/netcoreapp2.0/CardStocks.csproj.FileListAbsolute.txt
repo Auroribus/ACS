@@ -1,0 +1,11 @@
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.csprojResolveAssemblyReference.cache
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.csproj.CoreCompileInputs.cache
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfoInputs.cache
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfo.cs
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.deps.json
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.runtimeconfig.json
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.runtimeconfig.dev.json
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.dll
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.pdb
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.dll
+C:\Users\stief\Dropbox\AP Year 3\CardStocksWebsite\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.pdb

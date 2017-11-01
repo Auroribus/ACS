@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div.header {
+  background-color: gray;
+  color: white;
+  padding-left: 50px;
+}
+
+a.logo {
+  font-size: 50px;
+}
+a.logo:hover {
+  cursor: pointer;
+}
+
+a.navLinks {
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 20px;
+  font-size: 30px;
+  float:right;
+}
+a.navLinks:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1000px) {
+  a.logo {
+    font-size:30px;
+  }
+  a.navLinks {
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+  }
+}
+
+.searchHeader {
+  font-size: 40px;
+  text-align: center;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+}
+.searchContainer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 70%;
+  margin: auto;
+  text-align:center;
+}
+
+.searchBar {
+  width: 90%;
+}
+
+.searchButton {
+  width: 30px;
+  height: 30px;
+}
+
+.newsContainer {
+  margin: auto;
+  width: 70%;
+  padding: 5px;
+
+  padding-bottom: 45px;
+}
+
+.newsHeader {
+  text-align: center;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  
+}
+
+.newsText {
+
+}
+
+.newestCards {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+
+  padding-bottom: 50px;
+}
+
+.newestCardsHeader {
+  text-align: center;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.newestImg {
+  padding: 10px;
+}
