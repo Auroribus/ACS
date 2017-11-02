@@ -6,7 +6,7 @@ body {
 div.header {
   background-color: gray;
   color: white;
-  padding-left: 50px;
+  padding-left: 10%;
 }
 
 a.logo {
@@ -16,51 +16,10 @@ a.logo:hover {
   cursor: pointer;
 }
 
-a.navLinks {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-top: 20px;
-  font-size: 30px;
-  float:right;
-}
-a.navLinks:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-
-@media screen and (max-width: 1000px) {
-  a.logo {
-    font-size:30px;
-  }
-  a.navLinks {
-    margin-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 20px;
-  }
-}
-
-.searchHeader {
-  font-size: 40px;
-  text-align: center;
-  color: white;
-  background: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
-}
-.searchContainer {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  width: 70%;
-  margin: auto;
-  text-align:center;
-}
-
 .searchBar {
-  width: 90%;
+  padding-left: 10px;
+  margin-left: 30px;
+  width: 50%;
 }
 
 .searchButton {
@@ -69,46 +28,80 @@ a.navLinks:hover {
 }
 
 .newsContainer {
+  padding-top: 50px;
   margin: auto;
-  width: 70%;
-  padding: 5px;
-
+  padding-left: 10%;
+  padding-right: 10%;
   padding-bottom: 45px;
 }
 
 .newsHeader {
-  text-align: center;
-  color: white;
-  background: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
+  text-align: left;
+  color: black;
   
 }
 
 .newsText {
-
 }
 
 .newestCards {
-  width: 70%;
+  padding-left: 10%;
+  padding-right: 10%;
   margin: auto;
   text-align: center;
-
   padding-bottom: 50px;
 }
 
-.newestCardsHeader {
-  text-align: center;
-  color: white;
-  background: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 10px;
+.newestImg {
+  
 }
 
-.newestImg {
-  padding: 10px;
+
+.hamburger {
+  float: right;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  text-indent: -9999px;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 0;
+
+  margin-top: -10px;
 }
+
+
+  .hamburger span {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: white;
+  }
+
+    .hamburger span::before,
+    .hamburger span::after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: white;
+      content: "";
+    }
+
+    .hamburger span::before {
+      top: -20px;
+    }
+
+    .hamburger span::after {
+      bottom: -20px;
+    }
