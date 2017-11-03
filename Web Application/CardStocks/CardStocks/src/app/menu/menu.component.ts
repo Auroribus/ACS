@@ -12,8 +12,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   GoToAccount() {
       console.log("Go To Account");
   }

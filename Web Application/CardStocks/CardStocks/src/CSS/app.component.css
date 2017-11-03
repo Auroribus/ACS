@@ -3,105 +3,11 @@ body {
   padding: 0;
 }
 
-div.header {
-  background-color: gray;
-  color: white;
-  padding-left: 10%;
-}
-
-a.logo {
-  font-size: 50px;
-}
-a.logo:hover {
-  cursor: pointer;
-}
-
-.searchBar {
-  padding-left: 10px;
-  margin-left: 30px;
-  width: 50%;
-}
-
-.searchButton {
-  width: 30px;
-  height: 30px;
-}
-
-.newsContainer {
-  padding-top: 50px;
-  margin: auto;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 45px;
-}
-
-.newsHeader {
-  text-align: left;
-  color: black;
-  
-}
-
-.newsText {
-}
-
-.newestCards {
-  padding-left: 10%;
-  padding-right: 10%;
-  margin: auto;
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-.newestImg {
-  
-}
 
 
-.hamburger {
-  float: right;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 96px;
-  height: 96px;
-  font-size: 0;
-  text-indent: -9999px;
-  cursor: pointer;
-  outline: none;
-  background: none;
-  border: 0;
-
-  margin-top: -10px;
-}
 
 
-  .hamburger span {
-    display: block;
-    position: absolute;
-    top: 44px;
-    left: 18px;
-    right: 18px;
-    height: 8px;
-    background: white;
-  }
 
-    .hamburger span::before,
-    .hamburger span::after {
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 8px;
-      background-color: white;
-      content: "";
-    }
 
-    .hamburger span::before {
-      top: -20px;
-    }
 
-    .hamburger span::after {
-      bottom: -20px;
-    }
+
