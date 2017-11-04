@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   GoToAccount() {
-      console.log("Go To Account");
+    this.router.navigate(["account"]);
   }
 
   GoToLogin() {
-      console.log("Go To Login");
+    this.router.navigate(["login"]);
   }
 
   GoToShoppingCart() {
@@ -25,23 +26,23 @@ export class MenuComponent implements OnInit {
   }
 
   GoToBuy() {
-      console.log("Go To Buy");
+    this.router.navigate(["buy"]);
   }
 
   GoToSell() {
-      console.log("Go To Sell");
+    this.router.navigate(["sell"]);
   }
 
   GoToCollection() {
-      console.log("Go To Collection");
+    this.router.navigate(["collection"]);
   }
 
   GoToWishlist() {
-      console.log("Go To Wishlist");
+    this.router.navigate(["wishlist"]);
   }
 
   GoToUpload() {
-      console.log("Go To Upload");
+    this.router.navigate(["upload"]);
   }
 
 }

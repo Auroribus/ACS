@@ -29,16 +29,18 @@ a.logo {
   position: relative;
   overflow: hidden;
   margin: 0;
+
   padding: 0;
+  margin-top: 10px;
   width: 96px;
-  height: 96px;
+  height: 72px;
   font-size: 0;
   text-indent: -9999px;
   cursor: pointer;
   outline: none;
   background: none;
   border: 0;
-  margin-top: -10px;
+  margin-top: -10px;    
 }
 
 
@@ -50,6 +52,7 @@ a.logo {
     right: 18px;
     height: 8px;
     background: white;
+    border-radius: 10px;
   }
 
     .hamburger span::before,
@@ -61,14 +64,15 @@ a.logo {
       height: 8px;
       background-color: white;
       content: "";
+      border-radius: 10px;
     }
 
     .hamburger span::before {
-      top: -20px;
+      top: -15px;
     }
 
     .hamburger span::after {
-      bottom: -20px;
+      bottom: -15px;
     }
 
 

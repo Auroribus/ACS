@@ -1,0 +1,9 @@
+img {
+  padding: 5px;
+  display: inline-block;
+  margin: auto;
+}
+
+a.wishCard:hover {
+  cursor:pointer;
+}

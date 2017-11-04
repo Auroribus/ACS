@@ -6,8 +6,10 @@ namespace CardStocks
 {
     public class Program
     {
+     
         public static void Main(string[] args)
         {
+      /*Azure SQL
       try
       {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -46,7 +48,9 @@ namespace CardStocks
         Console.WriteLine(e.ToString());
       }
       Console.ReadLine();
+      */
     }
+
   }
     
 }

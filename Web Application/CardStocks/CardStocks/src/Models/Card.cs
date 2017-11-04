@@ -8,10 +8,9 @@ namespace CardStocks.src.Models
 {
     public class Card
     {
-      [Key]
-      public int id { get; set; }
-      public string name { get; set; }
-      public string set { get; set; }
-      public string rarity { get; set; }
+      public int ID { get; set; }
+      public string Name { get; set; }
+      public string Set { get; set; }
+      public string Rarity { get; set; }
     }
 }

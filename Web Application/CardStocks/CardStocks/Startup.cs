@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using CardStocks.Models;
 
 namespace CardStocks
 {
@@ -26,9 +25,6 @@ namespace CardStocks
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddDbContext<CardStocksContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("CardStocksContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
