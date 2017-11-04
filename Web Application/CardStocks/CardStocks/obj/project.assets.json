@@ -13114,7 +13114,8 @@
       "Microsoft.AspNetCore.StaticFiles >= 2.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0",
+      "System.Data.SqlClient >= 4.4.0"
     ]
   },
   "packageFolders": {
@@ -13182,6 +13183,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "4.4.0"
           }
         },
         "imports": [

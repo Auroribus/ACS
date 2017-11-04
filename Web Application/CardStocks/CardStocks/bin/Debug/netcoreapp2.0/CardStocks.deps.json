@@ -28,7 +28,8 @@
           "Microsoft.AspNetCore.StaticFiles": "2.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.0",
+          "System.Data.SqlClient": "4.4.0"
         },
         "runtime": {
           "CardStocks.dll": {}
