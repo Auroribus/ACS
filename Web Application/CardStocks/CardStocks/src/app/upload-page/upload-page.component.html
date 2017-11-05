@@ -1,5 +1,8 @@
 <div class="box">
   <input type="text" [(ngModel)]="file"/>
+  {{file}}
   <button (click)="getPath(file)">Upload</button>
-  {{cardName}}
+  Name: {{cardName}}
+  Set: {{cardSet}}
+  Rarity: {{cardRarity}}
 </div>

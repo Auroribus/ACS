@@ -6,13 +6,12 @@ import { Observable } from 'rxjs';
 //let url = "https://www.picclickimg.com/d/l400/pict/152663272756_/Magic-the-gathering-Lotus-Petal-Tempest.jpg";
 //let url = "https://vignette.wikia.nocookie.net/mtg/images/7/7a/Scoria_Elemental.jpg/revision/latest?cb=20110511020909";
 let url;
-let TestString;
 
 let body = {}
 
-let numberOfWordsInTitle;
-let numberOfSymbols;
 let nameCard = "";
+
+let pathLink;
 
 let oldNr = 0;
 
@@ -27,21 +26,25 @@ export class UploadPageComponent implements OnInit {
 
   file: string = "";
   cardName: string = "card name";
+  cardSet: string = "card set";
+  cardRarity: string = "card rarity";
 
   constructor(private http: Http) {
-    this.nameOfCard = [];
+   
   }
 
   ngOnInit() {
-    
     
   }
 
   GetItAll() {
     this.GetNumberOfWordsInTitle().subscribe((data) => {
+      //Reset names + number check for space
+      nameCard = "";
+      this.nameOfCard = [];
+      oldNr = 0;
 
-
-      numberOfWordsInTitle = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words.length
+      var numberOfWordsInTitle = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words.length
 
       for (var i = 0; i < numberOfWordsInTitle; i++) {
         //add spacing between two words
@@ -50,7 +53,7 @@ export class UploadPageComponent implements OnInit {
           this.nameOfCard.push(" ");
         }
 
-        numberOfSymbols = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols.length;
+        var numberOfSymbols = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols.length;
 
         for (var j = 0; j < numberOfSymbols; j++) {
           this.nameOfCard.push(data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols[j].text);
@@ -64,10 +67,32 @@ export class UploadPageComponent implements OnInit {
       }
 
       console.log(nameCard);
-      this.cardName = nameCard;
+
+      var sendName = nameCard;
+
+      return this.http.get('https://api.magicthegathering.io/v1/cards?name=' + sendName)
+        .map((response) => response.json()).subscribe((data) =>
+        {
+          console.log(nameCard);
+          console.log(data);
+        }
+        );
+      /*
+     this.GetInfoCard().subscribe((data) => {
+      console.log(data.cards[0]);
+      this.cardName = data.cards[0].name;
+      this.cardSet = data.cards[0].set;
+      this.cardRarity = data.cards[0].rarity;
+    });
+      */
     }
+
+
     );
+
+    
   }
+
 
 
   GetNumberOfWordsInTitle() {
@@ -79,8 +104,17 @@ export class UploadPageComponent implements OnInit {
   }
 
   getPath(link) {
-    console.log(this.file);
     
+    if (this.file == pathLink)
+    {
+      console.log("uploading the same image");
+    }
+    else
+    {
+      pathLink = this.file;
+
+      console.log(this.file);
+
       url = this.file;
 
       body = {
@@ -104,8 +138,16 @@ export class UploadPageComponent implements OnInit {
       };
 
       this.GetItAll();
+      
+    }
     
-    
+  }
+
+  GetInfoCard() {
+    console.log(nameCard);
+
+    return this.http.get('https://api.magicthegathering.io/v1/cards?name=' + nameCard)
+      .map((response) => response.json());
   }
 
 }
