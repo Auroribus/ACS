@@ -5,9 +5,13 @@
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="src\assets\Test_Card.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="CardStocksAngular\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
+    <Folder Include="src\app\upload-page\Images\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
@@ -27,5 +31,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="src\assets\despise.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
