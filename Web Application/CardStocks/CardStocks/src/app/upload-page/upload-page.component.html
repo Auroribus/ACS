@@ -1,3 +1,5 @@
-<p>
-  upload-page works!
-</p>
+<div class="box">
+  <input type="text" [(ngModel)]="file"/>
+  <button (click)="getPath(file)">Upload</button>
+  {{cardName}}
+</div>
