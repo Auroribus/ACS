@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _httpService: Http) { }
+  constructor(private _httpService: Http, private router: Router) { }
 
   menuState: string = 'out';
 
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   }
 
   GoToHome() {
-    console.log("Go To Home");
+    this.router.navigate([""]);
   }
 
   ngOnInit() {
