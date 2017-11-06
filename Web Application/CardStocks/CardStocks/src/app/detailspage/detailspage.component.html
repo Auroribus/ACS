@@ -1,11 +1,28 @@
-<div class="midbox">
-  <ul>
-    <li>{{cardName}}</li>
-    <li>{{cardSet}}</li>
-    <li>{{cardRarity}}</li>
-    <li>{{cardType}}</li>
-    <li>{{cardText}}</li>
-    <li><img [src]="cardImage" alt="image" /></li>
-  </ul>
-  <p>Card Info</p>
+<div class="box">
+  <img class="cardImg" [src]="cardImage" />
+  <table class="cardTable">
+       <tr class="tableRow">
+        <th class="tableHead">Name</th>
+         <td class="tableText">{{cardName}}</td>
+      </tr>
+      <tr class="tableRow">
+        <th class="tableHead">Set Name</th>
+        <td class="tableText">{{cardSet}}</td>
+      </tr>
+    <tr class="tableRow">
+      <th class="tableHead">Rarity</th>
+      <td class="tableText">{{cardRarity}}</td>
+    </tr>
+    <tr class="tableRow">
+      <th class="tableHead">Type</th>
+      <td class="tableText">{{cardType}}</td>
+    </tr>
+    <tr class="tableRow">
+      <th class="tableHead">Text</th>
+      <td class="tableText">{{cardText}}</td>
+    </tr>
+  </table>
 </div>
+
+
+

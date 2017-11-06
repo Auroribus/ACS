@@ -35,7 +35,15 @@ export class DetailspageComponent implements OnInit {
           this.cardRarity = data.cards[0].rarity;
           this.cardType = data.cards[0].types[0];
           this.cardText = data.cards[0].text;
-          this.cardImage = data.cards[0].imageUrl;
+          if (data.cards[0].imageUrl != null)
+          {
+            this.cardImage = data.cards[0].imageUrl;
+          }
+          else
+          {
+            this.cardImage = "assets/NoImageFound.png";
+          }
+          
         });
     });
   }
