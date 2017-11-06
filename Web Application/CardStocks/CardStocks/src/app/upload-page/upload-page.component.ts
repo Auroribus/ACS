@@ -139,10 +139,11 @@ export class UploadPageComponent implements OnInit {
           .map((response) => response.json())
           .subscribe((data) => {
             console.log(data.cards[0]);
-
-            this.cardName = data.cards[0].name;
-            this.cardSet = data.cards[0].set;
-            this.cardRarity = data.cards[0].rarity;
+              this.cardName = data.cards[0].name;
+              this.cardSet = data.cards[0].set;
+              this.cardRarity = data.cards[0].rarity;
+            
+            
             });
       }
 

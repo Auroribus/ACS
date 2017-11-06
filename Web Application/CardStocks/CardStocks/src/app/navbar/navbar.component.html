@@ -1,8 +1,8 @@
 <div class="header">
   <a class="logo" (click)="GoToHome()">CardStocks</a>
 
-  <input class="searchBar" type="text" placeholder="Search for card or set" />
-  <button (click)="search(searchItem)" class="fa fa-search searchButton" aria-hidden="true"></button>
+  <input class="searchBar"  [(ngModel)]="searchCardName" type="text" placeholder="Search for card or set" />
+  <button (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></button>
 
   <button (click)="toggleMenu()" class="hamburger"><span>toggle menu</span></button>
   <app-menu [@slideInOut]="menuState"></app-menu>

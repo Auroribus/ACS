@@ -23,6 +23,8 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  searchCardName: string;
+
   constructor(private _httpService: Http, private router: Router) { }
 
   menuState: string = 'out';
@@ -32,8 +34,16 @@ export class NavbarComponent implements OnInit {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
 
-  search(searchItem) {
-    console.log(searchItem)
+  search() {
+    if (this.searchCardName != null)
+    {
+      this.router.navigate(["details"], { fragment: this.searchCardName });
+
+    }
+    else
+    {
+      console.log("input field is empty");
+    }
   }
 
   GoToHome() {
