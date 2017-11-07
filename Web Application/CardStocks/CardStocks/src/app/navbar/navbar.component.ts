@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
+import { ActivatedRoute, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -24,8 +25,18 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   searchCardName: string;
+  activeRoute: string;
 
-  constructor(private _httpService: Http, private router: Router) { }
+  constructor(private _httpService: Http, private router: Router, private route: ActivatedRoute)
+  {
+    this.router.events.subscribe(event => {
+      if (event instanceof RoutesRecognized)
+      {        
+        this.activeRoute = event.url;
+        console.log(this.activeRoute);
+      }
+    });
+  }
 
   menuState: string = 'out';
 
@@ -35,15 +46,41 @@ export class NavbarComponent implements OnInit {
   }
 
   search() {
-    if (this.searchCardName != null)
-    {
-      this.router.navigate(["details"], { fragment: this.searchCardName });
+    if (this.searchCardName != null) {
+      /*
+      Seperate search for each page with a single search bar
 
+      if (this.activeRoute == "/sell")
+      {
+        this.router.navigate(["sell"], { fragment: this.searchCardName });
+      }
+      else if (this.activeRoute == "/buy")
+      {
+        this.router.navigate(["buy"], { fragment: this.searchCardName });
+      }
+      else if (this.activeRoute == "/collection")
+      {
+        this.router.navigate(["collection"], { fragment: this.searchCardName });
+      }
+      else if (this.activeRoute == "/wishlist")
+      {
+        this.router.navigate(["wishlist"], { fragment: this.searchCardName });
+      }
+      else
+      {
+        
+      }*/
+
+      this.router.navigate(["details"], { fragment: this.searchCardName });
     }
-    else
-    {
+    else {
       console.log("input field is empty");
     }
+    
+  }
+
+  GoToLogin() {
+    this.router.navigate(["login"]);
   }
 
   GoToHome() {
@@ -51,6 +88,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
+
 
 }

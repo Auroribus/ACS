@@ -16,7 +16,7 @@ export class DetailspageComponent implements OnInit {
   cardSet: string = "card set";
   cardRarity: string = "card rarity";
   cardType: string = "card type";
-  cardImage: string;
+  cardImage: string = "assets/NoImageFound.png";
   cardText: string = "card text";
 
   ngOnInit() {

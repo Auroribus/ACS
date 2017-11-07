@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
@@ -7,13 +10,12 @@ import { Router } from '@angular/router';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-  }
-
-  GoToDetailsPage() {
-    this.router.navigate(["details"]);
+    this.route.fragment.subscribe((fragment: string) => {
+      console.log(fragment);
+    });
   }
 
 }

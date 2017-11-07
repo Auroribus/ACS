@@ -23,7 +23,6 @@ html,
 body {
   background: #efefef;
   padding: 10px;
-  font-family: 'Varela Round';
 }
 /*=== 2. Anchor Link ===*/
 a {
@@ -46,7 +45,7 @@ a {
   }
 /*=== 4. Main Form ===*/
 .login-form-1 {
-  max-width: 300px;
+  max-width: 800px;
   border-radius: 5px;
   display: inline-block;
 }
@@ -64,6 +63,7 @@ a {
   padding: 7px 0;
   font-weight: bold;
   height: auto;
+  font-size: 30px;
 }
 
   .login-form-1 .form-control::-webkit-input-placeholder {
@@ -306,7 +306,7 @@ label:hover:before {
 /*=== 9. Misc ===*/
 .logo {
   padding: 15px 0;
-  font-size: 25px;
+  font-size: 40px;
   color: #aaaaaa;
   font-weight: bold;
 }
