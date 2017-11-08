@@ -1,57 +1,66 @@
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Data.SqlClient;
 using System.Text;
 
 namespace CardStocks
 {
-    public class Program
+  public class Program
+  {
+
+    public static void Main(string[] args)
     {
-     
-        public static void Main(string[] args)
-        {
-      /*Azure SQL
-      try
+      BuildWebHost(args).Run();
+    }
+
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .Build();
+    }
+
+    /*
+    try
+    {
+      SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+      builder.DataSource = "cardstocks-ap.database.windows.net";
+      builder.UserID = "steven";
+      builder.Password = "Testing!1";
+      builder.InitialCatalog = "CardStocksDB";
+
+      using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
       {
-        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-        builder.DataSource = "cardstocks-ap.database.windows.net";
-        builder.UserID = "steven";
-        builder.Password = "8/Fe/!1QlY#";
-        builder.InitialCatalog = "CardStocksDB";
+        Console.WriteLine("\nQuery data example:");
+        Console.WriteLine("=========================================\n");
 
-        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+        connection.Open();
+        StringBuilder sb = new StringBuilder();
+        sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
+        sb.Append("FROM [SalesLT].[ProductCategory] pc ");
+        sb.Append("JOIN [SalesLT].[Product] p ");
+        sb.Append("ON pc.productcategoryid = p.productcategoryid;");
+        String sql = sb.ToString();
+
+        using (SqlCommand command = new SqlCommand(sql, connection))
         {
-          Console.WriteLine("\nQuery data example:");
-          Console.WriteLine("=========================================\n");
-
-          connection.Open();
-          StringBuilder sb = new StringBuilder();
-          sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-          sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-          sb.Append("JOIN [SalesLT].[Product] p ");
-          sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-          String sql = sb.ToString();
-
-          using (SqlCommand command = new SqlCommand(sql, connection))
+          using (SqlDataReader reader = command.ExecuteReader())
           {
-            using (SqlDataReader reader = command.ExecuteReader())
+            while (reader.Read())
             {
-              while (reader.Read())
-              {
-                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-              }
+              Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
             }
           }
         }
       }
-      catch (SqlException e)
-      {
-        Console.WriteLine(e.ToString());
-      }
-      Console.ReadLine();
-      */
     }
+    catch (SqlException e)
+    {
+      Console.WriteLine(e.ToString());
+    }
+    Console.ReadLine();*/
+  
 
   }
     
-}
 

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-
+import { Observable } from 'rxjs';
 @Component({
     selector: 'app-root',
     templateUrl: '../Views/app.component.html',
@@ -10,10 +9,15 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 })
 
 export class AppComponent implements OnInit {
-    constructor(private _httpService: Http) { }
+  
+    constructor(private http: Http) { }
       
     ngOnInit() {
-        
+      this.http.get('/api/cards')
+        .map(res => res.json())
+        .subscribe(data => {
+          console.log(data);
+        });
     }
 
     

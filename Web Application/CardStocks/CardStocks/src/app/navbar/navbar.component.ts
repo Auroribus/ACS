@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
   searchCardName: string;
   activeRoute: string;
 
-  constructor(private _httpService: Http, private router: Router, private route: ActivatedRoute)
+  constructor(private http: Http, private router: Router, private route: ActivatedRoute)
   {
     this.router.events.subscribe(event => {
       if (event instanceof RoutesRecognized)
@@ -88,7 +88,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
 

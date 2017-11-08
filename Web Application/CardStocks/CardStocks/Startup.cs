@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using CardStocks.Models;
+
+
 
 namespace CardStocks
 {
@@ -18,6 +21,7 @@ namespace CardStocks
 
         public Startup(IConfiguration configuration)
         {
+          
           Configuration = configuration;
         }
     // This method gets called by the runtime. Use this method to add services to the container.
@@ -25,10 +29,13 @@ namespace CardStocks
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-        }
+     
+            services.AddDbContext<CSContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CardStocksContext")));
+    }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, CSContext CScontext)
         {
             app.Use(async (context, next) => {
                 await next();
@@ -40,6 +47,9 @@ namespace CardStocks
                     await next();
                 }
             });
+
+            DBInitializer.Initialize(CScontext);
+
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
