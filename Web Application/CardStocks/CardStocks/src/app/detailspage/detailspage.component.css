@@ -1,22 +1,46 @@
+
+.clear {
+  clear: both;
+}
+
 .box {
   padding-top: 50px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .cardImg {
-  width: 40%;
+  width: 25%;
   float:left;
 }
 
-table {
+.graphImg {
+  width: 50%;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+table.priceTable {
   border-style: solid;
-  float:right;
-  width:50%;
+  margin-left: 5%;
+  float: left;
+  width: 70%;
+}
+
+table.cardTable {
+  border-style: solid;
+  border-color: gray;
+}
+
+table.rulingsTable {
+  border-style: solid;
+  border-color: gray;
 }
 
 th {
-  font-size: 18px;
+  font-size: 30px;
   padding-left: 15px;
   padding-right:15px;
   color: white;
@@ -28,17 +52,29 @@ th {
 }
 
 td {
-  font-size: 15px;
-  font-weight:500;
+  font-size: 24px;
+  font-weight: 500;
   padding-left: 15px;
   border-bottom: solid;
+  border-right: solid;
   border-color: gray;
 }
 
 @media screen and (max-width: 1200px)
 {
   .cardImg{
-    width: 300px;
+  }
+
+  table.cardTable{
+
+  }
+
+  th {
+    font-size: 18px;
+  }
+
+  td {
+    font-size: 15px;
   }
 }
 

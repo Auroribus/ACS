@@ -12,10 +12,10 @@ namespace CardStocks.Models
         [Key]
         public int CardID { get; set; }
 
+        [Required]
         public string CardName { get; set; }
 
+        [Required]
         public string CardSet { get; set; }
-
-        public string CardRarity { get; set; }
     }
 }

@@ -17,9 +17,11 @@ namespace CardStocks.Models
       }
 
       context.Cards.AddRange(
-        new Card { CardName="CardTest", CardRarity="Common", CardSet="1"},
-        new Card { CardName="CardNur2", CardRarity="Uncommon", CardSet="2"}
+        new Card { CardName="CardTest", CardSet="1"},
+        new Card { CardName="CardNur2", CardSet="2"}
         );
+
+      context.UserList.Add(new UserModel { Username="Admin", Email="test@mail.com", Password="testPassword1"});
 
       context.SaveChanges();
         }

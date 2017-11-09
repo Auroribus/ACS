@@ -1,28 +1,66 @@
-<div class="box">
-  <img class="cardImg" [src]="cardImage" />
-  <table class="cardTable">
-       <tr class="tableRow">
+
+  <div class="box">
+    <img class="cardImg" [src]="cardImage" />
+
+    <table class="priceTable">
+      <thead>
+        <tr>
+          <th>
+            Price Information
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img class="graphImg" src="assets/NoImageFoundWide.png" />
+            <p>Text goes here maybe i think so hahaha</p>
+
+
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <div class="clear"></div>
+
+    <h2 class="tableHeader">Card Information</h2>
+    <table class="cardTable">      
+      <tr class="tableRow">
         <th class="tableHead">Name</th>
-         <td class="tableText">{{cardName}}</td>
+        <td class="tableText">{{cardName}}</td>
       </tr>
       <tr class="tableRow">
         <th class="tableHead">Set Name</th>
         <td class="tableText">{{cardSet}}</td>
       </tr>
-    <tr class="tableRow">
-      <th class="tableHead">Rarity</th>
-      <td class="tableText">{{cardRarity}}</td>
-    </tr>
-    <tr class="tableRow">
-      <th class="tableHead">Type</th>
-      <td class="tableText">{{cardType}}</td>
-    </tr>
-    <tr class="tableRow">
-      <th class="tableHead">Text</th>
-      <td class="tableText">{{cardText}}</td>
-    </tr>
-  </table>
-</div>
+      <tr class="tableRow">
+        <th class="tableHead">Rarity</th>
+        <td class="tableText">{{cardRarity}}</td>
+      </tr>
+      <tr class="tableRow">
+        <th class="tableHead">Type</th>
+        <td class="tableText">{{cardType}}</td>
+      </tr>
+      <tr class="tableRow">
+        <th class="tableHead">Text</th>
+        <td class="tableText">{{cardText}}</td>
+      </tr>
+    </table>
 
+    <div class="clear"></div>
 
+    <h2 class="tableHeader">Rulings</h2>
+    <table class="rulingsTable">
+        <tr>
+          <th>Date</th>
+          <th>Text</th>
+        </tr>
+        <tr *ngFor="let items of rulings">
+          <td>{{items.date}}</td>
+          <td>{{items.text}}</td>
+        </tr>
+    </table>
+  </div>
 

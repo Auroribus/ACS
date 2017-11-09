@@ -10,17 +10,28 @@ import { ActivatedRoute, RoutesRecognized } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   animations: [
-    trigger('slideInOut', [
+    trigger('slideInOutLeftRight', [
       state('in', style({
         transform: 'translate3d(0, 0, 0)'
       })),
       state('out', style({
         transform: 'translate3d(-100%, 0, 0)'
       })),
-      transition('in => out', animate('400ms ease-in-out')),
+      transition('in => out', animate('200ms ease-in-out')),
       transition('out => in', animate('400ms ease-in-out'))
     ]),
-  ]
+    trigger('slideInOutUpDown', [
+      state('in', style({
+        transform: 'translate3d(0, 100px, 0)'
+      })),
+      state('out', style({
+        transform: 'translate3d(0, -100%, 0)'
+      })),
+      transition('in => out', animate('200ms ease-in-out')),
+      transition('out => in', animate('400ms ease-in-out'))
+    ]),
+  ],
+
 })
 export class NavbarComponent implements OnInit {
 
@@ -39,10 +50,16 @@ export class NavbarComponent implements OnInit {
   }
 
   menuState: string = 'out';
+  loginState: string = 'out';
 
   toggleMenu() {
     // 1-line if statement that toggles the value:
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
+  }
+
+  toggleLogin() {
+    console.log("toggle");
+    this.loginState = this.loginState === 'out' ? 'in' : 'out';
   }
 
   search() {
@@ -80,7 +97,6 @@ export class NavbarComponent implements OnInit {
   }
 
   GoToLogin() {
-    this.router.navigate(["login"]);
   }
 
   GoToHome() {
