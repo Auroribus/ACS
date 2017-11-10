@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let itemsSell of SellListing">
-        <td>{{itemsSell.cardID}}</td>
+        <td>{{itemsSell.cardName}}</td>
         <td>{{itemsSell.sellPrice}}</td>
         <td><a class="editClick">Edit</a> | <a class="removeClick">Remove</a></td>
       </tr>
@@ -30,7 +30,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let itemsBuy of BuyListing">
-        <td>{{itemsBuy.cardID}}</td>
+        <td>{{itemsBuy.cardName}}</td>
         <td>{{itemsBuy.buyPrice}}</td>
         <td><a class="editClick">Edit</a> | <a class="removeClick">Remove</a></td>
       </tr>

@@ -15,12 +15,16 @@ export class CollectionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: Http) { }
 
   collectionName: string;
-
-  lastCollectionNumber: number = 0;
-  newCollectionNumber: number;
+  
+  collections: string[] = [];
 
   ngOnInit() {
-
+    this.http.get('/api/Collections')
+      .map(res => res.json())
+      .subscribe(data => {
+        this.collections = data;
+        console.log(this.collections);
+      });
   }
 
   addCollection() {
@@ -37,12 +41,8 @@ export class CollectionComponent implements OnInit {
 
   newCollection()
   {
-    this.newCollectionNumber = this.lastCollectionNumber + 1;
-
-    this.lastCollectionNumber = this.newCollectionNumber;
-
     body = {
-      CollectionNumber: 1.002,
+      CollectionNumber: 1.007,
       CollectionName: this.collectionName,
       UserID: 2
     }

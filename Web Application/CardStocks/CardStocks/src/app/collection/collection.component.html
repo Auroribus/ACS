@@ -5,13 +5,13 @@
     <thead>
       <tr>
         <th>Collection</th>
-        <th>Size</th>
+        <th>Number</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="colClick">Collection 1</td>
-        <td>10</td>
+      <tr *ngFor="let items of collections">
+        <td>{{items.collectionName}}</td>
+        <td>{{items.collectionNumber}}</td>
       </tr>
     </tbody>
   </table>

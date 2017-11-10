@@ -13124,9 +13124,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\stief\\Dropbox\\AP Year 3\\git_CardStocks\\cardstocks.net\\Web Application\\CardStocks\\CardStocks\\CardStocks.csproj",
       "projectName": "CardStocks",
@@ -13162,22 +13159,10 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "2.0.0"
-          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
-          },
-          "System.Data.SqlClient": {
-            "target": "Package",
-            "version": "4.4.0"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "2.0.0"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
@@ -13190,6 +13175,18 @@
           "Microsoft.AspNetCore.StaticFiles": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "4.4.0"
           }
         },
         "imports": [
