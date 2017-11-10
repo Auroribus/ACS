@@ -3,6 +3,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Observable } from 'rxjs';
 import { DataService } from './data.service';
+
 @Component({
     selector: 'app-root',
     templateUrl: '../Views/app.component.html',

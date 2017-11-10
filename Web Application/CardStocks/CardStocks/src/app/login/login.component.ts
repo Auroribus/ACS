@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5/dist/md5';
 import { DataService } from '../data.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,6 @@ export class LoginComponent implements OnInit {
   username: string;
   userpassword: string;
   passHashed: string | Int32Array;
-
 
   constructor(private dataservice: DataService, private router: Router, private http: Http) { }
 

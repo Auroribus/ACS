@@ -19,6 +19,9 @@ namespace CardStocks.Models
         public int CardID { get; set; }
 
         [Required]
+        public string CardName { get; set; }
+  
+        [Required]
         public double SellPrice { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +10,7 @@ using CardStocks.Models;
 namespace CardStocks.Controllers
 {
     [Produces("application/json")]
-    [Route("api/BuyModels")]
+    [Route("api/BuyList")]
     public class BuyModelsController : Controller
     {
         private readonly CSContext _context;

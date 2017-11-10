@@ -11,9 +11,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Card X</td>
-        <td>$ 3.14</td>
+      <tr *ngFor="let itemsSell of SellListing">
+        <td>{{itemsSell.cardID}}</td>
+        <td>{{itemsSell.sellPrice}}</td>
         <td><a class="editClick">Edit</a> | <a class="removeClick">Remove</a></td>
       </tr>
     </tbody>
@@ -29,9 +29,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Card X</td>
-        <td>$4.59</td>
+      <tr *ngFor="let itemsBuy of BuyListing">
+        <td>{{itemsBuy.cardID}}</td>
+        <td>{{itemsBuy.buyPrice}}</td>
         <td><a class="editClick">Edit</a> | <a class="removeClick">Remove</a></td>
       </tr>
     </tbody>
