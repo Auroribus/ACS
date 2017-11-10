@@ -1,0 +1,50 @@
+.box {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+}
+
+a.addColButton {
+  float: right;
+  font-size: 25px;
+  padding: 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+a.addColButton:hover {
+  cursor: pointer;
+}
+
+table.collections {
+  border-style: solid;
+  border-color: gray;
+  width: 100%;
+}
+
+th {
+  font-size: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+td {
+  color: gray;
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 15px;
+  border-bottom: solid;
+  border-right: solid;
+  border-color: gray;
+}
+
+td.colClick:hover {
+    background: lightgray;
+    color: white;
+    cursor: pointer;
+}

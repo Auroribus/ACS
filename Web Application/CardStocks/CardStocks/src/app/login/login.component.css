@@ -31,26 +31,21 @@
   margin-left: 10%;
 }
 
-a.login{
-  padding: 5px;
-  width: 65px;
-  background: white;
-  color: gray;
+button.login {
   font-size: 20px;
   margin-left: 10%;
   margin-top: 10px;
   display: block;
-
-  border-radius: 5px;
-  border-style: solid;
-  border-color: gray;
-  border-width: 1px;
+  border-width: 5px;
+  border-radius: 10px;
+  background: white;
+  color: gray;
+  padding: 0px 5px 0px 5px;
 }
 
-a.login:hover {
+button.login:hover {
   color:white;
   background: gray;
-  border-color: white;
   cursor :pointer;
 }
 

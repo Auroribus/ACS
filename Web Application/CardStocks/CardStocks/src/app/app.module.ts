@@ -19,6 +19,8 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UploadPageComponent } from './upload-page/upload-page.component';
+import { ListingsComponent } from './listings/listings.component';
+import { AddListingComponent } from './add-listing/add-listing.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
   { path: 'wishlist', component: WishlistComponent },
   { path: 'shoppingcart', component: ShoppingcartComponent },
   { path: 'details', component: DetailspageComponent },
-  { path: 'upload', component: UploadPageComponent }
+  { path: 'upload', component: UploadPageComponent },
+  { path: 'listings', component: ListingsComponent }
 ];
 
 @NgModule({
@@ -47,7 +50,9 @@ const appRoutes: Routes = [
         ShoppingcartComponent,
         RegisterComponent,
         LoginComponent,
-        UploadPageComponent
+        UploadPageComponent,
+        ListingsComponent,
+        AddListingComponent
     ],
     imports: [
         BrowserModule,

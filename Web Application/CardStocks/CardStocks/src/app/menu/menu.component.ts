@@ -45,4 +45,8 @@ export class MenuComponent implements OnInit {
     this.router.navigate(["upload"]);
   }
 
+  GoToListings() {
+    this.router.navigate(["listings"]);
+  }
+
 }

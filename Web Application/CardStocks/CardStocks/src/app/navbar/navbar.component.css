@@ -50,6 +50,7 @@ a.login {
 
 .searchButton:hover {
   color: lightgray;
+  cursor: pointer;
 }
 
 .hamburger {

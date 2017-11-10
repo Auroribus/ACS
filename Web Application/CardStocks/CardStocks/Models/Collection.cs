@@ -11,6 +11,12 @@ namespace CardStocks.Models
     {
         [Key]
         public int CollectionID { get; set; }
+
+        [Required]
+        public double CollectionNumber { get; set; }
+
+        [Required]
+        public string CollectionName { get; set; }
             
         [Required]
         public int UserID { get; set; }

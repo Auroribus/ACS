@@ -19,9 +19,13 @@ export class DetailspageComponent implements OnInit {
   cardImage: string = "assets/NoImageFound.png";
   cardText: string = "card text";
 
+  cardPrice: number;
+
   rulings: string[] = [];
 
   ngOnInit() {
+    this.cardPrice = 1.03;
+
     this.route.fragment.subscribe((fragment: string) => {
       console.log(fragment);
 
@@ -37,7 +41,16 @@ export class DetailspageComponent implements OnInit {
           this.cardRarity = data.cards[0].rarity;
           this.cardType = data.cards[0].types[0];
           this.cardText = data.cards[0].text;
-          this.rulings = data.cards[0].rulings;
+
+          if (data.cards[0].rulings == null)
+          {
+            console.log("no found");
+          }
+          else
+          {
+            this.rulings = data.cards[0].rulings;
+          }
+          
 
           console.log(this.rulings);
           if (data.cards[0].imageUrl != null)

@@ -16,10 +16,53 @@
 
 .graphImg {
   width: 50%;
+  float: right;
 }
+
+.price {
+  width: 30%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: white;
+  border-style: solid;
+  border-color: gray;
+  color: gray;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 44px;
+}
+
+.priceText {
+  color: gray;
+  text-align: center;
+  font-size: 40px;
+}
+
+.priceButton {
+  border-radius: 10px;
+  border-width: 5px;
+  background: white;
+  color: gray;
+  padding: 0px 5px 0px 5px;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+  .priceButton:hover {
+    color: white;
+    background: gray;
+    cursor: pointer;
+  }
 
 h2 {
   margin-top: 30px;
+  background: gray;
+  color: white;
+  margin-bottom: 0;
+  text-align:center;
+  border-bottom: solid;
+  border-color: white;
+  border-width: 1px;
 }
 
 table.priceTable {
@@ -32,11 +75,13 @@ table.priceTable {
 table.cardTable {
   border-style: solid;
   border-color: gray;
+  width: 100%;
 }
 
 table.rulingsTable {
   border-style: solid;
   border-color: gray;
+  width: 100%;
 }
 
 th {
@@ -76,5 +121,18 @@ td {
   td {
     font-size: 15px;
   }
+
+  .priceButton {
+    font-size: 24px;
+  }
+
+  .priceText {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
 }
 

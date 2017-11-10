@@ -1,0 +1,97 @@
+.box {
+  margin-top: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+table.buyTable {
+  border-style: solid;
+  border-color: gray;
+  width: 48%;
+  float: left;
+}
+
+a.addBuyButton {
+  float: left;
+  font-size: 25px;
+  padding: 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+a.addBuyButton:hover {
+  cursor: pointer;
+}
+
+a.addSellButton {
+  float: right;
+  font-size: 25px;
+  padding: 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+a.addSellButton:hover {
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}
+
+table.sellTable {
+  border-style: solid;
+  border-color: gray;
+  width: 48%;
+  float: right;
+}
+
+th {
+  font-size: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+td {
+  color: gray;
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 15px;
+  border-bottom: solid;
+  border-right: solid;
+  border-color: gray;
+}
+
+a.editClick {
+  color: inherit;
+}
+
+a.removeClick {
+  color: inherit;
+}
+
+a.editClick:hover {
+  cursor: pointer;
+  color: black;
+}
+
+a.removeClick:hover {
+  cursor: pointer;
+  color: black;
+}
+
+@media screen and (max-width: 1200px)
+{
+  th {
+    font-size: 22px;
+  }
+
+  td {
+    font-size: 18px;
+  }
+}
