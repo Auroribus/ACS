@@ -21,6 +21,9 @@ import { LoginComponent } from './login/login.component';
 import { UploadPageComponent } from './upload-page/upload-page.component';
 import { ListingsComponent } from './listings/listings.component';
 import { AddListingComponent } from './add-listing/add-listing.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { Injectable } from '@angular/core';
+import { DataService } from './data.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -32,7 +35,8 @@ const appRoutes: Routes = [
   { path: 'shoppingcart', component: ShoppingcartComponent },
   { path: 'details', component: DetailspageComponent },
   { path: 'upload', component: UploadPageComponent },
-  { path: 'listings', component: ListingsComponent }
+  { path: 'listings', component: ListingsComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
@@ -52,7 +56,8 @@ const appRoutes: Routes = [
         LoginComponent,
         UploadPageComponent,
         ListingsComponent,
-        AddListingComponent
+        AddListingComponent,
+        DashboardComponent
     ],
     imports: [
         BrowserModule,
@@ -62,8 +67,12 @@ const appRoutes: Routes = [
       BrowserAnimationsModule,
       RouterModule.forRoot(appRoutes)
     ],
-    providers: [AppComponent],
+    providers: [DataService],
     bootstrap: [AppComponent]
 })
-    
-export class AppModule { }
+
+@Injectable()    
+export class AppModule {
+  test: string;
+
+}

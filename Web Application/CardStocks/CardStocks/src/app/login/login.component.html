@@ -1,6 +1,6 @@
-<form class="login-form">
-  <input type="text" placeholder="email" class="inputEmail"/>
-  <input type="password" placeholder="password" class="inputPass"/>
+<div class="login-form">
+  <input type="text" [(ngModel)]="username" placeholder="email" class="inputEmail"/>
+  <input type="password" [(ngModel)]="userpassword" placeholder="password" class="inputPass"/>
   <button (click)="LogIn()" class="login">Login</button>
-  <p>Don't have an account yet? <a class="register">Click here</a></p>
-</form>
+  <p>Don't have an account yet? <a (click)="GoToRegister()" class="register">Click here</a></p>
+</div>

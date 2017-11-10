@@ -1,5 +1,6 @@
 <div class="box">
-  <a class="fa fa-plus-square addColButton">&nbsp;Add Collection</a>
+  <input type="text" placeholder="collection name"  [(ngModel)]="collectionName"/>
+  <a class="fa fa-plus-square addColButton" (click)="addCollection()">&nbsp;Add Collection</a>
   <table class="collections">
     <thead>
       <tr>

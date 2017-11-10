@@ -2,11 +2,11 @@
   <a class="logo" (click)="GoToHome()">CardStocks</a>
 
  <button (click)="toggleMenu()" class="hamburger"><span>toggle menu</span></button>
-  <a (click)="toggleLogin()" class="login">Login</a>
+  <a (click)="toggleLogin()" class="login">{{dataservice.activeUser}}</a>
   
   <input class="searchBar" [(ngModel)]="searchCardName" (keyup.enter)="search()" type="text" placeholder="Search for Card" />
   <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
 
-  <app-menu [@slideInOutLeftRight]="menuState"></app-menu>
-  <app-login [@slideInOutUpDown]="loginState"></app-login>
+  <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
+  <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
 </div>

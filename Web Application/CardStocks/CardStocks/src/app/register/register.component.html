@@ -4,7 +4,7 @@
     <div class="logo">REGISTER</div>
     <!-- Main Form -->
     <div class="login-form-1">
-      <form id="register-form" class="text-left">
+      <div id="register-form" class="text-left">
         <div class="login-form-main-message"></div>
         <div class="main-login-form">
           <div class="login-group">
@@ -28,13 +28,13 @@
               <input type="text" [(ngModel)]="email" class="form-control" id="reg_email" name="reg_email" placeholder="email">
             </div>
           </div>
-          <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+          <button (click)="SendRegister()" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
         </div>
         <div class="etc-login-form">
           <p>already have an account? <a (click)="GoToLogin()">login here</a></p>
         </div>
           </div>
-      </form>
+      </div>
     </div>
     <!-- end:Main Form -->
   </div>

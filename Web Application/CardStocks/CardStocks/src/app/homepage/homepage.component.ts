@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-homepage',
@@ -11,13 +12,14 @@ import { Observable } from 'rxjs';
 export class HomepageComponent implements OnInit {
 
   
-  constructor() {
+  constructor(private dataservice: DataService) {
   }
 
   ngOnInit() {
   }
   
-  
-
-
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
+  }
 }

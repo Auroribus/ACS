@@ -4,6 +4,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 import { ActivatedRoute, RoutesRecognized } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -37,8 +38,10 @@ export class NavbarComponent implements OnInit {
 
   searchCardName: string;
   activeRoute: string;
+  login: string;
+  loggedIn: boolean;
 
-  constructor(private http: Http, private router: Router, private route: ActivatedRoute)
+  constructor(private dataservice: DataService, private http: Http, private router: Router, private route: ActivatedRoute)
   {
     this.router.events.subscribe(event => {
       if (event instanceof RoutesRecognized)
@@ -47,19 +50,29 @@ export class NavbarComponent implements OnInit {
         console.log(this.activeRoute);
       }
     });
+
+    
   }
 
-  menuState: string = 'out';
-  loginState: string = 'out';
+  menuState: string = this.dataservice.slideInOutLeftRight;
+  loginState: string = this.dataservice.slideInOutUpDown;
 
   toggleMenu() {
     // 1-line if statement that toggles the value:
-    this.menuState = this.menuState === 'out' ? 'in' : 'out';
+    this.dataservice.slideInOutLeftRight = this.dataservice.slideInOutLeftRight === 'out' ? 'in' : 'out';
   }
 
   toggleLogin() {
-    console.log("toggle");
-    this.loginState = this.loginState === 'out' ? 'in' : 'out';
+    if (this.dataservice.activeUser == null || this.dataservice.activeUser == "" || this.dataservice.activeUser == "Login") {
+      //no user logged in show login button
+      this.loggedIn = false;
+    }
+    else {
+      this.loggedIn = true;
+    }
+
+    if (!this.loggedIn)
+    this.dataservice.slideInOutUpDown = this.dataservice.slideInOutUpDown === 'out' ? 'in' : 'out';
   }
 
   search() {
@@ -96,15 +109,18 @@ export class NavbarComponent implements OnInit {
     
   }
 
-  GoToLogin() {
-  }
-
   GoToHome() {
     this.router.navigate([""]);
   }
 
   ngOnInit() {
-
+    if (this.dataservice.activeUser == null || this.dataservice.activeUser == "" || this.dataservice.activeUser == "Login") {
+      //no user logged in show login button
+      this.loggedIn = false;
+    }
+    else {
+      this.loggedIn = true;
+    }
   }
 
 

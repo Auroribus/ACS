@@ -16,7 +16,7 @@ namespace CardStocks.Models
         public int UserID { get; set; }
 
         [Required]
-        public Card CardID { get; set; }
+        public int CardID { get; set; }
 
         [Required]
         public double BuyPrice { get; set; }

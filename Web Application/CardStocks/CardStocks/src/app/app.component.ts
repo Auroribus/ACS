@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Observable } from 'rxjs';
+import { DataService } from './data.service';
 @Component({
     selector: 'app-root',
     templateUrl: '../Views/app.component.html',
@@ -9,16 +10,12 @@ import { Observable } from 'rxjs';
 })
 
 export class AppComponent implements OnInit {
-  
-    constructor(private http: Http) { }
+
+  constructor(private http: Http, private dataservice: DataService) { }
       
     ngOnInit() {
-      this.http.get('/api/cards')
-        .map(res => res.json())
-        .subscribe(data => {
-          console.log(data);
-        });
-    }
+      
+  }
 
     
 }
