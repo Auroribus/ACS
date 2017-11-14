@@ -5,7 +5,7 @@
  <button (click)="toggleMenu()" class="hamburger"><span>toggle menu</span></button>
   <a (click)="toggleLogin()" class="login">{{dataservice.activeUser}}</a>
   
-  <input class="searchBar" [(ngModel)]="searchCardName" (keyup.enter)="search()" type="text" placeholder="Search for Card" />
+  <input class="searchBar" [(ngModel)]="searchCardName" (ngModelChange)="searchChange(searchCardName)" (keyup.enter)="search()" type="text" placeholder="Search for Card" />
   <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
 
   <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>

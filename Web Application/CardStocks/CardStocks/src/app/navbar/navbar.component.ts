@@ -51,8 +51,6 @@ export class NavbarComponent implements OnInit {
         console.log(this.activeRoute);
       }
     });
-
-    
   }
 
   menuState: string = this.dataservice.slideInOutLeftRight;
@@ -127,6 +125,16 @@ export class NavbarComponent implements OnInit {
     else {
       this.loggedIn = true;
     }
+  }
+
+  searchChange(newValue) {
+    console.log("logging to hold api calls");
+    /*
+    this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=' + newValue)
+      .subscribe(data => {
+        console.log(data.cards[0]);
+      });
+    */
   }
 
 

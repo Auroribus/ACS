@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
@@ -15,8 +15,6 @@ let pathLink;
 
 let oldNr = 0;
 
-let encodeImage;
-
 @Component({
   selector: 'app-upload-page',
   templateUrl: './upload-page.component.html',
@@ -30,7 +28,8 @@ export class UploadPageComponent implements OnInit {
   cardName: string = "card name";
   cardSet: string = "card set";
   cardRarity: string = "card rarity";
-
+  imageSrc: string;
+  
   constructor(private http: Http, private dataservice: DataService) {
     
   }
@@ -41,6 +40,90 @@ export class UploadPageComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  private base64textString: String = "";
+
+  handleFileSelect(evt) {
+    var files = evt.target.files;
+    var file = files[0];
+
+    if (files && file) {
+      var reader = new FileReader();
+      var r2 = new FileReader();
+
+      r2.onload = (e: any) => {
+        this.imageSrc = e.target.result;
+      }
+
+      r2.readAsDataURL(evt.target.files[0]);
+
+      reader.onload = this._handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(file);
+    }
+  }
+
+  _handleReaderLoaded(readerEvt) {
+
+    var binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
+    //console.log(btoa(binaryString));
+
+    this.getName(this.base64textString);
+  }
+
+  getName(string64) {
+
+    body = {
+      "requests": [
+        {
+          "image": {
+            "content": string64
+          },
+          "features": [
+            {
+              "type": "TEXT_DETECTION"
+            }
+          ]
+        }
+      ]
+    };
+    
+    this.GetNumberOfWordsInTitle().subscribe(data => {
+      //Reset names + number check for space
+      nameCard = "";
+      this.nameOfCard = [];
+      oldNr = 0;
+
+      var numberOfWordsInTitle = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words.length
+
+      for (var i = 0; i < numberOfWordsInTitle; i++) {
+        //add spacing between two words
+        if (oldNr != i) {
+          oldNr = i;
+          this.nameOfCard.push(" ");
+        }
+
+        var numberOfSymbols = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols.length;
+
+        for (var j = 0; j < numberOfSymbols; j++) {
+          this.nameOfCard.push(data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols[j].text);
+
+        }
+      }
+      console.log(this.nameOfCard);
+
+      for (var i = 0; i < this.nameOfCard.length; i++) {
+        nameCard += this.nameOfCard[i];
+      }
+
+      console.log(nameCard);
+
+      var sendName = nameCard;
+      this.cardName = sendName;
+    });
+
   }
 
   GetItAll() {
@@ -91,8 +174,6 @@ export class UploadPageComponent implements OnInit {
         }
         );
       
-     
-      
       }
     );
 
@@ -103,8 +184,7 @@ export class UploadPageComponent implements OnInit {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAZeN4I1k3t34D94p_Jv2bdTKGLsuYbXx4', body, { headers: headers })
-      .map((response) => response.json());
-    
+      .map((response) => response.json());    
   }
 
   getPath(link) {
@@ -161,5 +241,7 @@ export class UploadPageComponent implements OnInit {
     return this.http.get('https://api.magicthegathering.io/v1/cards?name=' + nameCard)
       .map((response) => response.json());
   }
+
+  
 
 }

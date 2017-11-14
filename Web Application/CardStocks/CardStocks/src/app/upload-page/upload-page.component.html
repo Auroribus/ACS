@@ -1,11 +1,31 @@
 <body (click)="closeMenu()">
-<div class="box">
-  <input type="text" [(ngModel)]="file"/>
-  {{file}}
-  <button (click)="getPath(file)">Upload</button>
-  Name: {{cardName}}
-  Set: {{cardSet}}
-  Rarity: {{cardRarity}}
+  <div>
+    <div>
+      <label for="filePicker">Choose or drag a file:</label><br>
+      <input type="file" id="filePicker" (change)="handleFileSelect($event)">
+      <hr />
+      Name: {{cardName}}
+      <hr />
+      <img [src]="imageSrc" alt="" width="500" height="400" />
 
-</div>
+    </div>
+  </div>
+  <!--
+  <div class="box">
+    <input type="text" [(ngModel)]="file" />
+    {{file}}
+    <button (click)="getPath(file)">Upload</button>
+    <hr />
+    Name: {{cardName}}
+    Set: {{cardSet}}
+    Rarity: {{cardRarity}}
+    <hr />
+    <input type="file" accept="image/*" (change)="handleFileSelect($event)" />
+    <img [src]="imageSrc" alt="" width="500" height="400" />
+    div>
+    <h1>Base64 encoded version</h1>
+    <textarea placeholder="Base64 will appear here" cols="50" rows="15">{{base64textString}}</textarea>
+  </div>
+  </div>
+      -->
 </body>
