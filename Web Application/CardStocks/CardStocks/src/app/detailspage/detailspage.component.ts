@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-detailspage',
@@ -10,7 +12,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class DetailspageComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute, private http : Http) { }
+  constructor(private route: ActivatedRoute, private http: Http, private dataservice: DataService) { }
 
   cardName: string = "card name";
   cardSet: string = "card set";
@@ -23,18 +25,19 @@ export class DetailspageComponent implements OnInit {
 
   rulings: string[] = [];
 
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
+  }
+
   ngOnInit() {
     this.cardPrice = 1.03;
 
     this.route.fragment.subscribe((fragment: string) => {
       console.log(fragment);
 
-      return this.http.get('https://api.magicthegathering.io/v1/cards?name=' + fragment)
-        .map((response) => response.json())
-        .catch((err) => {
-          return Observable.throw(err);
-        })
-        .subscribe((data) => {
+      this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=' + fragment)
+      .subscribe((data) => {
           console.log(data.cards[0]);
           this.cardName = data.cards[0].name;
           this.cardSet = data.cards[0].setName;
@@ -60,8 +63,7 @@ export class DetailspageComponent implements OnInit {
           else
           {
             this.cardImage = "assets/NoImageFound.png";
-          }
-          
+          }          
         });
     });
   }

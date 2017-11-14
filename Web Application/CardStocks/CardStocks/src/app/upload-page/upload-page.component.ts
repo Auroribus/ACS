@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
-
+import { DataService } from '../data.service';
 
 //let url = "https://www.picclickimg.com/d/l400/pict/152663272756_/Magic-the-gathering-Lotus-Petal-Tempest.jpg";
 //let url = "https://vignette.wikia.nocookie.net/mtg/images/7/7a/Scoria_Elemental.jpg/revision/latest?cb=20110511020909";
@@ -31,8 +31,13 @@ export class UploadPageComponent implements OnInit {
   cardSet: string = "card set";
   cardRarity: string = "card rarity";
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private dataservice: DataService) {
     
+  }
+
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
   }
 
   ngOnInit() {

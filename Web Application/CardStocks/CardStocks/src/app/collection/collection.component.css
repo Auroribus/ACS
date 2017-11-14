@@ -1,12 +1,21 @@
-.box {
-  margin-left: 10%;
+.mainBox {
+  margin-left: 30%;
   margin-right: 10%;
   margin-top: 50px;
 }
 
+.sideBox {
+  background: lightgray;
+  width: 20%;
+  min-width: 250px;
+  position: fixed;
+  height: 100%;
+  margin-top: -50px;
+}
+
 a.addColButton {
-  float: right;
-  font-size: 25px;
+  margin-left: 5%;
+  font-size: 18px;
   padding: 10px;
   color: gray;
   text-decoration: none;
@@ -17,34 +26,59 @@ a.addColButton:hover {
 }
 
 table.collections {
-  border-style: solid;
-  border-color: gray;
-  width: 100%;
+  margin-top: 10px;
+  width: 80%;
+  margin-left: 5%;
 }
 
 th {
-  font-size: 30px;
+  font-size: 35px;
   padding-left: 15px;
   padding-right: 15px;
   color: white;
-  background: gray;
-  border-style: solid;
-  border-color: white;
+  border-bottom: solid;
   border-width: 1px;
+  border-bottom-color: gray;
 }
 
 td {
   color: gray;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   padding-left: 15px;
   border-bottom: solid;
-  border-right: solid;
   border-color: gray;
+  border-width: 1px;
 }
 
-td.colClick:hover {
-    background: lightgray;
+td:hover {
+    background: gray;
     color: white;
     cursor: pointer;
+}
+
+table.overview {
+  margin-top: 10px;
+  width: 80%;
+  margin-left: 5%;
+}
+
+
+table.boxView {
+  width: 100%;  
+}
+
+th.boxViewHead {
+  background: gray;
+  font-size: 24px;
+}
+
+a.fa-plus-square {
+  padding-left: 15px;
+  font-size: 24px;
+  color: gray;
+}
+
+a.fa-plus-square:hover {
+  cursor: pointer;
 }

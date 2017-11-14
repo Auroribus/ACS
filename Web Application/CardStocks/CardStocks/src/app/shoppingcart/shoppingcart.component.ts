@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-shoppingcart',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingcartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataservice: DataService) { }
+
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
+  }
 
   ngOnInit() {
   }

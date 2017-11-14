@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-add-listing',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddListingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+  }
+
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
   }
 
 }

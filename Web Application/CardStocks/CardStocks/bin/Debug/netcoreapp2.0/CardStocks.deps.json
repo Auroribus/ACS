@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "cd945696cff90a9745d51031f9ca805e22e8725c"
+    "signature": "478e21722ee227a979f727dd49ac5777a1023d34"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "CardStocks/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNet.Identity.EntityFramework": "2.2.1",
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.AspNetCore.Mvc": "2.0.0",
           "Microsoft.AspNetCore.StaticFiles": "2.0.0",
@@ -36,6 +37,16 @@
         },
         "compile": {
           "CardStocks.dll": {}
+        }
+      },
+      "EntityFramework/6.1.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -123,6 +134,26 @@
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Identity.Core/2.2.1": {
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Identity.EntityFramework/2.2.1": {
+        "dependencies": {
+          "EntityFramework": "6.1.0",
+          "Microsoft.AspNet.Identity.Core": "2.2.1"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.0.0": {
@@ -4242,6 +4273,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "EntityFramework/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u/M0OEfqxTUsL5BwzD66eBGm278/ozqdLK3JvMO6QwUxxc+z7ZUkTYm4suDhWRqzkc6mOhvXDQY5dZUwbldxyQ==",
+      "path": "entityframework/6.1.0",
+      "hashPath": "entityframework.6.1.0.nupkg.sha512"
+    },
     "Libuv/1.10.0": {
       "type": "package",
       "serviceable": true,
@@ -4269,6 +4307,20 @@
       "sha512": "sha512-RWxdX90MY6tNF8S5lwRvJcHiBMIWwVLCxd4TGIEl3X0yAKaolY2vs4zTCvyCIVkEAMs1aInTgWkYwOjzYvAHWw==",
       "path": "microsoft.applicationinsights.dependencycollector/2.4.1",
       "hashPath": "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Identity.Core/2.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jjurNglpmcv0SLBd4Fmar8ZoJ2yqfTf6iuP3p8wVH7Nvanfo8l3qTBzq3qRQz2BQlb6iXJiDWPjcnIImVz512g==",
+      "path": "microsoft.aspnet.identity.core/2.2.1",
+      "hashPath": "microsoft.aspnet.identity.core.2.2.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Identity.EntityFramework/2.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g3tCS3vZ+hPjqrGrkq2hpl2Wc5Ltaj+kInZM80uENHldTHmrvCpVXvTXcvTt7HU3vupjmYFfNWVFRWCypNZgug==",
+      "path": "microsoft.aspnet.identity.entityframework/2.2.1",
+      "hashPath": "microsoft.aspnet.identity.entityframework.2.2.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.0.0": {
       "type": "package",

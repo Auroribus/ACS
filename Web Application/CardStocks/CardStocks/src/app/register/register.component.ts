@@ -4,6 +4,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5/dist/md5';
+import { DataService } from '../data.service';
 
 let body;
 
@@ -23,9 +24,14 @@ export class RegisterComponent implements OnInit {
   userFound: boolean;
   emailFound: boolean;
 
-  constructor(private router: Router, private http: Http) { }
+  constructor(private router: Router, private http: Http, private dataservice: DataService) { }
 
   ngOnInit() {
+  }
+
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
   }
 
   SendRegister() {
@@ -36,10 +42,6 @@ export class RegisterComponent implements OnInit {
     else if (this.email == null || this.email == "")
     {
       console.log("email field empty");
-    }
-    else if (!this.email.includes("@"))
-    {
-      console.log("invalid email");
     }
     else if (this.password == null || this.password == "")
     {
@@ -55,15 +57,25 @@ export class RegisterComponent implements OnInit {
     }
     else
     {
-      this.http.get('/api/User')
-        .map(res => res.json())
-        .subscribe(data => {
-          this.CheckUser(data);
-        });
-
-      
-      
-      
+      if (this.dataservice.ValidataPassword(this.password))
+      {
+        if (this.dataservice.ValidateEmail(this.email))
+        {
+          this.http.get('/api/User')
+            .map(res => res.json())
+            .subscribe(data => {
+              this.CheckUser(data);
+            });
+        }
+        else {
+          console.log("wrong email input");
+        }
+        
+      }
+      else
+      {
+        console.log("wrong password input");
+      }
     }
   
   }
@@ -98,13 +110,11 @@ export class RegisterComponent implements OnInit {
       password: this.passHashed
     }
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('api/User', body, { headers: headers })
-      .map((response) => response.json())
-      .subscribe(data => {
-        console.log(data);
-      });
+    this.dataservice.PostLocalApi('User', body).subscribe(data => {
+      console.log(data.username);
+      this.dataservice.activeUser = this.username;
+      this.router.navigate(["dashboard"]);
+    });
   }
 
   GoToLogin() {

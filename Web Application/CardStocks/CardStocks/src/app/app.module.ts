@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { AddListingComponent } from './add-listing/add-listing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
+import { AddCardComponent } from './add-card/add-card.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -57,9 +59,11 @@ const appRoutes: Routes = [
         UploadPageComponent,
         ListingsComponent,
         AddListingComponent,
-        DashboardComponent
+        DashboardComponent,
+        AddCardComponent
     ],
     imports: [
+        NgbModule.forRoot(),
         BrowserModule,
         FormsModule,
         HttpModule,

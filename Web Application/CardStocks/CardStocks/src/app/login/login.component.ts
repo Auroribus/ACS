@@ -20,6 +20,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private dataservice: DataService, private router: Router, private http: Http) { }
 
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
+  }
+
   ngOnInit() {
   }
 
@@ -46,11 +51,9 @@ export class LoginComponent implements OnInit {
 
       this.dataservice.slideInOutUpDown = "out";
 
-      this.http.get('/api/User')
-        .map(res => res.json())
-        .subscribe(data => {          
-          this.CheckUser(data);
-        });
+      this.dataservice.GetLocalApi('User').subscribe(data => {
+        this.CheckUser(data);
+      });
     }
   }
 

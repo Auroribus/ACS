@@ -14,7 +14,12 @@ export class DashboardComponent implements OnInit {
 
   username: string;
 
-  constructor(private dataservice: DataService, private router : Router) { }
+  constructor(private dataservice: DataService, private router: Router) { }
+
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
+  }
 
   ngOnInit() {
     this.username = this.dataservice.activeUser;

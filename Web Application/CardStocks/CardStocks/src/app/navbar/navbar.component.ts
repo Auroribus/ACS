@@ -5,6 +5,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Router } from '@angular/router';
 import { ActivatedRoute, RoutesRecognized } from '@angular/router';
 import { DataService } from '../data.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
@@ -56,6 +57,11 @@ export class NavbarComponent implements OnInit {
 
   menuState: string = this.dataservice.slideInOutLeftRight;
   loginState: string = this.dataservice.slideInOutUpDown;
+
+  closeMenu() {
+    this.dataservice.slideInOutLeftRight = "out";
+    this.dataservice.slideInOutUpDown = "out";
+  }
 
   toggleMenu() {
     // 1-line if statement that toggles the value:

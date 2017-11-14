@@ -1,18 +1,45 @@
-<div class="box">
-  <input type="text" placeholder="collection name"  [(ngModel)]="collectionName"/>
-  <a class="fa fa-plus-square addColButton" (click)="addCollection()">&nbsp;Add Collection</a>
-  <table class="collections">
-    <thead>
-      <tr>
-        <th>Collection</th>
-        <th>Number</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let items of collections">
-        <td>{{items.collectionName}}</td>
-        <td>{{items.collectionNumber}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<body (click)="closeMenu()">
+  <div class="sideBox">
+    <table class="overview">
+      <thead>
+        <tr>
+          <th>Overview</th>
+        </tr>
+      </thead>
+    </table>
+
+    <table class="collections">
+      <thead>
+        <tr>
+          <th>Collections</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of collections">
+          <td class="colClick" (click)="sendItem(items.collectionName)">{{items.collectionName}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="text" placeholder="collection name" [(ngModel)]="collectionName" />
+    <a class="fa fa-plus-square" (click)="addCollection()">&nbsp;&nbsp;Add Collection</a>
+  </div>
+
+  <div class="mainBox">
+    <input type="text" placeholder="Card Name" [(ngModel)]="cName" />
+    <input type="text" placeholder="Card Set" [(ngModel)]="cSet" />
+    <a class="fa fa-plus-square" (click)="addCard()">&nbsp;&nbsp;Add Card</a>
+    <hr />
+    <table class="boxView">
+      <thead>
+        <tr>
+          <th class="boxViewHead">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of cards">
+          <td class="boxViewItem">{{items.cardName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
