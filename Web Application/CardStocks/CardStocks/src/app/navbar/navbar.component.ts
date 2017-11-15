@@ -56,9 +56,6 @@ export class NavbarComponent implements OnInit {
     */
   }
 
-  menuState: string = this.dataservice.slideInOutLeftRight;
-  loginState: string = this.dataservice.slideInOutUpDown;
-
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";

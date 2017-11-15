@@ -1,4 +1,7 @@
 <body (click)="closeMenu()">
+
+  <app-show-image [@showImage]="dataservice.showImage"></app-show-image>
+
   <div class="sideBox">
     <table class="overview">
       <thead>
@@ -32,11 +35,17 @@
     <table class="boxView">
       <thead>
         <tr>
+          <th class=" boxViewHead"></th>
           <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Expansion</th>
+          <th class="boxViewHead">Condition</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let items of cards">
+        <tr *ngFor="let items of cards" class="rowCards" >
+          <td><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardName)" (mouseleave)="mouseHoverExit()"></p></td>
+          <td (click)="sendCardItem(items.cardID)" class="boxViewItem">{{items.cardName}}</td>
+          <td (click)="sendCardItem(items.cardID)" class="boxViewItem">{{items.cardName}}</td>
           <td (click)="sendCardItem(items.cardID)" class="boxViewItem">{{items.cardName}}</td>
         </tr>
       </tbody>

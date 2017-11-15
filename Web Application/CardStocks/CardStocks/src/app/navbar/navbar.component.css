@@ -6,7 +6,7 @@ div.header {
 }
 
 div.searchBox {
-  background: lightgray;
+  background: darkgray;
   height: 50px;
   padding: 10px;
   text-align: center;
@@ -40,6 +40,7 @@ a.login {
   height: 30px;
   width: 30%;
   border-radius: 5px;
+  padding-left: 10px;
 }
 
 a.searchButton {

@@ -57,10 +57,29 @@ td {
   border-width: 1px;
 }
 
-td:hover {
+p.boxViewImg {
+  
+}
+
+p.boxViewImg:hover {
+  cursor: pointer;
+  color: black;
+}
+
+td.colClick:hover {
     background: gray;
     color: white;
     cursor: pointer;
+}
+
+td.boxViewItem {
+  color: inherit;
+}
+
+tr.rowCards:hover {
+  cursor: pointer;
+  color: white;
+  background: lightgray;
 }
 
 table.overview {

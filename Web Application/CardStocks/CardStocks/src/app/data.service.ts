@@ -17,6 +17,7 @@ export class DataService {
 
   slideInOutLeftRight = "out";
   slideInOutUpDown = "out";
+  showImage = "out";
 
   ValidataPassword(inputtxt) {
 

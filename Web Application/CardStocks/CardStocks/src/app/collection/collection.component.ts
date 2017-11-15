@@ -3,13 +3,26 @@ import { ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 let body;
 
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
-  styleUrls: ['./collection.component.css']
+  styleUrls: ['./collection.component.css'],
+  animations: [
+    trigger('showImage', [
+      state('in', style({
+        transform: 'translate3d(0, 100px, 0)'
+      })),
+      state('out', style({
+        transform: 'translate3d(0, -100%, 0)'
+      })),
+      transition('in => out', animate('0ms ease-in-out')),
+      transition('out => in', animate('0ms ease-in-out'))
+    ]),
+  ],
 })
 export class CollectionComponent implements OnInit {
 
@@ -21,12 +34,26 @@ export class CollectionComponent implements OnInit {
   cName: string;
   cSet: string;
   cRarity: string;
+
+  toggleImageState() {
+    // 1-line if statement that toggles the value:
+    this.dataservice.showImage = this.dataservice.showImage === 'out' ? 'in' : 'out';
+  }
   
   collections: string[] = [];
 
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";
+  }
+
+  mouseHoverEnter(name) {
+    console.log("Enter: " + name);
+    this.toggleImageState();
+  }
+
+  mouseHoverExit() {
+    this.toggleImageState();
   }
 
   ngOnInit() {
@@ -101,11 +128,11 @@ export class CollectionComponent implements OnInit {
   }
 
   sendCardItem(id) {
-    console.log(id);
+    //console.log(id);
 
     this.dataservice.GetLocalApi("Cards/" + id)
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
       });
   }
 

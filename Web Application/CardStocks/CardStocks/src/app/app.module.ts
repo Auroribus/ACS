@@ -26,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { AddCardComponent } from './add-card/add-card.component';
+import { ShowImageComponent } from './show-image/show-image.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
         ListingsComponent,
         AddListingComponent,
         DashboardComponent,
-        AddCardComponent
+        AddCardComponent,
+        ShowImageComponent
     ],
     imports: [
         NgbModule.forRoot(),
