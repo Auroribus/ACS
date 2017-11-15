@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 //let url = "https://www.picclickimg.com/d/l400/pict/152663272756_/Magic-the-gathering-Lotus-Petal-Tempest.jpg";
 //let url = "https://vignette.wikia.nocookie.net/mtg/images/7/7a/Scoria_Elemental.jpg/revision/latest?cb=20110511020909";
@@ -27,10 +28,9 @@ export class UploadPageComponent implements OnInit {
   file: string = "";
   cardName: string = "card name";
   cardSet: string = "card set";
-  cardRarity: string = "card rarity";
   imageSrc: string;
   
-  constructor(private http: Http, private dataservice: DataService) {
+  constructor(private http: Http, private dataservice: DataService, private router: Router) {
     
   }
 
@@ -119,9 +119,10 @@ export class UploadPageComponent implements OnInit {
       }
 
       console.log(nameCard);
+      
+      this.cardName = nameCard;
 
-      var sendName = nameCard;
-      this.cardName = sendName;
+      this.router.navigate(["details"], { queryParams: { name: this.cardName, set: this.cardSet } });
     });
 
   }
@@ -169,7 +170,6 @@ export class UploadPageComponent implements OnInit {
             console.log(data.cards[0]);
             this.cardName = data.cards[0].name;
             this.cardSet = data.cards[0].set;
-            this.cardRarity = data.cards[0].rarity;
           });
         }
         );
@@ -226,9 +226,6 @@ export class UploadPageComponent implements OnInit {
             console.log(data.cards[0]);
               this.cardName = data.cards[0].name;
               this.cardSet = data.cards[0].set;
-              this.cardRarity = data.cards[0].rarity;
-            
-            
             });
       }
 

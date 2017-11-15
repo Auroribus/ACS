@@ -3,6 +3,10 @@
   clear: both;
 }
 
+.rulingsHead {
+  font-size: 25px;
+}
+
 .box {
   padding-top: 50px;
   padding-left: 10%;

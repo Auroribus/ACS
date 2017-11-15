@@ -5,6 +5,13 @@ div.header {
   
 }
 
+div.searchBox {
+  background: lightgray;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+}
+
 a.logo {
   font-size: 50px;
   float: left;
@@ -30,20 +37,16 @@ a.login {
     }
 
 .searchBar {
-  margin-top: 30px;
-  margin-left: 20px;
-  width: 50%;
-  float: left;
-  padding-left: 10px;
   height: 30px;
+  width: 30%;
   border-radius: 5px;
 }
 
-.searchButton {
+a.searchButton {
+  color: gray;
+  padding: 2px;
+  margin-left: -35px;
   font-size: 20px;
-  float: left;
-  margin-top: 35px;
-  margin-left: -25px;
   width: 32px;
   height: 25px;
 }

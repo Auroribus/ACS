@@ -1,14 +1,19 @@
 <body>
-<div class="header">
-  <a class="logo" (click)="GoToHome()">CardStocks</a>
+  <div class="header">
+    <a class="logo" (click)="GoToHome()">CardStocks</a>
 
- <button (click)="toggleMenu()" class="hamburger"><span>toggle menu</span></button>
-  <a (click)="toggleLogin()" class="login">{{dataservice.activeUser}}</a>
+    <button (click)="toggleMenu()" class="hamburger"><span>toggle menu</span></button>
+    <a (click)="toggleLogin()" class="login">{{dataservice.activeUser}}</a>
   
-  <input class="searchBar" [(ngModel)]="searchCardName" (ngModelChange)="searchChange(searchCardName)" (keyup.enter)="search()" type="text" placeholder="Search for Card" />
-  <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
+  
+    <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
+    <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
+  </div>
+  <div class="searchBox">
+    <input class="searchBar" [(ngModel)]="searchCardName" (keyup.enter)="search()" type="text" placeholder="Card Name, eg. Lotus Petal" />
+    <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
 
-  <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
-  <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
-</div>
-  </body>
+    <input class="searchBar" [(ngModel)]="searchSetName" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. Magic 2015" />
+    <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
+  </div>
+</body>

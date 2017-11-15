@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 
+let url;
+
 @Component({
   selector: 'app-detailspage',
   templateUrl: './detailspage.component.html',
@@ -33,10 +35,12 @@ export class DetailspageComponent implements OnInit {
   ngOnInit() {
     this.cardPrice = 1.03;
 
-    this.route.fragment.subscribe((fragment: string) => {
-      console.log(fragment);
-
-      this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=' + fragment)
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params);
+       
+        
+      this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=' + params.name + '&setName=' + params.set)
       .subscribe((data) => {
           console.log(data.cards[0]);
           this.cardName = data.cards[0].name;
@@ -47,15 +51,14 @@ export class DetailspageComponent implements OnInit {
 
           if (data.cards[0].rulings == null)
           {
-            console.log("no found");
+            console.log("no rulings found");
+            this.rulings = null;
           }
           else
           {
             this.rulings = data.cards[0].rulings;
           }
           
-
-          console.log(this.rulings);
           if (data.cards[0].imageUrl != null)
           {
             this.cardImage = data.cards[0].imageUrl;
@@ -66,6 +69,7 @@ export class DetailspageComponent implements OnInit {
           }          
         });
     });
+       
   }
 
 }

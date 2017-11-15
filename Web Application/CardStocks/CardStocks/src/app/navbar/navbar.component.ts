@@ -37,13 +37,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NavbarComponent implements OnInit {
 
-  searchCardName: string;
+  searchCardName: string = "";
+  searchSetName: string = "";
   activeRoute: string;
   login: string;
-  loggedIn: boolean;
+  loggedIn: boolean;  
 
   constructor(private dataservice: DataService, private http: Http, private router: Router, private route: ActivatedRoute)
   {
+    /*get active route
     this.router.events.subscribe(event => {
       if (event instanceof RoutesRecognized)
       {        
@@ -51,6 +53,7 @@ export class NavbarComponent implements OnInit {
         console.log(this.activeRoute);
       }
     });
+    */
   }
 
   menuState: string = this.dataservice.slideInOutLeftRight;
@@ -105,7 +108,7 @@ export class NavbarComponent implements OnInit {
         
       }*/
 
-      this.router.navigate(["details"], { fragment: this.searchCardName });
+      this.router.navigate(["details"], { queryParams: { name: this.searchCardName, set: this.searchSetName } });
     }
     else {
       console.log("input field is empty");
