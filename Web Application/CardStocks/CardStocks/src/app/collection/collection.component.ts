@@ -38,7 +38,6 @@ export class CollectionComponent implements OnInit {
     this.dataservice.GetLocalApi("Cards")
       .subscribe(data => {
         this.cards = data;
-        console.log(data);
       });
   }
 
@@ -63,6 +62,7 @@ export class CollectionComponent implements OnInit {
 
     this.dataservice.PostLocalApi('Cards', body).subscribe(data => {
       console.log(data);
+      location.reload();
     });
   }
 
@@ -87,11 +87,26 @@ export class CollectionComponent implements OnInit {
     
     this.dataservice.PostLocalApi('Collections', body).subscribe(data => {
       console.log(data);
+      location.reload();
     });
   }
 
-  sendItem(name) {
-    console.log(name);
+  sendColItem(id) {
+    console.log(id);
+
+    this.dataservice.GetLocalApi("Collections/" + id)
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
+
+  sendCardItem(id) {
+    console.log(id);
+
+    this.dataservice.GetLocalApi("Cards/" + id)
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
 }

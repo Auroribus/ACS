@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,9 +45,10 @@ namespace CardStocks.Controllers
 
             return Ok(card);
         }
+    
 
-        // PUT: api/Cards/5
-        [HttpPut("{id}")]
+    // PUT: api/Cards/5
+    [HttpPut("{id}")]
         public async Task<IActionResult> PutCard([FromRoute] int id, [FromBody] Card card)
         {
             if (!ModelState.IsValid)

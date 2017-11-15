@@ -16,11 +16,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let items of collections">
-          <td class="colClick" (click)="sendItem(items.collectionName)">{{items.collectionName}}</td>
+          <td class="colClick" (click)="sendColItem(items.collectionID)">{{items.collectionName}}</td>
         </tr>
       </tbody>
     </table>
-    <input type="text" placeholder="collection name" [(ngModel)]="collectionName" />
+    <input class="colField" type="text" placeholder="collection name" [(ngModel)]="collectionName" />
     <a class="fa fa-plus-square" (click)="addCollection()">&nbsp;&nbsp;Add Collection</a>
   </div>
 
@@ -37,7 +37,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let items of cards">
-          <td class="boxViewItem">{{items.cardName}}</td>
+          <td (click)="sendCardItem(items.cardID)" class="boxViewItem">{{items.cardName}}</td>
         </tr>
       </tbody>
     </table>
