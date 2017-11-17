@@ -36,7 +36,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var collection = await _context.Collections.SingleOrDefaultAsync(m => m.CollectionID == id);
+            var collection = await _context.Collections.SingleOrDefaultAsync(m => m.CollectionId == id);
 
             if (collection == null)
             {
@@ -55,7 +55,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != collection.CollectionID)
+            if (id != collection.CollectionId)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace CardStocks.Controllers
             _context.Collections.Add(collection);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCollection", new { id = collection.CollectionID }, collection);
+            return CreatedAtAction("GetCollection", new { id = collection.CollectionId }, collection);
         }
 
         // DELETE: api/Collections/5
@@ -105,7 +105,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var collection = await _context.Collections.SingleOrDefaultAsync(m => m.CollectionID == id);
+            var collection = await _context.Collections.SingleOrDefaultAsync(m => m.CollectionId == id);
             if (collection == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace CardStocks.Controllers
 
         private bool CollectionExists(int id)
         {
-            return _context.Collections.Any(e => e.CollectionID == id);
+            return _context.Collections.Any(e => e.CollectionId == id);
         }
     }
 }

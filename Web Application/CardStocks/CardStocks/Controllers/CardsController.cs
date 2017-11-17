@@ -26,9 +26,9 @@ namespace CardStocks.Controllers
         {
             return _context.Cards;
         }
-
-        // GET: api/Cards/5
-        [HttpGet("{id}")]
+    
+    // GET: api/Cards/5
+    [HttpGet("{id}")]
         public async Task<IActionResult> GetCard([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -36,7 +36,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var card = await _context.Cards.SingleOrDefaultAsync(m => m.CardID == id);
+            var card = await _context.Cards.SingleOrDefaultAsync(m => m.CardId == id);
 
             if (card == null)
             {
@@ -56,7 +56,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != card.CardID)
+            if (id != card.CardId)
             {
                 return BadRequest();
             }
@@ -94,7 +94,7 @@ namespace CardStocks.Controllers
             _context.Cards.Add(card);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCard", new { id = card.CardID }, card);
+            return CreatedAtAction("GetCard", new { id = card.CardId }, card);
         }
 
         // DELETE: api/Cards/5
@@ -106,7 +106,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var card = await _context.Cards.SingleOrDefaultAsync(m => m.CardID == id);
+            var card = await _context.Cards.SingleOrDefaultAsync(m => m.CardId == id);
             if (card == null)
             {
                 return NotFound();
@@ -120,7 +120,7 @@ namespace CardStocks.Controllers
 
         private bool CardExists(int id)
         {
-            return _context.Cards.Any(e => e.CardID == id);
+            return _context.Cards.Any(e => e.CardId == id);
         }
     }
 }

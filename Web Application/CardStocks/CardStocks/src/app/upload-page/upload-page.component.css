@@ -3,3 +3,22 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
+
+img {
+  margin-top: 50px;
+
+}
+
+@media screen and (max-width: 800px)
+{
+  img {
+    width: 300px;
+    height: 200px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+}
+

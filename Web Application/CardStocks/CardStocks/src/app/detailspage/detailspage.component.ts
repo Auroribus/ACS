@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 
+
 let url;
 
 @Component({
@@ -18,6 +19,7 @@ export class DetailspageComponent implements OnInit {
 
   cardName: string = "card name";
   cardSet: string = "card set";
+  cardSets: string[] = [];
   cardRarity: string = "card rarity";
   cardType: string = "card type";
   cardImage: string = "assets/NoImageFound.png";
@@ -56,35 +58,49 @@ export class DetailspageComponent implements OnInit {
         }
        
         if (url != null || url != "") {
-          this.dataservice.GetExternalApi(url)
-            .subscribe((data) => {
-              //console.log(data.cards[0]);
-              this.cardName = data.cards[0].name;
-              this.cardSet = data.cards[0].setName;
-              this.cardRarity = data.cards[0].rarity;
-              this.cardType = data.cards[0].types[0];
-              this.cardText = data.cards[0].text;
-
-              if (data.cards[0].rulings == null) {
-                //console.log("no rulings found");
-                this.rulings = null;
-              }
-              else {
-                this.rulings = data.cards[0].rulings;
-              }
-
-              if (data.cards[0].imageUrl != null) {
-                this.cardImage = data.cards[0].imageUrl;
-              }
-              else {
-                this.cardImage = "assets/NoImageFound.png";
-              }
-            });
+          this.GetMTGioAPI();
         }
         else
         {
           console.log("url empty");
         }
     });       
+  }
+
+  GetMTGioAPI() {
+    this.dataservice.GetExternalApi(url)
+      .subscribe((data) => {
+        console.log(data.cards[0]);
+        this.cardName = data.cards[0].name;
+        this.cardSet = data.cards[0].setName;
+        this.cardRarity = data.cards[0].rarity;
+        this.cardType = data.cards[0].types[0];
+        this.cardText = data.cards[0].text;
+        this.cardSets = data.cards[0].printings;
+
+        if (data.cards[0].rulings == null) {
+          //console.log("no rulings found");
+          this.rulings = null;
+        }
+        else {
+          this.rulings = data.cards[0].rulings;
+        }
+
+        if (data.cards[0].imageUrl != null) {
+          this.cardImage = data.cards[0].imageUrl;
+        }
+        else {
+          this.cardImage = "assets/NoImageFound.png";
+        }
+      });
+  }
+
+  GoToOtherSet(itemName) {
+    console.log(itemName);
+
+    url = 'https://api.magicthegathering.io/v1/cards?name=' + this.cardName + '&set=' + itemName;
+
+
+    this.GetMTGioAPI();
   }
 }

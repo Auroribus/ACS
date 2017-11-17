@@ -27,7 +27,7 @@ export class UploadPageComponent implements OnInit {
 
   file: string = "";
   cardName: string = "card name";
-  cardSet: string = "card set";
+  cardSet: string = "";
   imageSrc: string;
   
   constructor(private http: Http, private dataservice: DataService, private router: Router) {
@@ -121,7 +121,7 @@ export class UploadPageComponent implements OnInit {
       console.log(nameCard);
       
       this.cardName = nameCard;
-
+      
       this.router.navigate(["details"], { queryParams: { name: this.cardName, set: this.cardSet } });
     });
 

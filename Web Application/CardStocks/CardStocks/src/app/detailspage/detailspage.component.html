@@ -49,10 +49,19 @@
         <th class="tableHead">Text</th>
         <td class="tableText">{{cardText}}</td>
       </tr>
+      
+    </table>
+      
+    <hr />
+    <table class="setsTable">
+      <tr class="tableRow">
+        <th class="tableHead">All Sets</th>
+        <td *ngFor="let items of cardSets" (click)="GoToOtherSet(items)" class="setsText">{{items}}</td>
+      </tr>
     </table>
 
     <div class="clear"></div>
-
+    <hr />
     <h2 class="tableHeader">Rulings</h2>
     <table class="rulingsTable">
         <tr>

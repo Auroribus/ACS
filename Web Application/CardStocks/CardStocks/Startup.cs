@@ -10,6 +10,7 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using CardStocks.Models;
+using Microsoft.AspNetCore.Session;
 
 
 
@@ -28,15 +29,24 @@ namespace CardStocks
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+      services.AddMvc();//.AddSessionStateTempDataProvider();
+
+          //  services.AddDistributedMemoryCache();
+          //  services.AddSession(options =>
+          //  {
+          //    options.Cookie.Name = ".CardStocks.Session";
+          //    options.IdleTimeout = TimeSpan.FromSeconds(10);              
+          //  });
      
             services.AddDbContext<CSContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CardStocksContext")));
-    }
+        }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, CSContext CScontext)
         {
+            //app.UseSession();
+
             app.Use(async (context, next) => {
                 await next();
                 if (context.Response.StatusCode == 404 &&

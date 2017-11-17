@@ -34,6 +34,30 @@ export class CollectionComponent implements OnInit {
   cName: string;
   cSet: string;
   cRarity: string;
+  cNameSearch: string;
+
+  searchCard() {
+    console.log(this.cNameSearch);
+
+    if (this.cNameSearch == null || this.cNameSearch == "")
+    {
+
+    }
+    else if (this.cNameSearch.trim().length > 0)
+    {
+      this.dataservice.GetLocalApi("CardNames/" + this.cNameSearch)
+        .subscribe(data => {
+
+          if (data instanceof Array) {
+            console.log("array");
+            this.cards = data;
+          }
+          else {
+
+          }
+        });
+    }
+  }
 
   toggleImageState() {
     // 1-line if statement that toggles the value:
@@ -64,7 +88,9 @@ export class CollectionComponent implements OnInit {
 
     this.dataservice.GetLocalApi("Cards")
       .subscribe(data => {
-        this.cards = data;
+        if (data instanceof Array) {
+          this.cards = data;
+        }        
       });
   }
 
@@ -127,12 +153,12 @@ export class CollectionComponent implements OnInit {
       });
   }
 
-  sendCardItem(id) {
-    //console.log(id);
+  sendCardItem(cardId) {
+    console.log(cardId);
 
-    this.dataservice.GetLocalApi("Cards/" + id)
+    this.dataservice.GetLocalApi("CardNames/" + cardId)
       .subscribe(data => {
-        //console.log(data);
+        console.log(data);
       });
   }
 

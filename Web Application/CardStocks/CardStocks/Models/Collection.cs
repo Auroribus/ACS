@@ -10,18 +10,15 @@ namespace CardStocks.Models
     public class Collection
     {
         [Key]
-        public int CollectionID { get; set; }
-
-        [Required]
-        public double CollectionNumber { get; set; }
-
-        [Required]
-        public string CollectionName { get; set; }
-            
-        [Required]
-        public int UserID { get; set; }
+        public int CollectionId { get; set; }
     
-        public Card CardsInCollection { get; set; }
+        public double CollectionSortingNumber { get; set; }
+    
+        public string CollectionName { get; set; }
+    
+        public UserModel User { get; set; }
+    
+        public List<Card> CardsInCollection { get; set; }
 
   }
 }

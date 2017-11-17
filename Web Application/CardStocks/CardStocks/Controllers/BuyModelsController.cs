@@ -36,7 +36,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var buyModel = await _context.BuyListings.SingleOrDefaultAsync(m => m.BuyID == id);
+            var buyModel = await _context.BuyListings.SingleOrDefaultAsync(m => m.BuyId == id);
 
             if (buyModel == null)
             {
@@ -55,7 +55,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != buyModel.BuyID)
+            if (id != buyModel.BuyId)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace CardStocks.Controllers
             _context.BuyListings.Add(buyModel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBuyModel", new { id = buyModel.BuyID }, buyModel);
+            return CreatedAtAction("GetBuyModel", new { id = buyModel.BuyId }, buyModel);
         }
 
         // DELETE: api/BuyModels/5
@@ -105,7 +105,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var buyModel = await _context.BuyListings.SingleOrDefaultAsync(m => m.BuyID == id);
+            var buyModel = await _context.BuyListings.SingleOrDefaultAsync(m => m.BuyId == id);
             if (buyModel == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace CardStocks.Controllers
 
         private bool BuyModelExists(int id)
         {
-            return _context.BuyListings.Any(e => e.BuyID == id);
+            return _context.BuyListings.Any(e => e.BuyId == id);
         }
     }
 }

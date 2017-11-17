@@ -15,13 +15,13 @@ export class ShowImageComponent implements OnInit {
   imgSrc: string = "assets/NoImageFound.png";
 
   ngOnInit() {
-    
+    /*
     this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=Lotus Petal')
       .subscribe(data => {
         console.log(data.cards[0]);
         this.imgSrc = data.cards[0].imageUrl;
       });
-    
+    */
   }
 
 }

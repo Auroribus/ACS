@@ -88,10 +88,15 @@ table.rulingsTable {
   width: 100%;
 }
 
+table.setsTable {
+  border-style: solid;
+  border-color: gray;
+  width: 100%;
+}
+
 th {
   font-size: 30px;
-  padding-left: 15px;
-  padding-right:15px;
+  padding-left: 5px;
   color: white;
   background: gray;
   border-style:solid;
@@ -109,14 +114,18 @@ td {
   border-color: gray;
 }
 
+td.setsText {
+  color: lightblue;
+}
+
+td.setsText:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px)
 {
-  .cardImg{
-  }
-
-  table.cardTable{
-
-  }
 
   th {
     font-size: 18px;

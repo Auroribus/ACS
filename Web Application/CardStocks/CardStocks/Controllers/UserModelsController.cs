@@ -36,7 +36,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userModel = await _context.UserList.SingleOrDefaultAsync(m => m.UserID == id);
+            var userModel = await _context.UserList.SingleOrDefaultAsync(m => m.UserId == id);
 
             if (userModel == null)
             {
@@ -55,7 +55,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != userModel.UserID)
+            if (id != userModel.UserId)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace CardStocks.Controllers
             _context.UserList.Add(userModel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUserModel", new { id = userModel.UserID }, userModel);
+            return CreatedAtAction("GetUserModel", new { id = userModel.UserId }, userModel);
         }
 
         // DELETE: api/UserModels/5
@@ -105,7 +105,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userModel = await _context.UserList.SingleOrDefaultAsync(m => m.UserID == id);
+            var userModel = await _context.UserList.SingleOrDefaultAsync(m => m.UserId == id);
             if (userModel == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace CardStocks.Controllers
 
         private bool UserModelExists(int id)
         {
-            return _context.UserList.Any(e => e.UserID == id);
+            return _context.UserList.Any(e => e.UserId == id);
         }
     }
 }

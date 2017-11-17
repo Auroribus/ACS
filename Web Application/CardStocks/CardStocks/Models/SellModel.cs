@@ -9,19 +9,13 @@ namespace CardStocks.Models
 {
     public class SellModel
     {
-        [Key]
-        public int SellID { get; set; }
+    [Key]
+    public int SellId { get; set; }
+    
+    public UserModel User { get; set; }
+    
+    public Card Card { get; set; }
 
-        [Required]
-        public int UserID { get; set; }
-
-        [Required]
-        public int CardID { get; set; }
-
-        [Required]
-        public string CardName { get; set; }
-  
-        [Required]
-        public double SellPrice { get; set; }
-    }
+    public double SellPrice { get; set; }
+  }
 }

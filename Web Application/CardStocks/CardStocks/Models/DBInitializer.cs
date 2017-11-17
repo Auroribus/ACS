@@ -17,18 +17,10 @@ namespace CardStocks.Models
       }
 
       context.Cards.AddRange(
-        new Card { CardName="CardTest", CardSet="1"},
-        new Card { CardName="CardNur2", CardSet="2"}
+        new Card { CardName="Lotus Petal", CardSet="Tempest", CardCondition="NM"},
+        new Card { CardName="Divination", CardSet="Magic 2015", CardCondition="NM"}
       );
-
-      context.UserList.Add(new UserModel { Username="Admin", Email="test@mail.com", Password="testPassword1"});
-
-      context.BuyListings.Add(new BuyModel { CardID=1, UserID=1, CardName="CardTest", BuyPrice=3.14});
-
-      context.SellListings.Add(new SellModel { CardID = 2, CardName="CardNur2", UserID = 1, SellPrice = 5.01 });
-
-      context.Collections.Add(new Collection { CollectionName="testCollection", CollectionNumber=1.001, UserID=1 });
-
+      
       context.SaveChanges();
         }
     }

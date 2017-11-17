@@ -10,18 +10,12 @@ namespace CardStocks.Models
     public class BuyModel
     {
         [Key]
-        public int BuyID { get; set; }
-
-        [Required]
-        public int UserID { get; set; }
-
-        [Required]
-        public int CardID { get; set; }
-
-        [Required]
-        public string CardName { get; set; }
-
-        [Required]
+        public int BuyId { get; set; }
+    
+        public UserModel User { get; set; }
+    
+        public Card Card { get; set; }
+    
         public double BuyPrice { get; set; }
     }
 }

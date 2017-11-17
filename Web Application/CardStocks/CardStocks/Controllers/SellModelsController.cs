@@ -36,7 +36,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var sellModel = await _context.SellListings.SingleOrDefaultAsync(m => m.SellID == id);
+            var sellModel = await _context.SellListings.SingleOrDefaultAsync(m => m.SellId == id);
 
             if (sellModel == null)
             {
@@ -55,7 +55,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != sellModel.SellID)
+            if (id != sellModel.SellId)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace CardStocks.Controllers
             _context.SellListings.Add(sellModel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSellModel", new { id = sellModel.SellID }, sellModel);
+            return CreatedAtAction("GetSellModel", new { id = sellModel.SellId }, sellModel);
         }
 
         // DELETE: api/SellModels/5
@@ -105,7 +105,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var sellModel = await _context.SellListings.SingleOrDefaultAsync(m => m.SellID == id);
+            var sellModel = await _context.SellListings.SingleOrDefaultAsync(m => m.SellId == id);
             if (sellModel == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace CardStocks.Controllers
 
         private bool SellModelExists(int id)
         {
-            return _context.SellListings.Any(e => e.SellID == id);
+            return _context.SellListings.Any(e => e.SellId == id);
         }
     }
 }

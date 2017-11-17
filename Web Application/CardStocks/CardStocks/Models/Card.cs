@@ -10,12 +10,14 @@ namespace CardStocks.Models
     public class Card
     {
         [Key]
-        public int CardID { get; set; }
-
-        [Required]
+        public int CardId { get; set; }
+    
         public string CardName { get; set; }
-
-        [Required]
+    
         public string CardSet { get; set; }
+
+        public string CardCondition { get; set; }
+    
+        public UserModel User { get; set; }
     }
 }
