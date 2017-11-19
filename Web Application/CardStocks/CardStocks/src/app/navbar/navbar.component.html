@@ -10,10 +10,10 @@
     <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
   </div>
   <div class="searchBox">
-    <input class="searchBar" [(ngModel)]="searchCardName" (keyup.enter)="search()" type="text" placeholder="Card Name, eg. Lotus Petal" />
+    <input class="searchBar" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Card Name, eg. Lotus Petal" />
     <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
 
-    <input class="searchBar" [(ngModel)]="searchSetName" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. Magic 2015" />
+    <input class="searchBar" [(ngModel)]="dataservice.searchCardSet" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. Magic 2015" />
     <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
   </div>
 </body>

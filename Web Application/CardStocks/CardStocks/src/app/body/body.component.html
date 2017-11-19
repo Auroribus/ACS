@@ -1,7 +1,20 @@
 <body>
   <div>
-    <p>
-      BODY
-    </p>
+    <table class="buyTable">
+      <thead>
+        <tr>
+          <th>Buying:</th>
+          <th>Price:</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemsBuy of BuyListing">
+          <td>{{itemsBuy.cardName}}</td>
+          <td>{{itemsBuy.buyPrice}}</td>
+          <td><a class="editClick">Edit</a> | <a class="removeClick">Remove</a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </body>

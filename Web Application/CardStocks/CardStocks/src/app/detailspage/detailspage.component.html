@@ -27,6 +27,15 @@
 
     <div class="clear"></div>
 
+    <table class="setsTable">
+      <tr class="tableRow">
+        <th class="tableSetsHead">All Sets</th>
+        <td *ngFor="let items of cardSets" (click)="GoToOtherSet(items)" class="setsText">{{items}}</td>
+      </tr>
+    </table>
+
+    <div class="clear"></div>
+
     <h2 class="tableHeader">Card Information</h2>
     <table class="cardTable">      
       <tr class="tableRow">
@@ -52,16 +61,8 @@
       
     </table>
       
-    <hr />
-    <table class="setsTable">
-      <tr class="tableRow">
-        <th class="tableHead">All Sets</th>
-        <td *ngFor="let items of cardSets" (click)="GoToOtherSet(items)" class="setsText">{{items}}</td>
-      </tr>
-    </table>
-
     <div class="clear"></div>
-    <hr />
+
     <h2 class="tableHeader">Rulings</h2>
     <table class="rulingsTable">
         <tr>

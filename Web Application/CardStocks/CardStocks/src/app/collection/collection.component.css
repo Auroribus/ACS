@@ -1,7 +1,34 @@
 .mainBox {
-  margin-left: 30%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 50px;
+}
+
+input.addCardItem {
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+button.addCardButton {
+  font-size: 20px;
+  margin-left: 20%;
+  display: block;
+  border-width: 5px;
+  border-radius: 10px;
+  background: white;
+  color: gray;
+  padding: 0px 5px 0px 5px;
+}
+
+button.addCardButton:hover {
+  color: white;
+  background: gray;
+  cursor: pointer;
 }
 
 .sideBox {
@@ -90,7 +117,8 @@ table.overview {
 
 
 table.boxView {
-  width: 100%;  
+  width: 100%;
+  margin-top: 20px;
 }
 
 th.boxViewHead {
@@ -99,6 +127,7 @@ th.boxViewHead {
 }
 
 a.fa-plus-square {
+  margin-top: 20px;
   padding-left: 15px;
   font-size: 24px;
   color: gray;
@@ -106,4 +135,90 @@ a.fa-plus-square {
 
 a.fa-plus-square:hover {
   cursor: pointer;
+  color: gray;
 }
+
+a.fa-th-large {
+  font-size: 40px;
+  float: right;
+  color: gray;
+}
+
+a.fa-th-large:hover {
+  cursor: pointer;
+}
+
+a.fa-list {
+  font-size: 40px;
+  float: right;
+  margin-left: 10px;
+  color: gray;
+}
+
+a.fa-list:hover {
+  cursor: pointer;
+}
+
+td.tileItem {
+  border: none;
+}
+
+img.tileImg {
+  height: 350px;
+  width: 250px;
+  padding: 1px;
+  -webkit-transition: all .1s ease; /* Safari and Chrome */
+  -moz-transition: all .1s ease; /* Firefox */
+  -o-transition: all .1s ease; /* Opera */
+  transition: all .1s ease;
+}
+
+  img.tileImg:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1); /* Safari and Chrome */
+    -moz-transform: scale(1.1); /* Firefox */
+    -ms-transform: scale(1.1); /* IE 9 */
+    -o-transform: scale(1.1); /* Opera */
+    transform: scale(1.1)
+  }
+
+
+  img.hoverImg {
+    display: none;
+  }
+
+  span:hover + img{
+    display: block;
+  }
+
+  a.boxClick {
+    color: black;
+  }
+  
+  a.boxClick:hover {
+    text-decoration: underline;
+    color: white;
+  }
+
+a.fa-plus-square:hover {
+  cursor: pointer;
+  color: black;
+}
+
+input.searchIn {
+  padding-left: 10px;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+  border-radius: 5px;  
+}
+
+div.addCardBox {
+  margin-top: 0;
+  background: lightgray;
+  padding-bottom: 10px;
+}
+
+
+
+

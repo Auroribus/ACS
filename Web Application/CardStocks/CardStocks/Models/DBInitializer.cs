@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CardStocks.Models
 {
@@ -20,7 +17,7 @@ namespace CardStocks.Models
         new Card { CardName="Lotus Petal", CardSet="Tempest", CardCondition="NM"},
         new Card { CardName="Divination", CardSet="Magic 2015", CardCondition="NM"}
       );
-      
+            
       context.SaveChanges();
         }
     }

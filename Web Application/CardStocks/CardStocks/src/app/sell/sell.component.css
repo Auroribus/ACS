@@ -1,0 +1,59 @@
+body {
+}
+
+h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+table.sellTable {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 20px;
+  border-style: solid;
+  border-color: gray;
+  float: left;
+  width: 60%;
+}
+
+a.addSellButton {
+  float: left;
+  font-size: 25px;
+  padding: 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+  a.addSellButton:hover {
+    cursor: pointer;
+  }
+
+th {
+  font-size: 30px;
+  padding-left: 15px;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+td {
+  color: gray;
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 15px;
+  border-bottom: solid;
+  border-right: solid;
+  border-color: gray;
+}
+
+@media screen and (max-width: 1200px) {
+  th {
+    font-size: 22px;
+  }
+
+  td {
+    font-size: 18px;
+  }
+}

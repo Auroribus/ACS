@@ -12,7 +12,7 @@ export class ShowImageComponent implements OnInit {
 
   constructor(private dataservice: DataService) { }
 
-  imgSrc: string = "assets/NoImageFound.png";
+  imgSrc: string = "assets/Loading.png";
 
   ngOnInit() {
     /*

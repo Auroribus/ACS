@@ -22,7 +22,7 @@ export class DetailspageComponent implements OnInit {
   cardSets: string[] = [];
   cardRarity: string = "card rarity";
   cardType: string = "card type";
-  cardImage: string = "assets/NoImageFound.png";
+  cardImage: string = "assets/Loading.png";
   cardText: string = "card text";
 
   cardPrice: number;
@@ -37,34 +37,52 @@ export class DetailspageComponent implements OnInit {
   ngOnInit() {
     this.cardPrice = 1.03;
 
-    this.route.queryParams
-      .subscribe(params => {
-        //console.log(params);
+    this.GetUrl();
+    
+    if (url != null && url != "") {
+      this.GetMTGioAPI();
+    }
+    else {
+      console.log("url empty");
+    }
+    
+  }
 
-        if ((params.name == null || params.name == "") && (params.set != null || params.set != ""))
-        {
-          //console.log("name empty, set not empty");
-          url = 'https://api.magicthegathering.io/v1/cards?setName=' + params.set;
-        }
-        else if ((params.name != null || params.name == "") && (params.set == null || params.set == ""))
-        {
-          //console.log("name not empty, set empty");
-          url = 'https://api.magicthegathering.io/v1/cards?name=' + params.name;
-        }
-        else if (params.name != null && params.name != "" && params.set != null && params.set != "")
-        {
-          //console.log("name not empty, set not empty");
-          url = 'https://api.magicthegathering.io/v1/cards?name=' + params.name + '&setName=' + params.set;
-        }
-       
-        if (url != null || url != "") {
-          this.GetMTGioAPI();
-        }
-        else
-        {
-          console.log("url empty");
-        }
-    });       
+
+  GetUrl() {
+    console.log(localStorage.getItem('searchName'));
+    console.log(localStorage.getItem('searchSet'));
+
+    var sName = localStorage.getItem('searchName');
+    var sSet = localStorage.getItem('searchSet');
+
+    if (sName != null && sName != "" && sSet != null && sSet != "")
+    {
+      //find by name and set
+      this.GetCardByNameAndSet();
+    }
+    else if (sName != null && sName != "")
+    {
+      //find by name
+      this.GetCardByName();
+    }
+    else if (sSet != null && sSet != "")
+    {
+      //find by set
+      console.log("find by set only");
+    }
+  }
+
+  GetCardByName() {
+    url = 'https://api.magicthegathering.io/v1/cards?name=' + localStorage.getItem('searchName');
+  }
+
+  GetCardsInSet() {
+    //url = 'https://api.magicthegathering.io/v1/cards?setName=' + this.dataservice.searchCardSet;
+  }
+
+  GetCardByNameAndSet() {
+    url = 'https://api.magicthegathering.io/v1/cards?name=' + localStorage.getItem('searchName') + '&setName=' + localStorage.getItem('searchSet');
   }
 
   GetMTGioAPI() {
@@ -104,3 +122,4 @@ export class DetailspageComponent implements OnInit {
     this.GetMTGioAPI();
   }
 }
+

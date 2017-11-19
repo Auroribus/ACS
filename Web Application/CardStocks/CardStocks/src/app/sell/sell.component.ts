@@ -12,12 +12,43 @@ import { DataService } from '../data.service';
 export class SellComponent implements OnInit {
 
 
-  constructor(private route: ActivatedRoute, private dataservice: DataService) { }
+  sellListings: string[];
+
+  addBuyListing: boolean = true;
+  cardPrice: number;
+  //select card then add price
+
+  constructor(private route: ActivatedRoute, private dataservice: DataService, private http: Http) { }
 
   ngOnInit() {
-    this.route.fragment.subscribe((fragment: string) => {
-      console.log(fragment);
+    this.dataservice.GetLocalApi('SellList').subscribe(data => {
+      //console.log(data);
+      this.sellListings = data;
     });
+    
+  }
+
+  addBuy() {
+    if (this.cardPrice == null || this.cardPrice == 0) {
+
+    }
+    else {
+      //Change user id when logg in sessions done
+      let body = {
+        UserId: 1,
+        CardId: 1,
+        sellPrice: this.cardPrice
+      };
+
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.http.post('/api/SellList', body, { headers: headers })
+        .map(response => response.json())
+        .subscribe(data => {
+          console.log(data);
+          location.reload();
+        });
+    }
   }
 
   closeMenu() {

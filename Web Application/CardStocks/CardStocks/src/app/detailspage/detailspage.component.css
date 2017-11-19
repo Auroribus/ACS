@@ -80,18 +80,22 @@ table.cardTable {
   border-style: solid;
   border-color: gray;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 table.rulingsTable {
   border-style: solid;
   border-color: gray;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 table.setsTable {
   border-style: solid;
   border-color: gray;
   width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 th {
@@ -103,6 +107,14 @@ th {
   border-color:white;
   border-width: 1px;
 
+}
+
+th.tableHead {
+  width: 175px;
+}
+
+th.tableSetsHead {
+  width: 150px;
 }
 
 td {

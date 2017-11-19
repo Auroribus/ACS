@@ -19,6 +19,9 @@ export class DataService {
   slideInOutUpDown = "out";
   showImage = "out";
 
+  searchCardName: string;
+  searchCardSet: string;
+
   ValidataPassword(inputtxt) {
 
     var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;

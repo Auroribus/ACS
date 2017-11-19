@@ -31,7 +31,6 @@ import { ShowImageComponent } from './show-image/show-image.component';
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'buy', component: BuyComponent },
-  { path: 'sell', component: SellComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'collection', component: CollectionComponent },
   { path: 'wishlist', component: WishlistComponent },
@@ -79,6 +78,5 @@ const appRoutes: Routes = [
 
 @Injectable()    
 export class AppModule {
-  test: string;
 
 }

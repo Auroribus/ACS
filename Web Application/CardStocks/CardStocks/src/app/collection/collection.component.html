@@ -1,7 +1,7 @@
 <body (click)="closeMenu()">
 
   <app-show-image [@showImage]="dataservice.showImage"></app-show-image>
-
+  <!--
   <div class="sideBox">
     <table class="overview">
       <thead>
@@ -26,32 +26,56 @@
     <input class="colField" type="text" placeholder="collection name" [(ngModel)]="collectionName" />
     <a class="fa fa-plus-square" (click)="addCollection()">&nbsp;&nbsp;Add Collection</a>
   </div>
+  -->
+  <div *ngIf="addingCard" class="addCardBox">
+    <input class="addCardItem" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
+    <br /><input class="addCardItem" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
+    <br /><input class="addCardItem" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
+    <button class="addCardButton" (click)="addCard()">Add</button>
+  </div>
 
   <div class="mainBox">
-    <input type="text" placeholder="Card Name" [(ngModel)]="cName" />
-    <input type="text" placeholder="Card Set" [(ngModel)]="cSet" />
-    <a class="fa fa-plus-square" (click)="addCard()">&nbsp;&nbsp;Add Card</a>
-    <hr />
 
-    <input type="text" placeholder="search card in collection" [(ngModel)]="cNameSearch" (ngModelChange)="searchCard()" />
+    <a class="fa fa-plus-square" (click)="toggleAddCard()">&nbsp;Card</a>
+    
+    <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list"></a>
+    <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large"></a>
+
+    <div class="clear"></div>
     <hr />
-    <table class="boxView">
-      <thead>
-        <tr>
-          <th class=" boxViewHead"></th>
-          <th class="boxViewHead">Name</th>
-          <th class="boxViewHead">Expansion</th>
-          <th class="boxViewHead">Condition</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let items of cards" class="rowCards" (click)="sendCardItem(items.cardName)">
-          <td><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardName)" (mouseleave)="mouseHoverExit()"></p></td>
-          <td  class="boxViewItem">{{items.cardName}}</td>
-          <td class="boxViewItem">{{items.cardSet}}</td>
-          <td class="boxViewItem">{{items.cardCondition}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <input class="searchIn" type="text" placeholder="search card in collection" [(ngModel)]="cNameSearch" (ngModelChange)="searchCard()" />
+    <hr />
+    <div *ngIf="listView">
+      
+      <table class="boxView">
+        <thead>
+          <tr>
+            <th class="boxViewHead"></th>
+            <th class="boxViewHead">Name</th>
+            <th class="boxViewHead">Expansion</th>
+            <th class="boxViewHead">Condition</th>
+            <th class="boxViewHead"></th>
+            <th class="boxViewHead"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of cards" class="rowCards" >
+            <td (click)="sendCardItem(items.cardId)"><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardName)" (mouseleave)="mouseHoverExit()"></p></td>
+            <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardName}}</td>
+            <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardSet}}</td>
+            <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardCondition}}</td>
+            <td class="boxViewItem">
+            <a class="boxClick" (click)="removeCard(items.cardId)">remove </a> | <a class="boxClick" (click)="editCard(items.cardId)"> edit</a>
+            </td>
+            <td>
+              <a class="boxClick" (click)="sellCard(items.cardId)">Sell</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!listView">
+        <img *ngFor="let items of cards" [src]="imgSrc" />       
+    </div>
   </div>
 </body>

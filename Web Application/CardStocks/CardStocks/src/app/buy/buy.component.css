@@ -1,0 +1,98 @@
+body {
+  
+}
+
+h2 {
+  margin-top: 20px;
+  text-align:center;
+}
+
+table.buyTable {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 20px;
+  border-style: solid;
+  border-color: gray;
+  float: left;
+  width: 60%;
+}
+
+a.addBuyButton {
+  float: left;
+  font-size: 25px;
+  padding: 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+  a.addBuyButton:hover {
+    cursor: pointer;
+  }
+
+th {
+  font-size: 30px;
+  padding-left: 15px;
+  color: white;
+  background: gray;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+td {
+  color: gray;
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 15px;
+  border-bottom: solid;
+  border-color: gray;
+}
+
+input.buyItem {
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.buyList {
+  background: lightgray;
+  padding-bottom: 20px;
+}
+
+button.buyButton {
+  font-size: 20px;
+  margin-left: 20%;
+  margin-top: 10px;
+  display: block;
+  border-width: 5px;
+  border-radius: 10px;
+  background: white;
+  color: gray;
+  padding: 0px 5px 0px 5px;
+}
+
+a.fa-plus-square {
+  margin-top: 20px;
+  font-size: 20px;
+  margin-left: 20%;
+  color: gray;
+}
+
+a.fa-plus-square:hover{
+  cursor: pointer;
+  color: black;
+}
+
+
+@media screen and (max-width: 1200px) {
+  th {
+    font-size: 22px;
+  }
+
+  td {
+    font-size: 18px;
+  }
+}

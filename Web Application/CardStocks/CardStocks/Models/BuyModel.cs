@@ -1,9 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CardStocks.Models
 {
@@ -12,9 +7,13 @@ namespace CardStocks.Models
         [Key]
         public int BuyId { get; set; }
     
-        public UserModel User { get; set; }
-    
-        public Card Card { get; set; }
+        public int UserId { get; set; }
+
+        public string CardName { get; set; }
+
+        public string CardSet { get; set; }
+
+        public string CardCondition { get; set; }
     
         public double BuyPrice { get; set; }
     }

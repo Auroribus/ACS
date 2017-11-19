@@ -80,37 +80,27 @@ export class NavbarComponent implements OnInit {
   }
 
   search() {
-    if (this.searchCardName != null) {
-      /*
-      Seperate search for each page with a single search bar
-
-      if (this.activeRoute == "/sell")
-      {
-        this.router.navigate(["sell"], { fragment: this.searchCardName });
-      }
-      else if (this.activeRoute == "/buy")
-      {
-        this.router.navigate(["buy"], { fragment: this.searchCardName });
-      }
-      else if (this.activeRoute == "/collection")
-      {
-        this.router.navigate(["collection"], { fragment: this.searchCardName });
-      }
-      else if (this.activeRoute == "/wishlist")
-      {
-        this.router.navigate(["wishlist"], { fragment: this.searchCardName });
-      }
-      else
-      {
-        
-      }*/
-
-      this.router.navigate(["details"], { queryParams: { name: this.searchCardName, set: this.searchSetName } });
+    if (this.dataservice.searchCardName != null && this.dataservice.searchCardName != "")
+    {
+      if (this.dataservice.searchCardName.trim().length > 0)
+        localStorage.setItem('searchName', this.dataservice.searchCardName);
     }
-    else {
-      console.log("input field is empty");
+    else
+    {
+      localStorage.setItem('searchName', "");
     }
+    if (this.dataservice.searchCardSet != null && this.dataservice.searchCardSet != "")
+    {
+      if (this.dataservice.searchCardSet.trim().length > 0)
+        localStorage.setItem('searchSet', this.dataservice.searchCardSet);
+    }
+    else
+    {
+      localStorage.setItem('searchSet', "");
+    }    
     
+    this.router.navigate(["details"]);
+    location.reload();
   }
 
   GoToHome() {

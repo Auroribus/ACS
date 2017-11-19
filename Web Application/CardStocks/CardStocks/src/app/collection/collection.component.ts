@@ -30,11 +30,74 @@ export class CollectionComponent implements OnInit {
 
   collectionName: string;
   cards: string[] = [];
+  cardImages: string;
 
   cName: string;
   cSet: string;
   cRarity: string;
   cNameSearch: string;
+  cCondition: string;
+  sellPrice: number = 12.04;
+
+  imgSrc: string = "assets/Loading.png";
+
+  listView: Boolean = true;
+  addingCard: Boolean = false;
+
+  toggleListView() {
+    this.listView = true;
+  }
+
+  toggleTileView() {
+    this.listView = false;
+    this.imgSrc = "assets/NoImageFound.png";
+  }
+
+  toggleAddCard() {
+    if (this.addingCard)
+      this.addingCard = false;
+    else if (!this.addingCard)
+      this.addingCard = true;
+  }
+
+  getColorList() {
+    if (this.listView)
+    {
+      return "black";
+    }
+    else if (!this.listView)
+    {
+      return "gray";
+    }
+  }
+
+  getColorTile() {
+    if (this.listView)
+    {
+      return "gray";
+    }
+    else if (!this.listView)
+    {
+      return "black";
+    }
+  }
+
+  sellCard(cardId) {
+    let body = {
+      UserId: 1,
+      CardId: cardId,
+      SellPrice: this.sellPrice
+    };
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.post('/api/SellList', body, { headers: headers })
+      .map(response => response.json())
+      .subscribe(data => {
+        console.log(data);
+        //location.reload();
+      }); 
+  }
 
   searchCard() {
     console.log(this.cNameSearch);
@@ -45,6 +108,7 @@ export class CollectionComponent implements OnInit {
     }
     else if (this.cNameSearch.trim().length > 0)
     {
+      /*
       this.dataservice.GetLocalApi("CardNames/" + this.cNameSearch)
         .subscribe(data => {
 
@@ -56,6 +120,7 @@ export class CollectionComponent implements OnInit {
 
           }
         });
+      */
     }
   }
 
@@ -100,6 +165,10 @@ export class CollectionComponent implements OnInit {
     {
       console.log("field empty");
     }
+    else if (this.cCondition == null || this.cCondition == "")
+    {
+
+    }
     else
     {
       this.newCard();
@@ -110,7 +179,8 @@ export class CollectionComponent implements OnInit {
   {
     body = {
       cardName: this.cName,
-      cardSet: this.cSet
+      cardSet: this.cSet,
+      cardCondition: this.cCondition
     }
 
     this.dataservice.PostLocalApi('Cards', body).subscribe(data => {
@@ -156,10 +226,23 @@ export class CollectionComponent implements OnInit {
   sendCardItem(cardId) {
     console.log(cardId);
 
-    this.dataservice.GetLocalApi("CardNames/" + cardId)
+    this.dataservice.GetLocalApi("Cards/" + cardId)
       .subscribe(data => {
         console.log(data);
       });
+  }
+
+  removeCard(cardId) {
+    console.log("remove: " + cardId);
+    this.http.delete("/api/Cards/" + cardId)
+      .subscribe(data => {
+        console.log(data);
+        location.reload();
+      });
+  }
+
+  editCard(cardId) {
+    console.log("edit: " + cardId);
   }
 
 }

@@ -1,3 +1,29 @@
 <body (click)="closeMenu()">
-  <p>Sell</p>
+
+  <div *ngIf="addSellListing">
+    <input type="text" [(ngModel)]="cardPrice" placeholder="Price" />
+    <button (click)="addSell()">Add</button>
+  </div>
+
+
+  <div>
+    <h2>For Sale</h2>
+    <table class="sellTable">
+      <thead>
+        <tr>
+          <th>Name:</th>
+          <th>Condition:</th>
+          <th>Price:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of sellListings">
+          <td>{{items.sellName}}</td>
+          <td>{{items.set}}</td>
+          <td>{{items.Condition}}</td>
+          <td>{{items.sellPrice}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
