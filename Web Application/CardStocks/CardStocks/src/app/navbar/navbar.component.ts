@@ -41,19 +41,11 @@ export class NavbarComponent implements OnInit {
   searchSetName: string = "";
   activeRoute: string;
   login: string;
-  loggedIn: boolean;  
+  loggedIn: boolean = false;  
 
   constructor(private dataservice: DataService, private http: Http, private router: Router, private route: ActivatedRoute)
   {
-    /*get active route
-    this.router.events.subscribe(event => {
-      if (event instanceof RoutesRecognized)
-      {        
-        this.activeRoute = event.url;
-        console.log(this.activeRoute);
-      }
-    });
-    */
+
   }
 
   closeMenu() {
@@ -67,16 +59,22 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleLogin() {
-    if (this.dataservice.activeUser == null || this.dataservice.activeUser == "" || this.dataservice.activeUser == "Login") {
+
+    var user = localStorage.getItem('user');
+    
+
+    if (user == null || user == "" || user == "Login") {
       //no user logged in show login button
       this.loggedIn = false;
+      
     }
     else {
       this.loggedIn = true;
+      this.router.navigate(['dashboard']);
     }
 
     if (!this.loggedIn)
-    this.dataservice.slideInOutUpDown = this.dataservice.slideInOutUpDown === 'out' ? 'in' : 'out';
+      this.dataservice.slideInOutUpDown = this.dataservice.slideInOutUpDown === 'out' ? 'in' : 'out';
   }
 
   search() {
@@ -108,13 +106,20 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.dataservice.activeUser == null || this.dataservice.activeUser == "" || this.dataservice.activeUser == "Login") {
+    var user = localStorage.getItem('user');   
+
+    if (user == null || user == "" || user == "Login") {
       //no user logged in show login button
       this.loggedIn = false;
+      
     }
     else {
       this.loggedIn = true;
+      this.dataservice.activeUser = localStorage.getItem('user');
     }
+
+    console.log("user: " + user);
+    console.log(this.loggedIn);
   }
 
   searchChange(newValue) {

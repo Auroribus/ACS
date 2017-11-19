@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       //POST username and password to database
       //if correct combination, login => dashboard
       //else throw error
-      console.log(this.username + " " + this.userpassword);
+      //console.log(this.username + " " + this.userpassword);
 
       this.passHashed = Md5.hashStr(this.userpassword);
 
@@ -62,17 +62,17 @@ export class LoginComponent implements OnInit {
     {
       if (data[i].username == this.username && data[i].password == this.passHashed)
       {
-        console.log("user found");
-        this.dataservice.activeUser = this.username;
-        this.router.navigate(["dashboard"]);
+       console.log("user found");
+        // this.dataservice.activeUser = this.username;
+       localStorage.setItem('user', this.username);
+       this.router.navigate(['dashboard']);
+       location.reload();
+       break;
       }
       else
       {
         console.log("no user found");        
       }
-
     }
   }
-
-
 }

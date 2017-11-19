@@ -22,11 +22,18 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = this.dataservice.activeUser;
+    this.username = localStorage.getItem('user');
     if (this.username == null || this.username == "" || this.username == "Login")
     {
       this.router.navigate([""]);
     }
+  }
+
+  logOut() {
+    //localStorage.setItem('user', "Login");
+    localStorage.removeItem('user');
+    this.dataservice.activeUser = "Login";
+    this.router.navigate(['']);
   }
 
 }
