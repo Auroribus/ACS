@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { URLSearchParams } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 let body;
-var SellListing = [];
-var SellListings = [];
 
 var cardName;
 var sellPrice;
+
+var BuyListings = [];
+var SellListings = [];
 
 @Component({
   selector: 'app-listings',
@@ -21,10 +24,9 @@ export class ListingsComponent implements OnInit {
 
   userID: number;
   cardID: number;
+
   BuyListing: string[];
-  SellListingPrices: string[] = [];
-  SellListingNames: string[] = [];
-  
+  SellListing: string[];
   sellPrice: number;
   cardName: string;
 
@@ -36,16 +38,20 @@ export class ListingsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    //Change this to logged in userid
+    this.userID = 1;
     this.GetBuyListings();
     this.GetSellListings();
   }
+  
 
   GetBuyListings() {
-    this.dataservice.GetLocalApi("BuyList")
+
+    this.dataservice.GetLocalApi('BuyList')
       .subscribe(data => {
-        //console.log(data);
-        this.BuyListing = data;
+        //console.log(data[0]);
+        this.LoopData(data, BuyListings);
+        this.BuyListing = BuyListings;
       });
   }
 
@@ -53,29 +59,36 @@ export class ListingsComponent implements OnInit {
     this.dataservice.GetLocalApi("SellList")
       .subscribe(data => {
         //console.log(data);
-        for (var i = 0; i < data.length; i++) {
-          var sellPrice = data[i].sellPrice;
+        this.LoopData(data, SellListings);
+        this.SellListing = SellListings;
+      });     
+  }
 
+  LoopData(data, array)
+  {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].userId == this.userID) {
+        //console.log(data[i]);
+        array.push(data[i]);
+      }
+    }   
+  }
 
-          this.dataservice.GetLocalApi('Cards/' + data[i].cardId)
-            .subscribe(data => {
-              console.log(data.cardName);
-              cardName = data.cardName;
+  RemoveFromSellList(sellId) {
+    console.log(sellId);
+    this.RemoveListing('SellList', sellId);
+  }
 
-              SellListing = [
-                sellPrice = sellPrice,
-                cardName = cardName
-              ]
+  RemoveFromBuyList(buyId) {
+    console.log(buyId);
+    this.RemoveListing('BuyList', buyId);
+  }
 
-              SellListings.push(SellListing);
-
-            }
-            );
-
-
-        }
-        SellListings;
-        console.log(SellListings);
+  RemoveListing(apiName, id) {
+    this.http.delete("/api/" +apiName +"/" + id)
+      .subscribe(data => {
+        console.log(data);
+        location.reload();
       });
   }
 

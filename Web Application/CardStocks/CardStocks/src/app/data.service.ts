@@ -52,6 +52,11 @@ export class DataService {
       .map(res => res.json());
   }
 
+  GetLocalApiWithParams(name, params) {
+    return this.http.get('/api/' + name, {search: params})
+      .map(res => res.json());
+  }
+
   GetExternalApi(link) {
     return this.http.get(link)
       .map(res => res.json());

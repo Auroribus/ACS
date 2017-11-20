@@ -111,8 +111,9 @@ export class RegisterComponent implements OnInit {
     }
 
     this.dataservice.PostLocalApi('User', body).subscribe(data => {
-      console.log(data.username);
+      console.log(data.userId);
       localStorage.setItem('user', this.username);
+      localStorage.setItem('id', data.userId);
       this.router.navigate(["dashboard"]);
     });
   }

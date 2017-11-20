@@ -7,6 +7,8 @@
   <ItemGroup>
     <Folder Include="CardStocksAngular\" />
     <Folder Include="Controllers\Cards\" />
+    <Folder Include="Controllers\Collections\" />
+    <Folder Include="Controllers\Sells\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />

@@ -82,10 +82,11 @@ export class CollectionComponent implements OnInit {
     }
   }
 
-  sellCard(cardId) {
+  sellCard(cardId, cardName) {
     let body = {
       UserId: 1,
       CardId: cardId,
+      CardName: cardName,
       SellPrice: this.sellPrice
     };
 

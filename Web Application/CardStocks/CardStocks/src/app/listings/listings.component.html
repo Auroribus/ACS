@@ -12,11 +12,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let items of SellListings">
+      <tr *ngFor="let items of SellListing">
         <td>{{items.cardName}}</td>
         <td>{{items.sellPrice}}</td>
         <td>
-          <a class="editClick">Edit</a> | <a class="removeClick">Remove</a>
+          <a class="editClick">Edit</a> | <a class="removeClick" (click)="RemoveFromSellList(items.sellId)">Remove</a>
         </td>
       </tr>
     </tbody>
@@ -31,10 +31,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let itemsBuy of BuyListing">
-        <td>{{itemsBuy.cardName}}</td>
-        <td>{{itemsBuy.buyPrice}}</td>
-        <td><a class="editClick">Edit</a> | <a class="removeClick">Remove</a></td>
+      <tr *ngFor="let items of BuyListing">
+        <td>{{items.cardName}}</td>
+        <td>{{items.buyPrice}}</td>
+        <td><a class="editClick">Edit</a> | <a class="removeClick" (click)="RemoveFromBuyList(items.buyId)">Remove</a></td>
       </tr>
     </tbody>
   </table>

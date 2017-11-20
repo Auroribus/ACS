@@ -22,7 +22,7 @@ namespace CardStocks.Controllers
         [HttpGet]
         public IEnumerable<BuyModel> GetBuyListings()
         {
-            return _context.BuyListings;
+          return _context.BuyListings;
         }
 
         // GET: api/BuyModels/5
@@ -33,8 +33,8 @@ namespace CardStocks.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var buyModel = await _context.BuyListings.SingleOrDefaultAsync(m => m.BuyId == id);
+            
+            var buyModel = await _context.BuyListings.SingleOrDefaultAsync( m => m.BuyId == id);
 
             if (buyModel == null)
             {
