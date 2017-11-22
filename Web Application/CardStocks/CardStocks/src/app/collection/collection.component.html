@@ -1,7 +1,10 @@
 <body (click)="closeMenu()">
 
-  <app-show-image [@showImage]="dataservice.showImage"></app-show-image>
+  
   <!--
+    
+  <app-show-image [@showImage]="dataservice.showImage"></app-show-image>
+
   <div class="sideBox">
     <table class="overview">
       <thead>
@@ -27,10 +30,17 @@
     <a class="fa fa-plus-square" (click)="addCollection()">&nbsp;&nbsp;Add Collection</a>
   </div>
   -->
-  <div *ngIf="addingCard" class="addCardBox">
+  <div *ngIf="hoverImage" class="hoverImgDiv">
+    <img width="500" src={{imageSource}} />
+  </div>
+
+  <div *ngIf="!addingCard" class="addCardBox">
     <input class="addCardItem" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
     <br /><input class="addCardItem" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
     <br /><input class="addCardItem" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
+    <label class="addCI" for="filePicker">Upload an Image:</label><br>
+    <input class="addCI" type="file" id="filePicker" (change)="handleFileSelect($event)">
+
     <button class="addCardButton" (click)="addCard()">Add</button>
   </div>
 
@@ -60,7 +70,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let items of cards" class="rowCards" >
-            <td (click)="sendCardItem(items.cardId)"><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardName)" (mouseleave)="mouseHoverExit()"></p></td>
+            <td (click)="sendCardItem(items.cardId)"><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardId)" (mouseleave)="mouseHoverExit()"></p></td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardName}}</td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardSet}}</td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardCondition}}</td>
@@ -75,7 +85,8 @@
       </table>
     </div>
     <div *ngIf="!listView">
-        <img *ngFor="let items of cards" [src]="imgSrc" />       
+        <img *ngFor="let items of cards" src={{items.imgBase64}} class="tileImg"/>       
     </div>
+
   </div>
 </body>

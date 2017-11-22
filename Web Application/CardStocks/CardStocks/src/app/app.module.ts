@@ -27,6 +27,7 @@ import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { AddCardComponent } from './add-card/add-card.component';
 import { ShowImageComponent } from './show-image/show-image.component';
+import Tesseract from 'tesseract.js'
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },

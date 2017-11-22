@@ -1,8 +1,7 @@
 div.header {
   background-color: gray;
   padding-left: 10%;
-  height: 80px;
-  
+  height: 80px;  
 }
 
 div.searchBox {
@@ -18,10 +17,10 @@ a.logo {
   color: white;
 }
 
-  a.logo:hover {
-    cursor: pointer;
-    color: lightgray;
-  }
+a.logo:hover {
+  cursor: pointer;
+  color: lightgray;
+}
 
 a.login {
   font-size: 35px;
@@ -31,10 +30,10 @@ a.login {
   color: white;
 }
 
-    a.login:hover {
-      cursor: pointer;
-      color: lightgray;
-    }
+a.login:hover {
+  cursor: pointer;
+  color: lightgray;
+}
 
 .searchBar {
   height: 30px;
@@ -57,65 +56,22 @@ a.searchButton {
   cursor: pointer;
 }
 
-.hamburger {
+a.fa-bars {
   float: right;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-
-  padding: 0;
-  margin-top: 10px;
-  width: 96px;
-  height: 72px;
-  font-size: 0;
-  text-indent: -9999px;
-  cursor: pointer;
-  outline: none;
-  background: none;
-  border: 0;
-  margin-top: -10px;    
+  font-size: 40px;
+  padding: 20px;
+  color: white;
 }
 
-
-  .hamburger span {
-    display: block;
-    position: absolute;
-    top: 44px;
-    left: 18px;
-    right: 18px;
-    height: 8px;
-    background: white;
-    border-radius: 10px;
-  }
-  
-    .hamburger span::before,
-    .hamburger span::after {
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 8px;
-      background-color: white;
-      content: "";
-      border-radius: 10px;
-    }
-
-    .hamburger span::before {
-      top: -15px;
-    }
-
-    .hamburger span::after {
-      bottom: -15px;
-    }
-
+a.fa-bars:hover {
+  cursor: pointer;
+  color: white;
+  opacity: 0.5;
+}
 
 @media screen and (max-width: 1200px) and (min-width: 800px) {
   .searchBar {
     width: 35%;
-  }
-
-  .searchButton {
   }
 }
 

@@ -16,6 +16,8 @@ let pathLink;
 
 let oldNr = 0;
 
+var CardList = [];
+
 @Component({
   selector: 'app-upload-page',
   templateUrl: './upload-page.component.html',
@@ -28,7 +30,34 @@ export class UploadPageComponent implements OnInit {
   file: string = "";
   cardName: string = "card name";
   cardSet: string = "";
-  imageSrc: string;
+  imageSrc: string = "assets/Loading.png";
+  cardList: string[];
+
+  options: boolean = true;
+  Remove: boolean = false;
+  Add: boolean = false;
+
+  addToDB() {
+    this.options = false;
+    this.Add = true;
+    this.Remove = false;
+  }
+
+  removeFromDB() {
+    this.options = false;
+    this.Remove = true;
+    this.Add = false;
+  }
+
+  DelFromDB(cardId) {
+    console.log("remove from db");
+  }
+
+  Options() {
+    this.options = true;
+    this.Remove = false;
+    this.Add = false;
+  }
   
   constructor(private http: Http, private dataservice: DataService, private router: Router) {
     
@@ -45,6 +74,7 @@ export class UploadPageComponent implements OnInit {
   private base64textString: String = "";
 
   handleFileSelect(evt) {
+
     var files = evt.target.files;
     var file = files[0];
 
@@ -121,10 +151,30 @@ export class UploadPageComponent implements OnInit {
       console.log(nameCard);
       
       this.cardName = nameCard;
-      
-      this.router.navigate(["details"], { queryParams: { name: this.cardName, set: this.cardSet } });
-    });
 
+      this.dataservice.GetLocalApi('Cards')
+        .subscribe(data => {
+          //console.log(data);
+          this.LoopData(data, this.cardName);
+          this.cardList = CardList;
+        });
+
+      });
+
+  }
+
+  LoopData(data, name) {
+    for (var i = 0; i < data.length; i++)
+    {
+      if (data[i].cardName == name)
+      {
+        console.log("same name");
+        CardList.push(data[i]);
+      }
+      else {
+        console.log("card not found");
+      }
+    }
   }
 
   GetItAll() {
@@ -239,6 +289,11 @@ export class UploadPageComponent implements OnInit {
       .map((response) => response.json());
   }
 
-  
+  goToDetails() {
+
+    localStorage.setItem('searchName', this.cardName);
+    localStorage.setItem('searchSet', this.cardSet);
+    this.router.navigate(["details"]);
+  }
 
 }

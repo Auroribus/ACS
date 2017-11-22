@@ -1,31 +1,47 @@
 <body (click)="closeMenu()">
-  <div>
-    <div>
+  <div *ngIf="options" class="options">
+    <button class="optionButton" (click)="addToDB()">Add</button>
+    <button class="optionButton" (click)="removeFromDB()">Remove</button>
+  </div>
+  <div *ngIf="!options">
+    <button (click)="Options()">Options</button>
+
+  </div>
+
+    <div *ngIf="Add">
+      Add
+    </div>
+  
+    <div *ngIf="Remove">
+      
       <label for="filePicker">Choose or drag a file:</label><br>
       <input type="file" id="filePicker" (change)="handleFileSelect($event)">
+      
       <hr />
-      Name: {{cardName}}
+      <p>
+        Name: {{cardName}}
+        <!--
+        <button class="sendButton" (click)="goToDetails()">Send</button>
+-->
+      </p>
       <hr />
-      <img [src]="imageSrc"/>
-
+      <img [src]="imageSrc" width="300"/>
+      <hr />
+      <table class="listTable">
+        <thead>
+          <tr>
+            <th>Card Name</th>
+            <th>Card Set</th>
+            <th>Card Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of cardList" (click)="DelFromDB(items.cardId)">
+            <td>{{items.cardName}}</td>
+            <td>{{items.cardSet}}</td>
+            <td>{{items.cardCondition}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <!--
-  <div class="box">
-    <input type="text" [(ngModel)]="file" />
-    {{file}}
-    <button (click)="getPath(file)">Upload</button>
-    <hr />
-    Name: {{cardName}}
-    Set: {{cardSet}}
-    Rarity: {{cardRarity}}
-    <hr />
-    <input type="file" accept="image/*" (change)="handleFileSelect($event)" />
-    <img [src]="imageSrc" alt="" width="500" height="400" />
-    div>
-    <h1>Base64 encoded version</h1>
-    <textarea placeholder="Base64 will appear here" cols="50" rows="15">{{base64textString}}</textarea>
-  </div>
-  </div>
-      -->
 </body>

@@ -39,10 +39,48 @@ export class CollectionComponent implements OnInit {
   cCondition: string;
   sellPrice: number = 12.04;
 
-  imgSrc: string = "assets/Loading.png";
+  imgSrc: string;
+  imageSource: string = "assets/Loading.png";
 
   listView: Boolean = true;
   addingCard: Boolean = false;
+  hoverImage: Boolean = false;
+
+  imageSrc: string;
+  base64textString: string;
+
+  handleFileSelect(evt) {
+
+    console.log(evt);
+
+    var files = evt.target.files;
+    var file = files[0];
+
+    if (files && file) {
+      var reader = new FileReader();
+      var r2 = new FileReader();
+
+      r2.onload = (e: any) => {
+        this.imageSrc = e.target.result;
+      }
+
+      r2.readAsDataURL(evt.target.files[0]);
+
+      reader.onload = this._handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(file);
+
+    }
+
+  }
+
+  _handleReaderLoaded(readerEvt) {
+
+    var binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
+    //console.log(this.base64textString);
+    
+  }
 
   toggleListView() {
     this.listView = true;
@@ -50,7 +88,6 @@ export class CollectionComponent implements OnInit {
 
   toggleTileView() {
     this.listView = false;
-    this.imgSrc = "assets/NoImageFound.png";
   }
 
   toggleAddCard() {
@@ -137,13 +174,26 @@ export class CollectionComponent implements OnInit {
     this.dataservice.slideInOutUpDown = "out";
   }
 
-  mouseHoverEnter(name) {
-    console.log("Enter: " + name);
-    this.toggleImageState();
+  mouseHoverEnter(id) {
+    this.hoverImage = true;
+
+    this.GetImg(id);
+
+    //this.toggleImageState();
+  }
+
+  GetImg(id) {
+    this.dataservice.GetLocalApi('Cards/' + id)
+      .subscribe(data => {
+        console.log(data);
+        this.imageSource = data.imgBase64;
+      });
   }
 
   mouseHoverExit() {
-    this.toggleImageState();
+    this.hoverImage = false;
+
+    //this.toggleImageState();
   }
 
   ngOnInit() {
@@ -156,6 +206,7 @@ export class CollectionComponent implements OnInit {
       .subscribe(data => {
         if (data instanceof Array) {
           this.cards = data;
+          console.log(data);
         }        
       });
   }
@@ -181,7 +232,9 @@ export class CollectionComponent implements OnInit {
     body = {
       cardName: this.cName,
       cardSet: this.cSet,
-      cardCondition: this.cCondition
+      cardCondition: this.cCondition,
+      userId: 1,
+      imgBase64: "data:image/png;base64," + this.base64textString
     }
 
     this.dataservice.PostLocalApi('Cards', body).subscribe(data => {

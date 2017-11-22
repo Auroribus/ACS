@@ -82,7 +82,7 @@ export class DetailspageComponent implements OnInit {
   }
 
   GetCardByNameAndSet() {
-    url = 'https://api.magicthegathering.io/v1/cards?name=' + localStorage.getItem('searchName') + '&setName=' + localStorage.getItem('searchSet');
+    url = 'https://api.magicthegathering.io/v1/cards?name=' + localStorage.getItem('searchName') + '&set=' + localStorage.getItem('searchSet');
   }
 
   GetMTGioAPI() {

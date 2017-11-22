@@ -2,7 +2,7 @@
   <div class="header">
     <a class="logo" (click)="GoToHome()">CardStocks</a>
 
-    <button (click)="toggleMenu()" class="hamburger"><span>toggle menu</span></button>
+    <a (click)="toggleMenu()" class="fa fa-bars"></a>
     <a (click)="toggleLogin()" class="login">{{dataservice.activeUser}}</a>
   
   
@@ -13,7 +13,7 @@
     <input class="searchBar" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Card Name, eg. Lotus Petal" />
     <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
 
-    <input class="searchBar" [(ngModel)]="dataservice.searchCardSet" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. Magic 2015" />
+    <input class="searchBar" [(ngModel)]="dataservice.searchCardSet" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. TMP" />
     <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
   </div>
 </body>

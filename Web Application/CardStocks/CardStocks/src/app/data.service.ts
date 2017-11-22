@@ -13,6 +13,8 @@ export class DataService {
 
   }
 
+  hoverItem: number;
+
   activeUser = "Login";
 
   slideInOutLeftRight = "out";

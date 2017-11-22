@@ -1,3 +1,7 @@
+body {
+  margin-bottom: 200px;
+}
+
 .mainBox {
   margin-left: 5%;
   margin-right: 5%;
@@ -12,6 +16,11 @@ input.addCardItem {
   margin-bottom: 10px;
   border-radius: 5px;
   padding-left: 10px;
+}
+
+.addCI {
+  margin-left: 20%;
+  margin-bottom: 10px;
 }
 
 button.addCardButton {
@@ -163,9 +172,18 @@ td.tileItem {
   border: none;
 }
 
+div.hoverImgDiv {
+  position: fixed;
+  right: auto;
+  top: 10%;
+  left: 10%;
+  bottom: 0;
+  z-index: 9999;
+}
+
 img.tileImg {
-  height: 350px;
-  width: 250px;
+  width: 230px;
+  height: 300px;
   padding: 1px;
   -webkit-transition: all .1s ease; /* Safari and Chrome */
   -moz-transition: all .1s ease; /* Firefox */
@@ -175,11 +193,11 @@ img.tileImg {
 
   img.tileImg:hover {
     cursor: pointer;
-    -webkit-transform: scale(1.1); /* Safari and Chrome */
-    -moz-transform: scale(1.1); /* Firefox */
-    -ms-transform: scale(1.1); /* IE 9 */
-    -o-transform: scale(1.1); /* Opera */
-    transform: scale(1.1)
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -moz-transform: scale(2); /* Firefox */
+    -ms-transform: scale(2); /* IE 9 */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2)
   }
 
 
