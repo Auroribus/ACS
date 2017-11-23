@@ -77,6 +77,10 @@ tr:hover {
   color: white;
 }
 
+tr.delDb:hover {
+ cursor: pointer;
+}
+
 @media screen and (max-width: 800px)
 {
   img {

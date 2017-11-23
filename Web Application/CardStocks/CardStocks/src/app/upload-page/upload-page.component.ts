@@ -29,7 +29,8 @@ export class UploadPageComponent implements OnInit {
 
   file: string = "";
   cardName: string = "card name";
-  cardSet: string = "";
+  cardSet: string;
+  cardCondition: string;
   imageSrc: string = "assets/Loading.png";
   cardList: string[];
 
@@ -49,8 +50,29 @@ export class UploadPageComponent implements OnInit {
     this.Add = false;
   }
 
+  SendToDB() {
+    body = {
+      cardName: this.cardName,
+      cardSet: this.cardSet,
+      cardCondition: this.cardCondition,
+      userId: 1,
+      imgBase64: "data:image/png;base64," + this.base64textString
+    }
+
+    this.dataservice.PostLocalApi('Cards', body).subscribe(data => {
+      console.log(data);
+      location.reload();
+    });
+  }
+
   DelFromDB(cardId) {
     console.log("remove from db");
+    this.http.delete('/api/Cards/' + cardId)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+        location.reload();
+      });
   }
 
   Options() {

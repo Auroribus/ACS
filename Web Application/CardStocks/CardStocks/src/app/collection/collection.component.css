@@ -182,8 +182,6 @@ div.hoverImgDiv {
 }
 
 img.tileImg {
-  width: 230px;
-  height: 300px;
   padding: 1px;
   -webkit-transition: all .1s ease; /* Safari and Chrome */
   -moz-transition: all .1s ease; /* Firefox */

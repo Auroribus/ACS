@@ -14,7 +14,7 @@
     <tbody>
       <tr *ngFor="let items of SellListing">
         <td>{{items.cardName}}</td>
-        <td>{{items.sellPrice}}</td>
+        <td>$ {{items.sellPrice}}</td>
         <td>
           <a class="editClick">Edit</a> | <a class="removeClick" (click)="RemoveFromSellList(items.sellId)">Remove</a>
         </td>
@@ -33,7 +33,7 @@
     <tbody>
       <tr *ngFor="let items of BuyListing">
         <td>{{items.cardName}}</td>
-        <td>{{items.buyPrice}}</td>
+        <td>$ {{items.buyPrice}}</td>
         <td><a class="editClick">Edit</a> | <a class="removeClick" (click)="RemoveFromBuyList(items.buyId)">Remove</a></td>
       </tr>
     </tbody>

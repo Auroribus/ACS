@@ -9,7 +9,20 @@
   </div>
 
     <div *ngIf="Add">
-      Add
+      <label for="filePicker">Choose or drag a file:</label><br>
+      <input type="file" id="filePicker" (change)="handleFileSelect($event)">
+
+      <hr />
+      <p>
+        Name: {{cardName}}<br /><br />
+
+        Fill out the below values:<br /><br />
+
+        Set Name: <input type="text" [(ngModel)]="cardSet" placeholder="set name, eg: TMP"/> <br /><br />
+        Condition: <input type="text" [(ngModel)]="cardCondition" placeholder="condition, eg: EX, NM" /><br /><br />
+        <input type="checkbox" /> upload the image
+       </p>
+        <button (click)="SendToDB()">Add</button>
     </div>
   
     <div *ngIf="Remove">
@@ -27,6 +40,7 @@
       <hr />
       <img [src]="imageSrc" width="300"/>
       <hr />
+      <p>Click row to remove from collection</p>
       <table class="listTable">
         <thead>
           <tr>
@@ -36,7 +50,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let items of cardList" (click)="DelFromDB(items.cardId)">
+          <tr *ngFor="let items of cardList" (click)="DelFromDB(items.cardId)" class="delDb">
             <td>{{items.cardName}}</td>
             <td>{{items.cardSet}}</td>
             <td>{{items.cardCondition}}</td>

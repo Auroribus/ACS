@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   LogIn() {
+    console.log("attampting login");
     if (this.username == null || this.username == "")
     {
       console.log("username was empty");
@@ -47,8 +48,9 @@ export class LoginComponent implements OnInit {
       //else throw error
       //console.log(this.username + " " + this.userpassword);
 
-      this.passHashed = Md5.hashStr(this.userpassword);
+      console.log("sending data to server");
 
+      this.passHashed = Md5.hashStr(this.userpassword);
       this.dataservice.slideInOutUpDown = "out";
 
       this.dataservice.GetLocalApi('User').subscribe(data => {
@@ -62,13 +64,13 @@ export class LoginComponent implements OnInit {
     {
       if (data[i].username == this.username && data[i].password == this.passHashed)
       {
-       console.log(data[i]);
+       console.log("userfound");
         // this.dataservice.activeUser = this.username;
        localStorage.setItem('user', this.username);
        localStorage.setItem('id',data[i].userId);
        this.router.navigate(['dashboard']);
        location.reload();
-       break;
+       //break;
       }
       else
       {

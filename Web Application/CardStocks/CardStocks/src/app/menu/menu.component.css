@@ -1,7 +1,7 @@
 :host {
   background: black;
   color: white;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 80px;
   left: auto;
@@ -10,6 +10,7 @@
   min-width: 250px;
   z-index: 9999;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 100%;
 }
 
 
@@ -27,7 +28,7 @@ a.fa-bars:hover {
 }
 
 ul {
-  font-size: 18px;
+  font-size: 24px;
   line-height: 3;
   font-weight: 400;
   padding-top: 50px;
