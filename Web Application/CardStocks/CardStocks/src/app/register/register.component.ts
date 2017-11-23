@@ -115,6 +115,7 @@ export class RegisterComponent implements OnInit {
       localStorage.setItem('user', this.username);
       localStorage.setItem('id', data.userId);
       this.router.navigate(["dashboard"]);
+      location.reload();
     });
   }
 

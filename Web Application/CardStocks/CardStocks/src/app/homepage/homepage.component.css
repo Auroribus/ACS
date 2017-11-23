@@ -8,17 +8,20 @@
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 45px;
+  font-family: 'Arvo', serif;
 }
 
 .newsHeader {
   text-align: left;
   color: black;
+  font-family: 'Arvo', serif;
 }
 
 .newsText {
   float: left;
   width: 40%;
   margin-left: 10%;
+  font-family: 'Arvo', serif;
 }
 
 .newsImg {
@@ -32,6 +35,7 @@
   margin: auto;
   text-align: center;
   padding-bottom: 50px;
+  font-family: 'Arvo', serif;
 }
 
 .newestImg {

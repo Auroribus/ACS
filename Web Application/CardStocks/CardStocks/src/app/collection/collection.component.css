@@ -1,11 +1,13 @@
 body {
   margin-bottom: 200px;
+  font-family: 'Arvo', serif;
 }
 
 .mainBox {
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 50px;
+  font-family: 'Arvo', serif;
 }
 
 input.addCardItem {
@@ -47,6 +49,7 @@ button.addCardButton:hover {
   position: fixed;
   height: 100%;
   margin-top: -50px;
+  font-family: 'Arvo', serif;
 }
 
 a.addColButton {

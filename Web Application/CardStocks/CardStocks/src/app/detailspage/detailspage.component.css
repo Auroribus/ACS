@@ -5,12 +5,14 @@
 
 .rulingsHead {
   font-size: 25px;
+  font-family: 'Arvo', serif;
 }
 
 .box {
   padding-top: 50px;
   padding-left: 10%;
   padding-right: 10%;
+  font-family: 'Arvo', serif;
 }
 
 .cardImg {
@@ -33,10 +35,12 @@
   color: gray;
   border-radius: 10px;
   text-align: center;
+  font-family: 'Arvo', serif;
   font-size: 44px;
 }
 
 .priceText {
+  font-family: 'Arvo', serif;
   color: gray;
   text-align: center;
   font-size: 40px;

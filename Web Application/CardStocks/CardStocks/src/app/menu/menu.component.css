@@ -1,7 +1,7 @@
 :host {
   background: black;
   color: white;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 80px;
   left: auto;
@@ -9,7 +9,7 @@
   width: 15%;
   min-width: 250px;
   z-index: 9999;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Arvo', serif;
   height: 100%;
 }
 
@@ -29,6 +29,7 @@ a.fa-bars:hover {
 
 ul {
   font-size: 24px;
+  font-family: 'Arvo', serif;
   line-height: 3;
   font-weight: 400;
   padding-top: 50px;

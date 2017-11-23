@@ -6,3 +6,4 @@ C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\C
 C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\TestLibrary\obj\Debug\netcoreapp2.0\TestLibrary.AssemblyInfo.cs
 C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\TestLibrary\obj\Debug\netcoreapp2.0\TestLibrary.dll
 C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\TestLibrary\obj\Debug\netcoreapp2.0\TestLibrary.pdb
+C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\TestLibrary\obj\Debug\netcoreapp2.0\TestLibrary.csprojResolveAssemblyReference.cache

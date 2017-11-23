@@ -2,7 +2,9 @@
 div.header {
   background-color: gray;
   padding-left: 10%;
-  height: 80px;  
+  height: 80px;
+  font-family: 'Arvo', serif;
+  font-weight: bold;
 }
 
 div.searchBox {
@@ -10,17 +12,21 @@ div.searchBox {
   height: 50px;
   padding: 10px;
   text-align: center;
+  font-family: 'Arvo', serif;
 }
 
-a.logo {
-  font-size: 50px;
+a.logoTest {
   float: left;
+  font-size: 50px;
   color: white;
 }
 
-a.logo:hover {
+img.logo {
+  margin-top: -10px;
+}
+
+img.logo:hover {
   cursor: pointer;
-  color: lightgray;
 }
 
 a.login {

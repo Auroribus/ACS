@@ -1,11 +1,10 @@
 body {
   margin-left: auto;
   margin-right: auto;
-
   width: 50%;
   height: 400px;
   background: black;
   color: white;
-
   top: 200px;
+  font-family: 'Arvo', serif;
 }
