@@ -1,24 +1,30 @@
 
 div.header {
-  background-color: gray;
+  background-image: url(../../../src/assets/tileable-midnight-blue-grunge-patterns-11.jpg);
+  opacity: 1;
   padding-left: 10%;
+  padding-right: 10%;
   height: 80px;
-  font-family: 'Arvo', serif;
   font-weight: bold;
 }
 
 div.searchBox {
-  background: darkgray;
+  background-image: url(../../../src/assets/tileable-midnight-blue-grunge-patterns-11.jpg);
+  opacity: 1;
   height: 50px;
   padding: 10px;
   text-align: center;
-  font-family: 'Arvo', serif;
 }
 
 a.logoTest {
   float: left;
   font-size: 50px;
   color: white;
+}
+
+a.logoTest:hover {
+  cursor: pointer;
+  color: lightgray;
 }
 
 img.logo {
@@ -42,9 +48,25 @@ a.login:hover {
   color: lightgray;
 }
 
+a.navLinks {
+  font-size: 35px;
+  float: right;
+  padding-top: 15px;
+  padding-right: 30px;
+  color: white;
+}
+
+a.navLinks:hover {
+    cursor: pointer;
+    color: lightgray;
+}
+
 .searchBar {
-  height: 30px;
-  width: 30%;
+  float: left;
+  margin-top: 20px;
+  height: 40px;
+  width: 40%;
+  margin-left: 20px;
   border-radius: 5px;
   padding-left: 10px;
 }
@@ -66,7 +88,8 @@ a.searchButton {
 a.fa-bars {
   float: right;
   font-size: 40px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 30px;
   color: white;
 }
 
@@ -78,8 +101,9 @@ a.fa-bars:hover {
 
 @media screen and (max-width: 1200px) and (min-width: 800px) {
   .searchBar {
-    width: 35%;
+    width: 20%;
   }
+
 }
 
 @media screen and (max-width: 500px)

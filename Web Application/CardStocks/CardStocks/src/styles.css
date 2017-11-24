@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+footer {
+  background-image: url(../src/assets/tileable-midnight-blue-grunge-patterns-11.jpg);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px; /* Height of the footer */
+  color: white;
+  padding: 5px;
+  font-size: 15px;
+}

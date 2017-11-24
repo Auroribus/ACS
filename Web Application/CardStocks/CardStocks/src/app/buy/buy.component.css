@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arvo', serif;
+  
 }
 
 h2 {
@@ -74,14 +74,15 @@ button.buyButton {
   padding: 0px 5px 0px 5px;
 }
 
-a.fa-plus-square {
-  margin-top: 20px;
-  font-size: 20px;
+a.plusSquare {
+  font-size: 24px;
   margin-left: 20%;
+  font-size: 20px;
   color: gray;
+  margin-top: 40px;
 }
 
-a.fa-plus-square:hover{
+a.plusSquare:hover {
   cursor: pointer;
   color: black;
 }

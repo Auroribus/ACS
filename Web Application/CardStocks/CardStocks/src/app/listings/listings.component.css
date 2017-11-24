@@ -2,7 +2,6 @@
   margin-top: 50px;
   padding-left: 10%;
   padding-right: 10%;
-  font-family: 'Arvo', serif;
 }
 
 table.buyTable {
@@ -10,7 +9,6 @@ table.buyTable {
   border-color: gray;
   width: 48%;
   float: left;
-  font-family: 'Arvo', serif;
 }
 
 a.addBuyButton {
@@ -46,7 +44,6 @@ table.sellTable {
   border-color: gray;
   width: 48%;
   float: right;
-  font-family: 'Arvo', serif;
 }
 
 th {

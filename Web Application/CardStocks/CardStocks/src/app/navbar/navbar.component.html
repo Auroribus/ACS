@@ -1,25 +1,28 @@
 <body>
   <div class="header">
-    
+
     <a class="logoTest" (click)="GoToHome()">Cardstocks</a>
     <!--
         <img class="logo" src="assets/Logo.png" height="100" (click)="GoToHome()"/>
     <p class="logoTest">Cardstocks</p>
         -->
 
-    
+
     <a (click)="toggleMenu()" class="fa fa-bars"></a>
     <a (click)="toggleLogin()" class="login">{{dataservice.activeUser}}</a>
-  
-  
+   <!-- <a (click)="goToContact()" class="navLinks">Contact</a>
+    <a (click)="goToAbout()" class="navLinks">About</a>
+-->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
     <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
-  </div>
-  <div class="searchBox">
-    <input class="searchBar" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Card Name, eg. Lotus Petal" />
-    <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
+    
 
-    <input class="searchBar" [(ngModel)]="dataservice.searchCardSet" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. TMP" />
-    <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
-  </div>
+      <input class="searchBar" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search card, eg. Lotus Petal" />
+    <!--  <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
+        -->
+    <!--
+      <input class="searchBar" [(ngModel)]="dataservice.searchCardSet" (keyup.enter)="search()" type="text" placeholder="Set Name, eg. TMP" />
+      <a (click)="search()" class="fa fa-search searchButton" aria-hidden="true"></a>
+         -->
+  </div>  
 </body>

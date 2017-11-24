@@ -6,7 +6,7 @@ namespace CardStocks.Models
     {
         public static void Initialize(CSContext context)
         {
-      context.Database.EnsureCreated();
+          context.Database.EnsureCreated();
 
       if(context.Cards.Any())
       {
