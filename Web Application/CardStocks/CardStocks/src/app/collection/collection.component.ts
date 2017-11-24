@@ -49,6 +49,67 @@ export class CollectionComponent implements OnInit {
   imageSrc: string;
   base64textString: string;
 
+
+  ngOnInit() {
+    this.dataservice.GetLocalApi("Collections")
+      .subscribe(data => {
+        this.collections = data;
+      });
+
+    this.dataservice.GetLocalApi("Cards")
+      .subscribe(data => {
+        if (data instanceof Array) {
+          this.cards = data;
+          console.log(data);
+        }
+      });
+  }
+  
+  sortByName() {
+    this.dataservice.GetLocalApi("Cards")
+      .subscribe(data => {
+        if (data instanceof Array) {
+          this.cards = [];
+          var newEl = data[0].cardName;
+          var first;
+
+          for (var i = 0; i < data.length; i++)
+          {
+            if (newEl > data[i].cardName) {
+              newEl = data[i].cardName;
+              first = data[i];
+            }
+          }
+
+          
+          this.cards.push(first);
+
+          console.log(this.cards);
+          
+        }
+      });
+    /*
+    let newEl = this.cards[0].cardName;
+
+    for (var i = 1; this.cards.length; i++)
+    {
+      if (newEl > this.cards[i].cardName)
+      {
+        newEl = this.cards[i].cardName;
+      }
+    }
+    console.log("First: " + newEl);
+    */
+  }
+
+  sortBySet() {
+
+  }
+
+  sortByCondition() {
+
+  }
+
   handleFileSelect(evt) {
 
     console.log(evt);
@@ -196,20 +257,6 @@ export class CollectionComponent implements OnInit {
     //this.toggleImageState();
   }
 
-  ngOnInit() {
-    this.dataservice.GetLocalApi("Collections")
-      .subscribe(data => {
-        this.collections = data;
-      });
-
-    this.dataservice.GetLocalApi("Cards")
-      .subscribe(data => {
-        if (data instanceof Array) {
-          this.cards = data;
-          console.log(data);
-        }        
-      });
-  }
 
   addCard() {
 

@@ -1,3 +1,4 @@
+/*
 body {
 }
 div {
@@ -10,21 +11,22 @@ img {
   width: 250px;
 
   padding: 1px;
-  -webkit-transition: all .1s ease; /* Safari and Chrome */
-  -moz-transition: all .1s ease; /* Firefox */
-  -o-transition: all .1s ease; /* Opera */
+  -webkit-transition: all .1s ease; /* Safari and Chrome 
+  -moz-transition: all .1s ease; /* Firefox 
+  -o-transition: all .1s ease; /* Opera 
   transition: all .1s ease;
 }
 
   img:hover {
     cursor: pointer;
-    -webkit-transform: scale(1.1); /* Safari and Chrome */
-    -moz-transform: scale(1.1); /* Firefox */
-    -ms-transform: scale(1.1); /* IE 9 */
-    -o-transform: scale(1.1); /* Opera */
+    -webkit-transform: scale(1.1); /* Safari and Chrome 
+    -moz-transform: scale(1.1); /* Firefox 
+    -ms-transform: scale(1.1); /* IE 9 
+    -o-transform: scale(1.1); /* Opera 
     transform: scale(1.1)
   }
 
 a.wishCard:hover {
   
 }
+*/

@@ -57,13 +57,13 @@
     <hr />
     <div *ngIf="listView">
       
-      <table class="boxView">
+      <table class="boxView" id="myTable">
         <thead>
           <tr>
             <th class="boxViewHead"></th>
-            <th class="boxViewHead">Name</th>
-            <th class="boxViewHead">Expansion</th>
-            <th class="boxViewHead">Condition</th>
+            <th class="boxViewHead"><i class="fa fa-sort" (click)="sortByName()"></i>&nbsp;Name</th>
+            <th class="boxViewHead"><i class="fa fa-sort" (click)="sortBySet()"></i>&nbsp;Expansion</th>
+            <th class="boxViewHead"><i class="fa fa-sort" (click)="sortByCondition()"></i>&nbsp;Condition</th>
             <th class="boxViewHead"></th>
             <th class="boxViewHead"></th>
           </tr>

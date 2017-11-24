@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, RoutesRecognized } from '@angular/router';
 import { DataService } from '../data.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModule } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-navbar',

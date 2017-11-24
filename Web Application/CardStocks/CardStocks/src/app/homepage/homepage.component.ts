@@ -11,11 +11,30 @@ import { DataService } from '../data.service';
 
 export class HomepageComponent implements OnInit {
 
+  cards: string[] = [];
   
   constructor(private dataservice: DataService) {
   }
 
   ngOnInit() {
+    this.dataservice.GetLocalApi("Cards")
+      .subscribe(data => {
+        if (data instanceof Array) {
+
+          var latest = data.length - 1;
+          console.log(data[6]);
+
+          for (var i = 0; i < 5; i++)
+          {
+            var index = latest - i;
+            console.log(index);
+            this.cards.push(data[index]);
+          }
+
+          //this.cards = data;
+          console.log(this.cards);
+        }
+      });
   }
   
   closeMenu() {

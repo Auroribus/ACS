@@ -1,3 +1,4 @@
+/*
 body {
   margin-bottom: 200px;
 }
@@ -142,6 +143,15 @@ a.plusSquare {
   color: gray;
 }
 
+.fa-sort {
+  color: white;
+}
+
+.fa-sort:hover {
+  cursor: pointer;
+  color: black;
+}
+
 a.plusSquare:hover {
   cursor: pointer;
   color: black;
@@ -183,18 +193,18 @@ div.hoverImgDiv {
 
 img.tileImg {
   padding: 1px;
-  -webkit-transition: all .1s ease; /* Safari and Chrome */
-  -moz-transition: all .1s ease; /* Firefox */
-  -o-transition: all .1s ease; /* Opera */
+  -webkit-transition: all .1s ease; /* Safari and Chrome 
+  -moz-transition: all .1s ease; /* Firefox 
+  -o-transition: all .1s ease; /* Opera 
   transition: all .1s ease;
 }
 
   img.tileImg:hover {
     cursor: pointer;
-    -webkit-transform: scale(2); /* Safari and Chrome */
-    -moz-transform: scale(2); /* Firefox */
-    -ms-transform: scale(2); /* IE 9 */
-    -o-transform: scale(2); /* Opera */
+    -webkit-transform: scale(2); /* Safari and Chrome 
+    -moz-transform: scale(2); /* Firefox 
+    -ms-transform: scale(2); /* IE 9 
+    -o-transform: scale(2); /* Opera 
     transform: scale(2)
   }
 
@@ -235,6 +245,6 @@ div.addCardBox {
   padding-bottom: 10px;
 }
 
-
+  */
 
 

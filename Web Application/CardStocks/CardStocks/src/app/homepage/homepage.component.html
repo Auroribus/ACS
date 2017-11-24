@@ -1,29 +1,49 @@
-
-<body  (click)="closeMenu()">
-  <!--
-<div class="newsContainer">
-  <h2 class="newsHeader">News</h2>
+<div class="main-div">
+  <h2 class="main-h2">Latest Cards added</h2>
   <hr />
-  <img class="newsImg" src="http://via.placeholder.com/500x300" />
-
-  <p class="newsText">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at purus a leo tempus dignissim. Donec sed magna at felis rutrum blandit. Nullam cursus vulputate sapien laoreet aliquam. Pellentesque sollicitudin placerat tellus nec scelerisque. In aliquet imperdiet fermentum. Mauris ut nisl in dolor pellentesque fermentum id interdum lectus. Nam porttitor scelerisque dui, eu tincidunt elit posuere ac. Sed feugiat velit in justo luctus sollicitudin. Vestibulum ipsum leo, congue vitae mi id, auctor consectetur est.
-    <br />
-    <br />
-    Quisque mattis neque justo, vel pharetra elit congue pellentesque. Integer volutpat tortor et massa venenatis rutrum in et neque. Nam tincidunt suscipit faucibus. Aenean blandit ut est a pharetra. Phasellus accumsan placerat nunc ut tincidunt. Vivamus laoreet ante non est lobortis lobortis. Nam semper, mi consequat dignissim dignissim, purus leo faucibus nisi, egestas porta ex nunc non elit. Nulla nec dapibus purus, ac lacinia mauris. Morbi volutpat eu nulla sit amet lacinia.
-  </p>
-</div>
--->
-  <div class="clear"></div>
-
-<div class="newsContainer">
-  <h2 class="newsHeader">Newest Cards</h2>
+  <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
+  <h2 class="main-h2">Gain</h2>
   <hr />
-  <img class="newestImg" src="../../assets/AeronautTinkerer.png" height="300" width="220" />
-  <img class="newestImg" src="../../assets/Ajani.jpg" height="300" width="220" />
-  <img class="newestImg" src="../../assets/Brazen Buccaneers_EN_HRR copy.png" height="300" width="220" />
-  <img class="newestImg" src="../../assets/GoblinSwatTeam.jpg" height="300" width="220" />
-  <img class="newestImg" src="../../assets/HydraBroodmaster.jpg" height="300" width="220" />
+
+  <table class="main-table">
+    <thead>
+      <tr>
+        <th class="boxViewHead">Price</th>
+        <th class="boxViewHead">Name</th>
+        <th class="boxViewHead">Expansion</th>
+        <th class="boxViewHead">Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of cards">
+        <td class="green-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> $14.59</td>
+        <td>{{items.cardName}}</td>
+        <td>{{items.cardSet}}</td>
+        <td>{{items.cardCondition}}</td>        
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="main-h2">Loss</h2>
+  <hr />
+  <table class="main-table">
+    <thead>
+      <tr>
+        <th class="boxViewHead">Price</th>
+        <th class="boxViewHead">Name</th>
+        <th class="boxViewHead">Expansion</th>
+        <th class="boxViewHead">Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of cards">
+        <td class="red-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> $9.27</td>
+        <td>{{items.cardName}}</td>
+        <td>{{items.cardSet}}</td>
+        <td>{{items.cardCondition}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
-  </body>
 

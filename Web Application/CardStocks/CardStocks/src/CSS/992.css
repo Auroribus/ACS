@@ -1,0 +1,38 @@
+@media only screen and (min-width: 992px) {
+    /* Navbar */
+div.navbar {
+  height: 60px;
+}
+
+img.logo-img {
+  height: 50px;
+  margin-top: 5px;
+}
+
+a.fa-bars {
+  font-size: 35px;
+  margin-top: 15px;
+}
+
+a.login-a {
+  font-size: 30px;
+  margin-top: 15px;
+  margin-right: 5%;
+}
+
+input.search-card-input {
+  margin-top: 15px;
+  width: 25%;
+  height: 25px;
+  padding-left: 10px;
+}
+
+  /* Homepage */
+  img.main-img {
+    width: 11%;
+  }
+
+  h2.main-h2 {
+    font-size: 24px;
+  }
+}
