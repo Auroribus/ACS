@@ -8,12 +8,14 @@
     <a (click)="toggleMenu()" class="fa fa-bars"></a>
     <a (click)="toggleLogin()" class="login-a">{{dataservice.activeUser}}</a>
 
-    <!-- Search -->
-    <input class="search-card-input" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
-    <a><i class="fa fa-search" aria-hidden="true"></i></a>
-
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
     <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
      
+</div>
+
+<div class="search-div">
+  <!-- Search -->
+  <input class="search-card-input" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
+
 </div>

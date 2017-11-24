@@ -1,45 +1,16 @@
 :host {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   position: fixed;
   right: 0;
-  top: 80px;
+  top: 0;
   left: auto;
   bottom: 0;
   width: 15%;
-  min-width: 250px;
+  min-width: 200px;
   z-index: 9999;
-  height: 100%;
+  border-left: solid;
+  border-width: 2px;
+  border-color: black;
+  font-size: 20px;
 }
-
-
-/*
-a.fa-bars {
-  float: right;
-  font-size: 40px;
-  padding: 20px;
-  color: white;
-}
-
-a.fa-bars:hover {
-  cursor: pointer;
-  color: gray;
-}
-
-ul {
-  font-size: 24px;
-  line-height: 3;
-  font-weight: 400;
-  padding-top: 50px;
-  list-style: none;
-}
-
-a.navLinks {
-  font-size: 25px;
-}
-
-  a.navLinks:hover {
-    cursor: pointer;
-    color: lightgray;
-  }
-  */

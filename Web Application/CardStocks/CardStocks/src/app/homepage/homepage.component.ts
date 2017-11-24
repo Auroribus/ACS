@@ -12,6 +12,7 @@ import { DataService } from '../data.service';
 export class HomepageComponent implements OnInit {
 
   cards: string[] = [];
+  latestCardsNumber: number = 7;
   
   constructor(private dataservice: DataService) {
   }
@@ -24,7 +25,7 @@ export class HomepageComponent implements OnInit {
           var latest = data.length - 1;
           console.log(data[6]);
 
-          for (var i = 0; i < 5; i++)
+          for (var i = 0; i < this.latestCardsNumber; i++)
           {
             var index = latest - i;
             console.log(index);
