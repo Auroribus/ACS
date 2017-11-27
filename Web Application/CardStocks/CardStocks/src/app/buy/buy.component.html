@@ -16,6 +16,8 @@
     <table class="buyTable">
       <thead>
         <tr>
+          <th>Seller:</th>
+          <th>Rating:</th>
           <th>Name:</th>
           <th>Set:</th>
           <th>Condition:</th>
@@ -24,6 +26,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let items of buyListings">
+          <td>Username X</td>
+          <td>4.3/5</td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>
