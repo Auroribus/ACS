@@ -1,17 +1,12 @@
 @media only screen and (min-width: 992px) {
     /* Navbar */
-div.navbar {
-  height: 60px;
-}
+  div.top-box {
+    height: 60px;
+  }
 
 img.logo-img {
   height: 50px;
   margin-top: 5px;
-}
-
-a.fa-bars {
-  font-size: 35px;
-  margin-top: 15px;
 }
 
 a.login-a {
@@ -19,6 +14,11 @@ a.login-a {
   margin-top: 15px;
   margin-right: 5%;
 }
+
+  a.fa-bars {
+    margin-top: 20px;
+    font-size: 40px;
+  }
 
 input.search-card-input {
   margin-top: 15px;

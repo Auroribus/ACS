@@ -13,14 +13,13 @@
 }
 
 /* General */
-hr {
-  height: 12px;
-  border: 0;
-  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-}
-
 .green-text { color:green;}
 .red-text { color: red; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+ul { padding: 10px; list-style: none; }
+a:hover { cursor: pointer; }
 
 /* applies to homepage table */
 thead {
@@ -28,11 +27,18 @@ thead {
   color: var(--primary-text-color);
 }
 
-tr:nth-child(even) {
+tr:nth-child(even) td{
   background: lightgray;
 }
 
+th {
+  padding-left: 10px;
+  font-size: 16px;
+}
+
 td {
+  font-size: 14px;
+  padding-left: 10px;
   border-bottom: solid;
   border-color: black;
   border-width: 1px;
@@ -43,41 +49,45 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
-  background-image: url(assets/gplaypattern/gplaypattern.png);
+  background: white; /*url(assets/gplaypattern/gplaypattern.png);*/
 }
 
-div.navbar {
+div.top-box {
   background: var(--primary-color);
   color: var(--primary-text-color);
   width: 100%;
+  height: 50px;
 }
 
 img.logo-img {
   float: left;
   margin-left: 5%;
+  height: 40px;
 }
 
 img.logo-img:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 a.fa-bars {
   float: right;
   margin-right: 5%;
+  margin-top: 10px;
+  font-size: 30px;
 }
 
 a.fa-bars:hover {
-  cursor: pointer;
   color: var(--secondary-text-color);
 }
 
 a.login-a {
   float: right;
   margin-right: 5%;
+  margin-top: 10px;
+  font-size: 24px;
 }
 
 a.login-a:hover {
-  cursor: pointer;
   color: var(--secondary-text-color);
 }
 
@@ -85,11 +95,15 @@ div.search-div {
   margin-left: 20%;
   margin-right: 20%;
   width: 60%;
+  margin-bottom: 20px;
 }
 
 input.search-card-input {
+  margin-top: 5px;
+  padding-left: 10px;
   border-radius: 5px;
   width: 100%;
+  height: 30px;
 }
 
 /* Homepage */
@@ -99,14 +113,33 @@ div.main-div {
   margin-bottom: 50px;
 }
 
+div.panel-div {
+  height: 200px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  margin: 1.5%;
+  width: 30%;
+  color: black;
+  box-shadow: 5px 5px 10px gray; /* x , y , opacity/brush effect , color*/
+
+  margin-bottom: 20px;
+}
+
+div.panel-div h2 {
+  color: white;
+  text-align: center;
+  background: black;
+  border-radius: 5px;
+}
+
 img.main-img {
-  padding-left: 1%;
-  padding-right: 1%;
   -webkit-transition: all .1s ease;
   -moz-transition: all .1s ease;
   -o-transition: all .1s ease;
   transition: all .1s ease;
-  overflow: scroll;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px gray;
 }
 
 img.main-img:hover {
@@ -114,15 +147,81 @@ img.main-img:hover {
     -moz-transform: scale(1.5); 
     -ms-transform: scale(1.5); 
     -o-transform: scale(1.5); 
-    transform: scale(1.5)
+    transform: scale(1.5);
+    cursor: pointer;
 }
 
 table.main-table {
   border-collapse: collapse;
   border-spacing: 0;
-  width:100%;
+  width:30%;
+  margin: 1.5%;
   text-align: left;
+  border: solid;
+  border-width: 2px;
+  border-color: black;
+  box-shadow: 5px 5px 10px gray;
 }
+
+/* Login */
+
+div.login-div {
+  background: white;
+  height: 200px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  color: black;
+  box-shadow: 5px 5px 20px gray; /* x , y , opacity/brush effect , color*/
+  margin-bottom: 20px;
+}
+
+input.form-input {
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+button.login-button 
+{
+  font-size: 20px;
+  margin-left: 30%;
+  margin-top: 20px;
+  display: block;
+  border-width: 5px;
+  border-radius: 10px;
+  background: white;
+  color: gray;
+  padding: 0px 5px 0px 5px;
+}
+
+p.login-p {
+  margin-left: 30%;
+  color: gray;
+}
+
+div.login-div a.login-a2 {
+  color: blue;
+}
+
+div.login-div a.login-a2:hover {
+  color: black;
+}
+
+div.login-div h2 {
+  color: white;
+  text-align: center;
+  background: black;
+  border-radius: 5px;
+  font-size: 44px;
+  height: 60px;
+}
+
+
 
 
 

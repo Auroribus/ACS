@@ -1,21 +1,19 @@
 @media only screen and (min-width: 1200px) {
   /* Navbar */
-div.navbar {
-  height: 80px;
+div.top-box {
+  
 }
 
 img.logo-img {
-  height: 70px;
-}
-
-a.fa-bars {
-  font-size: 40px;
-  margin-top: 20px;
+  
 }
 
 a.login-a {
-  font-size: 40px;
-  margin-top: 20px;
+  
+}
+
+a.fa-bars {
+  
 }
 
 input.search-card-input {
@@ -26,11 +24,12 @@ input.search-card-input {
 
   /* Homepage */
   img.main-img {
-    width: 11%;
+    margin: 1%;
+    width: 12.2%;
   }
 
-  h2.main-h2 {
-    font-size: 24px;
+  div.panel-div h2 {
+    font-size: 28px;
   }
 
 }

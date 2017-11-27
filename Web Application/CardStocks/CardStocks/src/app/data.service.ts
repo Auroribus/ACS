@@ -18,7 +18,7 @@ export class DataService {
   activeUser = "Login";
 
   slideInOutLeftRight = "out";
-  slideInOutUpDown = "out";
+  slideInOutUpDown = "in";
   showImage = "out";
 
   searchCardName: string;

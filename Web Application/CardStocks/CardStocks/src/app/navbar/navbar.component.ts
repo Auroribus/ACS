@@ -5,8 +5,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Router } from '@angular/router';
 import { ActivatedRoute, RoutesRecognized } from '@angular/router';
 import { DataService } from '../data.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AlertModule } from 'ngx-bootstrap';
+
 
 @Component({
   selector: 'app-navbar',
@@ -25,10 +24,10 @@ import { AlertModule } from 'ngx-bootstrap';
     ]),
     trigger('slideInOutUpDown', [
       state('in', style({
-        transform: 'translate3d(0, 100px, 0)'
+        transform: 'translate3d(0, 30%, 0)'
       })),
       state('out', style({
-        transform: 'translate3d(0, -100%, 0)'
+        transform: 'translate3d(0, -110%, 0)'
       })),
       transition('in => out', animate('200ms ease-in-out')),
       transition('out => in', animate('400ms ease-in-out'))
