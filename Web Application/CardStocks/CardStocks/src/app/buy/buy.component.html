@@ -1,5 +1,7 @@
 <body (click)="closeMenu()">
 
+  <button (click)="getByClick()">Get</button>
+
   <div class="buyList" *ngIf="addBuyListing">
     <input class="buyItem" type="text" [(ngModel)]="cardName" placeholder="Name" />
     <br /><input class="buyItem" type="text" [(ngModel)]="cardSet" placeholder="Set" />
@@ -25,9 +27,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let items of buyListings">
-          <td>Username X</td>
-          <td>4.3/5</td>
+        <tr *ngFor="let items of buyListings; let i = index" [attr.data-index]="i">
+          <td>{{userName[i]}}</td>
+          <td>{{rating[i]}}</td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>

@@ -16,10 +16,13 @@ namespace CardStocks.Models
         [Required]
         public string Password { get; set; }
 
+        [Required]
         public int AmountOfSales { get; set; }
 
+        [Required]
         public double Rating { get; set; }
 
+        [Required]
         public string DateOfCreation { get; set; }
     }
 }

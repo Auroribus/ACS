@@ -106,6 +106,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
+    this.dataservice.GetLocalApi('User').subscribe(data => {
+      console.log(data);
+    });
+    
     var user = localStorage.getItem('user');   
 
     if (user == null || user == "" || user == "Login") {
@@ -120,6 +125,7 @@ export class NavbarComponent implements OnInit {
 
     console.log("user: " + user);
     console.log(this.loggedIn);
+    */
   }
 
   searchChange(newValue) {

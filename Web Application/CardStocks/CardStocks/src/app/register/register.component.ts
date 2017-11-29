@@ -107,7 +107,10 @@ export class RegisterComponent implements OnInit {
     body = {
       username: this.username,
       email: this.email,
-      password: this.passHashed
+      password: this.passHashed,
+      amountOfSales: 0,
+      dateOfCreation: "29/11/2017",
+      rating: 4.2
     }
 
     this.dataservice.PostLocalApi('User', body).subscribe(data => {

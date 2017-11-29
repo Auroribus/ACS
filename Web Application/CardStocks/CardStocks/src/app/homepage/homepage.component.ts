@@ -37,7 +37,11 @@ export class HomepageComponent implements OnInit {
         }
       });
   }
-  
+
+  setTheme(name: string) {
+    this.dataservice.SwitchTheme(name);
+  }
+
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";

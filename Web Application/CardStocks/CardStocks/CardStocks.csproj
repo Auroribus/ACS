@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <RetryAttemptsForDeployment>30</RetryAttemptsForDeployment>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="CardStocksAngular\" />

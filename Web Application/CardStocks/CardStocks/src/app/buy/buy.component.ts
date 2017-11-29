@@ -18,6 +18,9 @@ export class BuyComponent implements OnInit {
   cardName: string;
   cardSet: string;
   cardCondition: string;
+  userName: string[] = [];
+  rating: number[] = [];
+
 
   toggleAdd() {
     if (this.addBuyListing)
@@ -33,11 +36,22 @@ export class BuyComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataservice : DataService, private http: Http) { }
 
   ngOnInit() {
+
+    var userr;
+
     this.dataservice.GetLocalApi('BuyList').subscribe(data =>
-    {
-      console.log(data);
+    {      
       this.buyListings = data;
-      console.log(this.buyListings)
+
+      for (var i = 0; i < data.length; i++)
+      {
+        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
+          this.userName.push(userdata.username);
+          this.rating.push(userdata.rating);
+        });
+      }
+
+      
     });
   }
 
@@ -57,7 +71,7 @@ export class BuyComponent implements OnInit {
     {
       //Change user id when logg in sessions done
       let body = {
-        UserId: 1,
+        UserId: 2,
         CardName: this.cardName,
         CardSet: this.cardSet,
         CardCondition: this.cardCondition,

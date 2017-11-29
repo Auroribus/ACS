@@ -15,11 +15,47 @@ export class DataService {
 
   hoverItem: number;
 
+  //User related
   activeUser = "Login";
 
+  //Animation related
   slideInOutLeftRight = "out";
   slideInOutUpDown = "out";
   showImage = "out";
+
+  //Theme related
+  currentTheme = "Default";
+  logo_Image = "assets/Logo.png";
+
+  SwitchTheme(name: string) {
+
+    var primary;
+    var secondary;
+
+    if (name == 'Dark') {
+      primary = 'white';
+      secondary = 'black';
+      this.logo_Image = "assets/Logo_dark.png";
+    }
+
+    if (name == 'Default') {
+      primary = 'black';
+      secondary = 'white';
+      this.logo_Image = "assets/Logo.png";
+    }
+
+    // Background
+    document.documentElement.style.setProperty('--primary-bg-color', primary);
+    document.documentElement.style.setProperty('--secondary-bg-color', secondary);
+
+    //Text
+    document.documentElement.style.setProperty('--primary-text-color', secondary);
+    document.documentElement.style.setProperty('--secondary-text-color', primary);
+
+    document.documentElement.style.setProperty('--primary-color', primary);
+
+  }
+
 
   searchCardName: string;
   searchCardSet: string;
