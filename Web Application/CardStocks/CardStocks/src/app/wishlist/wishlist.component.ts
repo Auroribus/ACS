@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
@@ -11,12 +11,16 @@ import { DataService } from '../data.service';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private dataservice : DataService) { }
+  username: string;
+
+  constructor(private router: Router, private route: ActivatedRoute, private dataservice : DataService) { }
 
   ngOnInit() {
-    this.route.fragment.subscribe((fragment: string) => {
-      console.log(fragment);
-    });
+      this.username = localStorage.getItem('user');
+      if (this.username == null || this.username == "" || this.username == "Login") {
+        this.router.navigate([""]);
+      }
+    
   }
 
   closeMenu() {

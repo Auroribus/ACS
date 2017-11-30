@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
@@ -26,7 +26,7 @@ let body;
 })
 export class CollectionComponent implements OnInit {
 
-  constructor(private dataservice: DataService, private route: ActivatedRoute, private http: Http, private change: ChangeDetectorRef) { }
+  constructor(private router: Router, private dataservice: DataService, private route: ActivatedRoute, private http: Http, private change: ChangeDetectorRef) { }
 
   collectionName: string;
   cards: string[] = [];
@@ -38,6 +38,7 @@ export class CollectionComponent implements OnInit {
   cNameSearch: string;
   cCondition: string;
   sellPrice: number = 12.04;
+  username: string;
 
   imgSrc: string;
   imageSource: string = "assets/Loading.png";
@@ -51,18 +52,27 @@ export class CollectionComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataservice.GetLocalApi("Collections")
-      .subscribe(data => {
-        this.collections = data;
-      });
 
-    this.dataservice.GetLocalApi("Cards")
-      .subscribe(data => {
-        if (data instanceof Array) {
-          this.cards = data;
-          console.log(data);
-        }
-      });
+    this.username = localStorage.getItem('user');
+    if (this.username == null || this.username == "" || this.username == "Login") {
+      this.router.navigate([""]);
+    }
+    else {
+
+
+      this.dataservice.GetLocalApi("Collections")
+        .subscribe(data => {
+          this.collections = data;
+        });
+
+      this.dataservice.GetLocalApi("Cards")
+        .subscribe(data => {
+          if (data instanceof Array) {
+            this.cards = data;
+            console.log(data);
+          }
+        });
+    }
   }
   
   sortByName() {
@@ -181,6 +191,26 @@ export class CollectionComponent implements OnInit {
   }
 
   sellCard(cardId, cardName) {
+
+    console.log(cardId);
+    console.log(cardName);
+
+    /*[Key]
+    public int SellId { get; set; }
+
+    [Required]
+    public int UserId { get; set; }
+
+    [Required]
+    public int CardId { get; set; }
+
+    [Required]
+    public string CardName { get; set; }
+
+    [Required]
+    public double SellPrice { get; set; }
+    */
+
     let body = {
       UserId: 1,
       CardId: cardId,
@@ -326,11 +356,11 @@ export class CollectionComponent implements OnInit {
 
   sendCardItem(cardId) {
     console.log(cardId);
-
+    /*
     this.dataservice.GetLocalApi("Cards/" + cardId)
       .subscribe(data => {
         console.log(data);
-      });
+      });*/
   }
 
   removeCard(cardId) {

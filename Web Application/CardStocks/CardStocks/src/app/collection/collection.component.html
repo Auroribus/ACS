@@ -1,4 +1,4 @@
-<body (click)="closeMenu()">
+<div class="main-div" (click)="closeMenu()">
 
   
   <!--
@@ -29,12 +29,12 @@
     <input class="colField" type="text" placeholder="collection name" [(ngModel)]="collectionName" />
     <a class="fa fa-plus-square" (click)="addCollection()">&nbsp;&nbsp;Add Collection</a>
   </div>
-  -->
+  
   <div *ngIf="hoverImage" class="hoverImgDiv">
-    <img width="500" src={{imageSource}} />
+    <img width="300" src={{imageSource}} />
   </div>
-
-  <div *ngIf="!addingCard" class="addCardBox">
+      -->
+  <div *ngIf="addingCard" class="addCardBox">
     <input class="addCardItem" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
     <br /><input class="addCardItem" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
     <br /><input class="addCardItem" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
@@ -46,10 +46,10 @@
 
   <div class="mainBox">
 
-    <a class="plusSquare" (click)="toggleAddCard()"><p class="fa fa-plus-square"></p>&nbsp;Card</a>
+    <a class="plusSquare" (click)="toggleAddCard()"><i class="fa fa-plus-square"></i>&nbsp;Add Card</a>
     
-    <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list"></a>
-    <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large"></a>
+    <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list right"></a>
+    <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large right"></a>
 
     <div class="clear"></div>
     <hr />
@@ -89,4 +89,4 @@
     </div>
 
   </div>
-</body>
+</div>

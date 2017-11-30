@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
@@ -21,6 +21,8 @@ export class BuyComponent implements OnInit {
   userName: string[] = [];
   rating: number[] = [];
 
+  username: string;
+
 
   toggleAdd() {
     if (this.addBuyListing)
@@ -33,26 +35,31 @@ export class BuyComponent implements OnInit {
     }
   }
 
-  constructor(private route: ActivatedRoute, private dataservice : DataService, private http: Http) { }
+  constructor(private router: Router, private route: ActivatedRoute, private dataservice : DataService, private http: Http) { }
 
   ngOnInit() {
 
-    var userr;
+    this.username = localStorage.getItem('user');
+    if (this.username == null || this.username == "" || this.username == "Login") {
+      this.router.navigate([""]);
+    }
+    else {
 
-    this.dataservice.GetLocalApi('BuyList').subscribe(data =>
-    {      
-      this.buyListings = data;
+      var userr;
 
-      for (var i = 0; i < data.length; i++)
-      {
-        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
-          this.userName.push(userdata.username);
-          this.rating.push(userdata.rating);
-        });
-      }
+      this.dataservice.GetLocalApi('BuyList').subscribe(data => {
+        this.buyListings = data;
 
-      
-    });
+        for (var i = 0; i < data.length; i++) {
+          this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
+            this.userName.push(userdata.username);
+            this.rating.push(userdata.rating);
+          });
+        }
+
+
+      });
+    }
   }
 
   addBuy() {

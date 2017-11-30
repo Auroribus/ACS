@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   GoToRegister() {
@@ -67,7 +68,8 @@ export class LoginComponent implements OnInit {
        console.log("userfound");
         // this.dataservice.activeUser = this.username;
        localStorage.setItem('user', this.username);
-       localStorage.setItem('id',data[i].userId);
+       localStorage.setItem('id', data[i].userId);
+       this.dataservice.activeUser = localStorage.getItem('user');
        this.router.navigate(['dashboard']);
        location.reload();
        //break;

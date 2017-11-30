@@ -1,7 +1,7 @@
-<body (click)="closeMenu()">
-  <div *ngIf="options" class="options">
-    <button class="optionButton" (click)="addToDB()">Add</button>
-    <button class="optionButton" (click)="removeFromDB()">Remove</button>
+<div class="main-div" (click)="closeMenu()">
+  <div *ngIf="options">
+    <button class="option-button" (click)="addToDB()">Add</button>
+    <button class="option-button" (click)="removeFromDB()">Remove</button>
   </div>
   <div *ngIf="!options">
     <button (click)="Options()">Options</button>
@@ -58,4 +58,4 @@
         </tbody>
       </table>
     </div>
-</body>
+</div>

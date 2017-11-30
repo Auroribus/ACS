@@ -12,7 +12,7 @@ import { DataService } from '../data.service';
 export class HomepageComponent implements OnInit {
 
   cards: string[] = [];
-  latestCardsNumber: number = 7;
+  latestCardsNumber: number = 10;
   
   constructor(private dataservice: DataService) {
   }
@@ -20,10 +20,21 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.dataservice.GetLocalApi("Cards")
       .subscribe(data => {
+
+        if (data.length < 10)
+        {
+          this.latestCardsNumber = data.length;
+        }
+        else
+        {
+          this.latestCardsNumber = 10;
+        }
+
+        console.log(data);
+
         if (data instanceof Array) {
 
           var latest = data.length - 1;
-          console.log(data[6]);
 
           for (var i = 0; i < this.latestCardsNumber; i++)
           {

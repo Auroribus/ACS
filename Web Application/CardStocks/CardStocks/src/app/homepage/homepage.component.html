@@ -1,4 +1,4 @@
-<div class="main-div">
+<div class="main-div" (click)="closeMenu()">
 
   <hr />
   <h2 class="main-h2">Themes:
@@ -32,13 +32,6 @@
   </div>
 
   <div class="clear"></div>
-
-  <div class="img-div">
-    <h2 class="main-h2">Latest Cards added</h2>
-    <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
-  </div>
-  <div class="clear"></div>
-  <hr />
   
   <table class="main-table left">
     <thead>
@@ -105,6 +98,15 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="clear"></div>
+
+  <div class="img-div">
+    <h2 class="main-h2">Latest Cards added</h2>
+    <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
+  </div>
+  <div class="clear"></div>
+  <hr />
 
 </div>
 

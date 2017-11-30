@@ -41,7 +41,8 @@ export class NavbarComponent implements OnInit {
   searchSetName: string = "";
   activeRoute: string;
   login: string;
-  loggedIn: boolean = false;  
+  loggedIn: boolean = false;
+  logdIn: boolean = false;
 
   constructor(private dataservice: DataService, private http: Http, private router: Router, private route: ActivatedRoute)
   {
@@ -106,26 +107,22 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*
-    this.dataservice.GetLocalApi('User').subscribe(data => {
-      console.log(data);
-    });
-    
-    var user = localStorage.getItem('user');   
 
-    if (user == null || user == "" || user == "Login") {
-      //no user logged in show login button
-      this.loggedIn = false;
-      
+    console.log(localStorage.getItem('id'));
+
+    this.dataservice.activeUser = localStorage.getItem('user');
+    console.log(this.dataservice.activeUser);
+    
+    if (this.dataservice.activeUser == null || this.dataservice.activeUser == "" || this.dataservice.activeUser == "Login")
+    {
+      localStorage.setItem('user', "Login");
+      this.dataservice.activeUser = localStorage.getItem('user');
+      this.logdIn = false;
     }
     else {
-      this.loggedIn = true;
       this.dataservice.activeUser = localStorage.getItem('user');
+      this.logdIn = true;
     }
-
-    console.log("user: " + user);
-    console.log(this.loggedIn);
-    */
   }
 
   searchChange(newValue) {

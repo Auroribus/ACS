@@ -1,4 +1,4 @@
-<body (click)="closeMenu()">
+<div class="main-div" (click)="closeMenu()">
 
   <div *ngIf="addSellListing">
     <input type="text" [(ngModel)]="cardPrice" placeholder="Price" />
@@ -7,23 +7,35 @@
 
 
   <div>
-    <h2>For Sale</h2>
-    <table class="sellTable">
+    <table class="list-table-center">
       <thead>
         <tr>
-          <th>Name:</th>
+          <th>For Sale:</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Seller:</th>
+          <th>Rating:</th>
+          <th>Card Name:</th>
           <th>Condition:</th>
+          <th>Set:</th>
           <th>Price:</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of sellListings">
-          <td>{{items.sellName}}</td>
+          <td>Auro</td>
+          <td>5.0</td>
+          <td>{{items.cardName}}</td>
           <td>{{items.set}}</td>
           <td>{{items.Condition}}</td>
-          <td>{{items.sellPrice}}</td>
+          <td>$ {{items.sellPrice}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-</body>
+</div>

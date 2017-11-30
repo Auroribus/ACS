@@ -31,16 +31,22 @@ export class DataService {
 
     var primary;
     var secondary;
+    var primTxt;
+    var secTxt;
 
     if (name == 'Dark') {
       primary = 'white';
       secondary = 'black';
+      primTxt = 'black';
+      secTxt = 'white';
       this.logo_Image = "assets/Logo_dark.png";
     }
 
     if (name == 'Default') {
       primary = 'black';
       secondary = 'white';
+      primTxt = 'white';
+      secTxt = 'black';
       this.logo_Image = "assets/Logo.png";
     }
 
@@ -49,10 +55,10 @@ export class DataService {
     document.documentElement.style.setProperty('--secondary-bg-color', secondary);
 
     //Text
-    document.documentElement.style.setProperty('--primary-text-color', secondary);
-    document.documentElement.style.setProperty('--secondary-text-color', primary);
+    document.documentElement.style.setProperty('--primary-text-color', primTxt);
+    document.documentElement.style.setProperty('--secondary-text-color', secTxt);
 
-    document.documentElement.style.setProperty('--primary-color', primary);
+    document.documentElement.style.setProperty('--primary-color', 'black');
 
   }
 

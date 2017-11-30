@@ -1,7 +1,89 @@
-<body (click)="closeMenu()">
+<div class="main-div" (click)="closeMenu()">
   <h1>Welcome {{username}}</h1>
+  <p>(non-membership)</p>
+  <div class="panel-div-large">
+    <h2>Tracking (2/20)</h2>
+    <hr />
+    <table class="list-table left">
+      <thead>
+        <tr>
+          <th>To Sell:</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Card Name:</th>
+          <th>Lowest Price Sold:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Card X</td>
+          <td>$ 1.07</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <div>
-    <a class="fa fa-sign-out" (click)="logOut()">&nbsp;Log Out</a>
+    <table class="list-table right">
+      <thead>
+        <tr>
+          <th>To Buy:</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Card Name:</th>
+          <th>Lowest Price for Sale:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Card X</td>
+          <td>$ 1.07</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="clear"></div>
+    <br />
+    <h2>Listings (2/20)</h2>
+    <hr />
+
+    <table class="list-table left">
+      <thead>
+        <tr>
+          <th>Sell Listings</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Card Name:</th>
+          <th>Price:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Card X</td>
+          <td>$ 1.07</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="list-table right">
+      <thead>
+        <tr>
+          <th>Buy Listings</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Card Name:</th>
+          <th>Price:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Card X</td>
+          <td>$ 1.07</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
-</body>
+</div>

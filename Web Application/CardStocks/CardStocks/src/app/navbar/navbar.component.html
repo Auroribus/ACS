@@ -5,7 +5,7 @@
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
 
     <!-- Toggles  -->
-    <a (click)="toggleMenu()" class="fa fa-bars"></a>
+    <a (click)="toggleMenu()" class="fa fa-bars" *ngIf="logdIn"></a>
     <a (click)="toggleLogin()" class="login-a">{{dataservice.activeUser}}</a>
 
     <!-- Components -->
@@ -17,5 +17,5 @@
 <div class="search-div">
   <!-- Search -->
   <input class="search-card-input" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
-  
+  <hr />
 </div>

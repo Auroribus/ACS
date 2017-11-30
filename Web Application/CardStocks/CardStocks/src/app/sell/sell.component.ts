@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
@@ -16,15 +16,24 @@ export class SellComponent implements OnInit {
 
   addBuyListing: boolean = true;
   cardPrice: number;
+  username: string;
   //select card then add price
 
-  constructor(private route: ActivatedRoute, private dataservice: DataService, private http: Http) { }
+  constructor(private router: Router, private route: ActivatedRoute, private dataservice: DataService, private http: Http) { }
 
   ngOnInit() {
+    this.username = localStorage.getItem('user');
+    if (this.username == null || this.username == "" || this.username == "Login") {
+      this.router.navigate([""]);
+    }
+    else
+    {
+
     this.dataservice.GetLocalApi('SellList').subscribe(data => {
-      //console.log(data);
+      console.log(data);
       this.sellListings = data;
-    });
+      });
+    }
     
   }
 

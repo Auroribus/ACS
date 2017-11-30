@@ -1,11 +1,11 @@
-<body (click)="closeMenu()">
+<div class="main-div" (click)="closeMenu()">
 <div class="box" id="boxDiv">
-  <a class="addBuyButton"><p class="fa fa-plus-square">
-     </p>&nbsp;Buy Card</a>
-  <a class="addSellButton"><p class="fa fa-plus-square">
-     </p>&nbsp;Sell Card</a>
+  <a class="plusSquare right"><i class="fa fa-plus-square">
+     </i>&nbsp;Buy Card</a>
+  <a class="plusSquare left"><i class="fa fa-plus-square">
+     </i>&nbsp;Sell Card</a>
   <div class="clear"></div>
-  <table class="sellTable">
+  <table class="list-table left">
     <thead>
       <tr>
         <th>Selling:</th>
@@ -24,7 +24,7 @@
     </tbody>
   </table>
     
-  <table class="buyTable">
+  <table class="list-table right">
     <thead>
       <tr>
         <th>Buying:</th>
@@ -41,4 +41,4 @@
     </tbody>
   </table>
 </div>
-  </body>
+  </div>

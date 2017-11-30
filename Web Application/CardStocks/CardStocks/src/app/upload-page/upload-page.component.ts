@@ -38,6 +38,15 @@ export class UploadPageComponent implements OnInit {
   Remove: boolean = false;
   Add: boolean = false;
 
+  username: string;
+
+  ngOnInit() {
+    this.username = localStorage.getItem('user');
+    if (this.username == null || this.username == "" || this.username == "Login") {
+      this.router.navigate([""]);
+    }
+  }
+
   addToDB() {
     this.options = false;
     this.Add = true;
@@ -67,12 +76,14 @@ export class UploadPageComponent implements OnInit {
 
   DelFromDB(cardId) {
     console.log("remove from db");
+    /*
     this.http.delete('/api/Cards/' + cardId)
       .map(res => res.json())
       .subscribe(data => {
         console.log(data);
         location.reload();
       });
+    */
   }
 
   Options() {
@@ -88,9 +99,6 @@ export class UploadPageComponent implements OnInit {
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";
-  }
-
-  ngOnInit() {
   }
 
   private base64textString: String = "";

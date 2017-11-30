@@ -30,7 +30,9 @@ export class ListingsComponent implements OnInit {
   sellPrice: number;
   cardName: string;
 
-  constructor(private http: Http, private dataservice: DataService) { }
+  username: string;
+
+  constructor(private router: Router, private http: Http, private dataservice: DataService) { }
 
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
@@ -38,10 +40,18 @@ export class ListingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    //Change this to logged in userid
-    this.userID = 1;
-    this.GetBuyListings();
-    this.GetSellListings();
+
+    this.username = localStorage.getItem('user');
+    if (this.username == null || this.username == "" || this.username == "Login") {
+      this.router.navigate([""]);
+    }
+    else {
+
+      //Change this to logged in userid
+      this.userID = 1;
+      this.GetBuyListings();
+      this.GetSellListings();
+    }
   }
   
 
