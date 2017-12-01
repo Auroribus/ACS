@@ -4,6 +4,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ExportToCSV } from "@molteni/export-csv";
 
 let body;
 
@@ -374,6 +375,13 @@ export class CollectionComponent implements OnInit {
 
   editCard(cardId) {
     console.log("edit: " + cardId);
+  }
+
+  exportCards() {
+    var exporter = new ExportToCSV();
+    console.log(JSON.stringify(this.cards));
+    exporter.exportColumnsToCSV(this.cards, "exportedCards", ["cardName", "cardSet", "cardCondition"]);
+    console.log("Exported to .csv");
   }
 
 }
