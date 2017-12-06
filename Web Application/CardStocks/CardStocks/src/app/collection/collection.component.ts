@@ -234,23 +234,31 @@ export class CollectionComponent implements OnInit {
 
     if (this.cNameSearch == null || this.cNameSearch == "")
     {
+      this.cards = [];
+
+      this.dataservice.GetLocalApi("Cards")
+        .subscribe(data => {
+          if (data instanceof Array) {
+            this.cards = data;
+            console.log(data);
+          }
+        });
 
     }
     else if (this.cNameSearch.trim().length > 0)
     {
-      /*
-      this.dataservice.GetLocalApi("CardNames/" + this.cNameSearch)
+      this.cards = [];
+      this.dataservice.GetLocalApi('Cards')
         .subscribe(data => {
-
-          if (data instanceof Array) {
-            console.log("array");
-            this.cards = data;
-          }
-          else {
-
+          for (var i = 0; i < data.length; i++)
+          {
+            if (data[i].cardName.toLowerCase().includes(this.cNameSearch.toLowerCase()))
+            {
+              console.log("card found add to array");
+              this.cards.push(data[i]);
+            }
           }
         });
-      */
     }
   }
 
@@ -380,7 +388,7 @@ export class CollectionComponent implements OnInit {
   exportCards() {
     var exporter = new ExportToCSV();
     console.log(JSON.stringify(this.cards));
-    exporter.exportColumnsToCSV(this.cards, "exportedCards", ["cardName", "cardSet", "cardCondition"]);
+    exporter.exportColumnsToCSV(this.cards, "exportedCards", ["cardName"]);
     console.log("Exported to .csv");
   }
 

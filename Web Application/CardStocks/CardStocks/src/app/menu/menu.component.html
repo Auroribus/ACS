@@ -1,6 +1,7 @@
 <div>
   <!-- Toggles -->
-  <a (click)="closeMenu()" class="fa fa-bars"></a>
+  <a (click)="closeMenu()" class="fa fa-bars right"></a>
+
   <br />
   <ul>
     <li>
@@ -43,5 +44,12 @@
              </i>&nbsp;&nbsp;&nbsp;Log Out</a>
     </li>
   </ul>
+
+  <div class="theme-div">
+    <p>Themes:</p>
+    <a (click)="setTheme('Default')"><p class="square black-box left"></p></a>
+    <a (click)="setTheme('Dark')"><p class="square invert-black-box left"></p></a>
+    <a (click)="setTheme('Blue')"><p class="square blue-box left"></p></a>
+  </div>
 </div>
 

@@ -28,6 +28,8 @@ export class DetailspageComponent implements OnInit {
   cardPrice: number;
 
   rulings: string[] = [];
+  sellListing: string[] = [];
+  sellerList: string[] = [];
 
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
@@ -45,7 +47,6 @@ export class DetailspageComponent implements OnInit {
     else {
       console.log("url empty");
     }
-    
   }
 
 
@@ -108,8 +109,35 @@ export class DetailspageComponent implements OnInit {
           this.cardImage = data.cards[0].imageUrl;
         }
         else {
+          //check if any image in database
           this.cardImage = "assets/NoImageFound.png";
         }
+
+
+        this.dataservice.GetLocalApi('SellList').subscribe(data => {
+          console.log(data);
+
+          this.sellListing = [];
+          this.sellerList = [];
+
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].cardName == this.cardName) {
+              this.sellListing.push(data[i]);
+            }
+          }
+          if (this.sellListing.length == 0) {
+            console.log("no sell listings found");
+
+            data[0].sellPrice = "---";
+
+            this.sellListing.push(data[0]);
+            this.sellerList.push("None Found");
+            this.sellerList.push("Test");
+
+            console.log(this.sellerList);
+          }
+        });
+
       });
   }
 

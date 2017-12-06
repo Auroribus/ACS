@@ -11,10 +11,10 @@ import { DataService } from '../data.service';
 })
 export class SellComponent implements OnInit {
 
-
+  cards: string[];
   sellListings: string[];
 
-  addBuyListing: boolean = true;
+  addSellListing: boolean = false;
   cardPrice: number;
   username: string;
   //select card then add price
@@ -32,6 +32,14 @@ export class SellComponent implements OnInit {
     this.dataservice.GetLocalApi('SellList').subscribe(data => {
       console.log(data);
       this.sellListings = data;
+      });
+
+    this.dataservice.GetLocalApi("Cards")
+      .subscribe(data => {
+        if (data instanceof Array) {
+          this.cards = data;
+          console.log(data);
+        }
       });
     }
     
@@ -63,6 +71,17 @@ export class SellComponent implements OnInit {
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";
+  }
+
+
+
+  toggleAdd() {
+    if (this.addSellListing) {
+      this.addSellListing = false;
+    }
+    else if (!this.addSellListing) {
+      this.addSellListing = true;
+    }
   }
 
 }

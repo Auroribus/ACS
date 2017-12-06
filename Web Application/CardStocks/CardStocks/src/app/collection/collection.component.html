@@ -41,24 +41,29 @@
     <label class="addCI" for="filePicker">Upload an Image:</label><br>
     <input class="addCI" type="file" id="filePicker" (change)="handleFileSelect($event)">
 
-    <button class="addCardButton" (click)="addCard()">Add</button>
+    <button class="plusSquare" (click)="addCard()">Add</button>
   </div>
 
   <div class="mainBox">
 
     <a class="plusSquare" (click)="toggleAddCard()"><i class="fa fa-plus-square"></i>&nbsp;Add Card</a>
-    <a class="plusSquare" (click)="exportCards()"><p class="fa fa-sign-out"></p> &nbsp; Export</a>
+    &nbsp;&nbsp;
+    <a class="plusSquare" (click)="exportCards()"><i class="fa fa-sign-out"></i>Export</a>
     
     <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list right"></a>
     <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large right"></a>
 
     <div class="clear"></div>
     <hr />
-    <input class="searchIn" type="text" placeholder="search card in collection" [(ngModel)]="cNameSearch" (ngModelChange)="searchCard()" />
+    <input class="form-input" type="text" placeholder="search card in collection" [(ngModel)]="cNameSearch" />
+    <button (click)="searchCard()" class="login-button">Search</button>
+    <a (click)="searchBy('name')">Name</a>
+    <a (click)="searchBy('set')">Set</a>
+    <a (click)="searchBy('condition')">Condition</a>
     <hr />
     <div *ngIf="listView">
       
-      <table class="boxView" id="myTable">
+      <table class="list-table-center" id="myTable">
         <thead>
           <tr>
             <th class="boxViewHead"></th>
@@ -70,7 +75,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let items of cards" class="rowCards" >
+          <tr *ngFor="let items of cards" >
             <td (click)="sendCardItem(items.cardId)"><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardId)" (mouseleave)="mouseHoverExit()"></p></td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardName}}</td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardSet}}</td>

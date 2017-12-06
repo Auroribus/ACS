@@ -1,70 +1,56 @@
-<body (click)="closeMenu()">
+<div class="main-div" (click)="closeMenu()">
   <div class="box">
-    <img class="cardImg" [src]="cardImage" />
+    <img class="detail-img left" [src]="cardImage" />
 
-    <table class="priceTable">
+    <table class="list-table-center-small">
       <thead>
         <tr>
-          <th>
-            Price Information
-          </th>
+          <th>Seller</th>
+          <th>Price</th>
         </tr>
-      </thead>
+      </thead>      
       <tbody>
-        <tr>
-          <td>
-            <img class="graphImg" src="assets/NoImageFoundWide.png" />
-            
-            <p class="priceText">Suggested Sale Price:</p>
-
-            <p class="price">$ {{cardPrice}}</p>
-            <button class="priceButton">Buy</button>
-          </td>
+        <tr *ngFor="let items of sellListing; let i = index" [attr.data-index]="i">
+          <td>{{sellerList[i]}}</td>
+          <td>{{items.sellPrice}}</td>
         </tr>
       </tbody>
-
     </table>
 
     <div class="clear"></div>
+    <br />
 
-    <table class="setsTable">
-      <tr class="tableRow">
-        <th class="tableSetsHead">All Sets</th>
-        <td *ngFor="let items of cardSets" (click)="GoToOtherSet(items)" class="setsText">{{items}}</td>
+    <table class="list-table-center">
+      <tr>
+        <th>Name</th>
+        <td>{{cardName}}</td>
       </tr>
-    </table>
-
-    <div class="clear"></div>
-
-    <h2 class="tableHeader">Card Information</h2>
-    <table class="cardTable">      
-      <tr class="tableRow">
-        <th class="tableHead">Name</th>
-        <td class="tableText">{{cardName}}</td>
+      <tr>
+        <th>Set Name</th>
+        <td>{{cardSet}}</td>
       </tr>
-      <tr class="tableRow">
-        <th class="tableHead">Set Name</th>
-        <td class="tableText">{{cardSet}}</td>
+      <tr>
+        <th>Rarity</th>
+        <td>{{cardRarity}}</td>
       </tr>
-      <tr class="tableRow">
-        <th class="tableHead">Rarity</th>
-        <td class="tableText">{{cardRarity}}</td>
+      <tr>
+        <th>Type</th>
+        <td>{{cardType}}</td>
       </tr>
-      <tr class="tableRow">
-        <th class="tableHead">Type</th>
-        <td class="tableText">{{cardType}}</td>
+      <tr>
+        <th>Text</th>
+        <td>{{cardText}}</td>
       </tr>
-      <tr class="tableRow">
-        <th class="tableHead">Text</th>
-        <td class="tableText">{{cardText}}</td>
-      </tr>
-      
+      <tr>
+        <th>All Sets</th>
+        <td><a *ngFor="let items of cardSets" (click)="GoToOtherSet(items)">{{items}} | </a></td>
+      </tr>      
     </table>
       
     <div class="clear"></div>
+    <br />
 
-    <h2 class="tableHeader">Rulings</h2>
-    <table class="rulingsTable">
+    <table class="list-table-center">
         <tr>
           <th class="rulingsHead">Date</th>
           <th class="rulingsHead">Text</th>
@@ -75,4 +61,4 @@
         </tr>
     </table>
   </div>
-</body>
+</div>

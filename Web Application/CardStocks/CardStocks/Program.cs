@@ -19,6 +19,7 @@ namespace CardStocks
     public static IWebHost BuildWebHost(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .UseStartup<Startup>()
+            //.UseUrls("http://Cardstocks.net:58094")
             .Build();
     }
   }

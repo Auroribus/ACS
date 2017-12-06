@@ -1,12 +1,31 @@
+<div class="form-div" *ngIf="addSellListing">
+  <h2 class="center white">Select Card(s) to Sell:</h2>
+  <table class="list-table-center-small">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name:</th>
+        <th>Set:</th>
+        <th>Condition:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of cards">
+        <td><input type="checkbox" /></td>
+        <td>{{items.cardName}}</td>
+        <td>{{items.cardSet}}</td>
+        <td>{{items.cardCondition}}</td>        
+      </tr>
+    </tbody>
+  </table>
+  <button class="login-button">Add</button>
+</div>
+
 <div class="main-div" (click)="closeMenu()">
-
-  <div *ngIf="addSellListing">
-    <input type="text" [(ngModel)]="cardPrice" placeholder="Price" />
-    <button (click)="addSell()">Add</button>
-  </div>
-
-
-  <div>
+  <a class="plusSquare" (click)="toggleAdd()">
+    <p class="fa fa-plus-square">
+    </p>&nbsp;Add Sell Listing
+  </a>
     <table class="list-table-center">
       <thead>
         <tr>
@@ -37,5 +56,4 @@
         </tr>
       </tbody>
     </table>
-  </div>
 </div>

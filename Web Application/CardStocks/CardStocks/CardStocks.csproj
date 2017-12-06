@@ -6,7 +6,11 @@
     <RetryAttemptsForDeployment>30</RetryAttemptsForDeployment>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Properties\PublishProfiles\CardStocksApp - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="CardStocksAngular\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />

@@ -1,21 +1,5 @@
 @media only screen and (min-width: 1200px) {
   /* Navbar */
-div.top-box {
-  
-}
-
-img.logo-img {
-  
-}
-
-a.login-a {
-  
-}
-
-a.fa-bars {
-  
-}
-
 input.search-card-input {
   margin-top: 25px;
   height: 30px;
@@ -26,10 +10,25 @@ input.search-card-input {
   img.main-img {
     margin: .2%;
     width: 9.6%;
+    height: auto;
   }
 
   div.panel-div h2 {
     font-size: 28px;
+  }
+
+   div.panel-div {
+    font-size:16px;
+    font-weight: normal;
+  }
+
+    div.panel-div h2 {
+      font-size: 24px;
+    }
+
+  img.graph-img {
+    width: 200px;
+    height: 150px;
   }
 
 }

@@ -135,5 +135,9 @@ export class NavbarComponent implements OnInit {
     */
   }
 
+  setTheme(name: string) {
+    this.dataservice.SwitchTheme(name);
+  }
+
 
 }

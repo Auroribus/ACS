@@ -72,4 +72,8 @@ export class MenuComponent implements OnInit {
     location.reload();
   }
 
+  setTheme(name: string) {
+    console.log(name);
+    this.dataservice.SwitchTheme(name);
+  }
 }
