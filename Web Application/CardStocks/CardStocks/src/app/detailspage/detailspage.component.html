@@ -6,16 +6,22 @@
       <thead>
         <tr>
           <th>Seller</th>
+          <th>Rating</th>
           <th>Price</th>
+          <th>Buy</th>
         </tr>
       </thead>      
       <tbody>
         <tr *ngFor="let items of sellListing; let i = index" [attr.data-index]="i">
           <td>{{sellerList[i]}}</td>
+          <td>{{sellerRating[i]}}</td>
           <td>{{items.sellPrice}}</td>
+          <td><input type="checkbox" /></td>
         </tr>
       </tbody>
     </table>
+
+    <button class="login-button">Buy</button>
 
     <div class="clear"></div>
     <br />

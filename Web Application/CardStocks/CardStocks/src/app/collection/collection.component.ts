@@ -42,7 +42,7 @@ export class CollectionComponent implements OnInit {
   username: string;
 
   imgSrc: string;
-  imageSource: string = "assets/Loading.png";
+  imageSource: string = "assets/LoadingGif.gif";
 
   listView: Boolean = true;
   addingCard: Boolean = false;

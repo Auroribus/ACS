@@ -37,6 +37,7 @@ export class UploadPageComponent implements OnInit {
   options: boolean = true;
   Remove: boolean = false;
   Add: boolean = false;
+  cardNameLoaded: boolean = false;
 
   username: string;
 
@@ -57,6 +58,7 @@ export class UploadPageComponent implements OnInit {
     this.options = false;
     this.Remove = true;
     this.Add = false;
+    this.cardNameLoaded = false;
   }
 
   SendToDB() {
@@ -181,6 +183,7 @@ export class UploadPageComponent implements OnInit {
       console.log(nameCard);
       
       this.cardName = nameCard;
+      this.cardNameLoaded = true;
 
       this.dataservice.GetLocalApi('Cards')
         .subscribe(data => {

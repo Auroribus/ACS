@@ -1,3 +1,16 @@
+<div class="form-div" *ngIf="addingCard">
+  <h2 class="center white">Fill in form:</h2>
+  <input class="form-input" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
+  <input class="form-input" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
+  <input class="form-input" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
+  <br />
+  <br />
+  <h2 class="center white">Upload an Image of the Card(optional)</h2>
+  <input class="form-input" type="file" id="filePicker" (change)="handleFileSelect($event)">
+
+  <button class="login-button" (click)="addCard()">Add</button>
+</div>
+
 <div class="main-div" (click)="closeMenu()">
 
   
@@ -34,16 +47,6 @@
     <img width="300" src={{imageSource}} />
   </div>
       -->
-  <div *ngIf="addingCard" class="addCardBox">
-    <input class="addCardItem" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
-    <br /><input class="addCardItem" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
-    <br /><input class="addCardItem" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
-    <label class="addCI" for="filePicker">Upload an Image:</label><br>
-    <input class="addCI" type="file" id="filePicker" (change)="handleFileSelect($event)">
-
-    <button class="plusSquare" (click)="addCard()">Add</button>
-  </div>
-
   <div class="mainBox">
 
     <a class="plusSquare" (click)="toggleAddCard()"><i class="fa fa-plus-square"></i>&nbsp;Add Card</a>

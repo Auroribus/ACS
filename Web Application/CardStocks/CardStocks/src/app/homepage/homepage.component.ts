@@ -13,11 +13,14 @@ export class HomepageComponent implements OnInit {
 
   cards: string[] = [];
   latestCardsNumber: number = 10;
-  
+  imagesLoaded: boolean;
   constructor(private dataservice: DataService) {
   }
 
   ngOnInit() {
+
+    this.imagesLoaded = false;
+
     this.dataservice.GetLocalApi("Cards")
       .subscribe(data => {
 
@@ -43,8 +46,7 @@ export class HomepageComponent implements OnInit {
             this.cards.push(data[index]);
           }
 
-          //this.cards = data;
-          console.log(this.cards);
+          this.imagesLoaded = true;
         }
       });
   }

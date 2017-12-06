@@ -3,8 +3,7 @@
 @import url("CSS/480.css");
 @import url("CSS/768.css");
 @import url("CSS/992.css");
-@import url("CSS/1200.css");
- 
+@import url("CSS/1200.css"); 
 
 :root {
   --primary-text-color: white;
@@ -29,6 +28,10 @@ img {
   -ms-transform: rotate(90deg);
 }
 */
+
+img.center-img{
+  margin-left: 30%;
+}
 
 .center {
   text-align: center;
@@ -107,7 +110,6 @@ td {
 }
 
 /* Menu */
-
 div.theme-div {
   margin-left: 20px;
   margin-top: 20px;
@@ -389,6 +391,8 @@ button.option-button {
 img.detail-img {
   margin-left: 10%;
 }
+
+
 
 
 

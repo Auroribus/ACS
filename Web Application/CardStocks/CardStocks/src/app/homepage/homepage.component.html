@@ -1,5 +1,11 @@
 <div class="main-div" (click)="closeMenu()">
-  <div class="img-div">
+
+  <div class="img-div" *ngIf="!imagesLoaded"> 
+    <h2 class="main-h2">Latest Cards added</h2>
+    <img src="assets/LoadingGif.gif" />
+  </div>
+
+  <div class="img-div" *ngIf="imagesLoaded">
     <h2 class="main-h2">Latest Cards added</h2>
     <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
   </div>
@@ -24,7 +30,7 @@
   <div class="panel-div left">
     <h2>New Releases</h2>
     <ul>
-      <li align="center"><img class="graph-img" src="assets/NoImageFoundWide.png" height="120"/></li>
+      <li align="center"><img class="graph-img" src="assets/LoadingGif.gif" height="120"/></li>
     </ul>
   </div>
 
