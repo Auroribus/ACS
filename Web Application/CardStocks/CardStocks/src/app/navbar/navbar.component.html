@@ -1,11 +1,12 @@
 
 <div class="top-box">
-
+    <a (click)="toggleMenu()" class="fa fa-bars left" *ngIf="logdIn"></a>
     <!-- Logo -->
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
 
+    <a class="login-a">$ {{dataservice.credits}}</a>
+
     <!-- Toggles  -->
-    <a (click)="toggleMenu()" class="fa fa-bars" *ngIf="logdIn"></a>
     <a (click)="toggleLogin()" class="login-a">{{dataservice.activeUser}}</a>
 
     <!-- Components -->

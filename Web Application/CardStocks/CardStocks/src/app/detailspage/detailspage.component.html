@@ -49,7 +49,7 @@
       </tr>
       <tr>
         <th>All Sets</th>
-        <td><a *ngFor="let items of cardSets" (click)="GoToOtherSet(items)">{{items}} | </a></td>
+        <td><a *ngFor="let items of cardSets" (click)="GoToOtherSet(items)"> <i class="ss ss-{{items}} ss-grad ss-2x"></i> {{items}} | </a></td>
       </tr>      
     </table>
       

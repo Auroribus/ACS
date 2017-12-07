@@ -17,7 +17,7 @@ import { DataService } from '../data.service';
         transform: 'translate3d(0, 0, 0)'
       })),
       state('out', style({
-        transform: 'translate3d(100%, 0, 0)'
+        transform: 'translate3d(-100%, 0, 0)'
       })),
       transition('in => out', animate('200ms ease-in-out')),
       transition('out => in', animate('400ms ease-in-out'))

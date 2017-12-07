@@ -7,7 +7,11 @@
   <button class="login-button" (click)="addBuy()">Add</button>
 </div>
 
-<div class="main-div" (click)="closeMenu()">
+<div *ngIf="!tableLoaded">
+  <img class="center-img" src="assets/LoadingGif3.gif" />
+</div>
+
+<div class="main-div" (click)="closeMenu()" *ngIf="tableLoaded">
   
     <a class="plusSquare" (click)="toggleAdd()"><p class="fa fa-plus-square">
         </p>&nbsp;Add Buy Listing</a>

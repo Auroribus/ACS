@@ -13,6 +13,8 @@ export class DataService {
 
   }
 
+  credits: number = 50;
+
   hoverItem: number;
 
   //User related

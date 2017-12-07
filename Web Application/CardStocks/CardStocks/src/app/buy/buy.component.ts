@@ -14,6 +14,8 @@ export class BuyComponent implements OnInit {
   buyListings: string[];
     
   addBuyListing: boolean = false;
+  tableLoaded: boolean = false;
+
   cardPrice: number;
   cardName: string;
   cardSet: string;
@@ -40,24 +42,32 @@ export class BuyComponent implements OnInit {
   ngOnInit() {
 
     this.username = localStorage.getItem('user');
+
     if (this.username == null || this.username == "" || this.username == "Login") {
       this.router.navigate([""]);
     }
     else {
 
-      var userr;
-
       this.dataservice.GetLocalApi('BuyList').subscribe(data => {
         this.buyListings = data;
+
+        console.log(data.length);
 
         for (var i = 0; i < data.length; i++) {
           this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
             this.userName.push(userdata.username);
             this.rating.push(userdata.rating);
+
+            //show html after all of the table contents have been loaded properly
+            if (this.rating[data.length - 1] != null) {
+              console.log("not null");
+              this.tableLoaded = true;
+            }
+
           });
+          
         }
-
-
+        
       });
     }
   }

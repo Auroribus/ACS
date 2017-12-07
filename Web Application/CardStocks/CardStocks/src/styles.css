@@ -142,7 +142,7 @@ div.top-box {
 
 img.logo-img {
   float: left;
-  margin-left: 5%;
+  margin-left: 1%;
   height: 40px;
 }
 
@@ -151,8 +151,7 @@ img.logo-img:hover {
 }
 
 a.fa-bars {
-  float: right;
-  margin-right: 5%;
+  margin-left: 20px;
   margin-top: 10px;
   font-size: 30px;
 }

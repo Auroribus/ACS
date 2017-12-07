@@ -22,8 +22,10 @@ export class DetailspageComponent implements OnInit {
   cardSets: string[] = [];
   cardRarity: string = "card rarity";
   cardType: string = "card type";
-  cardImage: string = "assets/LoadingGif.gif";
+  cardImage: string = "assets/LoadingGif3.gif";
   cardText: string = "card text";
+
+  setname: string = "v09";
 
   cardPrice: number;
 
@@ -90,13 +92,21 @@ export class DetailspageComponent implements OnInit {
   GetMTGioAPI() {
     this.dataservice.GetExternalApi(url)
       .subscribe((data) => {
+
+        //reset arrays
+        this.cardSets = [];
+
         console.log(data.cards[0]);
         this.cardName = data.cards[0].name;
         this.cardSet = data.cards[0].setName;
         this.cardRarity = data.cards[0].rarity;
         this.cardType = data.cards[0].types[0];
         this.cardText = data.cards[0].text;
-        this.cardSets = data.cards[0].printings;
+
+        for (var i = 0; i < data.cards[0].printings.length; i++)
+        {
+          this.cardSets.push(data.cards[0].printings[i].toLowerCase());
+        }
 
         if (data.cards[0].rulings == null) {
           //console.log("no rulings found");
@@ -132,7 +142,7 @@ export class DetailspageComponent implements OnInit {
           break;
         }
         else {
-          this.cardImage = "assets/LoadingGif.gif";
+          this.cardImage = "assets/NoImageFound.png";
         }
       }
     });
