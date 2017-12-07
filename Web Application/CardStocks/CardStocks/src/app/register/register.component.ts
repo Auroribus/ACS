@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5/dist/md5';
 import { DataService } from '../data.service';
@@ -61,8 +61,7 @@ export class RegisterComponent implements OnInit {
       {
         if (this.dataservice.ValidateEmail(this.email))
         {
-          this.http.get('/api/User')
-            .map(res => res.json())
+          this.dataservice.GetLocalApi('User')
             .subscribe(data => {
               this.CheckUser(data);
             });

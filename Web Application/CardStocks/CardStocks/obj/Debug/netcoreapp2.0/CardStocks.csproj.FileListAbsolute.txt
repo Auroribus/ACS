@@ -19,3 +19,13 @@ C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\C
 C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfo.cs
 C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.dll
 C:\Users\stief\Dropbox\AP Year 3\git_CardStocks\cardstocks.net\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.pdb
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.deps.json
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.runtimeconfig.json
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.runtimeconfig.dev.json
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.dll
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.pdb
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.csproj.CoreCompileInputs.cache
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfoInputs.cache
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfo.cs
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.dll
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-Cardstocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.pdb

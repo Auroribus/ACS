@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5/dist/md5';
 

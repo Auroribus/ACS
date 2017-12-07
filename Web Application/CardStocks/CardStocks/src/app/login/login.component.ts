@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.dataservice.GetLocalApi('User').subscribe(data => {
+      console.log(data);
+    });
   }
 
   GoToRegister() {
@@ -54,7 +56,9 @@ export class LoginComponent implements OnInit {
       this.passHashed = Md5.hashStr(this.userpassword);
       this.dataservice.slideInOutUpDown = "out";
 
-      this.dataservice.GetLocalApi('User').subscribe(data => {
+      this.http.get('/api/User')
+        .map(res => res.json())
+        .subscribe(data => {
         this.CheckUser(data);
       });
     }

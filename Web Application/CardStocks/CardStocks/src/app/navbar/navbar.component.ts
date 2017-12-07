@@ -108,6 +108,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
 
+    this.http.get('/api/Cards')
+      .map(res => res.json())
+      .subscribe(data => {
+      console.log(data);
+    });
+
     console.log(localStorage.getItem('id'));
 
     this.dataservice.activeUser = localStorage.getItem('user');
