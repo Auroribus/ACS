@@ -139,5 +139,8 @@ export class NavbarComponent implements OnInit {
     this.dataservice.SwitchTheme(name);
   }
 
+  goToCreditPage() {
+    this.router.navigate(["credit"]);
+  }
 
 }

@@ -27,6 +27,8 @@ import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { AddCardComponent } from './add-card/add-card.component';
 import { ShowImageComponent } from './show-image/show-image.component';
+import { CreditPageComponent } from './credit-page/credit-page.component';
+import { MembershipPageComponent } from './membership-page/membership-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -39,7 +41,9 @@ const appRoutes: Routes = [
   { path: 'details', component: DetailspageComponent },
   { path: 'upload', component: UploadPageComponent },
   { path: 'listings', component: ListingsComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'credit', component: CreditPageComponent },
+  { path: 'member', component: MembershipPageComponent }
 ];
 
 @NgModule({
@@ -62,7 +66,9 @@ const appRoutes: Routes = [
         AddListingComponent,
         DashboardComponent,
         AddCardComponent,
-        ShowImageComponent
+        ShowImageComponent,
+        CreditPageComponent,
+        MembershipPageComponent
     ],
     imports: [
         NgbModule.forRoot(),

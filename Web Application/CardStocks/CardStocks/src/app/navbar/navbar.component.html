@@ -4,10 +4,11 @@
     <!-- Logo -->
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
 
-    <a class="login-a">$ {{dataservice.credits}}</a>
-
+    
     <!-- Toggles  -->
     <a (click)="toggleLogin()" class="login-a">{{dataservice.activeUser}}</a>
+
+    <a (click)="goToCreditPage()" class="credit-a right"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
 
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>

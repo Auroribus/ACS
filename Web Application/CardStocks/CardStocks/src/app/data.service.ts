@@ -13,7 +13,7 @@ export class DataService {
 
   }
 
-  credits: number = 50;
+  credits: number = 50.01;
 
   hoverItem: number;
 
