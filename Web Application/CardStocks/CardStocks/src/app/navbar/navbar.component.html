@@ -1,14 +1,16 @@
 
 <div class="top-box">
-    <a (click)="toggleMenu()" class="fa fa-bars left" *ngIf="logdIn"></a>
+    <a (click)="toggleMenu()" class="outline left" *ngIf="logdIn"><i class="fa fa-bars" aria-hidden="true"></i></a>
     <!-- Logo -->
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
 
     
     <!-- Toggles  -->
-    <a (click)="toggleLogin()" class="login-a">{{dataservice.activeUser}}</a>
+    <a (click)="toggleLogin()" *ngIf="!loggedIn" class="login-a right">Register</a>
 
-    <a (click)="goToCreditPage()" class="credit-a right"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
+    <a (click)="toggleLogin()" class="login-a right">{{dataservice.activeUser}}</a>
+
+    <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
 
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>

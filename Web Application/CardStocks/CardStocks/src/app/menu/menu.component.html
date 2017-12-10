@@ -1,46 +1,46 @@
 <div>
   <!-- Toggles -->
-  <a (click)="closeMenu()" class="fa fa-bars left"></a>
-
+  <a (click)="closeMenu()" class="outline left"><i class="fa fa-bars" aria-hidden="true"></i></a>
+  <div class="clear"></div>
   <br />
   <ul>
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToShoppingCart()"><i class="fa fa-shopping-cart">
-           </i>&nbsp;&nbsp;&nbsp;Cart</a>
+      <a class="navLinks" aria-hidden="true" (click)="GoToMembership()"><i class="fa fa-shopping-cart fa-fw">
+           </i>&nbsp;&nbsp;&nbsp;Member</a>
     </li>
     
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToSell()"><i class="fa fa-money">
-             </i>&nbsp;&nbsp;&nbsp;Sell</a>
+      <a class="navLinks" aria-hidden="true" (click)="GoToMarket()"><i class="fa fa-line-chart fa-fw">
+             </i>&nbsp;&nbsp;&nbsp;Market</a>
     </li>
-      
+     <!-- 
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToBuy()"><i class="fa fa-money">
+      <a class="navLinks" aria-hidden="true" (click)="GoToBuy()"><i class="fa fa-line-chart fa-fw">
              </i>&nbsp;&nbsp;&nbsp;Buy</a>
     </li>
-    <!--
+    
     <li>
       <p>After Login:</p>
     </li>
         -->
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToCollection()"><i class="fa fa-book">
+      <a class="navLinks" aria-hidden="true" (click)="GoToCollection()"><i class="fa fa-book fa-fw">
              </i>&nbsp;&nbsp;&nbsp;Haves</a>
     </li>
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToWishlist()"><i class="fa fa-list">
+      <a class="navLinks" aria-hidden="true" (click)="GoToWishlist()"><i class="fa fa-list fa-fw">
              </i>&nbsp;&nbsp;&nbsp;Wants</a>
     </li>
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToListings()"><i class="fa fa-list">
+      <a class="navLinks" aria-hidden="true" (click)="GoToListings()"><i class="fa fa-list fa-fw">
              </i>&nbsp;&nbsp;&nbsp;Listings</a>
     </li>
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="GoToUpload()"><i class="fa fa-upload">
+      <a class="navLinks" aria-hidden="true" (click)="GoToUpload()"><i class="fa fa-upload fa-fw">
              </i>&nbsp;&nbsp;&nbsp;Upload</a>
     </li>
     <li>
-      <a class="navLinks" aria-hidden="true" (click)="LogOut()"><i class="fa fa-sign-out" aria-hidden="true">
+      <a class="navLinks" aria-hidden="true" (click)="LogOut()"><i class="fa fa-sign-out fa-fw" aria-hidden="true">
              </i>&nbsp;&nbsp;&nbsp;Log Out</a>
     </li>
   </ul>

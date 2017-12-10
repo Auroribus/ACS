@@ -9,7 +9,14 @@ export class CreditPageComponent implements OnInit {
 
   constructor() { }
 
+  numberCredits: number;
+
+
   ngOnInit() {
+  }
+
+  addCredits() {
+
   }
 
 }

@@ -88,7 +88,7 @@ export class BuyComponent implements OnInit {
     {
       //Change user id when logg in sessions done
       let body = {
-        UserId: 2,
+        UserId: localStorage.getItem('id'),
         CardName: this.cardName,
         CardSet: this.cardSet,
         CardCondition: this.cardCondition,

@@ -33,6 +33,13 @@ img.center-img{
   margin-left: 30%;
 }
 
+input {
+  border-radius: 5px;
+  padding-left: 10px;
+  width: 250px;
+}
+
+
 .center {
   text-align: center;
 }
@@ -42,7 +49,7 @@ img.center-img{
 .left { float: left; }
 .right { float: right; }
 .clear { clear: both; }
-ul { padding: 10px; list-style: none; }
+ul { padding-left: 0px; list-style: none; }
 a:hover { cursor: pointer; }
 button {
   font-size: 20px;
@@ -84,32 +91,44 @@ div.form-div {
 }
 
 /* applies to homepage table */
-thead {
-  background: var(--primary-bg-color);
-  
-}
-
 tr:nth-child(even) td{
   background: lightgray;
 }
 
+tr:last-child td {
+  border-bottom: solid;
+  border-color: var(--primary-color);
+}
+
 th {
   padding-left: 10px;
+  padding-right: 10px;
   font-size: 16px;
   color: var(--secondary-bg-color);
   background: var(--primary-bg-color);
+
+  border-bottom-style: double;
+  border-bottom-width: 2px;
+  border-bottom-color: gray;
 }
 
 td {
+  border-right: solid;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: gray;
   font-size: 14px;
   padding-left: 10px;
-  border-bottom: solid;
-  border-color: var(--primary-color);
-  border-width: 1px;
   color: var(--secondary-text-color);
 }
 
 /* Menu */
+li.header-li {
+  border-bottom: solid;
+  border-width:1px;
+  border-color: lightgray;
+}
+
 div.theme-div {
   margin-left: 20px;
   margin-top: 20px;
@@ -150,25 +169,46 @@ img.logo-img:hover {
   cursor: pointer;
 }
 
-a.fa-bars {
+a.outline {
+  width: 40px;
+  text-align: center;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgray;
+  border-width: 1px;
   margin-left: 20px;
   margin-top: 10px;
-  font-size: 30px;
+  font-size: 20px;
 }
 
-a.fa-bars:hover {
+a.outline:hover {
   color: var(--secondary-text-color);
+  background: lightgray;
+  color: black;
 }
+
+i.fa-bars {
+  color:inherit;
+}
+
+i.fa-bars:hover {
+  color: black;
+}
+
 
 a.login-a {
-  float: right;
-  margin-right: 7%;
-  margin-top: 10px;
-  font-size: 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  border-radius: 5px;
+  padding: 1px 8px 1px 8px;
+  margin-right: 2%;
+  margin-top: 8px;
+  font-size: 20px;
 }
 
 a.login-a:hover {
-  color: var(--secondary-text-color);
+  background: gray;
 }
 
 a.credit-a {
@@ -192,13 +232,35 @@ input.search-card-input {
   height: 30px;
 }
 
+/* Membership page */
+div.panel-div-large {
+  height: 500px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  margin: 1%;
+  width: 23%;
+  color: var(--secondary-text-color);
+  box-shadow: 5px 5px 10px gray; /* x , y , opacity/brush effect , color*/
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+div.panel-div-large h2 {
+  color: var(--primary-text-color);
+  text-align: center;
+  background: var(--primary-bg-color);
+}
+
+
+
 /* Homepage */
 h2.main-h2 {
   color: var(--secondary-text-color);
 }
 
 div.panel-div {
-  height: 200px;
+  height: 170px;
   border: solid;
   border-width: 2px;
   border-radius: 10px;
@@ -214,7 +276,6 @@ div.panel-div h2 {
   color: var(--primary-text-color);
   text-align: center;
   background: var(--primary-bg-color);
-  border-radius: 5px;
 }
 
 img.main-img {
@@ -237,15 +298,14 @@ img.main-img:hover {
 }
 
 table.main-table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border: solid var(--primary-color) 2px;
   border-spacing: 0;
-  width:30%;
+  border-radius: 8px;
+  padding: 1px;
+  width: 30%;
   margin: 1.5%;
   text-align: left;
-  border: solid;
-  border-width: 2px;
-  border-color: var(--primary-color);
-  box-shadow: 5px 5px 10px gray;
 }
 
 /* Login */
@@ -254,7 +314,7 @@ div.login-div {
   background: var(--secondary-bg-color);
   height: 200px;
   border: solid;
-  border-width: 2px;
+  border-width: 4px;
   border-radius: 10px;
   width: 100%;
   height: 100%;
@@ -313,7 +373,7 @@ img.tileImg {
   -moz-transition: all .1s ease;
   -o-transition: all .1s ease;
   transition: all .1s ease;
-  border-radius: 10px;
+  border-radius: 2px;
   box-shadow: 5px 5px 10px gray;
   margin: .2%;
   width: 9.6%;
@@ -349,28 +409,29 @@ a.plusSquare {
 
 /* Listings */
 table.list-table {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  box-shadow: 5px 5px 10px gray;
+  border-collapse: separate;
+  border: solid var(--primary-color) 2px;
+  border-spacing: 0;
+  border-radius: 8px;
+  padding: 1px;
   width: 49.9%;
 }
 
 table.list-table-center {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  box-shadow: 5px 5px 20px gray;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  border-collapse: separate;
+  border: solid var(--primary-color) 2px;
+  border-spacing: 0;
+  border-radius: 8px;
+  padding: 1px;
+  width: 100%;
 }
 
 table.list-table-center-small {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  box-shadow: 5px 5px 20px gray;
+  border-collapse: separate;
+  border: solid var(--primary-color) 2px;
+  border-spacing: 0;
+  border-radius: 8px;
+  padding: 1px;
   width: 40%;
   margin-left: 30%;
   margin-right: 30%;
@@ -397,7 +458,18 @@ img.detail-img {
   margin-left: 10%;
 }
 
+/* Sell/Buy */
+a.selected-a {
+  padding: 5px 10px 5px 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--primary-color);
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+}
 
-
-
+a.selected-a:hover {
+  color: white;
+  background: lightgray;
+}
 

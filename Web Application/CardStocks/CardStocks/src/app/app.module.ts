@@ -29,6 +29,7 @@ import { AddCardComponent } from './add-card/add-card.component';
 import { ShowImageComponent } from './show-image/show-image.component';
 import { CreditPageComponent } from './credit-page/credit-page.component';
 import { MembershipPageComponent } from './membership-page/membership-page.component';
+import { MarketComponent } from './market/market.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
   { path: 'listings', component: ListingsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'credit', component: CreditPageComponent },
-  { path: 'member', component: MembershipPageComponent }
+  { path: 'membership', component: MembershipPageComponent },
+  { path: 'market', component: MarketComponent }
 ];
 
 @NgModule({
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
         AddCardComponent,
         ShowImageComponent,
         CreditPageComponent,
-        MembershipPageComponent
+        MembershipPageComponent,
+        MarketComponent
     ],
     imports: [
         NgbModule.forRoot(),

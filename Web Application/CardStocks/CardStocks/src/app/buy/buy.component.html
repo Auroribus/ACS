@@ -7,14 +7,16 @@
   <button class="login-button" (click)="addBuy()">Add</button>
 </div>
 
-<div *ngIf="!tableLoaded">
-  <img class="center-img" src="assets/LoadingGif3.gif" />
-</div>
-
-<div class="main-div" (click)="closeMenu()" *ngIf="tableLoaded">
-  
+<div class="main-div" (click)="closeMenu()">
+    <h2>Buy Orders</h2>
     <a class="plusSquare" (click)="toggleAdd()"><p class="fa fa-plus-square">
         </p>&nbsp;Add Buy Listing</a>
+  <br />
+  <a class="selected-a">Popular Cards</a>
+  <a class="selected-a">Newly Listed</a>
+  <input type="text" placeholder="Search by Card Name" />
+  <br />
+  <br />
     <table class="list-table-center">
       <thead>
         <tr>

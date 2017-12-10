@@ -9,10 +9,10 @@
   width: 15%;
   min-width: 200px;
   z-index: 9999;
-  border-left: solid;
+  border-right: solid;
   border-width: 2px;
   border-color: black;
-  font-size: 24px;
+  font-size: 20px;
   box-shadow: 2px 2px 10px black;
   font-weight: bold;
 }

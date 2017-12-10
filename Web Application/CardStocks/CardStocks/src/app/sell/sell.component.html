@@ -22,24 +22,24 @@
 </div>
 <!--
 <div *ngIf="!tableLoaded">
-  <img class="center-img" src="assets/LoadingGif3.gif" />
+  <img class="center-img" src="assets/LoadingGif4.gif" />
 </div>
 -->
 <div class="main-div" (click)="closeMenu()"> <!--*ngIf="tableLoaded">-->
+  <h2>Sell Orders</h2>
   <a class="plusSquare" (click)="toggleAdd()">
     <p class="fa fa-plus-square">
     </p>&nbsp;Add Sell Listing
   </a>
+  <br />
+    <a class="selected-a">Popular Cards</a>
+    <a class="selected-a">Newly Listed</a>
+    <a class="selected-a">Filter Options</a>
+    <input type="text" placeholder="Search by Card Name"/>
+  <br />
+  <br />
     <table class="list-table-center">
       <thead>
-        <tr>
-          <th>For Sale:</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
         <tr>
           <th>Seller:</th>
           <th>Rating:</th>
@@ -47,6 +47,7 @@
           <th>Set:</th>
           <th>Condition:</th>
           <th>Price:</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -57,6 +58,7 @@
           <td>{{cardSet[i]}}</td>
           <td>{{cardCondition[i]}}</td>
           <td>$ {{items.sellPrice}}</td>
+          <td><button>Buy</button></td>
         </tr>
       </tbody>
     </table>

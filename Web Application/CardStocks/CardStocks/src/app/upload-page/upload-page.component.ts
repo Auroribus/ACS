@@ -64,8 +64,8 @@ export class UploadPageComponent implements OnInit {
   SendToDB() {
     body = {
       cardName: this.cardName,
-      cardSet: this.cardSet,
-      cardCondition: this.cardCondition,
+      cardSet: "--",//this.cardSet,
+      cardCondition: "NM",//this.cardCondition,
       userId: 1,
       imgBase64: "data:image/png;base64," + this.base64textString
     }

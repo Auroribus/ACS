@@ -64,6 +64,16 @@ export class MenuComponent implements OnInit {
     this.router.navigate(["listings"]);
   }
 
+  GoToMembership() {
+    this.closeMenu();
+    this.router.navigate(["membership"]);
+  }
+
+  GoToMarket() {
+    this.closeMenu();
+    this.router.navigate(["market"]);
+  }
+
   LogOut() {
     localStorage.removeItem('user');
     localStorage.removeItem('id');

@@ -46,16 +46,18 @@
   <h2 class="center">Choose an image or take a photo:</h2>
   <input class="form-input" type="file" id="filePicker" (change)="handleFileSelect($event)">
   <br /><br />
+  <!--
   <h2 class="center">Fill in the Form below:</h2>
   <input class="form-input" type="text" [(ngModel)]="cardSet" placeholder="set name, eg: TMP" /> <br /><br />
   <input class="form-input" type="text" [(ngModel)]="cardCondition" placeholder="condition, eg: EX, NM" /><br /><br />
-
+      -->
   <div *ngIf="!cardNameLoaded">
-    <img class="center-img" src="assets/LoadingGif3.gif" />
+    <img class="center-img" src="assets/LoadingGif4.gif" />
   </div>
 
   <div *ngIf="cardNameLoaded">
     <h2 class="center">Card Name: {{cardName}}</h2>
+    <img class="center-img" [src]="imageSrc" width="300" />
     <button class="login-button" (click)="SendToDB()">Add</button>
   </div>
 </div>
