@@ -12,9 +12,6 @@ let body;
 var cardName;
 var sellPrice;
 
-var BuyListings = [];
-var SellListings = [];
-
 @Component({
   selector: 'app-listings',
   templateUrl: './listings.component.html',
@@ -25,8 +22,8 @@ export class ListingsComponent implements OnInit {
   userID: number;
   cardID: number;
 
-  BuyListing: string[];
-  SellListing: string[];
+  BuyListing: string[] = [];
+  SellListing: string[] = [];
   sellPrice: number;
   cardName: string;
 
@@ -48,7 +45,7 @@ export class ListingsComponent implements OnInit {
     else {
 
       //Change this to logged in userid
-      this.userID = 1;
+      this.userID = parseInt(localStorage.getItem('id'));
       this.GetBuyListings();
       this.GetSellListings();
     }
@@ -60,8 +57,14 @@ export class ListingsComponent implements OnInit {
     this.dataservice.GetLocalApi('BuyList')
       .subscribe(data => {
         //console.log(data[0]);
-        this.LoopData(data, BuyListings);
-        this.BuyListing = BuyListings;
+        var id = localStorage.getItem('id');
+
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].userId == id) {
+            //console.log(data[i]);
+            this.BuyListing.push(data[i]);
+          }
+        }  
       });
   }
 
@@ -69,19 +72,16 @@ export class ListingsComponent implements OnInit {
     this.dataservice.GetLocalApi("SellList")
       .subscribe(data => {
         //console.log(data);
-        this.LoopData(data, SellListings);
-        this.SellListing = SellListings;
-      });     
-  }
 
-  LoopData(data, array)
-  {
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].userId == this.userID) {
-        //console.log(data[i]);
-        array.push(data[i]);
-      }
-    }   
+        var id = localStorage.getItem('id');
+
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].userId == id) {
+            //console.log(data[i]);
+            this.SellListing.push(data[i]);
+          }
+        }          
+      });     
   }
 
   RemoveFromSellList(sellId) {

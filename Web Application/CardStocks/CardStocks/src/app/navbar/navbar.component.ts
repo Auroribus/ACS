@@ -78,6 +78,14 @@ export class NavbarComponent implements OnInit {
       this.dataservice.slideInOutUpDown = this.dataservice.slideInOutUpDown === 'out' ? 'in' : 'out';
   }
 
+  GoToDashboard() {
+    this.router.navigate(['dashboard']);
+  }
+
+  GoToRegister() {
+    this.router.navigate(['register']);
+  }
+
   search() {
     if (this.dataservice.searchCardName != null && this.dataservice.searchCardName != "")
     {

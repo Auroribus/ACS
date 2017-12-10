@@ -50,6 +50,7 @@ input {
 .right { float: right; }
 .clear { clear: both; }
 ul { padding-left: 0px; list-style: none; }
+ul li { padding-left: 10px; }
 a:hover { cursor: pointer; }
 button {
   font-size: 20px;

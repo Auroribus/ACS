@@ -48,7 +48,12 @@ export class BuyComponent implements OnInit {
     }
     else {
 
+      
+
       this.dataservice.GetLocalApi('BuyList').subscribe(data => {
+
+        this.buyListings = [];
+
         this.buyListings = data;
 
         console.log(data.length);
