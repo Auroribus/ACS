@@ -1,15 +1,8 @@
 :host {
-  position: fixed;
+  position: absolute;
   right: auto;
   top: 0;
-  left: 30%;
-  bottom: 0;
+  left: 50%;
+  bottom: auto;
   z-index: 9999;
 }
-
-/*
-img {
-  width: 340px;
-  height: 440px;
-}
-*/

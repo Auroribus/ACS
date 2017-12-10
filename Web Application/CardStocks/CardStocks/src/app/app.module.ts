@@ -30,6 +30,9 @@ import { ShowImageComponent } from './show-image/show-image.component';
 import { CreditPageComponent } from './credit-page/credit-page.component';
 import { MembershipPageComponent } from './membership-page/membership-page.component';
 import { MarketComponent } from './market/market.component';
+import { OrderPageComponent } from './order-page/order-page.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -45,7 +48,9 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'credit', component: CreditPageComponent },
   { path: 'membership', component: MembershipPageComponent },
-  { path: 'market', component: MarketComponent }
+  { path: 'market', component: MarketComponent },
+  { path: 'order', component: OrderPageComponent },
+  { path: 'profile', component: ProfilePageComponent }
 ];
 
 @NgModule({
@@ -71,7 +76,10 @@ const appRoutes: Routes = [
         ShowImageComponent,
         CreditPageComponent,
         MembershipPageComponent,
-        MarketComponent
+        MarketComponent,
+        OrderPageComponent,
+        TransactionsComponent,
+        ProfilePageComponent
     ],
     imports: [
         NgbModule.forRoot(),

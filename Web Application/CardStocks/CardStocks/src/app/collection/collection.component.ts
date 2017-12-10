@@ -15,7 +15,7 @@ let body;
   animations: [
     trigger('showImage', [
       state('in', style({
-        transform: 'translate3d(0, 100px, 0)'
+        transform: 'translate3d(0, 20%, 0)'
       })),
       state('out', style({
         transform: 'translate3d(0, -100%, 0)'
@@ -46,8 +46,6 @@ export class CollectionComponent implements OnInit {
 
   listView: Boolean = true;
   addingCard: Boolean = false;
-  hoverImage: Boolean = false;
-
   imageSrc: string;
   base64textString: string;
 
@@ -196,22 +194,6 @@ export class CollectionComponent implements OnInit {
     console.log(cardId);
     console.log(cardName);
 
-    /*[Key]
-    public int SellId { get; set; }
-
-    [Required]
-    public int UserId { get; set; }
-
-    [Required]
-    public int CardId { get; set; }
-
-    [Required]
-    public string CardName { get; set; }
-
-    [Required]
-    public double SellPrice { get; set; }
-    */
-
     let body = {
       UserId: 1,
       CardId: cardId,
@@ -224,7 +206,7 @@ export class CollectionComponent implements OnInit {
     this.http.post('/api/SellList', body, { headers: headers })
       .map(response => response.json())
       .subscribe(data => {
-        console.log(data);
+        console.log("succesfully added");
         //location.reload();
       }); 
   }
@@ -240,7 +222,7 @@ export class CollectionComponent implements OnInit {
         .subscribe(data => {
           if (data instanceof Array) {
             this.cards = data;
-            console.log(data);
+            console.log("found");
           }
         });
 
@@ -261,11 +243,6 @@ export class CollectionComponent implements OnInit {
         });
     }
   }
-
-  toggleImageState() {
-    // 1-line if statement that toggles the value:
-    this.dataservice.showImage = this.dataservice.showImage === 'out' ? 'in' : 'out';
-  }
   
   collections: string[] = [];
 
@@ -273,29 +250,6 @@ export class CollectionComponent implements OnInit {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";
   }
-
-  mouseHoverEnter(id) {
-    this.hoverImage = true;
-
-    this.GetImg(id);
-
-    //this.toggleImageState();
-  }
-
-  GetImg(id) {
-    this.dataservice.GetLocalApi('Cards/' + id)
-      .subscribe(data => {
-        console.log(data);
-        this.imageSource = data.imgBase64;
-      });
-  }
-
-  mouseHoverExit() {
-    this.hoverImage = false;
-
-    //this.toggleImageState();
-  }
-
 
   addCard() {
 

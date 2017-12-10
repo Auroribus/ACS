@@ -14,41 +14,8 @@
 <div class="main-div" (click)="closeMenu()">
 
   <h2>Haves</h2>
-  <!--
-    
-  <app-show-image [@showImage]="dataservice.showImage"></app-show-image>
-
-  <div class="sideBox">
-    <table class="overview">
-      <thead>
-        <tr>
-          <th>Overview</th>
-        </tr>
-      </thead>
-    </table>
-
-    <table class="collections">
-      <thead>
-        <tr>
-          <th>Collections</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let items of collections">
-          <td class="colClick" (click)="sendColItem(items.collectionID)">{{items.collectionName}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <input class="colField" type="text" placeholder="collection name" [(ngModel)]="collectionName" />
-    <a class="fa fa-plus-square" (click)="addCollection()">&nbsp;&nbsp;Add Collection</a>
-  </div>
-  
-  <div *ngIf="hoverImage" class="hoverImgDiv">
-    <img width="300" src={{imageSource}} />
-  </div>
-      -->
+     
   <div class="mainBox">
-
     <a class="plusSquare" (click)="toggleAddCard()"><i class="fa fa-plus-square"></i>&nbsp;Add Card</a>
     &nbsp;&nbsp;
     <a class="plusSquare" (click)="exportCards()"><i class="fa fa-sign-out"></i>Export</a>
@@ -81,7 +48,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let items of cards" >
-            <td (click)="sendCardItem(items.cardId)"><p class="fa fa-file-image-o boxViewImg" (mouseenter)="mouseHoverEnter(items.cardId)" (mouseleave)="mouseHoverExit()"></p></td>
+            <td (click)="sendCardItem(items.cardId)"><i class="fa fa-file-image-o fa-fw"></i></td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardName}}</td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardSet}}</td>
             <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardCondition}}</td>
@@ -95,6 +62,7 @@
         </tbody>
       </table>
     </div>
+
     <div *ngIf="!listView">
         <img *ngFor="let items of cards" src={{items.imgBase64}} class="tileImg" width="230" height="300"/>       
     </div>

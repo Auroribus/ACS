@@ -29,6 +29,10 @@ img {
 }
 */
 
+.fixed-width {
+  width: 100px;
+}
+
 img.center-img{
   margin-left: 30%;
 }
