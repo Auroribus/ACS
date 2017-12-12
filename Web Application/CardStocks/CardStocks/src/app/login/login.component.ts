@@ -66,13 +66,11 @@ export class LoginComponent implements OnInit {
       if (data[i].username == this.username && data[i].password == this.passHashed)
       {
        console.log("userfound");
-        // this.dataservice.activeUser = this.username;
        localStorage.setItem('user', this.username);
        localStorage.setItem('id', data[i].userId);
-       this.dataservice.activeUser = localStorage.getItem('user');
        this.router.navigate(['dashboard']);
        location.reload();
-       //break;
+       break;
       }
       else
       {

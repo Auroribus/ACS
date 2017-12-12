@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let items of cards">
-        <td><input type="checkbox" /></td>
+        <td><input class="checkbox-input" type="checkbox" /></td>
         <td>{{items.cardName}}</td>
         <td>{{items.cardSet}}</td>
         <td>{{items.cardCondition}}</td>        
@@ -26,7 +26,9 @@
 </div>
 -->
 <div class="main-div" (click)="closeMenu()"> <!--*ngIf="tableLoaded">-->
-  <h2>Sell Orders</h2>
+  <div class="panel-list-div">
+    <h2>Sell Orders</h2>
+  </div>
   <a class="plusSquare" (click)="toggleAdd()">
     <p class="fa fa-plus-square">
     </p>&nbsp;Add Sell Listing

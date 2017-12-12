@@ -1,12 +1,14 @@
 <div class="main-div" (click)="closeMenu()">
 
-  <div class="img-div" *ngIf="!imagesLoaded"> 
-    <h2 class="main-h2">Latest Cards added</h2>
+  <div class="panel-list-div">
+    <h2>Latest Added Cards</h2>
+  </div>
+
+  <div class="img-div" *ngIf="!imagesLoaded">     
     <img src="assets/LoadingGif3.gif" />
   </div>
 
   <div class="img-div" *ngIf="imagesLoaded">
-    <h2 class="main-h2">Latest Cards added</h2>
     <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
   </div>
   <div class="clear"></div>
@@ -46,76 +48,65 @@
   
 
   <div class="clear"></div>
+
+  <div class="panel-list-div left">
+    <h2>Highest Risers</h2>
+    <table class="list-table-center">
+      <thead>
+        <tr>
+          <th class="boxViewHead">Price</th>
+          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Expansion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of cards">
+          <td class="green-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> $14.59</td>
+          <td>{{items.cardName}}</td>
+          <td>{{items.cardSet}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
-  <table class="main-table left">
-    <thead>
-      <tr>
-        <th class="boxViewHead"></th>
-        <th class="boxViewHead">Highest Gain</th>
-        <th class="boxViewHead"></th>
-      </tr>
-      <tr>
-        <th class="boxViewHead">Price</th>
-        <th class="boxViewHead">Name</th>
-        <th class="boxViewHead">Expansion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let items of cards">
-        <td class="green-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> $14.59</td>
-        <td>{{items.cardName}}</td>
-        <td>{{items.cardSet}}</td>     
-      </tr>
-    </tbody>
-  </table>
-
-  <table class="main-table left">
-    <thead>
-      <tr>
-        <th class="boxViewHead"></th>
-        <th class="boxViewHead">Highest Loss</th>
-        <th class="boxViewHead"></th>
-      </tr>
-      <tr>
-        <th class="boxViewHead">Price</th>
-        <th class="boxViewHead">Name</th>
-        <th class="boxViewHead">Expansion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let items of cards">
-        <td class="red-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> $9.27</td>
-        <td>{{items.cardName}}</td>
-        <td>{{items.cardSet}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table class="main-table left">
-    <thead>
-      <tr>
-        <th class="boxViewHead"></th>
-        <th class="boxViewHead">Latest added Sell Listings</th>
-        <th class="boxViewHead"></th>
-      </tr>
-      <tr>
-        <th class="boxViewHead">Price</th>
-        <th class="boxViewHead">Name</th>
-        <th class="boxViewHead">Expansion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let items of cards">
-        <td>$23.27</td>
-        <td>{{items.cardName}}</td>
-        <td>{{items.cardSet}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="clear"></div>
-
+  <div class="panel-list-div left">
+    <h2>Highest Loss</h2>
+    <table class="list-table-center">
+      <thead>
+        <tr>
+          <th class="boxViewHead">Price</th>
+          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Expansion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of cards">
+          <td class="red-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> $9.27</td>
+          <td>{{items.cardName}}</td>
+          <td>{{items.cardSet}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
-
+  <div class="panel-list-div left">
+    <h2>Newly Added Listings</h2>
+    <table class="list-table-center">
+      <thead>
+        <tr>
+          <th class="boxViewHead">Price</th>
+          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Expansion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of cards">
+          <td>$23.27</td>
+          <td>{{items.cardName}}</td>
+          <td>{{items.cardSet}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 

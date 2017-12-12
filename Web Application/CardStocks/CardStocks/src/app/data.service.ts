@@ -9,22 +9,44 @@ import { Md5 } from 'ts-md5/dist/md5';
 @Injectable()
 export class DataService {
 
-  constructor(private http:Http) {
+  membership: string;
+  username: string;
+  id: number;
+  credits: number;
 
+  constructor(private http:Http) {
+    var id = localStorage.getItem('id');
+    if (id == null || id == "")
+    {
+      console.log("not logged in");
+    }
+    else
+    {
+
+    
+    this.GetLocalApi('User/' + id).subscribe(data => {
+
+      console.log(data);
+
+      this.username = data.username;
+      this.id = data.userId;
+      this.membership = data.membership;
+      this.credits = data.storeCredit;
+
+      console.log(this.username + " " + this.id + " " + this.membership + " " + this.credits);
+    });
+
+    }
   }
 
-  credits: number = 50.01;
 
   hoverItem: number;
-
-  //User related
-  activeUser = "Login";
-
+  
   //Animation related
   slideInOutLeftRight = "out";
   slideInOutUpDown = "out";
   showImage = "out";
-
+    
   //Theme related
   currentTheme = "Default";
   logo_Image = "assets/Logo.png";

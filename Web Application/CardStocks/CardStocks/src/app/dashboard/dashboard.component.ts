@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit {
   logOut() {
     //localStorage.setItem('user', "Login");
     localStorage.removeItem('user');
-    this.dataservice.activeUser = "Login";
     this.router.navigate(['']);
   }
 

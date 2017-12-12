@@ -67,8 +67,17 @@ export class CollectionComponent implements OnInit {
       this.dataservice.GetLocalApi("Cards")
         .subscribe(data => {
           if (data instanceof Array) {
-            this.cards = data;
-            console.log(data);
+
+            var id = localStorage.getItem('id');
+
+            for (var i = 0; i < data.length; i++)
+            {
+              if (data[i].userId == id)
+              {
+                this.cards.push(data[i]);
+              }
+            }
+            
           }
         });
     }
@@ -273,7 +282,7 @@ export class CollectionComponent implements OnInit {
       cardName: this.cName,
       cardSet: this.cSet,
       cardCondition: this.cCondition,
-      userId: 1,
+      userId: localStorage.getItem('id'),
       imgBase64: "data:image/png;base64," + this.base64textString
     }
 

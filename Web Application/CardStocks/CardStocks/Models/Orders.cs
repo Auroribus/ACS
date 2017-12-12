@@ -15,6 +15,9 @@ namespace CardStocks.Models
     public int BuyerId { get; set; }
 
     [Required]
+    public int CardId { get; set; }
+
+    [Required]
     public double Price { get; set; }
 
     [Required]

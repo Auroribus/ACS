@@ -116,21 +116,17 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(localStorage.getItem('id'));
-
-    this.dataservice.activeUser = localStorage.getItem('user');
-    console.log(this.dataservice.activeUser);
+    var id = localStorage.getItem('id');
     
-    if (this.dataservice.activeUser == null || this.dataservice.activeUser == "" || this.dataservice.activeUser == "Login")
+    if (id == null)
     {
-      localStorage.setItem('user', "Login");
-      this.dataservice.activeUser = localStorage.getItem('user');
       this.logdIn = false;
     }
     else {
-      this.dataservice.activeUser = localStorage.getItem('user');
       this.logdIn = true;
     }
+
+    console.log("Logged in? "+this.logdIn);
   }
 
   searchChange(newValue) {

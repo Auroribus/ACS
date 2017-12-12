@@ -56,8 +56,6 @@ export class BuyComponent implements OnInit {
 
         this.buyListings = data;
 
-        console.log(data.length);
-
         for (var i = 0; i < data.length; i++) {
           this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
             this.userName.push(userdata.username);

@@ -38,14 +38,13 @@ export class ListingsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.username = localStorage.getItem('user');
-    if (this.username == null || this.username == "" || this.username == "Login") {
+    var id = localStorage.getItem('id');
+    if (id == null || id == "")
+    {
       this.router.navigate([""]);
     }
     else {
-
-      //Change this to logged in userid
-      this.userID = parseInt(localStorage.getItem('id'));
+      
       this.GetBuyListings();
       this.GetSellListings();
     }

@@ -77,7 +77,7 @@ export class MenuComponent implements OnInit {
   LogOut() {
     localStorage.removeItem('user');
     localStorage.removeItem('id');
-    this.dataservice.activeUser = "Login";
+    this.dataservice.username = "";
     this.router.navigate(['']);
     location.reload();
   }

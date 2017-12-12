@@ -19,6 +19,16 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
 
+    var date = new Date();
+    var fullDate;
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    fullDate = day + "/" + month + "/" + year;
+    
+
+    console.log(fullDate);
+
     this.imagesLoaded = false;
 
     this.dataservice.GetLocalApi("Cards")
@@ -42,7 +52,6 @@ export class HomepageComponent implements OnInit {
           for (var i = 0; i < this.latestCardsNumber; i++)
           {
             var index = latest - i;
-            console.log(index);
             this.cards.push(data[index]);
           }
 

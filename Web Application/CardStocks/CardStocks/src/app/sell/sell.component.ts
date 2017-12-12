@@ -12,8 +12,8 @@ import { DataService } from '../data.service';
 })
 export class SellComponent implements OnInit {
 
-  cards: string[];
-  sellListings: string[];
+  cards: string[] = [];
+  sellListings: string[] = [];
   userName: string[] = [];
   rating: number[] = [];
   cardSet: string[] = [];
@@ -85,8 +85,15 @@ export class SellComponent implements OnInit {
     this.dataservice.GetLocalApi("Cards")
       .subscribe(data => {
         if (data instanceof Array) {
-          this.cards = data;
-          //console.log(data);
+
+          var id = localStorage.getItem('id');
+
+          for (var i = 0; i < data.length; i++)
+          {
+            if (data[i].userId == id) {
+              this.cards.push(data[i]);
+            }
+          }
         }
       });
       
