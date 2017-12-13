@@ -6,9 +6,9 @@
 
     
     <!-- Toggles  -->
-    <a (click)="GoToRegister()" class="login-a right" *ngIf="!logdIn">Register</a>
+    <a (click)="GoToRegister()" class="login-a right" *ngIf="!logdIn"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Register</a>
 
-    <a (click)="toggleLogin()" class="login-a right" *ngIf="!logdIn">Login</a>
+    <a (click)="toggleLogin()" class="login-a right" *ngIf="!logdIn"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a>
     <a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>
 
     <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>

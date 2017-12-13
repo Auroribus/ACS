@@ -12,6 +12,7 @@ import { DataService } from '../data.service';
 export class HomepageComponent implements OnInit {
 
   cards: string[] = [];
+  listings: string[] = [];
   latestCardsNumber: number = 10;
   imagesLoaded: boolean;
   constructor(private dataservice: DataService) {
@@ -58,6 +59,10 @@ export class HomepageComponent implements OnInit {
           this.imagesLoaded = true;
         }
       });
+
+    this.dataservice.GetLocalApi('SellList').subscribe(data => {
+      this.listings = data;
+    });
   }
 
   closeMenu() {

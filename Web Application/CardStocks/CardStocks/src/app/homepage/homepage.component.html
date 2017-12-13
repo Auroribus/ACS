@@ -23,9 +23,9 @@
   <div class="panel-div left">
     <h2>News</h2>
     <ul>
-      <li><i class="ss ss-2x"></i> New Set Released!</li>
-      <li><i class="ss ss-2x"></i> Card X is going beyond expectations!</li>
-      <li><i class="ss ss-2x"></i> Pay now with iDeal!</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;New Set Released!</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Card X is going beyond expectations!</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Pay now with PayPal, easy and secure!</li>
     </ul>
   </div>
 
@@ -34,7 +34,7 @@
     <ul>
       <li><i class="fa fa-exchange" aria-hidden="true"></i> Trade directly with other Players</li>
       <li><i class="fa fa-money" aria-hidden="true"></i> Sell your Cards for Store Credit or Cash</li>
-      <li><i class="fa fa-cc" aria-hidden="true"></i> Pay with Paypal, Creditcard, Bank transfer, iDeal</li>
+      <li><i class="fa fa-cc" aria-hidden="true"></i> Pay with Paypal</li>
     </ul>
   </div>
 
@@ -56,14 +56,12 @@
         <tr>
           <th class="boxViewHead">Price</th>
           <th class="boxViewHead">Name</th>
-          <th class="boxViewHead">Expansion</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of cards">
           <td class="green-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> $14.59</td>
           <td>{{items.cardName}}</td>
-          <td>{{items.cardSet}}</td>
         </tr>
       </tbody>
     </table>
@@ -76,14 +74,12 @@
         <tr>
           <th class="boxViewHead">Price</th>
           <th class="boxViewHead">Name</th>
-          <th class="boxViewHead">Expansion</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of cards">
           <td class="red-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> $9.27</td>
           <td>{{items.cardName}}</td>
-          <td>{{items.cardSet}}</td>
         </tr>
       </tbody>
     </table>
@@ -96,14 +92,12 @@
         <tr>
           <th class="boxViewHead">Price</th>
           <th class="boxViewHead">Name</th>
-          <th class="boxViewHead">Expansion</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let items of cards">
-          <td>$23.27</td>
+        <tr *ngFor="let items of listings">
+          <td>${{items.sellPrice}}</td>
           <td>{{items.cardName}}</td>
-          <td>{{items.cardSet}}</td>
         </tr>
       </tbody>
     </table>

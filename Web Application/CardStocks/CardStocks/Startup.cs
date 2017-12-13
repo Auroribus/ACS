@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using CardStocks.Models;
-using Microsoft.AspNetCore.Session;
 
 
 
@@ -29,15 +23,18 @@ namespace CardStocks
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-      services.AddMvc();//.AddSessionStateTempDataProvider();
+            // Add service and create Policy with options
+            services.AddCors(options =>
+            {
+              options.AddPolicy("CorsPolicy",
+              builder => builder.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials() );
+            });
+            
+            services.AddMvc();
 
-          //  services.AddDistributedMemoryCache();
-          //  services.AddSession(options =>
-          //  {
-          //    options.Cookie.Name = ".CardStocks.Session";
-          //    options.IdleTimeout = TimeSpan.FromSeconds(10);              
-          //  });
-     
             services.AddDbContext<CSContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CardStocksContext")));
         }
@@ -45,7 +42,9 @@ namespace CardStocks
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, CSContext CScontext)
         {
-            //app.UseSession();
+            // global policy - assign here or on each controller
+            app.UseCors("CorsPolicy");
+
 
             app.Use(async (context, next) => {
                 await next();

@@ -130,6 +130,13 @@ export class DataService {
       .map(res => res.json());
   }
 
+  PutLocalApi(name, body) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('/api/' + name, body, { headers: headers })
+      .map((response) => response.json());
+  }
+
   PostLocalApi(name, body) {
     
     let headers = new Headers();

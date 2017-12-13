@@ -12,11 +12,6 @@ namespace CardStocks.Models
       {
         return;
       }
-
-      context.Cards.AddRange(
-        new Card { CardName="Lotus Petal", CardSet="Tempest", CardCondition="NM"},
-        new Card { CardName="Divination", CardSet="Magic 2015", CardCondition="NM"}
-      );
             
       context.SaveChanges();
         }

@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using CardStocks.Models;
 
 namespace CardStocks.Models
 {

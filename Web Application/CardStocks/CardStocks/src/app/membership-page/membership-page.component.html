@@ -1,41 +1,52 @@
 <div class="main-div" (click)="closeMenu()">
+
   <div class="panel-div-large left">
-    <h2>Timmy</h2>
+    <h2>Common</h2>
     <ul>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Track up to 20 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Digitalize up to 200 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Max Deposit of $ 50,-</li>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Max Listings: 20</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Add up to 20 Cards in your Wants</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Store up to 200 Cards in your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Can have up to 10 Active Listings</li>    
     </ul>
+    <button (click)="upgradeTo('Common')" class="panel-button">Free</button>
   </div>
 
   <div class="panel-div-large left">
-    <h2>Bronze</h2>
+    <h2>Uncommon</h2>
     <ul>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Track up to 50 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Digitalize up to 2000 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Max Deposit of $ 150,-</li>
-      <li><i class="fa fa-gg-circle fa-fw fa-2x" aria-hidden="true"></i>Max Listings: 100</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Add up to 50 Cards in your Wants</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Store up to 1000 Cards in your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Can have up to 25 Active Listings</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Export Functionality for your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Special Mobile Functionality</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Sort your Haves in Collections</li>
     </ul>
+    <button (click)="upgradeTo('Uncommon')" class="panel-button">$2.50 p/m</button>
   </div>
 
   <div class="panel-div-large left">
-    <h2>Silver</h2>
+    <h2>Rare</h2>
     <ul>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Track up to 100 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Digitalize up to 10000 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Max Deposit of $ 250,-</li>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Max Listings: unlimited</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Add up to 100 Cards in your Wants</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Store up to 5000 Cards in your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Unlimited Active Listings</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Export Functionality for your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Special Mobile Functionality</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Sort your Haves in Collections</li>
     </ul>
+    <button (click)="upgradeTo('Rare')" class="panel-button">$5.00 p/m</button>
   </div>
 
   <div class="panel-div-large left">
-    <h2>Gold</h2>
+    <h2>Mythic</h2>
     <ul>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Track up to 500 Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Digitalize up to unlimited Cards</li>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Max Deposit of unlimited</li>
-      <li><i class="fa fa-gg-circle fa-fw" aria-hidden="true"></i>Max Listings: unlimited</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Add up to 500 Cards in your Wants</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Store unlimited Cards in your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Unlimited Active Listings</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Export Functionality for your Haves</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Special Mobile Functionality</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i>&nbsp;Sort your Haves in Collections</li>
     </ul>
+    <button (click)="upgradeTo('Mythic')" class="panel-button">$10.00 p/m</button>
   </div>
+
 </div>

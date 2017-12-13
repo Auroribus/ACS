@@ -100,7 +100,7 @@ export class SellComponent implements OnInit {
     }
   }
 
-  addBuy() {
+  addSell() {
     if (this.cardPrice == null || this.cardPrice == 0) {
 
     }

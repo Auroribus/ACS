@@ -203,8 +203,10 @@ export class CollectionComponent implements OnInit {
     console.log(cardId);
     console.log(cardName);
 
+    var id = localStorage.getItem('id');
+
     let body = {
-      UserId: 1,
+      UserId: id,
       CardId: cardId,
       CardName: cardName,
       SellPrice: this.sellPrice
@@ -278,11 +280,13 @@ export class CollectionComponent implements OnInit {
 
   newCard()
   {
+    var id = localStorage.getItem('id');
+
     body = {
       cardName: this.cName,
       cardSet: this.cSet,
       cardCondition: this.cCondition,
-      userId: localStorage.getItem('id'),
+      userId: id,
       imgBase64: "data:image/png;base64," + this.base64textString
     }
 
