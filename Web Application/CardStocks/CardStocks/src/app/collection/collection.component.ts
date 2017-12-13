@@ -52,6 +52,8 @@ export class CollectionComponent implements OnInit {
 
   ngOnInit() {
 
+    
+
     this.username = localStorage.getItem('user');
     if (this.username == null || this.username == "" || this.username == "Login") {
       this.router.navigate([""]);
@@ -81,6 +83,28 @@ export class CollectionComponent implements OnInit {
           }
         });
     }
+  }
+
+  editCard(cardId) {
+
+    this.dataservice.GetLocalApi('Cards/' + cardId).subscribe(data => {
+
+      var id = localStorage.getItem('id');
+
+      let body = {
+        cardId: cardId,
+        cardName: 'testName',
+        cardSet: data.cardSet,
+        cardCondition: data.cardCondition,
+        imgBase64: data.imgBase64,
+        userId: id
+      }
+
+      this.http.put('/api/Cards/' + cardId, body).map(res => res.json()).subscribe(data => {
+        console.log(data)
+      });
+    });
+    
   }
   
   sortByName() {
@@ -346,10 +370,6 @@ export class CollectionComponent implements OnInit {
         console.log(data);
         location.reload();
       });
-  }
-
-  editCard(cardId) {
-    console.log("edit: " + cardId);
   }
 
   exportCards() {
