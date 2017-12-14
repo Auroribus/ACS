@@ -30,55 +30,41 @@ export class SellComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private dataservice: DataService, private http: Http) { }
 
   ngOnInit() {
-
-    this.username = localStorage.getItem('user');
-    if (this.username == null || this.username == "" || this.username == "Login") {
+    
+    var id = localStorage.getItem('id');
+    if (id == null || id == "") {
       this.router.navigate([""]);
     }
     else
     {
 
     this.dataservice.GetLocalApi('SellList').subscribe(data => {
-      console.log(data);
+     // console.log(data);
       this.sellListings = data;
 
       this.cardCondition = [];
       this.cardSet = [];
       this.userName = [];
       this.rating = [];
-
+      
       for (var i = 0; i < data.length; i++) {
         
-        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
-          this.userName.push(userdata.username);
-          this.rating.push(userdata.rating);
-        });
+        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userData => {
 
-
-        this.dataservice.GetLocalApi('Cards/' + data[i].cardId).subscribe(carddata => {
-          if (carddata.cardSet == null || carddata.cardSet == "") {
-            this.cardCondition.push("---");
-          }
-          else {
-            this.cardSet.push(carddata.cardSet);
-          }
-
-          if (carddata.cardCondition == null || carddata.cardCondition == "")
-          {
-            this.cardCondition.push("---");
-          }
-          else {
-            this.cardCondition.push(carddata.cardCondition);
-          }
-
-          //show html after all of the table contents have been loaded properly
-          //if (this.cardCondition[data.length - 1] != null) {
-          //  console.log("not null");
-          //  this.tableLoaded = true;
-          //}
-
+          this.userName.push(userData.username);
+          this.rating.push(userData.rating);
         });
       }
+
+      for (var i = 0; i < data.length; i++) {
+
+        this.dataservice.GetLocalApi('Cards/' + data[i].cardId).subscribe(cardData => {
+          //console.log(cardData.cardName);
+          this.cardSet.push(cardData.cardSet);
+          this.cardCondition.push(cardData.cardCondition);
+        });
+      }
+      
       
       });
       
@@ -117,7 +103,7 @@ export class SellComponent implements OnInit {
       this.http.post('/api/SellList', body, { headers: headers })
         .map(response => response.json())
         .subscribe(data => {
-          console.log(data);
+          //console.log(data);
           location.reload();
         });
     }

@@ -1,5 +1,23 @@
 <div class="main-div">
-  <h2>Credit Page</h2>
-  <input [(ngModel)]="numberCredits" class="form-input" />
-  <button (click)="addCredits()" class="login-button">Add</button>
+
+  <div class="panel-list-div">
+    <h2>Buy GG Credits</h2>
+  </div>
+
+  <div class="panel-div-small left">
+    <h2><i class="fa fa-gg" aria-hidden="true"></i>&nbsp;10</h2>
+    <button (click)="addCredits(10)" class="panel-button">$ 4.99</button>
+  </div>
+  <div class="panel-div-small left">
+    <h2><i class="fa fa-gg" aria-hidden="true"></i>&nbsp;25</h2>
+    <button (click)="addCredits(25)" class="panel-button">$ 9.99</button>
+</div>
+  <div class="panel-div-small left">
+    <h2><i class="fa fa-gg" aria-hidden="true"></i>&nbsp;45</h2>
+    <button (click)="addCredits(45)" class="panel-button">$ 19.99</button>
+  </div>
+  <div class="panel-div-small left">
+    <h2><i class="fa fa-gg" aria-hidden="true"></i>&nbsp;75</h2>
+    <button (click)="addCredits(75)" class="panel-button">$ 24.99</button>
+  </div>
 </div>

@@ -11,6 +11,14 @@
   <button class="login-button" (click)="addCard()">Add</button>
 </div>
 
+<div class="form-div" *ngIf="editingCard">
+  <h2 class="center white">Edit Card Properties</h2>
+  <input class="form-input" type="text" [(ngModel)]="editName" />
+  <input class="form-input" type="text" [(ngModel)]="editSet" />
+  <input class="form-input" type="text" [(ngModel)]="editCondition" />
+  <button class="login-button" (click)="confirmEditCard()">Confirm</button>
+</div>
+
 <div class="main-div" (click)="closeMenu()">
 
   <h2>Haves</h2>
@@ -38,25 +46,25 @@
       <table class="list-table-center" id="myTable">
         <thead>
           <tr>
-            <th class="boxViewHead"></th>
-            <th class="boxViewHead"><i class="fa fa-sort" (click)="sortByName()"></i>&nbsp;Name</th>
-            <th class="boxViewHead"><i class="fa fa-sort" (click)="sortBySet()"></i>&nbsp;Expansion</th>
-            <th class="boxViewHead"><i class="fa fa-sort" (click)="sortByCondition()"></i>&nbsp;Condition</th>
-            <th class="boxViewHead"></th>
-            <th class="boxViewHead"></th>
+            <th></th>
+            <th><i class="fa fa-sort" (click)="sortByName()"></i>&nbsp;Name</th>
+            <th><i class="fa fa-sort" (click)="sortBySet()"></i>&nbsp;Expansion</th>
+            <th><i class="fa fa-sort" (click)="sortByCondition()"></i>&nbsp;Condition</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let items of cards" >
-            <td (click)="sendCardItem(items.cardId)"><i class="fa fa-file-image-o fa-fw"></i></td>
-            <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardName}}</td>
-            <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardSet}}</td>
-            <td (click)="sendCardItem(items.cardId)" class="boxViewItem">{{items.cardCondition}}</td>
-            <td class="boxViewItem">
-            <a class="boxClick" (click)="removeCard(items.cardId)">remove </a> | <a class="boxClick" (click)="editCard(items.cardId)"> edit</a>
+            <td><i class="fa fa-file-image-o fa-fw"></i></td>
+            <td>{{items.cardName}}</td>
+            <td>{{items.cardSet}}</td>
+            <td>{{items.cardCondition}}</td>
+            <td>
+            <a (click)="removeCard(items.cardId)">remove </a> | <a class="boxClick" (click)="editCard(items.cardId)"> edit</a>
             </td>
             <td>
-              <a class="boxClick" (click)="sellCard(items.cardId, items.cardName)">Sell</a>
+              <a (click)="sellCard(items.cardId, items.cardName)">Sell</a>
             </td>
           </tr>
         </tbody>

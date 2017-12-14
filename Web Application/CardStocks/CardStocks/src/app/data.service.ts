@@ -22,7 +22,6 @@ export class DataService {
     }
     else
     {
-
     
     this.GetLocalApi('User/' + id).subscribe(data => {
 
@@ -133,8 +132,7 @@ export class DataService {
   PutLocalApi(name, body) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.put('/api/' + name, body, { headers: headers })
-      .map((response) => response.json());
+    return this.http.put('/api/' + name, body, { headers: headers });
   }
 
   PostLocalApi(name, body) {

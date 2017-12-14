@@ -49,6 +49,13 @@ export class CollectionComponent implements OnInit {
   imageSrc: string;
   base64textString: string;
 
+  editName: string;
+  editSet: string;
+  editCondition : string;
+  editingCard: Boolean = false;
+  CardID: number;
+  ImgBase64: string;
+
 
   ngOnInit() {
 
@@ -85,26 +92,44 @@ export class CollectionComponent implements OnInit {
     }
   }
 
-  editCard(cardId) {
+  confirmEditCard() {
 
-    this.dataservice.GetLocalApi('Cards/' + cardId).subscribe(data => {
-
+    //console.log(this.CardID);
+    
       var id = localStorage.getItem('id');
 
       let body = {
-        cardId: cardId,
-        cardName: 'testName',
-        cardSet: data.cardSet,
-        cardCondition: data.cardCondition,
-        imgBase64: data.imgBase64,
+        cardId: this.CardID,
+        cardName: this.editName,
+        cardSet: this.editSet,
+        cardCondition: this.editCondition,
+        imgBase64: this.ImgBase64,
         userId: id
       }
 
-      this.http.put('/api/Cards/' + cardId, body).map(res => res.json()).subscribe(data => {
-        console.log(data)
+      this.dataservice.PutLocalApi('Cards/' + this.CardID, body).map(res => res.json()).subscribe(data => {
+        //always returns null / status 204
+        location.reload();
       });
-    });
-    
+ 
+    this.editingCard = false;
+  }
+
+  editCard(cardId) {
+
+    this.CardID = cardId;
+
+    this.editingCard = true;
+
+    this.dataservice.GetLocalApi('Cards/' + this.CardID).subscribe(data => {
+
+      console.log(data);
+
+      this.editName = data.cardName;
+      this.editSet = data.cardSet;
+      this.editCondition = data.cardCondition;
+      this.ImgBase64 = data.imgBase64;
+    });    
   }
   
   sortByName() {

@@ -270,6 +270,27 @@ div.panel-div-large li:nth-child(odd) {
   background: #f4f4f4;
 }
 
+div.panel-div-small {
+  height: 80px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 23%;
+  color: var(--secondary-text-color);
+  box-shadow: 5px 5px 10px gray; /* x , y , opacity/brush effect , color*/
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+  div.panel-div-small h2 {
+    color: var(--primary-text-color);
+    text-align: center;
+    background: var(--primary-bg-color);
+  }
+
 button.panel-button {
   margin-left: 20%;
   margin-right: 20%;
