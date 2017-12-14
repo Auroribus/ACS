@@ -39,7 +39,7 @@ export class SellComponent implements OnInit {
     {
 
     this.dataservice.GetLocalApi('SellList').subscribe(data => {
-     // console.log(data);
+      console.log(data);
       this.sellListings = data;
 
       this.cardCondition = [];
@@ -48,11 +48,11 @@ export class SellComponent implements OnInit {
       this.rating = [];
       
       for (var i = 0; i < data.length; i++) {
-        
-        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userData => {
 
-          this.userName.push(userData.username);
-          this.rating.push(userData.rating);
+        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userData => {
+          
+            this.userName.push(userData.username);
+            this.rating.push(userData.rating);
         });
       }
 
@@ -64,6 +64,11 @@ export class SellComponent implements OnInit {
           this.cardCondition.push(cardData.cardCondition);
         });
       }
+
+      //console.log(this.userName);
+      //console.log(this.rating);
+      //console.log(this.cardSet);
+      //console.log(this.cardCondition);
       
       
       });
