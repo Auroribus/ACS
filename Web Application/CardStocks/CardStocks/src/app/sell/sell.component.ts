@@ -51,26 +51,16 @@ export class SellComponent implements OnInit {
 
         this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userData => {
           
-            this.userName.push(userData.username);
-            this.rating.push(userData.rating);
+            this.userName[i-1] = userData.username;
+            this.rating[i-1] = userData.rating;
         });
-      }
-
-      for (var i = 0; i < data.length; i++) {
 
         this.dataservice.GetLocalApi('Cards/' + data[i].cardId).subscribe(cardData => {
           //console.log(cardData.cardName);
-          this.cardSet.push(cardData.cardSet);
-          this.cardCondition.push(cardData.cardCondition);
+          this.cardSet[i - 1] = cardData.cardSet;
+          this.cardCondition[i - 1] = cardData.cardCondition;
         });
       }
-
-      //console.log(this.userName);
-      //console.log(this.rating);
-      //console.log(this.cardSet);
-      //console.log(this.cardCondition);
-      
-      
       });
       
     this.dataservice.GetLocalApi("Cards")
@@ -128,6 +118,10 @@ export class SellComponent implements OnInit {
     else if (!this.addSellListing) {
       this.addSellListing = true;
     }
+  }
+
+  buyCard() {
+    this.router.navigate(['order']);
   }
 
 }

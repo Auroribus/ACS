@@ -1,5 +1,5 @@
 <div class="form-div" *ngIf="addSellListing">
-  <h2 class="center white">Select Card(s) to Sell:</h2>
+  <h2 class="center">Select Card(s) to Sell:</h2>
   <table class="list-table-center-small">
     <thead>
       <tr>
@@ -18,7 +18,9 @@
       </tr>
     </tbody>
   </table>
-  <button (click)="addSell()" class="login-button">Add</button>
+  <br />
+  
+  <button (click)="addSell()" class="selected-button margin-left-30">Add</button>
 </div>
 <!--
 <div *ngIf="!tableLoaded">
@@ -26,18 +28,19 @@
 </div>
 -->
 <div class="main-div" (click)="closeMenu()"> <!--*ngIf="tableLoaded">-->
-  <div class="panel-list-div">
-    <h2>Sell Orders</h2>
-  </div>
-  <a class="plusSquare" (click)="toggleAdd()">
-    <p class="fa fa-plus-square">
+  <h2>Sell Listings</h2>
+  <button class="selected-button left" (click)="toggleAdd()">
+    <p class="fa fa-plus">
     </p>&nbsp;Add Sell Listing
-  </a>
-  <br />
-    <a class="selected-a">Popular Cards</a>
-    <a class="selected-a">Newly Listed</a>
-    <a class="selected-a">Filter Options</a>
-    <input type="text" placeholder="Search by Card Name"/>
+  </button>
+    <button class="selected-button left">Newly Listed</button>
+    <select>
+      <option value="searchCardName">Card Name</option>
+      <option value="searchCardSet">Card Set</option>
+      <option value="searchCardCondition">Card Condition</option>
+    </select>
+    <input class="selected-input" type="text" placeholder="Search"/>
+  
   <br />
   <br />
     <table class="list-table-center">
@@ -60,7 +63,7 @@
           <td>{{cardSet[i]}}</td>
           <td>{{cardCondition[i]}}</td>
           <td>$ {{items.sellPrice}}</td>
-          <td><button>Buy</button></td>
+          <td><a (click)="buyCard()">Buy</a></td>
         </tr>
       </tbody>
     </table>

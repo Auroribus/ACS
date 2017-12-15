@@ -1,8 +1,7 @@
 <div class="main-div" (click)="closeMenu()">
 
-  <div class="panel-list-div">
-    <h2>Latest Added Cards</h2>
-  </div>
+   <h2>Latest Added Cards</h2>
+  
 
   <div class="img-div" *ngIf="!imagesLoaded">     
     <img src="assets/LoadingGif3.gif" />
@@ -12,7 +11,6 @@
     <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
   </div>
   <div class="clear"></div>
-  <hr />
   <!--
   <hr />
   <h2 class="main-h2">Themes:
@@ -50,7 +48,7 @@
   <div class="clear"></div>
 
   <div class="panel-list-div left">
-    <h2>Highest Risers</h2>
+    <h2>Lastest Cards Added</h2>
     <table class="list-table-center">
       <thead>
         <tr>
@@ -68,7 +66,7 @@
   </div>
   
   <div class="panel-list-div left">
-    <h2>Highest Loss</h2>
+    <h2>Latest Buy Listings</h2>
     <table class="list-table-center">
       <thead>
         <tr>
@@ -86,7 +84,7 @@
   </div>
   
   <div class="panel-list-div left">
-    <h2>Newly Added Listings</h2>
+    <h2>Latest Sell Listings</h2>
     <table class="list-table-center">
       <thead>
         <tr>

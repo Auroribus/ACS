@@ -7,8 +7,9 @@
   <br />
   <h2 class="center white">Upload an Image of the Card(optional)</h2>
   <input class="form-input" type="file" id="filePicker" (change)="handleFileSelect($event)">
-
-  <button class="login-button" (click)="addCard()">Add</button>
+  <br />
+  <br />
+  <button class="selected-button margin-left-30" (click)="addCard()">Add</button>
 </div>
 
 <div class="form-div" *ngIf="editingCard">
@@ -16,23 +17,33 @@
   <input class="form-input" type="text" [(ngModel)]="editName" />
   <input class="form-input" type="text" [(ngModel)]="editSet" />
   <input class="form-input" type="text" [(ngModel)]="editCondition" />
-  <button class="login-button" (click)="confirmEditCard()">Confirm</button>
+  <br />
+  <br />
+  <button class="selected-button margin-left-30" (click)="confirmEditCard()">Confirm</button>
+  <p class="green-text">SUCCESS</p>
+</div>
+
+<div class="form-div" *ngIf="sellingCard">
+  <h2 class="center white">Enter Sales Price:</h2>
+  <input class="form-input" type="text" [(ngModel)]="sellName" />
+  <input class="form-input" type="number" [(ngModel)]="sellCardPrice" placeholder="Enter Sell Price"/>
+  <br />
+  <br />
+  <button class="selected-button margin-left-30" (click)="confirmSaleCard()">Confirm</button>
 </div>
 
 <div class="main-div" (click)="closeMenu()">
-
   <h2>Haves</h2>
      
-  <div class="mainBox">
-    <a class="plusSquare" (click)="toggleAddCard()"><i class="fa fa-plus-square"></i>&nbsp;Add Card</a>
+    <button class="selected-button left" (click)="toggleAddCard()"><i class="fa fa-plus"></i>&nbsp;Add Card</button>
     &nbsp;&nbsp;
-    <a class="plusSquare" (click)="exportCards()"><i class="fa fa-sign-out"></i>Export</a>
+    <button class="selected-button left" (click)="exportCards()"><i class="fa fa-sign-out"></i>Export</button>
     
     <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list right"></a>
     <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large right"></a>
 
     <div class="clear"></div>
-    <hr />
+    <br />
     <!-- Search
     <input class="form-input" type="text" placeholder="search card in collection" [(ngModel)]="cNameSearch" />
     <button (click)="searchCard()" class="login-button">Search</button>
@@ -64,7 +75,7 @@
             <a (click)="removeCard(items.cardId)">remove </a> | <a class="boxClick" (click)="editCard(items.cardId)"> edit</a>
             </td>
             <td>
-              <a (click)="sellCard(items.cardId, items.cardName)">Sell</a>
+              <a (click)="sellCard(items.cardId)">Sell</a>
             </td>
           </tr>
         </tbody>
@@ -75,5 +86,4 @@
         <img *ngFor="let items of cards" src={{items.imgBase64}} class="tileImg" width="230" height="300"/>       
     </div>
 
-  </div>
 </div>

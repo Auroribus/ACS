@@ -56,6 +56,11 @@ export class CollectionComponent implements OnInit {
   CardID: number;
   ImgBase64: string;
 
+  sellName: string;
+  sellCardPrice: string;
+  sellCardID: number;
+  sellingCard: Boolean = false;
+
 
   ngOnInit() {
 
@@ -247,17 +252,13 @@ export class CollectionComponent implements OnInit {
     }
   }
 
-  sellCard(cardId, cardName) {
-
-    console.log(cardId);
-    console.log(cardName);
-
+  confirmSaleCard() {
     var id = localStorage.getItem('id');
 
     let body = {
       UserId: id,
-      CardId: cardId,
-      CardName: cardName,
+      CardId: this.sellCardID,
+      CardName: this.sellName,
       SellPrice: this.sellPrice
     };
 
@@ -268,7 +269,19 @@ export class CollectionComponent implements OnInit {
       .subscribe(data => {
         console.log("succesfully added");
         //location.reload();
-      }); 
+      });
+  }
+
+  sellCard(cardId) {
+
+    this.sellingCard = true;
+
+    this.sellCardID = cardId;
+
+    this.dataservice.GetLocalApi('Cards/' + cardId).subscribe(data => {
+      this.sellName = data.cardName;
+    });
+     
   }
 
   searchCard() {

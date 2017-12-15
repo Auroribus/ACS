@@ -1,12 +1,17 @@
-<div class="main-div" (click)="closeMenu()">
-  <div class="panel-list-div">
-    <h2>My Listings</h2>
-  </div>
+<div class="form-div" *ngIf="editingListing">
+  <h2 class="center">Edit Listing:</h2>
+  <input class="form-input" type="text" [(ngModel)]="editCardName"/>
+  <input class="form-input" type="text" [(ngModel)]="editBuySet" />
+  <input class="form-input" type="text" [(ngModel)]="editBuyCondition" />
+  <input class="form-input" type="number" [(ngModel)]="editCardPrice" />
+  <br />
+  <br />
+  <button class="selected-button margin-left-30" (click)="confirmEdit()">Confirm Edit</button>
+</div>
 
-  <a class="plusSquare right"><i class="fa fa-plus-square">
-     </i>&nbsp;Buy Card</a>
-  <a class="plusSquare left"><i class="fa fa-plus-square">
-     </i>&nbsp;Sell Card</a>
+<div class="main-div" (click)="closeMenu()">
+  <h2>My Listings</h2>
+
   <div class="clear"></div>
   <table class="list-table left">
     <thead>
@@ -21,7 +26,7 @@
         <td>{{items.cardName}}</td>
         <td>$ {{items.sellPrice}}</td>
         <td>
-          <a class="editClick">Edit</a> | <a class="removeClick" (click)="RemoveFromSellList(items.sellId)">Remove</a>
+          <a (click)="editSellListing(items.sellId)">Edit</a> | <a (click)="RemoveFromSellList(items.sellId)">Remove</a>
         </td>
       </tr>
     </tbody>
@@ -39,7 +44,7 @@
       <tr *ngFor="let items of BuyListing">
         <td>{{items.cardName}}</td>
         <td>$ {{items.buyPrice}}</td>
-        <td><a class="editClick">Edit</a> | <a class="removeClick" (click)="RemoveFromBuyList(items.buyId)">Remove</a></td>
+        <td><a (click)="editBuyListing(items.buyId)">Edit</a> | <a (click)="RemoveFromBuyList(items.buyId)">Remove</a></td>
       </tr>
     </tbody>
   </table>

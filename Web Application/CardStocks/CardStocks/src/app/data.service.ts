@@ -14,30 +14,32 @@ export class DataService {
   id: number;
   credits: number;
 
-  constructor(private http:Http) {
+  constructor(private http: Http) {
     var id = localStorage.getItem('id');
-    if (id == null || id == "")
-    {
+    if (id == null || id == "") {
       console.log("not logged in");
     }
-    else
-    {
-    
-    this.GetLocalApi('User/' + id).subscribe(data => {
+    else {
 
-      console.log(data);
+      this.GetLocalApi('User/' + id).subscribe(data => {
 
-      this.username = data.username;
-      this.id = data.userId;
-      this.membership = data.membership;
-      this.credits = data.storeCredit;
+        console.log(data);
 
-      console.log(this.username + " " + this.id + " " + this.membership + " " + this.credits);
-    });
+        this.username = data.username;
+        this.id = data.userId;
+        this.membership = data.membership;
+        this.credits = data.storeCredit;
 
+        console.log(this.username + " " + this.id + " " + this.membership + " " + this.credits);
+
+      });
     }
   }
 
+  getList() {
+    this.GetLocalApi('Collections').subscribe(data => console.log(data));
+
+  }
 
   hoverItem: number;
   

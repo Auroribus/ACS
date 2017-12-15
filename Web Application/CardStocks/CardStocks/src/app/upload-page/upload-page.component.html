@@ -1,7 +1,9 @@
 <div class="main-div" (click)="closeMenu()">
   <div *ngIf="options">
-    <button class="option-button" (click)="addToDB()">Add</button>
-    <button class="option-button" (click)="removeFromDB()">Remove</button>
+    <button class="selected-button-large" (click)="addToDB()">Add</button>
+    <br />
+    <br />
+    <button class="selected-button-large" (click)="removeFromDB()">Remove</button>
   </div>
   <div *ngIf="!options">
     <button (click)="Options()">Options</button>
@@ -13,12 +15,8 @@
       <input type="file" id="filePicker" (change)="handleFileSelect($event)">
       
       <hr />
-      <p>
-        Name: {{cardName}}
-        <!--
-        <button class="sendButton" (click)="goToDetails()">Send</button>
--->
-      </p>
+      <input type="text" [(ngModel)]="cardName" />
+      {{cardName}}
       <hr />
       <img [src]="imageSrc" width="300"/>
       <hr />
@@ -56,8 +54,13 @@
   </div>
 
   <div *ngIf="cardNameLoaded">
-    <h2 class="center">Card Name: {{cardName}}</h2>
-    <img class="center-img" [src]="imageSrc" width="300" />
-    <button class="login-button" (click)="SendToDB()">Add</button>
+    <h2 class="center white">Modify the Name if Misspelled:</h2>
+    <input class="form-input" type="text" [(ngModel)]="cardName" />
+    <br />
+    <br />
+    <img class="center-img" [src]="imageSrc" width="200" />
+    <br />
+    <br />
+    <button class="selected-button-large" (click)="SendToDB()">Confirm</button>
   </div>
 </div>

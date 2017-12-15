@@ -13,7 +13,7 @@ namespace CardStocks.Models
         public string CollectionName { get; set; }
         [Required]
         public int UserId { get; set; }
-       
-        public int CardId { get; set; }
+    
+        public ICollection<Card> CardList { get; set; }
   }
 }

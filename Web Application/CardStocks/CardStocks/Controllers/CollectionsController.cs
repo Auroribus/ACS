@@ -85,6 +85,7 @@ namespace CardStocks.Controllers
         {
             if (!ModelState.IsValid)
             {
+                
                 return BadRequest(ModelState);
             }
 
