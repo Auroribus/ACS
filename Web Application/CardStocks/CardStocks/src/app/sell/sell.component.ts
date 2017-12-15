@@ -14,10 +14,6 @@ export class SellComponent implements OnInit {
 
   cards: string[] = [];
   sellListings: string[] = [];
-  userName: string[] = [];
-  rating: number[] = [];
-  cardSet: string[] = [];
-  cardCondition: string[] = [];
 
   addSellListing: boolean = false;
   tableLoaded: boolean = false;
@@ -41,26 +37,6 @@ export class SellComponent implements OnInit {
     this.dataservice.GetLocalApi('SellList').subscribe(data => {
       console.log(data);
       this.sellListings = data;
-
-      this.cardCondition = [];
-      this.cardSet = [];
-      this.userName = [];
-      this.rating = [];
-      
-      for (var i = 0; i < data.length; i++) {
-
-        this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userData => {
-          
-            this.userName[i-1] = userData.username;
-            this.rating[i-1] = userData.rating;
-        });
-
-        this.dataservice.GetLocalApi('Cards/' + data[i].cardId).subscribe(cardData => {
-          //console.log(cardData.cardName);
-          this.cardSet[i - 1] = cardData.cardSet;
-          this.cardCondition[i - 1] = cardData.cardCondition;
-        });
-      }
       });
       
     this.dataservice.GetLocalApi("Cards")
@@ -86,9 +62,11 @@ export class SellComponent implements OnInit {
 
     }
     else {
+
+      var id = localStorage.getItem('id');
       //Change user id when logg in sessions done
       let body = {
-        UserId: 1,
+        UserId: id,
         CardId: 1,
         sellPrice: this.cardPrice
       };

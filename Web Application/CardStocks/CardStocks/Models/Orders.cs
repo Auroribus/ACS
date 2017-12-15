@@ -16,5 +16,11 @@ namespace CardStocks.Models
     public double Price { get; set; }
     [Required]
     public string Status { get; set; }
+
+    public string nameSeller { get; set; }
+    public string nameBuyer { get; set; }
+
+    public double ratingSeller { get; set; }
+    public double ratingBuyer { get; set; }
   }
 }

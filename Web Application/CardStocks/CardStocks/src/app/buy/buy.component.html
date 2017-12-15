@@ -26,17 +26,17 @@
       <thead>
         <tr>
           <th>Buyer:</th>
-          <th>Rating:</th>
-          <th>Name:</th>
-          <th>Set:</th>
+          <th>Buyers Rating:</th>
+          <th>Card Name:</th>
+          <th>Card Set:</th>
           <th>Condition:</th>
           <th>Price:</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of buyListings; let i = index" [attr.data-index]="i">
-          <td>{{userName[i]}}</td>
-          <td>{{rating[i]}}</td>
+          <td>{{items.userName}}</td>
+          <td>{{items.userRating}}</td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>

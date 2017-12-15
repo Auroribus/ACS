@@ -1,6 +1,6 @@
 <div class="main-div" (click)="closeMenu()">
 
-   <h2>Latest Added Cards</h2>
+   <h2>Newly Added Cards</h2>
   
 
   <div class="img-div" *ngIf="!imagesLoaded">     
@@ -48,18 +48,18 @@
   <div class="clear"></div>
 
   <div class="panel-list-div left">
-    <h2>Lastest Cards Added</h2>
+    <h2>Latest Cards Added</h2>
     <table class="list-table-center">
       <thead>
         <tr>
-          <th class="boxViewHead">Price</th>
-          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Card Name</th>
+          <th class="boxViewHead">Card Set</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of cards">
-          <td class="green-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> $14.59</td>
           <td>{{items.cardName}}</td>
+          <td>{{items.cardSet}}</td>
         </tr>
       </tbody>
     </table>
@@ -71,12 +71,12 @@
       <thead>
         <tr>
           <th class="boxViewHead">Price</th>
-          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Card Name</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let items of cards">
-          <td class="red-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> $9.27</td>
+        <tr *ngFor="let items of buyListings">
+          <td>$ {{items.buyPrice}}</td>
           <td>{{items.cardName}}</td>
         </tr>
       </tbody>
@@ -89,12 +89,12 @@
       <thead>
         <tr>
           <th class="boxViewHead">Price</th>
-          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Card Name</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let items of listings">
-          <td>${{items.sellPrice}}</td>
+        <tr *ngFor="let items of sellListings">
+          <td>$ {{items.sellPrice}}</td>
           <td>{{items.cardName}}</td>
         </tr>
       </tbody>

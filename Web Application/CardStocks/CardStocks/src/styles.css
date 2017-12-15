@@ -63,11 +63,6 @@ button {
   color: white;
 }
 
-  button:hover {
-    background: linear-gradient(to bottom, rgba(80,80,80,.7), rgba(80,80,80,1),rgba(80,80,80,1));
-    cursor: pointer;
-  }
-
 div.main-div {
   margin-left: 5%;
   margin-right: 5%;
@@ -309,6 +304,11 @@ button.panel-button {
   bottom: -10px;
 }
 
+button.panel-button:hover {
+  background: linear-gradient(to bottom, rgba(80,80,80,.7), rgba(80,80,80,1),rgba(80,80,80,1));
+  cursor: pointer;
+}
+
 
 /* Homepage */
 h2.main-h2 {
@@ -483,6 +483,11 @@ button.selected-button {
   height:30px;
 }
 
+button.selected-button:hover {
+  background: linear-gradient(to bottom, rgba(80,80,80,.7), rgba(80,80,80,1),rgba(80,80,80,1));
+  cursor: pointer;
+}
+
 button.selected-button-large {
   font-size: 80px;
   margin-left: 30%;
@@ -505,6 +510,11 @@ select {
   background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
   color: white;
   height: 30px;
+}
+
+select:hover{
+  background: linear-gradient(to bottom, rgba(80,80,80,.7), rgba(80,80,80,1),rgba(80,80,80,1));
+  cursor: pointer;
 }
 
 select option {
@@ -584,3 +594,12 @@ a.selected-a:hover {
   background: lightgray;
 }
 
+/* Table Buttons */
+button.table-button {
+  font-size: 10px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: black;
+  background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
+  color: white;
+}

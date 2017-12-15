@@ -17,5 +17,7 @@ namespace CardStocks.Models
         public int UserId { get; set; }
         [Required]
         public string ImgBase64 { get; set; }
+
+        public int CollectionId { get; set; }
     }
 }

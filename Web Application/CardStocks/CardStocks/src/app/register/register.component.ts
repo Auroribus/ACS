@@ -111,19 +111,24 @@ export class RegisterComponent implements OnInit {
       amountOfSales: 0,
       dateOfCreation: "11/12/2017",
       rating: 2.5,
-      membership: "Free",
       storeCredit: 0
     }
 
     this.dataservice.PostLocalApi('User', body).subscribe(data => {
-      console.log(data.userId);
-      localStorage.setItem('user', this.username);
-
-      console.log("in api");
-
+     
+      localStorage.setItem('user', this.username);      
       localStorage.setItem('id', data.userId);
-      this.router.navigate(["dashboard"]);
-      location.reload();
+
+      let bodyMember = {
+        userId: data.userId,
+        memberStatus: "Common"
+      }
+
+      this.dataservice.PostLocalApi('Membership', bodyMember).subscribe(memberdata => {
+        
+        this.router.navigate(["dashboard"]);
+        location.reload();
+      });      
     });
   }
 

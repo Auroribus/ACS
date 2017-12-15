@@ -30,9 +30,11 @@
     "bootstrap": "^4.0.0-beta.2",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "ng.tree": "^3.2.1",
     "ngx-bootstrap": "^2.0.0-beta.7",
     "password-hash": "^1.2.2",
     "rxjs": "^5.4.2",
+    "smb2": "^0.2.7",
     "tesseract.js": "^1.0.10",
     "ts-md5": "^1.2.2",
     "zone.js": "^0.8.14"

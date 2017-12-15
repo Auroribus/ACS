@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using CardStocks.Models;
 
 namespace CardStocks.Models
 {
@@ -15,6 +16,7 @@ namespace CardStocks.Models
         public DbSet<SellModel> SellListings { get; set; }
         public DbSet<UserModel> UserList { get; set; }
         public DbSet<Orders> Orders { get; set; }
+        public DbSet<Membership> Membership { get; set; }
         
     }
 }

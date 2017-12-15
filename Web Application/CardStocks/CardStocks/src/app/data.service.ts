@@ -22,23 +22,20 @@ export class DataService {
     else {
 
       this.GetLocalApi('User/' + id).subscribe(data => {
-
-        console.log(data);
-
+        
         this.username = data.username;
         this.id = data.userId;
-        this.membership = data.membership;
         this.credits = data.storeCredit;
+      });
 
-        console.log(this.username + " " + this.id + " " + this.membership + " " + this.credits);
-
+      this.GetLocalApi('Membership/' + id).subscribe(data => {
+        this.membership = data.memberStatus;
       });
     }
   }
 
   getList() {
     this.GetLocalApi('Collections').subscribe(data => console.log(data));
-
   }
 
   hoverItem: number;
