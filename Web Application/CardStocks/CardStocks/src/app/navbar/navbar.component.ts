@@ -37,6 +37,8 @@ import { DataService } from '../data.service';
 })
 export class NavbarComponent implements OnInit {
 
+  profileImg: string = "/assets/blank_profile_picture.png";
+
   searchCardName: string = "";
   searchSetName: string = "";
   activeRoute: string;

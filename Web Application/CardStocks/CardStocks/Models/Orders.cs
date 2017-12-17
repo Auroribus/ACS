@@ -17,10 +17,11 @@ namespace CardStocks.Models
     [Required]
     public string Status { get; set; }
 
-    public string nameSeller { get; set; }
-    public string nameBuyer { get; set; }
+    public string NameSeller { get; set; }
+    public string NameBuyer { get; set; }
 
-    public double ratingSeller { get; set; }
-    public double ratingBuyer { get; set; }
+
+    public double RatingSeller { get; set; }
+    public double RatingBuyer { get; set; }
   }
 }

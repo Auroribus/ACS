@@ -46,24 +46,24 @@
     <table class="list-table-center">
       <thead>
         <tr>
+          <th></th>
           <th>Seller:</th>
           <th>Sellers Rating:</th>
           <th>Card Name:</th>
           <th>Card Set:</th>
           <th>Condition:</th>
           <th>Price:</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of sellListings; let i = index" [attr.data-index]="i">
+          <td class="center"><button class="table-button" (click)="buyCard(items.sellId)">Buy</button></td>
           <td>{{items.userName}}</td>
           <td>{{items.rating}}</td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>
-          <td>$ {{items.sellPrice}}</td>
-          <td class="center"><button class="table-button" (click)="buyCard(items.buyId)">Buy</button></td>
+          <td>$ {{items.sellPrice}}</td>          
         </tr>
       </tbody>
     </table>

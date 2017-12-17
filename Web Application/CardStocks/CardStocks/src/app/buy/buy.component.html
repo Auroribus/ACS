@@ -25,6 +25,7 @@
     <table class="list-table-center">
       <thead>
         <tr>
+          <th></th>
           <th>Buyer:</th>
           <th>Buyers Rating:</th>
           <th>Card Name:</th>
@@ -35,6 +36,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let items of buyListings; let i = index" [attr.data-index]="i">
+          <td class="center"><button class="table-button" (click)="buyCard(items.buyId)">Trade</button></td>
           <td>{{items.userName}}</td>
           <td>{{items.userRating}}</td>
           <td>{{items.cardName}}</td>

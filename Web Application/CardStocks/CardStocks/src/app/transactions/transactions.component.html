@@ -5,27 +5,40 @@
   <button class="selected-button left">Failed</button>
   <br />
   <br />
-  <table class="list-table-center">
+  <table class="list-table left">
     <thead>
       <tr>
         <th>Status</th>
-        <th>Trader</th>
-        <th>Card Name</th>
         <th>Price</th>
+        <th>Card Name</th>
+        <th>Seller</th>
       </tr>
     </thead>
     <tbody>
-      <tr (click)="GoToOrder()">
-        <td>completed</td>
-        <td>auro</td>
-        <td>Aeronaut Tinkerer</td>
-        <td>$ 8.71</td>
+      <tr *ngFor="let items of transactionListBuying" (click)="goToOrder(items.orderId)">
+        <td>{{items.status}}</td>
+        <td>$ {{items.price}}</td>
+        <td>---</td>
+        <td>{{items.nameSeller}}</td>
       </tr>
+    </tbody>
+  </table>
+
+  <table class="list-table right">
+    <thead>
       <tr>
-        <td>pending</td>
-        <td>auro</td>
-        <td>Aeronaut Tinkerer</td>
-        <td>$ 8.71</td>
+        <th>Status</th>
+        <th>Price</th>
+        <th>Card Name</th>
+        <th>Buyer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of transactionListSelling" (click)="goToOrder(items.orderId)">
+        <td>{{items.status}}</td>
+        <td>$ {{items.price}}</td>
+        <td>{{items.cardName}}</td>
+        <td>{{items.nameBuyer}}</td>
       </tr>
     </tbody>
   </table>

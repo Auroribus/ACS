@@ -98,7 +98,8 @@ export class SellComponent implements OnInit {
     }
   }
 
-  buyCard() {
+  buyCard(sellId) {
+    localStorage.setItem('sellId', sellId);
     this.router.navigate(['order']);
   }
 
