@@ -17,8 +17,8 @@
       -->
     <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
     <a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>
-    <img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>
-
+    <div *ngIf="logdIn" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
+  </div>
     
 
     <!-- Components -->

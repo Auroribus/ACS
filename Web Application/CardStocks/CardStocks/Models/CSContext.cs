@@ -17,6 +17,8 @@ namespace CardStocks.Models
         public DbSet<UserModel> UserList { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Membership> Membership { get; set; }
+        public DbSet<CardStocks.Models.Chatroom> Chatroom { get; set; }
+        public DbSet<CardStocks.Models.Message> Message { get; set; }
         
     }
 }

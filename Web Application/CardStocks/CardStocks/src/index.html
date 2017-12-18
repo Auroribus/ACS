@@ -9,8 +9,212 @@
   <!-- Angular Animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.2/web-animations.min.js"></script>
   <link href="//cdn.jsdelivr.net/npm/keyrune@latest/css/keyrune.css" rel="stylesheet" type="text/css" />
+  <!-- PayPal -->
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 </head>
 <body>
   <app-root></app-root>
+  
+  <script>
+    paypal.Button.render({
+      env: 'sandbox', // Or 'sandbox',
+
+      client: {
+        sandbox: 'AVGQz9NqE-kHxJ2IlgtKmfT8TcVCCmO58-ImTQOyEXDulXXaqWImGdRzUf3oNt3-DnW0qbhwjqdfwIct',
+        production: 'xxxxxxxxx'
+      },
+
+      commit: true, // Show a 'Pay Now' button
+
+      style: {
+        color: 'gold',
+        size: 'small'
+      },
+
+      payment: function (data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [
+              {
+                amount: { total: '10.00', currency: 'USD' }
+              }
+            ]
+          }
+        });
+      },
+
+      onAuthorize: function (data, actions) {
+        return actions.payment.execute().then(function (payment) {
+
+          // The payment is complete!
+          // You can now show a confirmation message to the customer
+          localStorage.setItem("addCredits", "10");
+          location.reload();
+        });
+      },
+
+      onCancel: function (data, actions) {
+        /*
+         * Buyer cancelled the payment
+         */
+      },
+
+      onError: function (err) {
+        /*
+         * An error occurred during the transaction
+         */
+      }
+    }, '#paypal-button1');
+
+    paypal.Button.render({
+      env: 'sandbox', // Or 'sandbox',
+
+      client: {
+        sandbox: 'AVGQz9NqE-kHxJ2IlgtKmfT8TcVCCmO58-ImTQOyEXDulXXaqWImGdRzUf3oNt3-DnW0qbhwjqdfwIct',
+        production: 'xxxxxxxxx'
+      },
+
+      commit: true, // Show a 'Pay Now' button
+
+      style: {
+        color: 'gold',
+        size: 'small'
+      },
+
+      payment: function (data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [
+              {
+                amount: { total: '25.00', currency: 'USD' }
+              }
+            ]
+          }
+        });
+      },
+
+      onAuthorize: function (data, actions) {
+        return actions.payment.execute().then(function (payment) {
+          
+          // The payment is complete!
+          // You can now show a confirmation message to the customer
+          localStorage.setItem("addCredits", "25");
+          location.reload();
+        });
+      },
+
+      onCancel: function (data, actions) {
+        /*
+         * Buyer cancelled the payment
+         */
+      },
+
+      onError: function (err) {
+        /*
+         * An error occurred during the transaction
+         */
+      }
+    }, '#paypal-button2');
+
+    paypal.Button.render({
+      env: 'sandbox', // Or 'sandbox',
+
+      client: {
+        sandbox: 'AVGQz9NqE-kHxJ2IlgtKmfT8TcVCCmO58-ImTQOyEXDulXXaqWImGdRzUf3oNt3-DnW0qbhwjqdfwIct',
+        production: 'xxxxxxxxx'
+      },
+
+      commit: true, // Show a 'Pay Now' button
+
+      style: {
+        color: 'gold',
+        size: 'small'
+      },
+
+      payment: function (data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [
+              {
+                amount: { total: '50.00', currency: 'USD' }
+              }
+            ]
+          }
+        });
+      },
+
+      onAuthorize: function (data, actions) {
+        return actions.payment.execute().then(function (payment) {
+
+          // The payment is complete!
+          // You can now show a confirmation message to the customer
+          localStorage.setItem("addCredits", "50");
+          location.reload();
+        });
+      },
+
+      onCancel: function (data, actions) {
+        /*
+         * Buyer cancelled the payment
+         */
+      },
+
+      onError: function (err) {
+        /*
+         * An error occurred during the transaction
+         */
+      }
+    }, '#paypal-button3');
+
+    paypal.Button.render({
+      env: 'sandbox', // Or 'sandbox',
+
+      client: {
+        sandbox: 'AVGQz9NqE-kHxJ2IlgtKmfT8TcVCCmO58-ImTQOyEXDulXXaqWImGdRzUf3oNt3-DnW0qbhwjqdfwIct',
+        production: 'xxxxxxxxx'
+      },
+
+      commit: true, // Show a 'Pay Now' button
+
+      style: {
+        color: 'gold',
+        size: 'small'
+      },
+
+      payment: function (data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [
+              {
+                amount: { total: '100.00', currency: 'USD' }
+              }
+            ]
+          }
+        });
+      },
+
+      onAuthorize: function (data, actions) {
+        return actions.payment.execute().then(function (payment) {
+
+          // The payment is complete!
+          // You can now show a confirmation message to the customer
+          localStorage.setItem("addCredits", "100");
+          location.reload();
+        });
+      },
+
+      onCancel: function (data, actions) {
+        /*
+         * Buyer cancelled the payment
+         */
+      },
+
+      onError: function (err) {
+        /*
+         * An error occurred during the transaction
+         */
+      }
+    }, '#paypal-button4');
+  </script>
   </body>
 </html>

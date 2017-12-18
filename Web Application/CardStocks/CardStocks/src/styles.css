@@ -156,6 +156,23 @@ html body {
   background: var(--secondary-bg-color); /*url(assets/gplaypattern/gplaypattern.png);*/
 }
 
+div.profile-image-div {
+  margin-top: 8px;
+  margin-right: 2px;
+  background-image: url("assets/blank_profile_picture.png");
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+  float: right;
+  background-size: cover;
+  background-position: center center;
+}
+
 img.navbar-img {
   margin-top: 10px;
   width: 30px;

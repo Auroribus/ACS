@@ -25,7 +25,38 @@ export class DataService {
         
         this.username = data.username;
         this.id = data.userId;
-        this.credits = data.storeCredit;
+
+        var addCredits = localStorage.getItem('addCredits');
+        console.log(addCredits);
+
+        if (addCredits == null || addCredits == "")
+        {
+          console.log("no credits being added");
+
+          this.credits = data.storeCredit;
+        }
+        else
+        {
+          this.credits = parseInt(data.storeCredit) + parseInt(addCredits);
+          console.log(this.credits);
+
+          let body = {
+            userId: id,
+            username: data.username,
+            email: data.email,
+            password: data.password,
+            amountOfSales: data.amountOfSales,
+            rating: data.rating,
+            dateOfCreation: data.dateOfCreation,
+            storeCredit: this.credits
+          }
+
+          this.PutLocalApi('User/' + id, body).subscribe(data => {
+            console.log(data);
+            //remove cookie for addCredits
+            localStorage.removeItem('addCredits');
+          });
+        }
       });
 
       this.GetLocalApi('Membership/' + id).subscribe(data => {
