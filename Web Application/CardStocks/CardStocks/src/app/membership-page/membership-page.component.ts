@@ -12,6 +12,8 @@ export class MembershipPageComponent implements OnInit {
   constructor(private dataservice : DataService) { }
 
   ngOnInit() {
+    this.dataservice.GetLocalApi('Membership').subscribe(data => console.log(data));
+    this.dataservice.GetLocalApi('User').subscribe(data => console.log(data));
   }
 
   closeMenu() {
@@ -24,22 +26,16 @@ export class MembershipPageComponent implements OnInit {
 
     var id = localStorage.getItem('id');
 
-    this.dataservice.GetLocalApi('User/' + id).subscribe(data => {
-      let body = {
-        userId: data.userId,
-        username: data.username,
-        email: data.email,
-        password: data.password,
-        amountOfSales: data.amountOfSales,
-        rating: data.rating,
-        dateOfCreation: data.dateOfCreation,
-        storeCredit: data.storeCredit,        
-        membership: name
-      };
+    let body = {
+      membershipId: id,
+      userId: id,
+      memberStatus: name
+    }
 
-      this.dataservice.PutLocalApi('User/' + id, body).subscribe(data => {
-        location.reload();
-      });
+    console.log(body);
+
+    this.dataservice.PutLocalApi('Membership/' + id, body).subscribe(data => {
+      location.reload();
     });
 
     

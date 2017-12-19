@@ -9,9 +9,17 @@
     <a (click)="GoToRegister()" class="login-a right" *ngIf="!logdIn"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Register</a>
 
     <a (click)="toggleLogin()" class="login-a right" *ngIf="!logdIn"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a>
-    <a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>
 
+  <!--
+    <select class="right">
+       <option value="dashboard">dashboard</option>
+    </select>
+      -->
     <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
+    <a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>
+    <div *ngIf="logdIn" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
+  </div>
+    
 
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>

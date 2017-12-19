@@ -35,8 +35,7 @@ export class CreditPageComponent implements OnInit {
       amountOfSales: data.amountOfSales,
       rating: data.rating,
       dateOfCreation: data.dateOfCreation,
-      storeCredit: newStoreCredit,
-      memberShip: data.membership
+      storeCredit: newStoreCredit
     }
 
     this.dataservice.PutLocalApi('User/' + id, body).map(res => res.json()).subscribe(data => {
@@ -45,4 +44,5 @@ export class CreditPageComponent implements OnInit {
     });
     });
   }
+
 }

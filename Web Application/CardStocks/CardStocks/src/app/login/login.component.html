@@ -1,8 +1,10 @@
 <div class="login-div">
   <h2>Login</h2>
   <input class="form-input" type="text" [(ngModel)]="username" placeholder="username"/>
-  <br />
+ 
   <input class="form-input" type="password" [(ngModel)]="userpassword" placeholder="password"/>
-  <button class="login-button" (click)="LogIn();closeMenu()">Login</button>
+  <br />
+  <br />
+  <button class="selected-button margin-left-30" (click)="LogIn();closeMenu()">Login</button>
   <p class="login-p">Don't have an account yet? <a class="login-a2" (click)="GoToRegister();closeMenu()">Click here</a></p>
 </div>

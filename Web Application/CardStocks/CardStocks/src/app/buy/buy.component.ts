@@ -20,8 +20,6 @@ export class BuyComponent implements OnInit {
   cardName: string;
   cardSet: string;
   cardCondition: string;
-  userName: string[] = [];
-  rating: number[] = [];
 
   username: string;
 
@@ -48,29 +46,11 @@ export class BuyComponent implements OnInit {
     }
     else {
 
-      
-
       this.dataservice.GetLocalApi('BuyList').subscribe(data => {
 
         this.buyListings = [];
 
         this.buyListings = data;
-
-        for (var i = 0; i < data.length; i++) {
-          this.dataservice.GetLocalApi('User/' + data[i].userId).subscribe(userdata => {
-            this.userName.push(userdata.username);
-            this.rating.push(userdata.rating);
-
-            //show html after all of the table contents have been loaded properly
-            if (this.rating[data.length - 1] != null) {
-              console.log("not null");
-              this.tableLoaded = true;
-            }
-
-          });
-          
-        }
-        
       });
     }
   }
@@ -89,23 +69,28 @@ export class BuyComponent implements OnInit {
     }
     else if (this.cardName.trim().length > 0 && this.cardSet.trim().length > 0)
     {
-      //Change user id when logg in sessions done
-      let body = {
-        UserId: localStorage.getItem('id'),
-        CardName: this.cardName,
-        CardSet: this.cardSet,
-        CardCondition: this.cardCondition,
-        BuyPrice: this.cardPrice
-      };
+      var id = localStorage.getItem('id');
 
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.http.post('/api/BuyList', body, { headers: headers })
-        .map(response => response.json())
-        .subscribe(data => { 
-          console.log(data);
-          location.reload();
-          });  
+      this.dataservice.GetLocalApi('User/' + id).subscribe(data => {
+        let body = {
+          UserId: id,
+          CardName: this.cardName,
+          CardSet: this.cardSet,
+          CardCondition: this.cardCondition,
+          BuyPrice: this.cardPrice,
+          userName: data.username,
+          userRating: data.rating
+        };
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post('/api/BuyList', body, { headers: headers })
+          .map(response => response.json())
+          .subscribe(data => {
+            console.log(data);
+            location.reload();
+          }); 
+      });
     }
   }
 

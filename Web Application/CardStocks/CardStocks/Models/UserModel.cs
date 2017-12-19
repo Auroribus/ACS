@@ -20,7 +20,5 @@ namespace CardStocks.Models
     public string DateOfCreation { get; set; }
     [Required]
     public int StoreCredit { get; set; }
-    [Required]
-    public string Membership { get; set; }
     }
 }

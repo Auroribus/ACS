@@ -37,6 +37,8 @@ import { DataService } from '../data.service';
 })
 export class NavbarComponent implements OnInit {
 
+  profileImg: string = "/assets/Logo.png";
+
   searchCardName: string = "";
   searchSetName: string = "";
   activeRoute: string;
@@ -145,6 +147,7 @@ export class NavbarComponent implements OnInit {
 
   goToCreditPage() {
     this.router.navigate(["credit"]);
+    location.reload();
   }
 
 }

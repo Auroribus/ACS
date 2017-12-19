@@ -1,39 +1,44 @@
 <div class="form-div" *ngIf="addBuyListing">
-  <h2 class="center white">Fill in the form:</h2>
+  <h2 class="center">Fill in the form:</h2>
   <input class="form-input" type="text" [(ngModel)]="cardName" placeholder="Name" />
   <input class="form-input" type="text" [(ngModel)]="cardSet" placeholder="Set" />
   <input class="form-input" type="text" [(ngModel)]="cardCondition" placeholder="Condition" />
   <input class="form-input" type="text" [(ngModel)]="cardPrice" placeholder="Price" />
-  <button class="login-button" (click)="addBuy()">Add</button>
+  <br /><br />
+  <button class="selected-button margin-left-30" (click)="addBuy()">Add</button>
 </div>
 
 <div class="main-div" (click)="closeMenu()">
-  <div class="panel-list-div">
-    <h2>Buy Orders</h2>
-  </div>
-    <a class="plusSquare" (click)="toggleAdd()"><p class="fa fa-plus-square">
-        </p>&nbsp;Add Buy Listing</a>
-  <br />
-  <a class="selected-a">Popular Cards</a>
-  <a class="selected-a">Newly Listed</a>
-  <input type="text" placeholder="Search by Card Name" />
+  <h2>Buy Listings</h2>
+    <button class="selected-button left" (click)="toggleAdd()"><i class="fa fa-plus">
+        </i>&nbsp;Add Buy Listing</button>
+  
+  <button class="selected-button left">Newly Listed</button>
+  <select>
+    <option value="searchCardName">Card Name</option>
+    <option value="searchCardSet">Card Set</option>
+    <option value="searchCardCondition">Card Condition</option>
+  </select>
+  <input class="selected-input" type="text" placeholder="Search" />
   <br />
   <br />
     <table class="list-table-center">
       <thead>
         <tr>
+          <th></th>
           <th>Buyer:</th>
-          <th>Rating:</th>
-          <th>Name:</th>
-          <th>Set:</th>
+          <th>Buyers Rating:</th>
+          <th>Card Name:</th>
+          <th>Card Set:</th>
           <th>Condition:</th>
           <th>Price:</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of buyListings; let i = index" [attr.data-index]="i">
-          <td>{{userName[i]}}</td>
-          <td>{{rating[i]}}</td>
+          <td class="center"><button class="table-button" (click)="buyCard(items.buyId)">Trade</button></td>
+          <td>{{items.userName}}</td>
+          <td>{{items.userRating}}</td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>

@@ -1,46 +1,46 @@
 <div class="main-div" (click)="closeMenu()">
   <div *ngIf="options">
-    <button class="option-button" (click)="addToDB()">Add</button>
-    <button class="option-button" (click)="removeFromDB()">Remove</button>
+    <button class="selected-button-large" (click)="addToDB()">Add</button>
+    <br />
+    <br />
+    <button class="selected-button-large" (click)="removeFromDB()">Remove</button>
   </div>
-  <div *ngIf="!options">
-    <button (click)="Options()">Options</button>
-
-  </div>  
-    <div *ngIf="Remove">
-      
-      <label for="filePicker">Choose or drag a file:</label><br>
-      <input type="file" id="filePicker" (change)="handleFileSelect($event)">
-      
-      <hr />
-      <p>
-        Name: {{cardName}}
-        <!--
-        <button class="sendButton" (click)="goToDetails()">Send</button>
--->
-      </p>
-      <hr />
-      <img [src]="imageSrc" width="300"/>
-      <hr />
-      <p>Click row to remove from collection</p>
-      <table class="listTable">
-        <thead>
-          <tr>
-            <th>Card Name</th>
-            <th>Card Set</th>
-            <th>Card Condition</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let items of cardList" (click)="DelFromDB(items.cardId)" class="delDb">
-            <td>{{items.cardName}}</td>
-            <td>{{items.cardSet}}</td>
-            <td>{{items.cardCondition}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 </div>
+  <div *ngIf="!options">
+    <button class="selected-button" (click)="Options()">Options</button>
+
+  </div>
+    <div *ngIf="Remove" class="form-div">
+      
+      <h2 class="center">Choose a File or Take a picture with your Phone:</h2>
+      <input class="form-input" type="file" id="filePicker" (change)="handleFileSelect($event)">
+      <br /><br />
+      <img class="center-img" [src]="imageSrc" />
+
+      <div *ngIf="cardNameLoaded">
+        <h2 class="center">Modify the Name if Misspelled:</h2>
+        <input class="form-input" type="text" [(ngModel)]="cardName" />
+
+        
+        <h2 class="center">Click row to remove from collection</h2>
+        <table class="list-table-center-small">
+          <thead>
+            <tr>
+              <th>Card Name</th>
+              <th>Card Set</th>
+              <th>Card Condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let items of cardList" (click)="DelFromDB(items.cardId)" class="delDb">
+              <td>{{items.cardName}}</td>
+              <td>{{items.cardSet}}</td>
+              <td>{{items.cardCondition}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
 <div *ngIf="Add" class="form-div">
   <h2 class="center">Choose an image or take a photo:</h2>
@@ -56,8 +56,21 @@
   </div>
 
   <div *ngIf="cardNameLoaded">
-    <h2 class="center">Card Name: {{cardName}}</h2>
-    <img class="center-img" [src]="imageSrc" width="300" />
-    <button class="login-button" (click)="SendToDB()">Add</button>
+    <h2 class="center white">Modify the Name if Misspelled:</h2>
+    <input class="form-input" type="text" [(ngModel)]="cardName" />
+    <br />
+    <br />
+    <img class="center-img" [src]="imageSrc" width="200" />
+    <br />
+    <br />
+    <button class="selected-button-large" (click)="SendToDB()">Confirm</button>
   </div>
+</div>
+
+<div>
+  <ul>
+    <li>{{folder.top}}</li>
+    <li>{{folder.child1}}</li>
+    <li>{{folder.child2}}</li>
+  </ul>
 </div>

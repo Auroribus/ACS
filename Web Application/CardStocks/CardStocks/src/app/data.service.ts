@@ -14,30 +14,60 @@ export class DataService {
   id: number;
   credits: number;
 
-  constructor(private http:Http) {
+  constructor(private http: Http) {
     var id = localStorage.getItem('id');
-    if (id == null || id == "")
-    {
+    if (id == null || id == "") {
       console.log("not logged in");
     }
-    else
-    {
-    
-    this.GetLocalApi('User/' + id).subscribe(data => {
+    else {
 
-      console.log(data);
+      this.GetLocalApi('User/' + id).subscribe(data => {
+        
+        this.username = data.username;
+        this.id = data.userId;
 
-      this.username = data.username;
-      this.id = data.userId;
-      this.membership = data.membership;
-      this.credits = data.storeCredit;
+        var addCredits = localStorage.getItem('addCredits');
+        console.log(addCredits);
 
-      console.log(this.username + " " + this.id + " " + this.membership + " " + this.credits);
-    });
+        if (addCredits == null || addCredits == "")
+        {
+          console.log("no credits being added");
 
+          this.credits = data.storeCredit;
+        }
+        else
+        {
+          this.credits = parseInt(data.storeCredit) + parseInt(addCredits);
+          console.log(this.credits);
+
+          let body = {
+            userId: id,
+            username: data.username,
+            email: data.email,
+            password: data.password,
+            amountOfSales: data.amountOfSales,
+            rating: data.rating,
+            dateOfCreation: data.dateOfCreation,
+            storeCredit: this.credits
+          }
+
+          this.PutLocalApi('User/' + id, body).subscribe(data => {
+            console.log(data);
+            //remove cookie for addCredits
+            localStorage.removeItem('addCredits');
+          });
+        }
+      });
+
+      this.GetLocalApi('Membership/' + id).subscribe(data => {
+        this.membership = data.memberStatus;
+      });
     }
   }
 
+  getList() {
+    this.GetLocalApi('Collections').subscribe(data => console.log(data));
+  }
 
   hoverItem: number;
   

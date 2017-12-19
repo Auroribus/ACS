@@ -3,6 +3,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { SMB2 } from 'smb2';
 
 //let url = "https://www.picclickimg.com/d/l400/pict/152663272756_/Magic-the-gathering-Lotus-Petal-Tempest.jpg";
 //let url = "https://vignette.wikia.nocookie.net/mtg/images/7/7a/Scoria_Elemental.jpg/revision/latest?cb=20110511020909";
@@ -18,6 +19,8 @@ let oldNr = 0;
 
 var CardList = [];
 
+var folder;
+
 @Component({
   selector: 'app-upload-page',
   templateUrl: './upload-page.component.html',
@@ -31,7 +34,8 @@ export class UploadPageComponent implements OnInit {
   cardName: string = "card name";
   cardSet: string;
   cardCondition: string;
-  imageSrc: string = "assets/Loading.png";
+
+  imageSrc: string = "file://ubuntu/acc/testImage.png" ;
   cardList: string[];
 
   options: boolean = true;
@@ -41,11 +45,35 @@ export class UploadPageComponent implements OnInit {
 
   username: string;
 
+  folder = {
+    top: 'RaspberryPi',
+    child1: '',
+    child2: 'Child 2'
+  };
+
+  constructor(private http: Http, private dataservice: DataService, private router: Router) {
+
+  }
+
   ngOnInit() {
     this.username = localStorage.getItem('user');
     if (this.username == null || this.username == "" || this.username == "Login") {
       this.router.navigate([""]);
     }
+    /*
+    this.http.get('\\\\LAPTOP-DBU00HPN\\c\\share\\blender-wallpaper-1.png').map(res => res.json()).subscribe(data => {
+      console.log(data);
+    });
+    */
+
+    var smb2 = ({
+      share: '//ubuntu/'
+      , domain: 'DOMAIN'
+      , username: 'pi'
+      , password: 'raspberry'
+    });
+
+
   }
 
   addToDB() {
@@ -94,10 +122,6 @@ export class UploadPageComponent implements OnInit {
     this.Add = false;
   }
   
-  constructor(private http: Http, private dataservice: DataService, private router: Router) {
-    
-  }
-
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
     this.dataservice.slideInOutUpDown = "out";
@@ -328,5 +352,4 @@ export class UploadPageComponent implements OnInit {
     localStorage.setItem('searchSet', this.cardSet);
     this.router.navigate(["details"]);
   }
-
 }

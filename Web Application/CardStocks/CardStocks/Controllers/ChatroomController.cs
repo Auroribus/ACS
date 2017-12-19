@@ -1,6 +1,8 @@
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CardStocks.Models;
@@ -8,57 +10,57 @@ using CardStocks.Models;
 namespace CardStocks.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Collections")]
-    public class CollectionsController : Controller
+    [Route("api/Chatroom")]
+    public class ChatroomController : Controller
     {
         private readonly CSContext _context;
 
-        public CollectionsController(CSContext context)
+        public ChatroomController(CSContext context)
         {
             _context = context;
         }
 
-        // GET: api/Collections
+        // GET: api/Chatroom
         [HttpGet]
-        public IEnumerable<Collection> GetCollections()
+        public IEnumerable<Chatroom> GetChatroom()
         {
-            return _context.Collections;
+            return _context.Chatroom;
         }
 
-        // GET: api/Collections/5
+        // GET: api/Chatroom/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCollection([FromRoute] int id)
+        public async Task<IActionResult> GetChatroom([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var collection = await _context.Collections.SingleOrDefaultAsync(m => m.CollectionId == id);
+            var chatroom = await _context.Chatroom.SingleOrDefaultAsync(m => m.ChatroomId == id);
 
-            if (collection == null)
+            if (chatroom == null)
             {
                 return NotFound();
             }
 
-            return Ok(collection);
+            return Ok(chatroom);
         }
 
-        // PUT: api/Collections/5
+        // PUT: api/Chatroom/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCollection([FromRoute] int id, [FromBody] Collection collection)
+        public async Task<IActionResult> PutChatroom([FromRoute] int id, [FromBody] Chatroom chatroom)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != collection.CollectionId)
+            if (id != chatroom.ChatroomId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(collection).State = EntityState.Modified;
+            _context.Entry(chatroom).State = EntityState.Modified;
 
             try
             {
@@ -66,7 +68,7 @@ namespace CardStocks.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CollectionExists(id))
+                if (!ChatroomExists(id))
                 {
                     return NotFound();
                 }
@@ -79,46 +81,45 @@ namespace CardStocks.Controllers
             return NoContent();
         }
 
-        // POST: api/Collections
+        // POST: api/Chatroom
         [HttpPost]
-        public async Task<IActionResult> PostCollection([FromBody] Collection collection)
+        public async Task<IActionResult> PostChatroom([FromBody] Chatroom chatroom)
         {
             if (!ModelState.IsValid)
             {
-                
                 return BadRequest(ModelState);
             }
 
-            _context.Collections.Add(collection);
+            _context.Chatroom.Add(chatroom);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCollection", new { id = collection.CollectionId }, collection);
+            return CreatedAtAction("GetChatroom", new { id = chatroom.ChatroomId }, chatroom);
         }
 
-        // DELETE: api/Collections/5
+        // DELETE: api/Chatroom/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCollection([FromRoute] int id)
+        public async Task<IActionResult> DeleteChatroom([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var collection = await _context.Collections.SingleOrDefaultAsync(m => m.CollectionId == id);
-            if (collection == null)
+            var chatroom = await _context.Chatroom.SingleOrDefaultAsync(m => m.ChatroomId == id);
+            if (chatroom == null)
             {
                 return NotFound();
             }
 
-            _context.Collections.Remove(collection);
+            _context.Chatroom.Remove(chatroom);
             await _context.SaveChangesAsync();
 
-            return Ok(collection);
+            return Ok(chatroom);
         }
 
-        private bool CollectionExists(int id)
+        private bool ChatroomExists(int id)
         {
-            return _context.Collections.Any(e => e.CollectionId == id);
+            return _context.Chatroom.Any(e => e.ChatroomId == id);
         }
     }
 }

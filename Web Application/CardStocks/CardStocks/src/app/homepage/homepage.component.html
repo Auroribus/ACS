@@ -1,8 +1,7 @@
 <div class="main-div" (click)="closeMenu()">
 
-  <div class="panel-list-div">
-    <h2>Latest Added Cards</h2>
-  </div>
+   <h2>Newly Added Cards</h2>
+  
 
   <div class="img-div" *ngIf="!imagesLoaded">     
     <img src="assets/LoadingGif3.gif" />
@@ -12,7 +11,6 @@
     <img class="main-img" *ngFor="let items of cards" src={{items.imgBase64}} />
   </div>
   <div class="clear"></div>
-  <hr />
   <!--
   <hr />
   <h2 class="main-h2">Themes:
@@ -32,9 +30,9 @@
   <div class="panel-div left">
     <h2>Welcome to Cardstocks</h2>
     <ul>
-      <li><i class="fa fa-exchange" aria-hidden="true"></i> Trade directly with other Players</li>
-      <li><i class="fa fa-money" aria-hidden="true"></i> Sell your Cards for Store Credit or Cash</li>
-      <li><i class="fa fa-cc" aria-hidden="true"></i> Pay with Paypal</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i> Trade directly with other Players</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i> Buy and Sell Cards for GG Credits</li>
+      <li><i class="fa fa-gg-circle" aria-hidden="true"></i> Pay with Paypal</li>
     </ul>
   </div>
 
@@ -50,17 +48,35 @@
   <div class="clear"></div>
 
   <div class="panel-list-div left">
-    <h2>Highest Risers</h2>
+    <h2>Latest Cards Added</h2>
     <table class="list-table-center">
       <thead>
         <tr>
-          <th class="boxViewHead">Price</th>
-          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Card Name</th>
+          <th class="boxViewHead">Card Set</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let items of cards">
-          <td class="green-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> $14.59</td>
+          <td>{{items.cardName}}</td>
+          <td>{{items.cardSet}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="panel-list-div left">
+    <h2>Latest Buy Listings</h2>
+    <table class="list-table-center">
+      <thead>
+        <tr>
+          <th class="boxViewHead">Price</th>
+          <th class="boxViewHead">Card Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of buyListings">
+          <td>$ {{items.buyPrice}}</td>
           <td>{{items.cardName}}</td>
         </tr>
       </tbody>
@@ -68,35 +84,17 @@
   </div>
   
   <div class="panel-list-div left">
-    <h2>Highest Loss</h2>
+    <h2>Latest Sell Listings</h2>
     <table class="list-table-center">
       <thead>
         <tr>
           <th class="boxViewHead">Price</th>
-          <th class="boxViewHead">Name</th>
+          <th class="boxViewHead">Card Name</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let items of cards">
-          <td class="red-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> $9.27</td>
-          <td>{{items.cardName}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <div class="panel-list-div left">
-    <h2>Newly Added Listings</h2>
-    <table class="list-table-center">
-      <thead>
-        <tr>
-          <th class="boxViewHead">Price</th>
-          <th class="boxViewHead">Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let items of listings">
-          <td>${{items.sellPrice}}</td>
+        <tr *ngFor="let items of sellListings">
+          <td>$ {{items.sellPrice}}</td>
           <td>{{items.cardName}}</td>
         </tr>
       </tbody>

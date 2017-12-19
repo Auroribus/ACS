@@ -6,8 +6,6 @@ import { DataService } from '../data.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ExportToCSV } from "@molteni/export-csv";
 
-let body;
-
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
@@ -55,6 +53,13 @@ export class CollectionComponent implements OnInit {
   editingCard: Boolean = false;
   CardID: number;
   ImgBase64: string;
+
+  sellName: string;
+  sellCardPrice: string;
+  sellCardID: number;
+  sellingCard: Boolean = false;
+  sellSet: string;
+  sellCondition: string;
 
 
   ngOnInit() {
@@ -247,28 +252,42 @@ export class CollectionComponent implements OnInit {
     }
   }
 
-  sellCard(cardId, cardName) {
-
-    console.log(cardId);
-    console.log(cardName);
-
+  confirmSaleCard() {
     var id = localStorage.getItem('id');
 
-    let body = {
-      UserId: id,
-      CardId: cardId,
-      CardName: cardName,
-      SellPrice: this.sellPrice
-    };
+    this.dataservice.GetLocalApi('User/' + id).subscribe(data => {
+      let body = {
+        UserId: id,
+        CardId: this.sellCardID,
+        CardName: this.sellName,
+        SellPrice: this.sellCardPrice,
+        userName: data.username,
+        rating: data.rating,
+        cardSet: this.sellSet,
+        cardCondition: this.sellCondition,
+      };
+      
+      this.dataservice.PostLocalApi('SellList', body)
+        .subscribe(data => {
+          console.log("succesfully added");
+          console.log(data);
+          location.reload();
+        });
+    });    
+  }
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post('/api/SellList', body, { headers: headers })
-      .map(response => response.json())
-      .subscribe(data => {
-        console.log("succesfully added");
-        //location.reload();
-      }); 
+  sellCard(cardId) {
+
+    this.sellingCard = true;
+
+    this.sellCardID = cardId;
+
+    this.dataservice.GetLocalApi('Cards/' + cardId).subscribe(data => {
+      this.sellName = data.cardName;
+      this.sellSet = data.cardSet;
+      this.sellCondition = data.cardCondition;
+    });
+     
   }
 
   searchCard() {
@@ -331,7 +350,7 @@ export class CollectionComponent implements OnInit {
   {
     var id = localStorage.getItem('id');
 
-    body = {
+    let body = {
       cardName: this.cName,
       cardSet: this.cSet,
       cardCondition: this.cCondition,
@@ -358,7 +377,7 @@ export class CollectionComponent implements OnInit {
 
   newCollection()
   {
-    body = {
+    let body = {
       CollectionNumber: 1.007,
       CollectionName: this.collectionName,
       UserID: 1

@@ -1,25 +1,99 @@
 <div class="main-div">
-  <h2>Your Order:</h2>
-  <p>
-    Order ID: 02222
-    <br />
-    From: auro
-    <br />
-    Card Name:
-    <br />
-    Card Set:
-    <br />
-    Card Condition:
-    <br />
-    Price: $ 1.87
-    <br />
-    + VAT
-    <br />
-    + Shipping
-    <br />
-    Total: $ 2.15
-  </p>
-  <img src="/assets/LoadingGif4.gif" />
-  <hr />
-  <button>Confirm</button>
+  <div *ngIf="!confirmed && !beingTraded">
+    <h1 class="center">Review Your Order:</h1>
+    <div class="panel-list-div left">
+      <h2>Seller Info</h2>
+      <table class="list-table-center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{sellerName}}</td>
+            <td>{{sellerRating}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel-list-div left">
+      <h2>Card Info</h2>
+      <table class="list-table-center">
+        <thead>
+          <tr>
+            <th>Price</th>
+            <th>Name</th>
+            <th>Set</th>
+            <th>Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$ {{cardPrice}}</td>
+            <td>{{cardName}}</td>
+            <td>{{cardSet}}</td>
+            <td>{{cardCondition}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel-list-div left">
+      <h2>Buyer Info</h2>
+      <table class="list-table-center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{buyerName}}</td>
+            <td>{{buyerRating}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button (click)="confirmOrder()" class="selected-button">Confirm</button>
+  </div>
+
+  <div *ngIf="confirmed && !beingTraded">
+    <h1 class="center">Your Order:</h1>
+    <table class="list-table-center">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Status</th>
+          <th>Seller</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th>Card Name</th>
+          <th>Card Set</th>
+          <th>Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{orderId}}</td>
+          <td>{{orderStatus}}</td>
+          <td>{{sellerName}}</td>
+          <td>{{sellerRating}}</td>
+          <td>{{cardPrice}}</td>
+          <td>{{cardName}}</td>
+          <td>{{cardSet}}</td>
+          <td>{{cardCondition}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="beingTraded">
+    <h2 class="center">This Card is Currently Being Traded by Someone Else</h2>
+    <button (click)="return()" class="selected-button">Return</button>
+  </div>
 </div>

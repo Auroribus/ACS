@@ -12,7 +12,8 @@ import { DataService } from '../data.service';
 export class HomepageComponent implements OnInit {
 
   cards: string[] = [];
-  listings: string[] = [];
+  buyListings: string[] = [];
+  sellListings: string[] = [];
   latestCardsNumber: number = 10;
   imagesLoaded: boolean;
   constructor(private dataservice: DataService) {
@@ -33,35 +34,17 @@ export class HomepageComponent implements OnInit {
     this.imagesLoaded = false;
 
     this.dataservice.GetLocalApi("Cards")
-      .subscribe(data => {
-
-        if (data.length < 10)
-        {
-          this.latestCardsNumber = data.length;
-        }
-        else
-        {
-          this.latestCardsNumber = 10;
-        }
-
-        console.log(data);
-
-        if (data instanceof Array) {
-
-          var latest = data.length - 1;
-
-          for (var i = 0; i < this.latestCardsNumber; i++)
-          {
-            var index = latest - i;
-            this.cards.push(data[index]);
-          }
-
-          this.imagesLoaded = true;
-        }
+      .subscribe(carddata => {
+        this.cards = carddata;
+        this.imagesLoaded = true;
       });
 
-    this.dataservice.GetLocalApi('SellList').subscribe(data => {
-      this.listings = data;
+    this.dataservice.GetLocalApi('SellList').subscribe(selldata => {
+      this.sellListings = selldata;
+    });
+
+    this.dataservice.GetLocalApi('BuyList').subscribe(buydata => {
+      this.buyListings = buydata;
     });
   }
 
