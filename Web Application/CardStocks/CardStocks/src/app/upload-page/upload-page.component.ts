@@ -5,6 +5,7 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { SMB2 } from 'smb2';
 
+//Testing URL for Google Vision API
 //let url = "https://www.picclickimg.com/d/l400/pict/152663272756_/Magic-the-gathering-Lotus-Petal-Tempest.jpg";
 //let url = "https://vignette.wikia.nocookie.net/mtg/images/7/7a/Scoria_Elemental.jpg/revision/latest?cb=20110511020909";
 let url;
@@ -32,10 +33,10 @@ export class UploadPageComponent implements OnInit {
 
   file: string = "";
   cardName: string = "card name";
-  cardSet: string;
-  cardCondition: string;
+  cardSet: string = "--";
+  cardCondition: string = "--";
 
-  imageSrc: string = "file://ubuntu/acc/testImage.png" ;
+  imageSrc: string = "assets/LoadingGif4.gif" ;
   cardList: string[];
 
   options: boolean = true;
@@ -90,11 +91,13 @@ export class UploadPageComponent implements OnInit {
   }
 
   SendToDB() {
+    var id = localStorage.getItem('id');
+
     body = {
       cardName: this.cardName,
-      cardSet: "--",//this.cardSet,
-      cardCondition: "NM",//this.cardCondition,
-      userId: 1,
+      cardSet: this.cardSet,
+      cardCondition: this.cardCondition,
+      userId: id,
       imgBase64: "data:image/png;base64," + this.base64textString
     }
 
@@ -130,7 +133,7 @@ export class UploadPageComponent implements OnInit {
   private base64textString: String = "";
 
   handleFileSelect(evt) {
-
+    
     var files = evt.target.files;
     var file = files[0];
 
@@ -209,21 +212,33 @@ export class UploadPageComponent implements OnInit {
       this.cardName = nameCard;
       this.cardNameLoaded = true;
 
-      this.dataservice.GetLocalApi('Cards')
-        .subscribe(data => {
-          //console.log(data);
-          this.LoopData(data, this.cardName);
-          this.cardList = CardList;
-        });
+      this.PopulateRemoveTable();
 
       });
-
   }
 
-  LoopData(data, name) {
+  PopulateRemoveTable()
+  {
+    this.cardList = [];
+    CardList = [];
+
+    this.dataservice.GetLocalApi('Cards')
+      .subscribe(data => {
+        //console.log(data);
+
+
+        var id = localStorage.getItem('id');
+
+        this.LoopData(data, this.cardName, id);
+
+        this.cardList = CardList;
+      });
+  }
+
+  LoopData(data, name, userId) {
     for (var i = 0; i < data.length; i++)
     {
-      if (data[i].cardName == name)
+      if (data[i].cardName == name && data[i].userId == userId)
       {
         console.log("same name");
         CardList.push(data[i]);

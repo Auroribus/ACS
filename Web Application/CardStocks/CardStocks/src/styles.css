@@ -35,6 +35,7 @@ img {
 
 img.center-img{
   margin-left: 30%;
+  max-width: 20%;
 }
 
 input {
@@ -174,7 +175,7 @@ div.profile-image-div {
   -moz-border-radius: 50%;
   -moz-background-clip: padding;
   border-radius: 50%;
-  border-width: 2px;
+  border-width: 1px;
   border-color: white;
   border-style: solid;
   background-clip: padding-box;
@@ -666,5 +667,9 @@ button.table-button {
   border-width: 1px;
   border-color: black;
   background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
+  color: white;
+}
+
+div h2 {
   color: white;
 }

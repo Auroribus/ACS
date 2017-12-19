@@ -99,4 +99,64 @@ export class BuyComponent implements OnInit {
     this.dataservice.slideInOutUpDown = "out";
   }
 
+
+  searchValue: string = "name";
+  searchObject: string;
+
+  searchChange(value) {
+
+    this.searchValue = value;
+    console.log(this.searchValue);
+  }
+
+  search() {
+
+    this.buyListings = [];
+    var SearchObject = this.searchObject.toLowerCase();
+
+    if (this.searchValue == 'name') {
+      this.dataservice.GetLocalApi('BuyList').subscribe(data => {
+
+        for (var i = 0; i < data.length; i++) {
+          var cardName = data[i].cardName.toLowerCase();
+
+          if (cardName.includes(SearchObject)) {
+            console.log("found");
+            this.buyListings.push(data[i]);
+          }
+        }
+
+      });
+    }
+    else if (this.searchValue == 'set') {
+      this.dataservice.GetLocalApi('BuyList').subscribe(data => {
+
+        for (var i = 0; i < data.length; i++) {
+          var cardSet = data[i].cardSet.toLowerCase();
+
+          if (cardSet.includes(SearchObject)) {
+            console.log("found");
+            this.buyListings.push(data[i]);
+          }
+        }
+
+      });
+    }
+    else if (this.searchValue == 'condition') {
+      this.dataservice.GetLocalApi('BuyList').subscribe(data => {
+
+        for (var i = 0; i < data.length; i++) {
+          var cardCondition = data[i].cardCondition.toLowerCase();
+
+          if (cardCondition.includes(SearchObject)) {
+            console.log("found");
+            this.buyListings.push(data[i]);
+          }
+        }
+
+      });
+    }
+
+
+  }
 }

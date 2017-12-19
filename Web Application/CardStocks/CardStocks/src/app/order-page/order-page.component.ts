@@ -32,6 +32,7 @@ export class OrderPageComponent implements OnInit {
 
   confirmed: Boolean = false;
   beingTraded: Boolean = false;
+  saleOfUser: Boolean = false;
 
 
   constructor(private dataservice : DataService, private router: Router) { }
@@ -44,8 +45,9 @@ export class OrderPageComponent implements OnInit {
       this.router.navigate[("")];
     }
     else {
+      console.log(userId);
       this.dataservice.GetLocalApi('SellList/' + sellId).subscribe(data => {
-        
+        console.log(data);
         this.sellerId = data.userId;
         this.sellerName = data.userName;
         this.sellerRating = data.rating;
@@ -57,27 +59,35 @@ export class OrderPageComponent implements OnInit {
         this.cardSet = data.cardSet;
         this.cardCondition = data.cardCondition;
 
-        this.dataservice.GetLocalApi('Order').subscribe(data => {
-          for (var i = 0; i < data.length; i++)
-          {
-            //console.log(data);
-            if (data[i].cardId == this.cardId && data[i].buyerId == userId)
-            {
-              console.log("card is already being traded by you");
-              this.orderId = "000" + data[i].orderId.toString();
-              this.orderStatus = data[i].status;
-              this.confirmed = true;
-              break;
-            }
-            else if (data[i].cardId == this.cardId && data[i].buyerId != userId) {
-              console.log("card is already being traded by someone else");
+        if (data.userId == userId) {
+          console.log("yours");
+          this.saleOfUser = true;
+        }
+        else {
 
-              this.beingTraded = true;
-              break;
-            }
-          }
-        });
 
+
+          this.dataservice.GetLocalApi('Order').subscribe(data => {
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+              console.log(data[i].sellerId);
+
+              if (data[i].cardId == this.cardId && data[i].buyerId == userId) {
+                console.log("card is already being traded by you");
+                this.orderId = "000" + data[i].orderId.toString();
+                this.orderStatus = data[i].status;
+                this.confirmed = true;
+                break;
+              }
+              else if (data[i].cardId == this.cardId && data[i].buyerId != userId) {
+                console.log("card is already being traded by someone else");
+
+                this.beingTraded = true;
+                break;
+              }
+            }
+          });
+        }
       });
 
       this.dataservice.GetLocalApi('User/' + userId).subscribe(data => {
@@ -101,6 +111,7 @@ export class OrderPageComponent implements OnInit {
     public double RatingBuyer { get; set; }
 */
     }
+  
   }
 
   confirmOrder() {

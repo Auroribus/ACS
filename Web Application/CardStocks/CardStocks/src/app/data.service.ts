@@ -73,7 +73,7 @@ export class DataService {
   
   //Animation related
   slideInOutLeftRight = "out";
-  slideInOutUpDown = "in";
+  slideInOutUpDown = "out";
   showImage = "out";
     
   //Theme related

@@ -1,5 +1,5 @@
 <div class="main-div">
-  <div *ngIf="!confirmed && !beingTraded">
+  <div *ngIf="!confirmed && !beingTraded && !saleOfUser">
     <h1 class="center white">Review Your Order:</h1>
     <div class="panel-list-div left">
       <h2 class="white">Seller Info</h2>
@@ -63,7 +63,7 @@
   </div>
 
   <div *ngIf="confirmed && !beingTraded">
-    <h1 class="center">Your Order:</h1>
+    <h1 class="center white">Your Order:</h1>
     <table class="list-table-center">
       <thead>
         <tr>
@@ -90,10 +90,17 @@
         </tr>
       </tbody>
     </table>
+    <hr />
+    <button (click)="return()" class="selected-button">Return</button>
   </div>
 
   <div *ngIf="beingTraded">
     <h2 class="center">This Card is Currently Being Traded by Someone Else</h2>
+    <button (click)="return()" class="selected-button">Return</button>
+  </div>
+
+  <div *ngIf="saleOfUser">
+    <h2 class="center">This Card is already Yours</h2>
     <button (click)="return()" class="selected-button">Return</button>
   </div>
 </div>

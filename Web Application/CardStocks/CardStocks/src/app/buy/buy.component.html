@@ -14,12 +14,12 @@
         </i>&nbsp;Add Buy Listing</button>
   
   <button class="selected-button left">Newly Listed</button>
-  <select>
-    <option value="searchCardName">Card Name</option>
-    <option value="searchCardSet">Card Set</option>
-    <option value="searchCardCondition">Card Condition</option>
-  </select>
-  <input class="selected-input" type="text" placeholder="Search" />
+  <select (change)="searchChange($event.target.value)">
+      <option value="name">Card Name</option>
+      <option value="set">Card Set</option>
+      <option value="condition">Card Condition</option>
+    </select>
+    <input class="selected-input" type="text" placeholder="Search" (keyup.enter)="search()" [(ngModel)]="searchObject"/>
   <br />
   <br />
     <table class="list-table-center">
