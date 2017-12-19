@@ -1,31 +1,62 @@
-<body (click)="closeMenu()">
-  <div>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/280x400" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
-    <a class="wishCard" (click)="GoToDetailsPage()">
-      <img src="http://via.placeholder.com/220x300" />
-    </a>
+<div class="form-div" *ngIf="addingCard">
+  <h2 class="center white">Fill in form:</h2>
+  <input class="form-input" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
+  <input class="form-input" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
+  <input class="form-input" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
+  <br />
+  <br />
+  <h2 class="center white">Upload an Image of the Card(optional)</h2>
+  <input class="form-input" type="file" id="filePicker" (change)="handleFileSelect($event)">
+
+  <button class="login-button" (click)="addCard()">Add</button>
+</div>
+
+<div class="form-div" *ngIf="editingCard">
+  <h2 class="center white">Edit Card Properties</h2>
+  <input class="form-input" type="text" [(ngModel)]="editName" />
+  <input class="form-input" type="text" [(ngModel)]="editSet" />
+  <input class="form-input" type="text" [(ngModel)]="editCondition" />
+  <button class="login-button" (click)="confirmEditCard()">Confirm</button>
+</div>
+
+<div class="main-div" (click)="closeMenu()">
+
+  <h2>Wants</h2>
+
+  <a class="plusSquare" (click)="exportCards()"><i class="fa fa-sign-out"></i>Export</a>
+  <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list right"></a>
+  <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large right"></a>
+
+  <hr />
+
+  <div *ngIf="listView">
+
+    <table class="list-table-center" id="myTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th><i class="fa fa-sort" (click)="sortByName()"></i>&nbsp;Name</th>
+          <th><i class="fa fa-sort" (click)="sortBySet()"></i>&nbsp;Expansion</th>
+          <th><i class="fa fa-sort" (click)="sortByCondition()"></i>&nbsp;Condition</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of cards">
+          <td><i class="fa fa-file-image-o fa-fw"></i></td>
+          <td>{{items.cardName}}</td>
+          <td>{{items.cardSet}}</td>
+          <td>{{items.cardCondition}}</td>
+          <td>
+            <a (click)="removeCard(items.cardId)">remove </a> | <a class="boxClick" (click)="editCard(items.cardId)"> edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</body>
+
+  <div *ngIf="!listView">
+    <img *ngFor="let items of cards" src={{items.imgBase64}} class="tileImg" width="230" height="300" />
+  </div>
+</div>
