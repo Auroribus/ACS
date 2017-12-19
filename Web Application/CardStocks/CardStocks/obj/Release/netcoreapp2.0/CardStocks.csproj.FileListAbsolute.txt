@@ -19,3 +19,4 @@ D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\We
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.AssemblyInfo.cs
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.dll
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.pdb
+D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.csprojResolveAssemblyReference.cache
