@@ -13291,6 +13291,12 @@
   },
   "logs": [
     {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Dropbox\\AP ARTESIS Prive\\Jaar 3\\Cloud Applications\\Projecten\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\obj\\CardStocks.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

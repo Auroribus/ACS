@@ -24,7 +24,7 @@ import { DataService } from '../data.service';
     ]),
     trigger('slideInOutUpDown', [
       state('in', style({
-        transform: 'translate3d(0, 30%, 0)'
+        transform: 'translate3d(0, 0, 0)'
       })),
       state('out', style({
         transform: 'translate3d(0, -110%, 0)'

@@ -1,11 +1,11 @@
 :host {
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 20%;
-  left: 20%;
-  bottom: 0;
-  height: 250px;
-  width: 60%;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  height: 100%;
+  width: 100%;
   z-index: 9999;
 }
 

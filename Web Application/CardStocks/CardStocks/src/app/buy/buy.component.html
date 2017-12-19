@@ -1,5 +1,5 @@
 <div class="form-div" *ngIf="addBuyListing">
-  <h2 class="center">Fill in the form:</h2>
+  <h2 class="center white">Fill in the form:</h2>
   <input class="form-input" type="text" [(ngModel)]="cardName" placeholder="Name" />
   <input class="form-input" type="text" [(ngModel)]="cardSet" placeholder="Set" />
   <input class="form-input" type="text" [(ngModel)]="cardCondition" placeholder="Condition" />
@@ -9,17 +9,17 @@
 </div>
 
 <div class="main-div" (click)="closeMenu()">
-  <h2>Buy Listings</h2>
+  <h2 class="white">Buy Listings</h2>
     <button class="selected-button left" (click)="toggleAdd()"><i class="fa fa-plus">
         </i>&nbsp;Add Buy Listing</button>
   
   <button class="selected-button left">Newly Listed</button>
-  <select>
-    <option value="searchCardName">Card Name</option>
-    <option value="searchCardSet">Card Set</option>
-    <option value="searchCardCondition">Card Condition</option>
-  </select>
-  <input class="selected-input" type="text" placeholder="Search" />
+  <select (change)="searchChange($event.target.value)">
+      <option value="name">Card Name</option>
+      <option value="set">Card Set</option>
+      <option value="condition">Card Condition</option>
+    </select>
+    <input class="selected-input" type="text" placeholder="Search" (keyup.enter)="search()" [(ngModel)]="searchObject"/>
   <br />
   <br />
     <table class="list-table-center">

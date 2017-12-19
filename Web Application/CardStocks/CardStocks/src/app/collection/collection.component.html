@@ -1,5 +1,5 @@
-<div class="form-div" *ngIf="addingCard" (click)="closeMenu()">
-  <h2 class="center white">Fill in form:</h2>
+<div class="form-div" *ngIf="addingCard">
+  <h2 class="center white">Fill the Card Information:</h2>
   <input class="form-input" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
   <input class="form-input" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
   <input class="form-input" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
@@ -33,7 +33,7 @@
 </div>
 
 <div class="main-div" (click)="closeMenu()">
-  <h2>Haves</h2>
+  <h2 class="white">Haves</h2>
      
     <button class="selected-button left" (click)="toggleAddCard()"><i class="fa fa-plus"></i>&nbsp;Add Card</button>
     &nbsp;&nbsp;

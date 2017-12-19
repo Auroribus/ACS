@@ -1,8 +1,11 @@
 
 <div class="top-box">
     <a (click)="toggleMenu()" class="outline left" *ngIf="logdIn"><i class="fa fa-bars" aria-hidden="true"></i></a>
-    <!-- Logo -->
+
+  <!-- Logo -->
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
+  <!-- Search -->
+  <input class="search-card-input left" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
 
     
     <!-- Toggles  -->
@@ -15,20 +18,16 @@
        <option value="dashboard">dashboard</option>
     </select>
       -->
-    <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
-    <a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>
-    <div *ngIf="logdIn" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
+    
+    <!--<a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>-->
+    <div *ngIf="logdIn" (click)="GoToDashboard()" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
   </div>
+
+  <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
     
 
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
     <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
      
-</div>
-
-<div class="search-div">
-  <!-- Search -->
-  <input class="search-card-input" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
-  <hr />
 </div>

@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
     this.dataservice.slideInOutUpDown = "out";
   }
 
+  InvertCloseMenu($event: Event) {
+    $event.stopPropagation();
+  }
+
   ngOnInit() {
     
   }

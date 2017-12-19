@@ -103,4 +103,70 @@ export class SellComponent implements OnInit {
     this.router.navigate(['order']);
   }
 
+  searchValue: string = "name";
+  searchObject: string;
+
+  searchChange(value)
+  {
+    
+    this.searchValue = value;
+    console.log(this.searchValue);
+  }
+
+  search() {
+
+    this.sellListings = [];
+    var SearchObject = this.searchObject.toLowerCase();
+
+    if (this.searchValue == 'name')
+    {
+      this.dataservice.GetLocalApi('SellList').subscribe(data => {
+
+        for (var i = 0; i < data.length; i++)
+        {
+          var cardName = data[i].cardName.toLowerCase();
+
+          if (cardName.includes(SearchObject))
+          {
+            console.log("found");
+            this.sellListings.push(data[i]);
+          }
+        }
+        
+      });
+    }
+    else if (this.searchValue == 'set')
+    {
+      this.dataservice.GetLocalApi('SellList').subscribe(data => {
+
+        for (var i = 0; i < data.length; i++) {
+          var cardSet = data[i].cardSet.toLowerCase();
+
+          if (cardSet.includes(SearchObject)) {
+            console.log("found");
+            this.sellListings.push(data[i]);
+          }
+        }
+
+      });
+    }
+    else if (this.searchValue == 'condition')
+    {
+      this.dataservice.GetLocalApi('SellList').subscribe(data => {
+
+        for (var i = 0; i < data.length; i++) {
+          var cardCondition = data[i].cardCondition.toLowerCase();
+
+          if (cardCondition.includes(SearchObject)) {
+            console.log("found");
+            this.sellListings.push(data[i]);
+          }
+        }
+
+      });
+    }
+
+    
+  }
+
 }

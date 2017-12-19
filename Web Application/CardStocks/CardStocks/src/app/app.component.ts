@@ -18,5 +18,14 @@ export class AppComponent implements OnInit {
       
   }
 
+    closeMenu() {
+      this.dataservice.slideInOutLeftRight = "out";
+      this.dataservice.slideInOutUpDown = "out";
+    }
+
+    InvertCloseMenu($event: Event) {
+      $event.stopPropagation();
+    }
+
     
 }

@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
   cards: string[] = [];
   buyListings: string[] = [];
   sellListings: string[] = [];
-  latestCardsNumber: number = 10;
+  maxNumber: number = 10;
   imagesLoaded: boolean;
   constructor(private dataservice: DataService) {
   }
@@ -35,15 +35,38 @@ export class HomepageComponent implements OnInit {
 
     this.dataservice.GetLocalApi("Cards")
       .subscribe(carddata => {
-        this.cards = carddata;
+
+        var arraySize = carddata.length;
+        this.cards = [];
+
+        for (var i = (arraySize - this.maxNumber); i < arraySize; i++)
+        {
+          this.cards.push(carddata[i]);          
+        }
         this.imagesLoaded = true;
       });
 
     this.dataservice.GetLocalApi('SellList').subscribe(selldata => {
+
+      var arraySize = selldata.length;
+      this.sellListings = [];
+
+      //for (var i = (arraySize - this.maxNumber); i < arraySize; i++) {
+      //  this.sellListings.push(selldata[i]);
+      //}
+
       this.sellListings = selldata;
     });
 
     this.dataservice.GetLocalApi('BuyList').subscribe(buydata => {
+
+      var arraySize = buydata.length;
+      this.buyListings = [];
+
+      //for (var i = (arraySize - this.maxNumber); i < arraySize; i++) {
+      //  this.buyListings.push(buydata[i]);
+      //}
+
       this.buyListings = buydata;
     });
   }
