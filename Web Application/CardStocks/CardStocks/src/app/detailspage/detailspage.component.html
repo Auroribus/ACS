@@ -16,12 +16,11 @@
           <td>{{sellerList[i]}}</td>
           <td>{{sellerRating[i]}}</td>
           <td>{{items.sellPrice}}</td>
-          <td class="center"><button class="table-button">Buy</button></td>
+          <td class="center"><button class="table-button">Buy</button>
+          <button class="table-button" (click)="AddToWishlist()" >Wishlist</button></td>
         </tr>
       </tbody>
     </table>
-
-    
 
     <div class="clear"></div>
     <br />
