@@ -208,20 +208,37 @@ export class DetailspageComponent implements OnInit {
       console.log("No Card!");
     }
     else {
-      this.NewWishlist();
+      //this.NewWishlist();
+      this.NewWishCard();
     }
   }
 
   NewWishlist() {
     let body = {
-      WishListId: 1,
-      CollectionId: 1,
-      UserID: 1
+      wishListId: 1,
+      collectionId: 1,
+      userID: 1
     }
 
     this.dataservice.PostLocalApi('WishLists', body).subscribe(data => {
       console.log(data);
-      this.router.navigate(['wishlist']);
+      //this.router.navigate(['wishlist']);
+    });
+  }
+
+  NewWishCard() {
+    var id = localStorage.getItem("id");
+    let body = {
+      wishListId: id,
+      CardName: this.cardName,
+      CardSet: this.cardSet,
+      //CardCondition: "NM",
+      ImgUrl: this.cardImage
+    }
+
+    this.dataservice.PostLocalApi('WishCards', body).subscribe(data => {
+      console.log(data);
+      //this.router.navigate(['wishlist']);
     });
   }
 }
