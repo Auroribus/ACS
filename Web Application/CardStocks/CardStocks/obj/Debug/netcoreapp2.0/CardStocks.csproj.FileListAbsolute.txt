@@ -29,3 +29,13 @@ D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\We
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfo.cs
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.dll
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.pdb
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.deps.json
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.runtimeconfig.json
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.runtimeconfig.dev.json
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.dll
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Debug\netcoreapp2.0\CardStocks.pdb
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.csproj.CoreCompileInputs.cache
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfoInputs.cache
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.AssemblyInfo.cs
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.dll
+C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Debug\netcoreapp2.0\CardStocks.pdb
