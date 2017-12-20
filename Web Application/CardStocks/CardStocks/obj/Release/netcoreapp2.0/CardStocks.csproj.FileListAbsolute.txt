@@ -19,7 +19,6 @@ D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\We
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.AssemblyInfo.cs
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.dll
 D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.pdb
-D:\Dropbox\AP ARTESIS Prive\Jaar 3\Cloud Applications\Projecten\CA-CardStocks\Web Application\CardStocks\CardStocks\obj\Release\netcoreapp2.0\CardStocks.csprojResolveAssemblyReference.cache
 C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Release\netcoreapp2.0\CardStocks.deps.json
 C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Release\netcoreapp2.0\CardStocks.runtimeconfig.json
 C:\Users\Aokiji\Desktop\CA-CardStocks-Tim\CA-CardStocks\Web Application\CardStocks\CardStocks\bin\Release\netcoreapp2.0\CardStocks.runtimeconfig.dev.json

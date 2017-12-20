@@ -238,7 +238,7 @@ export class DetailspageComponent implements OnInit {
 
     this.dataservice.PostLocalApi('WishCards', body).subscribe(data => {
       console.log(data);
-      //this.router.navigate(['wishlist']);
+      this.router.navigate(['wishlist']);
     });
   }
 }
