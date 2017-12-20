@@ -13,15 +13,27 @@ export class DataService {
   username: string;
   id: number;
   credits: number;
+  profileImage_small: string = "assets/ProfilePicture/blank_profile_picte.png";
 
   constructor(private http: Http) {
     var id = localStorage.getItem('id');
+
     if (id == null || id == "") {
       console.log("not logged in");
     }
     else {
 
       this.GetLocalApi('User/' + id).subscribe(data => {
+
+        if (data.base64ProfileImage == null)
+        {
+
+        }
+        else
+        {
+          this.profileImage_small = data.base64ProfileImage;
+        }
+        
         
         this.username = data.username;
         this.id = data.userId;
@@ -123,11 +135,11 @@ export class DataService {
 
     var passw = /[a-z]/;
     if (inputtxt.match(passw)) {
-      alert('Correct, try another...')
+      //alert('Correct, try another...')
       return true;
     }
     else {
-      alert('Wrong...!')
+      //alert('Wrong...!')
       return false;
     }  
   }
@@ -139,7 +151,7 @@ export class DataService {
       return true;
     }
     else {
-      alert("You have entered an invalid email address!");
+      //alert("You have entered an invalid email address!");
       return false;
     } 
   }

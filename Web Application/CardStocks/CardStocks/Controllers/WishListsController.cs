@@ -22,9 +22,9 @@ namespace CardStocks.Controllers
 
         // GET: api/WishLists
         [HttpGet]
-        public IEnumerable<WishList> GetWishLists()
+        public IEnumerable<WishList> GetWishList()
         {
-            return _context.WishLists;
+            return _context.WishList;
         }
 
         // GET: api/WishLists/5
@@ -36,7 +36,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var wishList = await _context.WishLists.SingleOrDefaultAsync(m => m.WishListId == id);
+            var wishList = await _context.WishList.SingleOrDefaultAsync(m => m.WishListId == id);
 
             if (wishList == null)
             {
@@ -90,7 +90,7 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.WishLists.Add(wishList);
+            _context.WishList.Add(wishList);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetWishList", new { id = wishList.WishListId }, wishList);
@@ -105,13 +105,13 @@ namespace CardStocks.Controllers
                 return BadRequest(ModelState);
             }
 
-            var wishList = await _context.WishLists.SingleOrDefaultAsync(m => m.WishListId == id);
+            var wishList = await _context.WishList.SingleOrDefaultAsync(m => m.WishListId == id);
             if (wishList == null)
             {
                 return NotFound();
             }
 
-            _context.WishLists.Remove(wishList);
+            _context.WishList.Remove(wishList);
             await _context.SaveChangesAsync();
 
             return Ok(wishList);
@@ -119,7 +119,7 @@ namespace CardStocks.Controllers
 
         private bool WishListExists(int id)
         {
-            return _context.WishLists.Any(e => e.WishListId == id);
+            return _context.WishList.Any(e => e.WishListId == id);
         }
     }
 }

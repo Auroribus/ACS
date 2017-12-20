@@ -23,9 +23,9 @@
     
       
     <!--<a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>-->
-    <div *ngIf="logdIn" (click)="GoToDashboard()" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
-    </div>
-
+    <!--<div *ngIf="logdIn" (click)="GoToDashboard()" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
+    
+    <img src={{dataservice.profileImage_small}} class="profile-image-small"/>
     <a (click)="GoToCredits()" class="nav-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
 
     <a (click)="LogOut()" class="nav-a right" *ngIf="logdIn">LOGOUT</a>

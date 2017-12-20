@@ -13,6 +13,7 @@
   --secondary-bg-color: white;
   --scale: 2;
   --scale-two: 2;
+  --profile-image: url(assets/ProfilePicture/blank_profile_picture.png);
 }
 
 /* General */
@@ -176,24 +177,17 @@ a.nav-a {
 }
 
 div.profile-image-div {
+  
+}
+
+img.profile-image-small {
   margin-top: 4px;
   margin-left: 10px;
   margin-right: 1%;
-  background-image: url("assets/ProfilePicture/Picture_StevenDijcks.jpg");
   width: 42px;
   height: 42px;
-  -webkit-border-radius: 50%;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 50%;
-  -moz-background-clip: padding;
   border-radius: 50%;
-  border-width: 1px;
-  border-color: white;
-  border-style: solid;
-  background-clip: padding-box;
   float: right;
-  background-size: cover;
-  background-position: center center;
 }
 
 div.profile-image-div:hover {
@@ -698,10 +692,9 @@ img.profile-image {
   margin-left: 40%;
   margin-right: 40%;
   margin-bottom: 20px;
-  width: 20%;
-  height: auto;
+  width: 250px;
+  height: 250px;
   border-radius: 2%;
-  border: white 1px solid;
 }
 
 div.profile-div {

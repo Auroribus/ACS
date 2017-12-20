@@ -111,7 +111,7 @@ export class NavbarComponent implements OnInit {
     }    
     
     this.router.navigate(["details"]);
-    location.reload();
+    //location.reload();
   }
 
   GoToHome() {

@@ -3,16 +3,25 @@
     <h2 class="center">Change Email</h2>
     <input class="form-input" type="text" placeholder="Old Email" [(ngModel)]="oldEmail"/>
     <input class="form-input" type="text" placeholder="New Email" [(ngModel)]="newEmail"/>
+    <p class="red-text margin-left-30" *ngIf="error">{{errorMessage}}</p>
+    <hr />
+    <button (click)="confirmChangeEmail()" class="selected-button margin-left-30">Confirm</button>
   </div>
   <div *ngIf="change_password" class="form-div">
     <h2 class="center">Change Password</h2>
     <input class="form-input" type="password" placeholder="Old Password" [(ngModel)]="oldPassword" />
     <input class="form-input" type="password" placeholder="Confirm Old Password" [(ngModel)]="confirmPassword" />
     <input class="form-input" type="password" placeholder="New Password" [(ngModel)]="newPassword" />
+    <hr />
+    <button class="selected-button margin-left-30">Confirm</button>
   </div>
   <div *ngIf="change_image" class="form-div">
     <h2 class="center">Upload a New Profile Picture</h2>
     <input class="form-input white" type="file" id="filePicker" (change)="handleFileSelect($event)">
+    <hr />
+    <img class="profile-image" src={{imageSrc}} />
+    <hr />
+    <button (click)="confirmChangeProfileImage()" class="selected-button margin-left-30">Confirm</button>
   </div>
 
 <div class="main-div">
@@ -24,7 +33,7 @@
       <a class="right" (click)="changePassword()">Change Password</a>    
       <br />
       <a class="right" (click)="changeProfileImage()">Change Profile Image</a>
-    <img class="profile-image" src="assets/ProfilePicture/Picture_StevenDijcks.jpg" />
+    <img class="profile-image" src={{base64ImageString}}/>
     <table class="list-table-center-small">
       <tr>
         <th class="vertical-th">Name</th>
@@ -40,11 +49,11 @@
       </tr>
       <tr>
         <th class="vertical-th">Rating</th>
-        <td>2.5</td>
+        <td>{{rating}}</td>
       </tr>
       <tr>
         <th class="vertical-th">No. of Sales</th>
-        <td>1000</td>
+        <td>{{amountOfSales}}</td>
       </tr>
     </table>
     </div>

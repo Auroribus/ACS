@@ -19,6 +19,7 @@ namespace CardStocks.Models
         public DbSet<Membership> Membership { get; set; }
         public DbSet<Chatroom> Chatroom { get; set; }
         public DbSet<Message> Message { get; set; }
-        
+        public DbSet<WishCard> WishCard { get; set; }
+        public DbSet<WishList> WishList { get; set; }
     }
 }

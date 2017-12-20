@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
   cards: string[] = [];
   buyListings: string[] = [];
   sellListings: string[] = [];
-  maxNumber: number = 0; //10
+  maxNumber: number = 10;
   imagesLoaded: boolean;
   constructor(private dataservice: DataService) {
   }
@@ -28,21 +28,26 @@ export class HomepageComponent implements OnInit {
     var year = date.getFullYear();
     fullDate = day + "/" + month + "/" + year;
     
-
-    console.log(fullDate);
+    console.log("Date: " + fullDate);
 
     this.imagesLoaded = false;
 
     this.dataservice.GetLocalApi("Cards")
       .subscribe(carddata => {
 
+        //console.log(carddata);
+
         var arraySize = carddata.length;
         this.cards = [];
+        this.cards = carddata;
+        /*
+        console.log(arraySize);
 
         for (var i = (arraySize - this.maxNumber); i < arraySize; i++)
         {
           this.cards.push(carddata[i]);          
         }
+        */
         this.imagesLoaded = true;
       });
 
