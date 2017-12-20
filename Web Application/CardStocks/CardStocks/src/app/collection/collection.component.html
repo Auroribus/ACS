@@ -44,14 +44,14 @@
 
     <div class="clear"></div>
     <br />
-    <!-- Search
-    <input class="form-input" type="text" placeholder="search card in collection" [(ngModel)]="cNameSearch" />
-    <button (click)="searchCard()" class="login-button">Search</button>
+
+    <input class="form-input" type="text" placeholder="search for a card..." [(ngModel)]="cNameSearch" />
+    <button (click)="searchCard()" class="selected-button margin-left-30" >Search</button>
     <a (click)="searchBy('name')">Name</a>
     <a (click)="searchBy('set')">Set</a>
     <a (click)="searchBy('condition')">Condition</a>
     <hr />
-        -->
+        
     <div *ngIf="listView">
       
       <table class="list-table-center" id="myTable">
