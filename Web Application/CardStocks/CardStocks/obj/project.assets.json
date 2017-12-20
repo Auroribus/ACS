@@ -13203,7 +13203,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Materializer\\.nuget\\packages\\": {},
+    "C:\\Users\\Aokiji\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13212,17 +13212,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\Dropbox\\AP ARTESIS Prive\\Jaar 3\\Cloud Applications\\Projecten\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\CardStocks.csproj",
+      "projectUniqueName": "C:\\Users\\Aokiji\\Desktop\\CA-CardStocks-Tim\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\CardStocks.csproj",
       "projectName": "CardStocks",
-      "projectPath": "D:\\Dropbox\\AP ARTESIS Prive\\Jaar 3\\Cloud Applications\\Projecten\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\CardStocks.csproj",
-      "packagesPath": "C:\\Users\\Materializer\\.nuget\\packages\\",
-      "outputPath": "D:\\Dropbox\\AP ARTESIS Prive\\Jaar 3\\Cloud Applications\\Projecten\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\obj\\",
+      "projectPath": "C:\\Users\\Aokiji\\Desktop\\CA-CardStocks-Tim\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\CardStocks.csproj",
+      "packagesPath": "C:\\Users\\Aokiji\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aokiji\\Desktop\\CA-CardStocks-Tim\\CA-CardStocks\\Web Application\\CardStocks\\CardStocks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Materializer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aokiji\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

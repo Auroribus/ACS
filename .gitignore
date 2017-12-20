@@ -39,3 +39,7 @@ Web Application/CardStocks/CardStocks/obj/Release/netcoreapp2.0/CardStocks.cspro
 Web Application/CardStocks/CardStocks/obj/Release/netcoreapp2.0/CardStocks.csproj.FileListAbsolute.txt
 Web Application/CardStocks/CardStocks/obj/Release/netcoreapp2.0/CardStocks.csprojResolveAssemblyReference.cache
 Web Application/CardStocks/.vs/CardStocks/v15/.suo
+Web Application/CardStocks/CardStocks/bin/Release/netcoreapp2.0/CardStocks.runtimeconfig.dev.json
+Web Application/CardStocks/CardStocks/obj/CardStocks.csproj.nuget.g.props
+Web Application/CardStocks/CardStocks/obj/project.assets.json
+Web Application/CardStocks/CardStocks/obj/Release/netcoreapp2.0/CardStocks.csprojResolveAssemblyReference.cache
