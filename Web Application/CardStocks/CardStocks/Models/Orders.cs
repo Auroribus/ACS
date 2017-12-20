@@ -23,5 +23,8 @@ namespace CardStocks.Models
 
     public double RatingSeller { get; set; }
     public double RatingBuyer { get; set; }
+
+    public string CardName { get; set; }
+    public string CardSet { get; set; }
   }
 }

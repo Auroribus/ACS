@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
   cards: string[] = [];
   buyListings: string[] = [];
   sellListings: string[] = [];
-  maxNumber: number = 10;
+  maxNumber: number = 0; //10
   imagesLoaded: boolean;
   constructor(private dataservice: DataService) {
   }

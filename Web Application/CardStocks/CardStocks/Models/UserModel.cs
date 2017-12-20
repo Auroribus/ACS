@@ -21,6 +21,6 @@ namespace CardStocks.Models
     [Required]
     public int StoreCredit { get; set; }
 
-    //public string Base64ProfileImage { get; set; }
+    public string Base64ProfileImage { get; set; }
     }
 }
