@@ -46,6 +46,8 @@ export class NavbarComponent implements OnInit {
   loggedIn: boolean = false;
   logdIn: boolean = false;
 
+  smallScreen: boolean = false;
+
   constructor(private dataservice: DataService, private http: Http, private router: Router, private route: ActivatedRoute)
   {
 
@@ -144,10 +146,67 @@ export class NavbarComponent implements OnInit {
   setTheme(name: string) {
     this.dataservice.SwitchTheme(name);
   }
+  
+  GoToCollection() {
+    this.closeMenu();
+    this.router.navigate(["collection"]);
+  }
 
-  goToCreditPage() {
+  GoToWishlist() {
+    this.closeMenu();
+    this.router.navigate(["wishlist"]);
+  }
+
+  GoToUpload() {
+    this.closeMenu();
+    this.router.navigate(["upload"]);
+  }
+  
+  GoToMembership() {
+    this.closeMenu();
+    this.router.navigate(["membership"]);
+  }
+
+  GoToMarket() {
+    this.closeMenu();
+    this.router.navigate(["market"]);
+  }
+
+  LogOut() {
+    this.closeMenu();
+    localStorage.removeItem('user');
+    localStorage.removeItem('id');
+    this.dataservice.username = "";
+    this.router.navigate(['']);
+    location.reload();
+  }
+
+  GoToProfile() {
+    this.closeMenu();
+    this.router.navigate(["profile"]);
+  }
+
+  GoToCredits() {
+    this.closeMenu();
     this.router.navigate(["credit"]);
     location.reload();
+  }
+
+  searching: boolean = false;
+  filtering: boolean = false;
+
+  toggleSearch() {
+    if (this.searching)
+      this.searching = false;
+    else if (!this.searching)
+      this.searching = true;
+  }
+
+  toggleFilters() {
+    if (this.filtering)
+      this.filtering = false;
+    else if (!this.filtering)
+      this.filtering = true;
   }
 
 }

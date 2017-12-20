@@ -1,33 +1,65 @@
-
 <div class="top-box">
-    <a (click)="toggleMenu()" class="outline left" *ngIf="logdIn"><i class="fa fa-bars" aria-hidden="true"></i></a>
-
+    <a (click)="toggleMenu()" class="outline left" *ngIf="logdIn && smallScreen"><i class="fa fa-bars" aria-hidden="true"></i></a>
+  
   <!-- Logo -->
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
   <!-- Search -->
-  <input class="search-card-input left" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
+  <!--<input class="search-card-input left" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
+      -->
+     <!-- Navigation -->
+    <a (click)="GoToMarket()" class="nav-a left" *ngIf="logdIn && !smallScreen">MARKET</a>
+    <a (click)="GoToCredits()" class="nav-a left" *ngIf="logdIn && !smallScreen">CREDITS</a>
+    <a (click)="GoToMembership()" class="nav-a left" *ngIf="logdIn && !smallScreen">MEMBERSHIP</a>
+    <a (click)="GoToCollection()" class="nav-a left" *ngIf="logdIn && !smallScreen">HAVES</a>
+    <a (click)="GoToWishlist()" class="nav-a left" *ngIf="logdIn && !smallScreen">WANTS</a>
+    <a (click)="GoToUpload()" class="nav-a left" *ngIf="logdIn && !smallScreen">UPLOAD</a>
 
     
     <!-- Toggles  -->
-    <a (click)="GoToRegister()" class="login-a right" *ngIf="!logdIn"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Register</a>
+    <a (click)="GoToRegister()" class="nav-a right" *ngIf="!logdIn">REGISTER</a>
 
-    <a (click)="toggleLogin()" class="login-a right" *ngIf="!logdIn"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a>
+    <a (click)="toggleLogin()" class="nav-a right" *ngIf="!logdIn">LOGIN</a>
 
-  <!--
-    <select class="right">
-       <option value="dashboard">dashboard</option>
-    </select>
-      -->
     
+      
     <!--<a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>-->
     <div *ngIf="logdIn" (click)="GoToDashboard()" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
-  </div>
+    </div>
 
-  <a (click)="goToCreditPage()" class="credit-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
-    
+    <a (click)="GoToCredits()" class="nav-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
 
+    <a (click)="LogOut()" class="nav-a right" *ngIf="logdIn">LOGOUT</a>
+    <a (click)="toggleSearch()" class="nav-a right">SEARCH</a>
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
     <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
      
 </div>
+
+<div class="form-div" *ngIf="searching">
+  <button (click)="toggleFilters()" class="selected-button margin-left-30">Filters</button>
+  <br /><br />
+  <div class="filter-div" *ngIf="filtering">
+    <h5 class="white margin-left-30">Color:</h5>
+    <form class="white margin-left-30">
+      <input type="radio" value="blue" name="radioColor" (change)="checkValue(value)"/><img src="assets/ManaColors/blue_mana.png" width="20" height="20" />
+      <input type="radio" value="red" name="radioColor" (change)="checkValue(value)" /><img src="assets/ManaColors/red_mana.png" width="20" height="20" />
+      <input type="radio" value="green" name="radioColor" (change)="checkValue(value)" /><img src="assets/ManaColors/green_mana.png" width="20" height="20" />
+      <input type="radio" value="black" name="radioColor" (change)="checkValue(value)" /><img src="assets/ManaColors/black_mana.png" width="20" height="20" />
+      <input type="radio" value="white" name="radioColor" (change)="checkValue(value)" /><img src="assets/ManaColors/white_mana.png" width="20" height="20" />
+      <input type="radio" value="colorless" name="radioColor" (change)="checkValue(value)" /><img src="assets/ManaColors/colorless_mana.png" width="20" height="20" />  
+    </form>
+    <br />
+    <select class="margin-left-30" (change)="searchChange($event.target.value)">
+      <option value="name">Card Name</option>
+      <option value="set">Card Set</option>
+      <option value="condition">Card Condition</option>
+    </select>
+
+    <hr />
+  </div>
+  <input class="form-input" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card by name or use a Filter" />
+  <br />
+</div>
+<div class="clear"></div>
+

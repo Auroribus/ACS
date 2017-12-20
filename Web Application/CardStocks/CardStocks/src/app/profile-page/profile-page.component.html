@@ -1,3 +1,52 @@
-<p>
-  profile-page works!
-</p>
+
+  <div *ngIf="change_email" class="form-div">
+    <h2 class="center">Change Email</h2>
+    <input class="form-input" type="text" placeholder="Old Email" [(ngModel)]="oldEmail"/>
+    <input class="form-input" type="text" placeholder="New Email" [(ngModel)]="newEmail"/>
+  </div>
+  <div *ngIf="change_password" class="form-div">
+    <h2 class="center">Change Password</h2>
+    <input class="form-input" type="password" placeholder="Old Password" [(ngModel)]="oldPassword" />
+    <input class="form-input" type="password" placeholder="Confirm Old Password" [(ngModel)]="confirmPassword" />
+    <input class="form-input" type="password" placeholder="New Password" [(ngModel)]="newPassword" />
+  </div>
+  <div *ngIf="change_image" class="form-div">
+    <h2 class="center">Upload a New Profile Picture</h2>
+    <input class="form-input white" type="file" id="filePicker" (change)="handleFileSelect($event)">
+  </div>
+
+<div class="main-div">
+  <h1 class="center white">Your Profile</h1>
+  
+  <div class="profile-div">
+      <a class="right" (click)="changeEmail()">Change Email</a>
+      <br />
+      <a class="right" (click)="changePassword()">Change Password</a>    
+      <br />
+      <a class="right" (click)="changeProfileImage()">Change Profile Image</a>
+    <img class="profile-image" src="assets/ProfilePicture/Picture_StevenDijcks.jpg" />
+    <table class="list-table-center-small">
+      <tr>
+        <th class="vertical-th">Name</th>
+        <td>{{userName}}</td>
+      </tr>
+      <tr>
+        <th class="vertical-th">Email</th>
+        <td>{{email}}</td>
+      </tr>
+      <tr>
+        <th class="vertical-th">Membership</th>
+        <td>{{dataservice.membership}}-Member</td>
+      </tr>
+      <tr>
+        <th class="vertical-th">Rating</th>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <th class="vertical-th">No. of Sales</th>
+        <td>1000</td>
+      </tr>
+    </table>
+    </div>
+</div>
+<div class="clear"></div>

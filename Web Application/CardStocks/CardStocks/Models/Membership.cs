@@ -12,6 +12,8 @@ namespace CardStocks.Models
 
       [Required]
       public string MemberStatus { get; set; }
+    
+    //member end date
 
     }
 }

@@ -1,4 +1,4 @@
-<div class="form-div" *ngIf="addSellListing">
+<!--<div class="form-div" *ngIf="addSellListing">
   <h2 class="white center">Select Card(s) to Sell:</h2>
   <table class="list-table-center-small">
     <thead>
@@ -22,18 +22,19 @@
   
   <button (click)="addSell()" class="selected-button margin-left-30">Add</button>
 </div>
+    -->
 <!--
 <div *ngIf="!tableLoaded">
   <img class="center-img" src="assets/LoadingGif4.gif" />
 </div>
 -->
+<app-collection *ngIf="addSellListing"></app-collection>
 <div class="main-div" (click)="closeMenu()"> <!--*ngIf="tableLoaded">-->
   <h2 class="white">Sell Listings</h2>
   <button class="selected-button left" (click)="toggleAdd()">
     <p class="fa fa-plus">
     </p>&nbsp;Add Sell Listing
   </button>
-    <button class="selected-button left">Newly Listed</button>
     <select (change)="searchChange($event.target.value)">
       <option value="name">Card Name</option>
       <option value="set">Card Set</option>

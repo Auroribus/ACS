@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   userpassword: string;
   passHashed: string | Int32Array;
 
+  feedback_string: string;
+  feedback_bool: boolean = false;
+
   constructor(private dataservice: DataService, private router: Router, private http: Http) { }
 
   closeMenu() {
@@ -41,22 +44,16 @@ export class LoginComponent implements OnInit {
     console.log("attampting login");
     if (this.username == null || this.username == "")
     {
-      console.log("username was empty");
+      this.feedback_string = "* Username Field was empty";
+      this.feedback_bool = true;
     }
     else if (this.userpassword == null || this.userpassword == "")
     {
-      console.log("password was empty");
+      this.feedback_string = "* Password Field was empty";
+      this.feedback_bool = true;
     }
     else {
-      //POST username and password to database
-      //if correct combination, login => dashboard
-      //else throw error
-      //console.log(this.username + " " + this.userpassword);
-
-      console.log("sending data to server");
-
       this.passHashed = Md5.hashStr(this.userpassword);
-      this.dataservice.slideInOutUpDown = "out";
 
       this.dataservice.GetLocalApi('User').subscribe(data => {
         this.CheckUser(data);
@@ -78,7 +75,9 @@ export class LoginComponent implements OnInit {
       }
       else
       {
-        console.log("no user found");        
+        console.log("no user found");
+        this.feedback_string = "* Username or Password was Incorrect";
+        this.feedback_bool = true;
       }
     }
   }

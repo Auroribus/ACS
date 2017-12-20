@@ -75,6 +75,7 @@ export class MenuComponent implements OnInit {
   }
 
   LogOut() {
+    this.closeMenu();
     localStorage.removeItem('user');
     localStorage.removeItem('id');
     this.dataservice.username = "";
@@ -82,8 +83,20 @@ export class MenuComponent implements OnInit {
     location.reload();
   }
 
+  GoToProfile() {
+    this.closeMenu();
+    this.router.navigate(["profile"]);
+  }
+
+  GoToCredits() {
+    this.closeMenu();
+    this.router.navigate(["credit"]);
+    location.reload();
+  }
+
   setTheme(name: string) {
     console.log(name);
     this.dataservice.SwitchTheme(name);
   }
+
 }
