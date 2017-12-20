@@ -55,6 +55,8 @@ export class WishlistComponent implements OnInit {
   CardID: number;
   ImgBase64: string;
 
+  //img: string = "C:\AWESOME_FACE.png"
+
 
   ngOnInit() {
 
@@ -64,11 +66,6 @@ export class WishlistComponent implements OnInit {
     }
     else {
 
-      this.dataservice.GetLocalApi("WishLists")
-        .subscribe(data => {
-          this.collections = data;
-        });
-
       this.dataservice.GetLocalApi("WishCards")
         .subscribe(data => {
           if (data instanceof Array) {
@@ -76,7 +73,7 @@ export class WishlistComponent implements OnInit {
             var id = localStorage.getItem('id');
 
             for (var i = 0; i < data.length; i++) {
-              if (data[i].userId == id) {
+              if (data[i].wishListId == id) {
                 this.cards.push(data[i]);
               }
             }
@@ -86,48 +83,8 @@ export class WishlistComponent implements OnInit {
     }
   }
 
-  confirmEditCard() {
-
-    //console.log(this.CardID);
-
-    var id = localStorage.getItem('id');
-
-    let body = {
-      cardId: this.CardID,
-      cardName: this.editName,
-      cardSet: this.editSet,
-      cardCondition: this.editCondition,
-      imgBase64: this.ImgBase64,
-      userId: id
-    }
-
-    this.dataservice.PutLocalApi('Cards/' + this.CardID, body).map(res => res.json()).subscribe(data => {
-      //always returns null / status 204
-      location.reload();
-    });
-
-    this.editingCard = false;
-  }
-
-  editCard(cardId) {
-
-    this.CardID = cardId;
-
-    this.editingCard = true;
-
-    this.dataservice.GetLocalApi('Cards/' + this.CardID).subscribe(data => {
-
-      console.log(data);
-
-      this.editName = data.cardName;
-      this.editSet = data.cardSet;
-      this.editCondition = data.cardCondition;
-      this.ImgBase64 = data.imgBase64;
-    });
-  }
-
   sortByName() {
-    this.dataservice.GetLocalApi("Cards")
+    this.dataservice.GetLocalApi("WishCards")
       .subscribe(data => {
         if (data instanceof Array) {
           this.cards = [];
@@ -236,35 +193,6 @@ export class WishlistComponent implements OnInit {
     }
   }
 
-  searchCard() {
-    console.log(this.cNameSearch);
-
-    if (this.cNameSearch == null || this.cNameSearch == "") {
-      this.cards = [];
-
-      this.dataservice.GetLocalApi("Cards")
-        .subscribe(data => {
-          if (data instanceof Array) {
-            this.cards = data;
-            console.log("found");
-          }
-        });
-
-    }
-    else if (this.cNameSearch.trim().length > 0) {
-      this.cards = [];
-      this.dataservice.GetLocalApi('Cards')
-        .subscribe(data => {
-          for (var i = 0; i < data.length; i++) {
-            if (data[i].cardName.toLowerCase().includes(this.cNameSearch.toLowerCase())) {
-              console.log("card found add to array");
-              this.cards.push(data[i]);
-            }
-          }
-        });
-    }
-  }
-
   collections: string[] = [];
 
   closeMenu() {
@@ -274,7 +202,7 @@ export class WishlistComponent implements OnInit {
 
   removeCard(cardId) {
     console.log("remove: " + cardId);
-    this.http.delete("/api/Cards/" + cardId)
+    this.http.delete("/api/WishCards/" + cardId)
       .subscribe(data => {
         console.log(data);
         location.reload();

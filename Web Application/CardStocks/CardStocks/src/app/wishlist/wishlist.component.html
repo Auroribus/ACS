@@ -37,9 +37,7 @@
         <tr>
           <th></th>
           <th><i class="fa fa-sort" (click)="sortByName()"></i>&nbsp;Name</th>
-          <th><i class="fa fa-sort" (click)="sortBySet()"></i>&nbsp;Expansion</th>
-          <th><i class="fa fa-sort" (click)="sortByCondition()"></i>&nbsp;Condition</th>
-          <th></th>
+          <th><i class="fa fa-sort" (click)="sortBySet()"></i>&nbsp;Set</th>
           <th></th>
         </tr>
       </thead>
@@ -48,9 +46,8 @@
           <td><i class="fa fa-file-image-o fa-fw"></i></td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
-          <td>{{items.cardCondition}}</td>
           <td>
-            <a (click)="removeCard(items.cardId)">remove </a> | <a class="boxClick" (click)="editCard(items.cardId)"> edit</a>
+            <a (click)="removeCard(items.wishCardId)">remove </a>
           </td>
         </tr>
       </tbody>
@@ -58,6 +55,6 @@
   </div>
 
   <div *ngIf="!listView">
-    <img *ngFor="let items of cards" src={{items.imgBase64}} class="tileImg" width="230" height="300" />
+    <img *ngFor="let items of cards" src={{items.imgUrl}} class="tileImg" width="230" height="300" />
   </div>
 </div>
