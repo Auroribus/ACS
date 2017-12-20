@@ -4,9 +4,11 @@
     <input class="form-input" type="text" [(ngModel)]="username" placeholder="username" />
 
     <input class="form-input" type="password" [(ngModel)]="userpassword" placeholder="password" />
-    <br />
-    <br />
-    <button class="selected-button margin-left-30" (click)="LogIn();closeMenu()">Login</button>
-    <p class="login-p">Don't have an account yet? <a class="login-a2" (click)="GoToRegister();closeMenu()">Click here</a></p>
+    <br *ngIf="!feedback_bool"/><br *ngIf="!feedback_bool" />
+    <div class="feedback-div red-text margin-left-30" *ngIf="feedback_bool">
+      <p>{{feedback_string}}</p>   
+    </div>
+    <button class="selected-button margin-left-30" (click)="LogIn()">Login</button>
+    <p class="login-p">Don't have an account yet? <a class="login-a2" (click)="GoToRegister()">Click here</a></p>
   </div>
 </div>

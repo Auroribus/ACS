@@ -25,37 +25,37 @@
 
     <div class="clear"></div>
     <br />
-
+    <h2>Card Information</h2>
     <table class="list-table-center">
       <tr>
-        <th>Name</th>
+        <th class="vertical-th">Name</th>
         <td>{{cardName}}</td>
       </tr>
       <tr>
-        <th>Set Name</th>
+        <th class="vertical-th">Set Name</th>
         <td>{{cardSet}}</td>
       </tr>
       <tr>
-        <th>Rarity</th>
+        <th class="vertical-th">Rarity</th>
         <td>{{cardRarity}}</td>
       </tr>
       <tr>
-        <th>Type</th>
+        <th class="vertical-th">Type</th>
         <td>{{cardType}}</td>
       </tr>
       <tr>
-        <th>Text</th>
+        <th class="vertical-th">Text</th>
         <td>{{cardText}}</td>
       </tr>
       <tr>
-        <th>All Sets</th>
+        <th class="vertical-th">All Sets</th>
         <td><a *ngFor="let items of cardSets" (click)="GoToOtherSet(items)"> <i class="ss ss-{{items}} ss-grad ss-2x"></i> {{items}} | </a></td>
       </tr>      
     </table>
       
     <div class="clear"></div>
     <br />
-
+    <h2>Rulings</h2>
     <table class="list-table-center">
         <tr>
           <th class="rulingsHead">Date</th>
