@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 
@@ -15,7 +15,7 @@ let url;
 })
 export class DetailspageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private http: Http, private dataservice: DataService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private http: Http, private dataservice: DataService) { }
 
   cardName: string = "card name";
   cardSet: string = "card set";
@@ -33,6 +33,10 @@ export class DetailspageComponent implements OnInit {
   sellListing: string[] = [];
   sellerList: string[] = [];
   sellerRating: string[] = [];
+
+  showList: Boolean = false;
+
+  angleString: string = "up";
 
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
@@ -199,5 +203,56 @@ export class DetailspageComponent implements OnInit {
 
     this.GetMTGioAPI();
   }
-}
 
+  AddToWishlist() {
+    //console.log(this.cardName);
+
+    if (this.cardName == null || this.cardName == "") {
+      console.log("No Card!");
+    }
+    else {
+      //this.NewWishlist();
+      this.NewWishCard();
+    }
+  }
+
+  NewWishlist() {
+    let body = {
+      wishListId: 1,
+      collectionId: 1,
+      userID: 1
+    }
+
+    this.dataservice.PostLocalApi('WishLists', body).subscribe(data => {
+      console.log(data);
+      //this.router.navigate(['wishlist']);
+    });
+  }
+
+  NewWishCard() {
+    var id = localStorage.getItem("id");
+    let body = {
+      wishListId: id,
+      CardName: this.cardName,
+      CardSet: this.cardSet,
+      //CardCondition: "NM",
+      ImgUrl: this.cardImage
+    }
+
+    this.dataservice.PostLocalApi('WishCards', body).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['wishlist']);
+    });
+  }
+
+  FlipArrowIcon() {
+    if (this.angleString == "up") {
+      this.angleString = "down";
+      this.showList = true;
+    }
+    else if (this.angleString == "down") {
+      this.angleString = "up";
+      this.showList = false;
+    }
+  }
+}

@@ -121,7 +121,7 @@ export class DataService {
 
   ValidataPassword(inputtxt) {
 
-    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    var passw = /[a-z]/;
     if (inputtxt.match(passw)) {
       alert('Correct, try another...')
       return true;
