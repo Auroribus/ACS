@@ -34,6 +34,9 @@ export class DetailspageComponent implements OnInit {
   sellerList: string[] = [];
   sellerRating: string[] = [];
 
+  showList: Boolean = false;
+
+  angleString: string = "up";
 
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
@@ -240,5 +243,16 @@ export class DetailspageComponent implements OnInit {
       console.log(data);
       this.router.navigate(['wishlist']);
     });
+  }
+
+  FlipArrowIcon() {
+    if (this.angleString == "up") {
+      this.angleString = "down";
+      this.showList = true;
+    }
+    else if (this.angleString == "down") {
+      this.angleString = "up";
+      this.showList = false;
+    }
   }
 }

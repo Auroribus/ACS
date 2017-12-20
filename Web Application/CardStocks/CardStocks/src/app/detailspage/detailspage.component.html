@@ -54,8 +54,8 @@
       
     <div class="clear"></div>
     <br />
-    <h2>Rulings</h2>
-    <table class="list-table-center">
+    <h2 class="left">Rulings</h2><a (click)="FlipArrowIcon()"><i class="fa fa-angle-{{angleString}} fa-2x fa-fw white left" aria-hidden="true"></i></a>
+    <table class="list-table-center" *ngIf="showList">
         <tr>
           <th class="rulingsHead">Date</th>
           <th class="rulingsHead">Text</th>
