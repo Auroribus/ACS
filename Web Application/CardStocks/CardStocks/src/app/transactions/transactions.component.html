@@ -18,7 +18,7 @@
       <tr *ngFor="let items of transactionListBuying" (click)="goToOrder(items.orderId)">
         <td>{{items.status}}</td>
         <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.price}}</td>
-        <td>---</td>
+        <td>{{items.cardName}}</td>
         <td>{{items.nameSeller}}</td>
       </tr>
     </tbody>

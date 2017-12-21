@@ -13,7 +13,9 @@
   --secondary-bg-color: white;
   --scale: 2;
   --scale-two: 2;
+  --scale-ten: 20;
   --profile-image: url(assets/ProfilePicture/blank_profile_picture.png);
+  --background-image: url(assets/background_four.jpg);
 }
 
 /* General */
@@ -159,7 +161,7 @@ html body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
-  background: url(assets/HydraBackground.jpg); /*var(--secondary-bg-color); url(assets/gplaypattern/gplaypattern.png);*/
+  background: var(--background-image); /*var(--secondary-bg-color); url(assets/gplaypattern/gplaypattern.png);*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -188,6 +190,10 @@ img.profile-image-small {
   height: 42px;
   border-radius: 50%;
   float: right;
+}
+
+img.profile-image-small:hover {
+  cursor: pointer;
 }
 
 div.profile-image-div:hover {
@@ -310,19 +316,19 @@ div.panel-div-large {
     background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
   }
 
-div.panel-div-large li {
-  height: 70px;
-  font-size: 20px;
-  padding-bottom: 20px;
-  color: var(--primary-text-color);
-}
+  div.panel-div-large li {
+    height: 70px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    color: var(--primary-text-color);
+  }
 
   div.panel-div-large li:nth-child(odd) {
     background: rgba(200,200,200,0.5);
   }
 
 div.panel-div-small {
-  height: 80px;
+  height: 100px;
   border: solid;
   border-width: 2px;
   border-radius: 10px;
@@ -375,7 +381,7 @@ div.panel-div {
   font-weight: bolder;
   border-style:solid;
   border-spacing: 0;
-  border-width: 1px;
+  border-width: 2px;
   border-color: black;
   border-radius: 4px;
 }
@@ -501,6 +507,23 @@ div.login-div h2 {
 }
 
 /* Collection */
+img.list-img {
+  width: 15px;
+  height: auto;
+  position: fixed;
+}
+
+img.list-img:hover {
+  -webkit-transform: scale(var(--scale-ten));
+  -moz-transform: scale(var(--scale-ten));
+  -ms-transform: scale(var(--scale-ten));
+  -o-transform: scale(var(--scale-ten));
+  transform: scale(var(--scale-ten));
+  margin-left: 8%;
+  margin-top: 50px;
+  z-index: 1;
+}
+
 button.add-button {
   font-size: 20px;
   width: 200px;
@@ -711,4 +734,12 @@ th.vertical-th {
   border-width: 1px;
   border-color: gray;
   max-width: 50px;
+}
+
+/* ACC */
+img.gif-image {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  height: auto;
 }

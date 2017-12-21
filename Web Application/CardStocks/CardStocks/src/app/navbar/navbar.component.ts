@@ -111,7 +111,8 @@ export class NavbarComponent implements OnInit {
     }    
     
     this.router.navigate(["details"]);
-    //location.reload();
+    this.toggleSearch();
+    location.reload();
   }
 
   GoToHome() {
@@ -170,6 +171,11 @@ export class NavbarComponent implements OnInit {
   GoToMarket() {
     this.closeMenu();
     this.router.navigate(["market"]);
+  }
+
+  GoToACC() {
+    this.closeMenu();
+    this.router.navigate(["acc"]);
   }
 
   LogOut() {

@@ -46,7 +46,7 @@ export class DataService {
         {
           console.log("no credits being added");
 
-          this.credits = data.storeCredit;
+          this.credits = Math.round(data.storeCredit * 100) / 100;
         }
         else
         {

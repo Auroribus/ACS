@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
     var id = localStorage.getItem('id');
     if (id == null)
     {

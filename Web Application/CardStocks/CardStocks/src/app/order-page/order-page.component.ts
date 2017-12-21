@@ -14,6 +14,7 @@ import { DataService } from '../data.service';
 export class OrderPageComponent implements OnInit {
 
   orderId: string;
+  orderIdNumber: number;
   orderStatus: string;
 
   sellerId: number;
@@ -73,6 +74,7 @@ export class OrderPageComponent implements OnInit {
                 console.log("someone is buying this card from you");
                 this.beingSold = true;
                 this.orderId = "000" + data[i].orderId.toString();
+                this.orderIdNumber = data[i].orderId;
                 this.orderStatus = data[i].status;
                 this.sellId = data[i].sellId;
 
@@ -87,13 +89,12 @@ export class OrderPageComponent implements OnInit {
             }
           });
         }
-        else if(data.userId != userId){
+        else if (data.userId != userId) {
 
           this.dataservice.GetLocalApi('Order').subscribe(data => {
             console.log(data);
-            
-            if (data.length == null || data.lenght == undefined)
-            {
+
+            if (data.length == null || data.lenght == undefined) {
               console.log("no orders yet");
               this.dataservice.GetLocalApi('User/' + userId).subscribe(data => {
                 this.buyerId = parseInt(data.userId);
@@ -101,8 +102,7 @@ export class OrderPageComponent implements OnInit {
                 this.buyerRating = data.rating;
               });
             }
-            else
-            {
+            else {
 
               for (var i = 0; i < data.length; i++) {
                 console.log(data[i].sellerId);
@@ -130,14 +130,14 @@ export class OrderPageComponent implements OnInit {
         }
       });
 
-      
+
     }
   }
 
   confirmOrder() {
 
     console.log("confirming order");
-    
+
     var id = localStorage.getItem('id');
     var sellId = localStorage.getItem('sellId');
 
@@ -194,20 +194,7 @@ export class OrderPageComponent implements OnInit {
     });
 
   }
-  /*
-      public int MessageId { get; set; }
 
-      [Required]
-      public int ChatroomId { get; set; }
-
-      [Required]
-      public int UserOneId { get; set; }
-      [Required]
-      public int UserTwoId { get; set; }
-
-      [Required]
-      public string MsgString { get; set; }
-  */
   postChatroomOnConfirm() {
     let body = {
       userOneId: this.sellerId,
@@ -239,19 +226,32 @@ export class OrderPageComponent implements OnInit {
   }
 
   confirmSale() {
+    console.log(this.orderIdNumber);
+  
     var id = localStorage.getItem('id');
+
     //add credits to user and +1 sale
     
     this.dataservice.GetLocalApi('User/' + id).subscribe(data => {
-
+      
       var add_credit = this.cardPrice + data.storeCredit;
-      var sales = data.amountOfSale + 1;
+
+      if (data.amountOfSales == null || data.amountOfSales == 0)
+      {
+        data.amountOfSales = 1;        
+      }
+      else
+      {
+        data.amountOfSales += 1;
+      }
+      
+      
       let body_credit = {
         userId: data.userId,
         username: data.username,
         email: data.email,
         password: data.password,
-        amountOfSales: sales,
+        amountOfSales: data.amountOfSales,
         rating: data.rating,
         dateOfCreation: data.dateOfCreation,
         storeCredit: add_credit,
@@ -261,8 +261,8 @@ export class OrderPageComponent implements OnInit {
       this.dataservice.PutLocalApi('User/' + id, body_credit).subscribe(data => {
         console.log(data);
       });
+      
     });
-    
 
     //add card to haves of buyer
   
@@ -294,12 +294,11 @@ export class OrderPageComponent implements OnInit {
     });
 
     //delete order
-    var orderId = this.orderId;
+    var orderId = this.orderIdNumber;
 
     this.http.delete('/api/Order/' + orderId).subscribe(data => {
       console.log(data);
-
-      this.router.navigate(["market"]);
+      
     });
   }
 }

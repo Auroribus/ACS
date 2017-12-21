@@ -21,7 +21,7 @@ export class TransactionsComponent implements OnInit {
     this.transactionListSelling = [];
 
     this.dataservice.GetLocalApi('Order').subscribe(data => {
-      //console.log(data);
+      console.log(data);
       this.transactionListBuying = [];
       this.transactionListSelling = [];
       for (var i = 0; i < data.length; i++)

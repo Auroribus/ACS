@@ -32,6 +32,7 @@ import { MarketComponent } from './market/market.component';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { AccPageComponent } from './acc-page/acc-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
   { path: 'membership', component: MembershipPageComponent },
   { path: 'market', component: MarketComponent },
   { path: 'order', component: OrderPageComponent },
-  { path: 'profile', component: ProfilePageComponent }
+  { path: 'profile', component: ProfilePageComponent },
+  { path: 'acc' , component: AccPageComponent}
 ];
 
 @NgModule({
@@ -78,7 +80,8 @@ const appRoutes: Routes = [
         MarketComponent,
         OrderPageComponent,
         TransactionsComponent,
-        ProfilePageComponent
+        ProfilePageComponent,
+        AccPageComponent
     ],
     imports: [
         BrowserModule,
