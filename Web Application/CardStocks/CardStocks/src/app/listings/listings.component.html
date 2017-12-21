@@ -24,7 +24,7 @@
     <tbody>
       <tr *ngFor="let items of SellListing">
         <td>{{items.cardName}}</td>
-        <td>$ {{items.sellPrice}}</td>
+        <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.sellPrice}}</td>
         <td>
           <a (click)="editSellListing(items.sellId)">Edit</a> | <a (click)="RemoveFromSellList(items.sellId)">Remove</a>
         </td>

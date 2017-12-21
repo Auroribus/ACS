@@ -3,9 +3,7 @@
   
   <!-- Logo -->
     <img src={{dataservice.logo_Image}} height="100" (click)="GoToHome()" class="logo-img"/>
-  <!-- Search -->
-  <!--<input class="search-card-input left" [(ngModel)]="dataservice.searchCardName" (keyup.enter)="search()" type="text" placeholder="Search Card" />
-      -->
+ 
      <!-- Navigation -->
     <a (click)="GoToMarket()" class="nav-a left" *ngIf="logdIn && !smallScreen">MARKET</a>
     <a (click)="GoToCredits()" class="nav-a left" *ngIf="logdIn && !smallScreen">CREDITS</a>
@@ -20,12 +18,7 @@
 
     <a (click)="toggleLogin()" class="nav-a right" *ngIf="!logdIn">LOGIN</a>
 
-    
-      
-    <!--<a (click)="GoToDashboard()" class="credit-a right" *ngIf="logdIn">{{dataservice.username}}</a>-->
-    <!--<div *ngIf="logdIn" (click)="GoToDashboard()" class="profile-image-div"><!--<img class="navbar-img right" src="{{profileImg}}" *ngIf="logdIn"/>-->
-    
-    <img src={{dataservice.profileImage_small}} class="profile-image-small"/>
+    <img (click)="GoToDashboard()" src={{dataservice.profileImage_small}} class="profile-image-small" *ngIf="logdIn"/>
     <a (click)="GoToCredits()" class="nav-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
 
     <a (click)="LogOut()" class="nav-a right" *ngIf="logdIn">LOGOUT</a>
@@ -33,7 +26,6 @@
     <!-- Components -->
     <app-menu [@slideInOutLeftRight]="dataservice.slideInOutLeftRight"></app-menu>
     <app-login *ngIf="!loggedIn" [@slideInOutUpDown]="dataservice.slideInOutUpDown"></app-login>
-     
 </div>
 
 <div class="form-div" *ngIf="searching">

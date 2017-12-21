@@ -18,8 +18,8 @@ namespace CardStocks.Models
     public double Rating { get; set; }
     [Required]
     public string DateOfCreation { get; set; }
-    [Required]
-    public int StoreCredit { get; set; }
+    [Required] 
+    public double StoreCredit { get; set; }
 
     public string Base64ProfileImage { get; set; }
     }

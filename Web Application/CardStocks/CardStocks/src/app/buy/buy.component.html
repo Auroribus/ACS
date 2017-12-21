@@ -34,13 +34,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let items of buyListings; let i = index" [attr.data-index]="i">
-          <td class="center"><button class="table-button" (click)="buyCard(items.buyId)">Trade</button></td>
+          <td class="center"><button class="table-button" (click)="buyCard(items.buyId)">Sell</button></td>
           <td>{{items.userName}}</td>
           <td>{{items.userRating}}</td>
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>
-          <td>$ {{items.buyPrice}}</td>          
+          <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.buyPrice}}</td>          
         </tr>
       </tbody>
     </table>

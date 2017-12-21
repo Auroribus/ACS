@@ -1,35 +1,5 @@
-<!--<div class="form-div" *ngIf="addSellListing">
-  <h2 class="white center">Select Card(s) to Sell:</h2>
-  <table class="list-table-center-small">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Name:</th>
-        <th>Set:</th>
-        <th>Condition:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let items of cards">
-        <td><input class="checkbox-input" type="checkbox" /></td>
-        <td>{{items.cardName}}</td>
-        <td>{{items.cardSet}}</td>
-        <td>{{items.cardCondition}}</td>        
-      </tr>
-    </tbody>
-  </table>
-  <br />
-  
-  <button (click)="addSell()" class="selected-button margin-left-30">Add</button>
-</div>
-    -->
-<!--
-<div *ngIf="!tableLoaded">
-  <img class="center-img" src="assets/LoadingGif4.gif" />
-</div>
--->
 <app-collection *ngIf="addSellListing"></app-collection>
-<div class="main-div" (click)="closeMenu()"> <!--*ngIf="tableLoaded">-->
+<div class="main-div" (click)="closeMenu()">
   <h2 class="white">Sell Listings</h2>
   <button class="selected-button left" (click)="toggleAdd()">
     <p class="fa fa-plus">
@@ -64,7 +34,7 @@
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>
-          <td>$ {{items.sellPrice}}</td>          
+          <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.sellPrice}}</td>          
         </tr>
       </tbody>
     </table>

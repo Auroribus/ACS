@@ -32,7 +32,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>$ {{cardPrice}}</td>
+            <td><i class="fa fa-gg" aria-hidden="true"></i> {{cardPrice}}</td>
             <td>{{cardName}}</td>
             <td>{{cardSet}}</td>
             <td>{{cardCondition}}</td>
@@ -83,7 +83,7 @@
           <td>{{orderStatus}}</td>
           <td>{{sellerName}}</td>
           <td>{{sellerRating}}</td>
-          <td>{{cardPrice}}</td>
+          <td><i class="fa fa-gg" aria-hidden="true"></i> {{cardPrice}}</td>
           <td>{{cardName}}</td>
           <td>{{cardSet}}</td>
           <td>{{cardCondition}}</td>
@@ -99,8 +99,40 @@
     <button (click)="return()" class="selected-button">Return</button>
   </div>
 
-  <div *ngIf="saleOfUser">
+  <div *ngIf="saleOfUser && !beingSold">
     <h2 class="center">This Card is already Yours</h2>
     <button (click)="return()" class="selected-button">Return</button>
   </div>
+
+  <div *ngIf="saleOfUser && beingSold">
+    <h1 class="center white">Review Your Sale:</h1>
+    <table class="list-table-center">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Status</th>
+          <th>Buyer</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th>Card Name</th>
+          <th>Card Set</th>
+          <th>Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{orderId}}</td>
+          <td>{{orderStatus}}</td>
+          <td>{{buyerName}}</td>
+          <td>{{sellerRating}}</td>
+          <td><i class="fa fa-gg" aria-hidden="true"></i> {{cardPrice}}</td>
+          <td>{{cardName}}</td>
+          <td>{{cardSet}}</td>
+          <td>{{cardCondition}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <button class="selected-button" (click)="confirmSale()">Confirm</button>
+   </div>
 </div>

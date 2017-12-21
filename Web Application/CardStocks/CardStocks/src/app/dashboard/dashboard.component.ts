@@ -14,7 +14,10 @@ export class DashboardComponent implements OnInit {
 
   username: string;
 
-  constructor(private dataservice: DataService, private router: Router) { }
+  messages: string[] = [];
+  new_messages: boolean = false;
+
+  constructor(private dataservice: DataService, private router: Router, private http: Http) { }
 
   closeMenu() {
     this.dataservice.slideInOutLeftRight = "out";
@@ -22,11 +25,34 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = localStorage.getItem('user');
-    if (this.username == null || this.username == "" || this.username == "Login")
+    var id = localStorage.getItem('id');
+    if (id == null)
     {
       this.router.navigate([""]);
     }
+    else
+    {
+      this.messages = [];
+
+      this.dataservice.GetLocalApi('Message').subscribe(data => {
+        console.log(data);
+        for (var i = 0; i < data.length; i++)
+        {
+          if (data[i].userOneId == id)
+          {
+            this.messages.push(data[i]);
+            this.new_messages = true;
+          }
+        }
+      });
+    }
+  }
+
+  delete_message(id) {
+    this.http.delete("/api/Message/" + id)
+      .subscribe(data => {
+        location.reload();
+      });
   }
 
   logOut() {

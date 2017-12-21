@@ -13,9 +13,10 @@ export class DataService {
   username: string;
   id: number;
   credits: number;
-  profileImage_small: string = "assets/ProfilePicture/blank_profile_picte.png";
+  profileImage_small: string = "assets/ProfilePicture/blank_profile_picture.png";
 
   constructor(private http: Http) {
+    
     var id = localStorage.getItem('id');
 
     if (id == null || id == "") {

@@ -104,14 +104,21 @@ export class RegisterComponent implements OnInit {
   SendRegisterRequest() {
     this.passHashed = Md5.hashStr(this.password);
 
+    var date = new Date();
+    var fullDate;
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    fullDate = day + "/" + month + "/" + year;
+
     body = {
       username: this.username,
       email: this.email,
       password: this.passHashed,
       amountOfSales: 0,
-      dateOfCreation: "11/12/2017",
+      dateOfCreation: fullDate,
       rating: 2.5,
-      storeCredit: 0
+      storeCredit: 10
     }
 
     this.dataservice.PostLocalApi('User', body).subscribe(data => {

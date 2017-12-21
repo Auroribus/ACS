@@ -40,9 +40,10 @@ export class TransactionsComponent implements OnInit {
     });
   }
 
-  goToOrder(orderId) {
+  goToOrder(orderId, sellId) {
     console.log(orderId);
     localStorage.setItem('orderId', orderId);
+    localStorage.setItem('sellId', sellId);
     this.router.navigate(['order']);
   }
 

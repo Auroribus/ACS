@@ -1,49 +1,8 @@
+<div class="form-div" *ngIf="new_messages">
+  <ul *ngFor="let items of messages" class="white center">
+    <li><a (click)="delete_message(items.messageId)"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{items.msgString}}</a></li>
+  </ul>
+</div>
+
 <app-profile-page></app-profile-page>
 <app-transactions></app-transactions>
-
-
-<!--
-<div class="main-div" (click)="closeMenu()">
-
-    <h2>Tracking (0/10)</h2>
-    <table class="list-table left">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Card Name:</th>
-          <th>Lowest Price Sold:</th>
-          <th>Target Price:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <table class="list-table right">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Card Name:</th>
-          <th>Lowest Price for Sale:</th>
-          <th>Target Price:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-</div>
-<div class="clear"></div>
-<hr />
-    -->

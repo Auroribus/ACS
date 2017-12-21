@@ -17,7 +17,7 @@
     <tbody>
       <tr *ngFor="let items of transactionListBuying" (click)="goToOrder(items.orderId)">
         <td>{{items.status}}</td>
-        <td>$ {{items.price}}</td>
+        <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.price}}</td>
         <td>---</td>
         <td>{{items.nameSeller}}</td>
       </tr>
@@ -34,9 +34,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let items of transactionListSelling" (click)="goToOrder(items.orderId)">
+      <tr *ngFor="let items of transactionListSelling" (click)="goToOrder(items.orderId,items.sellId)">
         <td>{{items.status}}</td>
-        <td>$ {{items.price}}</td>
+        <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.price}}</td>
         <td>{{items.cardName}}</td>
         <td>{{items.nameBuyer}}</td>
       </tr>

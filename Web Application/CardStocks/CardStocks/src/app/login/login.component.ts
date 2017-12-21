@@ -66,6 +66,8 @@ export class LoginComponent implements OnInit {
     {
       if (data[i].username == this.username && data[i].password == this.passHashed)
       {
+        this.feedback_string = "";
+        this.feedback_bool = false;
        console.log("userfound");
        localStorage.setItem('user', this.username);
        localStorage.setItem('id', data[i].userId);
