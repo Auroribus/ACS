@@ -79,7 +79,8 @@ export class ProfilePageComponent implements OnInit {
           rating: data.rating,
           dateOfCreation: data.dateOfCreation,
           storeCredit: data.storeCredit,
-          base64ProfileImage: data.base64ProfileImage
+          base64ProfileImage: data.base64ProfileImage,
+          accConnectionString: data.accConnectionString
         }
       }
       else if (this.change_password)

@@ -29,6 +29,7 @@ export class CollectionComponent implements OnInit {
 
   collectionName: string;
   cards: string[] = [];
+  cardsList: string[] = [];
   cardImages: string;
 
   cName: string;
@@ -61,22 +62,20 @@ export class CollectionComponent implements OnInit {
   sellSet: string;
   sellCondition: string;
 
+  current_page: number = 0;
+  items_per_page: number = 10;
+  amount_of_pages: number;
+  pages: number[] = [];
+
+  select_items_per_page : number[] = [10,20,30];
 
   ngOnInit() {
-
     
-
     this.username = localStorage.getItem('user');
     if (this.username == null || this.username == "" || this.username == "Login") {
       this.router.navigate([""]);
     }
     else {
-
-
-      this.dataservice.GetLocalApi("Collections")
-        .subscribe(data => {
-          this.collections = data;
-        });
 
       this.dataservice.GetLocalApi("Cards")
         .subscribe(data => {
@@ -91,10 +90,62 @@ export class CollectionComponent implements OnInit {
                 this.cards.push(data[i]);
               }
             }
-            
+
+            this.amount_of_pages = Math.floor(this.cards.length / this.items_per_page);
+
+            for (var i = 0; i <= this.amount_of_pages; i++)
+            {
+              this.pages.push(i);
+            }
+
+            this.GET_CardsPerPage();
           }
         });
     }
+  }
+
+  GET_CardsPerPage() {
+    //Correct for each page * 10 to get the correct items
+    for (var i = (this.current_page * this.items_per_page); i < ((this.current_page * 10) + this.items_per_page); i++) {
+      if (this.cards.length <= i) {
+
+      }
+      else {
+        this.cardsList.push(this.cards[i]);
+      }
+    }
+  }
+
+  selectPage(page) {
+    
+    this.current_page = page;
+
+    this.cardsList = [];
+
+    this.GET_CardsPerPage();
+
+    console.log("items: " + this.items_per_page);
+    console.log("page: " + this.current_page);
+
+  }
+
+  changeItemsPerPage(amount) {
+
+    //reset to page 0 incase of less pages than before
+    this.current_page = 0;
+            
+    this.items_per_page = amount;
+    console.log("items: " + this.items_per_page);
+
+    this.cardsList = [];
+    this.pages = [];
+
+    this.amount_of_pages = Math.floor(this.cards.length / this.items_per_page);
+    for (var i = 0; i <= this.amount_of_pages; i++) {
+      this.pages.push(i);
+    }
+
+    this.GET_CardsPerPage();    
   }
 
   confirmEditCard() {
@@ -233,7 +284,7 @@ export class CollectionComponent implements OnInit {
   getColorList() {
     if (this.listView)
     {
-      return "black";
+      return "white";
     }
     else if (!this.listView)
     {
@@ -248,7 +299,7 @@ export class CollectionComponent implements OnInit {
     }
     else if (!this.listView)
     {
-      return "black";
+      return "white";
     }
   }
 
@@ -350,14 +401,29 @@ export class CollectionComponent implements OnInit {
   {
     var id = localStorage.getItem('id');
 
-    let body = {
-      cardName: this.cName,
-      cardSet: this.cSet,
-      cardCondition: this.cCondition,
-      userId: id,
-      imgBase64: "data:image/png;base64," + this.base64textString
-    }
+    let body;
 
+    if (this.base64textString == null)
+    {
+      body = {
+        cardName: this.cName,
+        cardSet: this.cSet,
+        cardCondition: this.cCondition,
+        userId: id,
+        imgBase64: "assets/NoImageFound.png"
+      }
+    }
+    else
+    {
+      body = {
+        cardName: this.cName,
+        cardSet: this.cSet,
+        cardCondition: this.cCondition,
+        userId: id,
+        imgBase64: "data:image/png;base64," + this.base64textString
+      }
+    }
+    
     this.dataservice.PostLocalApi('Cards', body).subscribe(data => {
       console.log(data);
       location.reload();

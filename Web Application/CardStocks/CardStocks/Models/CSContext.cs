@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using CardStocks.Models;
 
 namespace CardStocks.Models
@@ -21,5 +21,6 @@ namespace CardStocks.Models
         public DbSet<Message> Message { get; set; }
         public DbSet<WishCard> WishCard { get; set; }
         public DbSet<WishList> WishList { get; set; }
+        public DbSet<CardStocks.Models.Acc> Acc { get; set; }
     }
 }

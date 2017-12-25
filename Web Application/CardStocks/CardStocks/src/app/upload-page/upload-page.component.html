@@ -1,26 +1,24 @@
 <div class="main-div" (click)="closeMenu()">
   <div *ngIf="options">
-    <button class="selected-button-large" (click)="addToDB()">Add</button>
-    <br />
-    <br />
-    <button class="selected-button-large" (click)="removeFromDB()">Remove</button>
+    <button class="selected-button margin-left-30" (click)="addToDB()">Add</button>
+    <button class="selected-button" (click)="removeFromDB()">Remove</button>
   </div>
 </div>
   <div *ngIf="!options">
-    <button class="selected-button" (click)="Options()">Options</button>
-
+    <button class="selected-button margin-left-30" (click)="Options()">Options</button>
+    <hr />
   </div>
     <div *ngIf="Remove" class="form-div">
       
       <h2 class="center">Choose an Image or Take a picture with your Phone:</h2>
-      <input class="form-input white" type="file" id="filePicker" (change)="handleFileSelect($event)">
+      <input class="form-input white" type="file" id="filePicker" (change)="ocr.selectFile($event)">
       <br /><br />
-      <img class="center-img" [src]="imageSrc" />
+      <img class="center-img" [src]="ocr.imageSrc" />
 
-      <div *ngIf="cardNameLoaded">
+      <div *ngIf="ocr.cardNameLoaded">
         <h2 class="center">Modify the Name if Misspelled:</h2>
         <h4>Card Name</h4>
-        <input class="form-input" type="text" [(ngModel)]="cardName" (keyup.enter)="PopulateRemoveTable()"/>
+        <input class="form-input" type="text" [(ngModel)]="ocr.cardName" (keyup.enter)="ocr.ADD_ToRemoveTable()"/>
         <br />
         <br />
         <h2 class="center">Click row to remove from collection</h2>
@@ -33,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let items of cardList" (click)="DelFromDB(items.cardId)" class="delDb">
+            <tr *ngFor="let items of ocr.cardList" (click)="ocr.DEL_fromDB(items.cardId)">
               <td>{{items.cardName}}</td>
               <td>{{items.cardSet}}</td>
               <td>{{items.cardCondition}}</td>
@@ -45,39 +43,26 @@
 
 <div *ngIf="Add" class="form-div">
   <h2 class="center">Choose an Image or Take a photo with your Phone:</h2>
-  <input class="form-input white" type="file" id="filePicker" (change)="handleFileSelect($event)">
+  <input multiple="multiple" class="form-input white" type="file" id="filePicker" (change)="ocr.selectFile($event)">
   <br /><br />
-  <!--
-  <h2 class="center">Fill in the Form below:</h2>
-  <input class="form-input" type="text" [(ngModel)]="cardSet" placeholder="set name, eg: TMP" /> <br /><br />
-  <input class="form-input" type="text" [(ngModel)]="cardCondition" placeholder="condition, eg: EX, NM" /><br /><br />
-      -->
-  <div *ngIf="!cardNameLoaded">
+  <div *ngIf="!ocr.cardNameLoaded">
     <img class="center-img" src="assets/LoadingGif4.gif" />
   </div>
 
-  <div *ngIf="cardNameLoaded">
+  <div *ngIf="ocr.cardNameLoaded">
     <h2 class="center white">Modify the Card Information if Needed:</h2>
     <h5 class="white margin-left-30">Card Name</h5>
-    <input class="form-input" type="text" [(ngModel)]="cardName" /><br /><br />
+    <input class="form-input" type="text" [(ngModel)]="ocr.cardName" /><br /><br />
     <h5 class="white margin-left-30">Card Set</h5>
-    <input class="form-input" type="text" [(ngModel)]="cardSet" /><br /><br />
+    <input class="form-input" type="text" [(ngModel)]="ocr.cardSet" /><br /><br />
     <h5 class="white margin-left-30">Card Condition</h5>
-    <input class="form-input" type="text" [(ngModel)]="cardCondition" />
-
+    <input class="form-input" type="text" [(ngModel)]="ocr.cardCondition" />
     <br />
     <br />
-    <img class="center-img" [src]="imageSrc" width="200" />
+    <img class="center-img" [src]="ocr.imageSrc" width="200" />
     <br />
     <br />
-    <button class="selected-button-large" (click)="SendToDB()">Confirm</button>
+    <button class="selected-button-large" (click)="ocr.POST_CardToDB()">Confirm</button>4
+    <p class="feedback-text margin-left-30 font-size-30">{{ocr.feedback_upload}}</p>
   </div>
-</div>
-
-<div>
-  <ul>
-    <li>{{folder.top}}</li>
-    <li>{{folder.child1}}</li>
-    <li>{{folder.child2}}</li>
-  </ul>
 </div>

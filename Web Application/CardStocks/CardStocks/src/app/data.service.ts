@@ -93,6 +93,10 @@ export class DataService {
   currentTheme = "Default";
   logo_Image = "assets/Logo.png";
 
+  setFeedbackTextColor(color) {
+    document.documentElement.style.setProperty('--feedback-text-color', color);
+  }
+
   SwitchTheme(name: string) {
 
     var primary;

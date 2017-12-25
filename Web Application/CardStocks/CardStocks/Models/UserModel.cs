@@ -22,5 +22,7 @@ namespace CardStocks.Models
     public double StoreCredit { get; set; }
 
     public string Base64ProfileImage { get; set; }
+
+    public string AccConnectionString { get; set; }
     }
 }

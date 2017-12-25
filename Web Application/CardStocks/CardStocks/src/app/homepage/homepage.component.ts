@@ -16,6 +16,7 @@ export class HomepageComponent implements OnInit {
   sellListings: string[] = [];
   maxNumber: number = 10;
   imagesLoaded: boolean;
+
   constructor(private dataservice: DataService) {
   }
 
@@ -39,15 +40,15 @@ export class HomepageComponent implements OnInit {
 
         var arraySize = carddata.length;
         this.cards = [];
-        this.cards = carddata;
-        /*
-        console.log(arraySize);
+        //this.cards = carddata;
+        
+        //console.log(arraySize);
 
         for (var i = (arraySize - this.maxNumber); i < arraySize; i++)
         {
           this.cards.push(carddata[i]);          
         }
-        */
+        
         this.imagesLoaded = true;
       });
 

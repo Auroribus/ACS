@@ -1,0 +1,41 @@
+<div class="main-div">
+  <h2 class="center">ACC Device Page</h2>
+  <hr />
+  <div *ngIf="!connected">
+    <h4 class="white">Your Devices:</h4>
+    <h5 class="white">Click below on the Device you want to use</h5>
+    <table class="list-table">
+      <tr>
+        <th>Device No.</th>
+        <th>Connection String</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><a (click)="connectWithDevice()">{{device_string}}</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="connected">
+    <button (click)="return()" class="selected-button">Return</button>
+    <hr />
+    <button (click)="start()" class="selected-button margin-left-30"><i class="fa fa-play" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;START</button>
+    <button (click)="stop()" class="selected-button"><i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;STOP</button>
+    <button (click)="pause()" class="selected-button"><i class="fa fa-pause" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;PAUSE</button>
+    <p class="feedback-text font-size-30 margin-left-30">{{feedback_start}}</p>
+    <h4 class="white">Image of Card</h4>
+    <img class="fixed-img" src={{image_src}} />
+    <table class="list-table-center-small">
+      <tr>
+        <th>Card Name</th>
+        <th>Card Set</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let items of cards">
+        <td class="confirm-td"><input class="confirm-input" type="text" [(ngModel)]="items.cardName"/></td>
+        <td class="confirm-td"><input class="confirm-input" type="text" [(ngModel)]="items.cardSet" /></td>
+        <td class="confirm-td"><button>remove</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

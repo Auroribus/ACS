@@ -33,6 +33,8 @@ import { OrderPageComponent } from './order-page/order-page.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AccPageComponent } from './acc-page/acc-page.component';
+import { AccDeviceComponent } from './acc-device/acc-device.component';
+import { OcrCardsService } from './ocr-cards.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
   { path: 'market', component: MarketComponent },
   { path: 'order', component: OrderPageComponent },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'acc' , component: AccPageComponent}
+  { path: 'acc', component: AccPageComponent },
+  { path: 'device', component: AccDeviceComponent}
 ];
 
 @NgModule({
@@ -81,7 +84,8 @@ const appRoutes: Routes = [
         OrderPageComponent,
         TransactionsComponent,
         ProfilePageComponent,
-        AccPageComponent
+        AccPageComponent,
+        AccDeviceComponent
     ],
     imports: [
         BrowserModule,
@@ -91,7 +95,7 @@ const appRoutes: Routes = [
       BrowserAnimationsModule,
       RouterModule.forRoot(appRoutes)
     ],
-    providers: [DataService],
+    providers: [DataService, OcrCardsService],
     bootstrap: [AppComponent]
 })
 

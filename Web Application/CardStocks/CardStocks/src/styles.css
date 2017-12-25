@@ -3,7 +3,7 @@
 @import url("CSS/480.css");
 @import url("CSS/768.css");
 @import url("CSS/992.css");
-@import url("CSS/1200.css"); 
+@import url("CSS/1200.css");
 
 :root {
   --primary-text-color: white;
@@ -15,7 +15,24 @@
   --scale-two: 2;
   --scale-ten: 20;
   --profile-image: url(assets/ProfilePicture/blank_profile_picture.png);
-  --background-image: url(assets/background_four.jpg);
+  --background-image: url(assets/HydraBackground.jpg);
+  --card-size: 15px;
+  --transparent-gray-background: rgba(200,200,200,0.2);
+  --feedback-text-color: red;
+}
+
+.font-size-30 {
+  font-size: 30px;
+}
+
+.feedback-text{
+  color: var(--feedback-text-color);
+}
+
+img.fixed-img {
+  position: absolute;
+  width: 20%;
+  height: auto;
 }
 
 /* General */
@@ -34,6 +51,15 @@ img {
 
 .fixed-width {
   width: 100px;
+}
+
+input.confirm-input {
+  border-radius: 4px;
+}
+
+td.confirm-td {
+  height: auto;
+  padding: 5px;
 }
 
 img.center-img{
@@ -72,8 +98,8 @@ button {
 }
 
 div.main-div {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 50px;
 }
 
@@ -108,6 +134,11 @@ tr:nth-child(even) td{
   background: rgba(200,200,200,0.5);
 }
 
+tr:nth-child(odd) td {
+  background: var(--transparent-gray-background);
+}
+
+
 tr:last-child td {
   border-bottom: solid;
   border-color: var(--primary-color);
@@ -116,7 +147,7 @@ tr:last-child td {
 th {
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 14px;
+  font-size: 22px;
   color: var(--secondary-bg-color);
   background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
   border-bottom-style: double;
@@ -128,8 +159,7 @@ td {
   border-right: solid;
   border-bottom: solid;
   border-width: 1px;
-  border-color: gray;
-  font-size: 14px;
+  font-size: 18px;
   padding-left: 10px;
   color: whitesmoke;
 }
@@ -172,22 +202,19 @@ form input {
 }
 
 a.nav-a {
-  font-weight: bolder;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 15px;
-}
-
-div.profile-image-div {
-  
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 8px;
+  margin-right: 5px;
+  margin-top: 20px;
 }
 
 img.profile-image-small {
-  margin-top: 4px;
+  margin-top: 12px;
   margin-left: 10px;
   margin-right: 1%;
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   float: right;
 }
@@ -214,7 +241,7 @@ div.top-box {
   background: linear-gradient(to bottom, rgba(10,10,10,.2), rgba(10,10,10,.5),rgba(10,10,10,.5));
   color: var(--primary-text-color);
   width: 100%;
-  height: 55px;
+  height: 75px;
   margin-bottom: 20px;
   border-width: 5px;
   border-bottom: solid;
@@ -224,6 +251,7 @@ div.top-box {
 
 img.logo-img {
   float: left;
+  margin-top: 15px;
   margin-left: 1%;
   height: 40px;
 }
@@ -249,6 +277,29 @@ a.outline:hover {
   background: lightgray;
   color: black;
 }
+
+a.outline-black {
+  width: 40px;
+  text-align: center;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 1px;
+  margin-left: 2px;
+  margin-top: 10px;
+  font-size: 20px;
+  background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
+}
+
+  a.outline-black:hover {
+    color: white;
+    background: linear-gradient(to bottom, rgba(200,200,200,.7), rgba(100,100,100,1),rgba(100,100,100,1));
+    color: black;
+  }
+
+  a.outline-black i:hover {
+    color: white;
+  }
 
 i.fa-bars {
   color:inherit;
@@ -294,6 +345,50 @@ input.search-card-input {
 }
 
 /* Membership page */
+div.full-panel-div {
+  width: 25%;
+  height: 90vh;
+  color : white;
+}
+
+div.full-panel-div h2 {
+  font-size: 30px;
+}
+
+div.full-panel-div ul {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+div.full-panel-div li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.full-panel-div button {
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  margin-top: 50px;
+  font-size: 50px;
+}
+
+.common {
+  background: rgba(20,20,20,0.5);
+}
+
+.uncommon {
+  background: rgba(200,200,200,0.5);
+}
+
+.rare {
+  background: rgba(100, 102, 29, 0.5);
+}
+
+.mythic {
+  background: rgba(120, 89, 15, 0.5);
+}
+
 div.panel-div-large {
   height: 500px;
   border: solid;
@@ -306,6 +401,7 @@ div.panel-div-large {
   font-weight: bold;
   margin-bottom: 20px;
   position: relative;
+  background: var(--transparent-gray-background);
 }
 
   div.panel-div-large h2 {
@@ -339,6 +435,7 @@ div.panel-div-small {
   font-weight: bold;
   margin-bottom: 20px;
   position: relative;
+  background: var(--transparent-gray-background);
 }
 
   div.panel-div-small h2 {
@@ -379,11 +476,13 @@ div.panel-div {
   width: 30%;
   color: var(--primary-text-color);
   font-weight: bolder;
-  border-style:solid;
+  border-left-style:solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
   border-spacing: 0;
-  border-width: 2px;
+  border-width: 1px;
   border-color: black;
-  border-radius: 4px;
+  background: var(--transparent-gray-background);
 }
 
 div.panel-div h2 {
@@ -469,7 +568,7 @@ div.login-div {
   margin-right: 30%;
   width: 40%;
   height: 220px;
-  background: url(assets/HydraBackground.jpg); /*var(--secondary-bg-color); url(assets/gplaypattern/gplaypattern.png);*/
+  background: var(--background-image); /*var(--secondary-bg-color); url(assets/gplaypattern/gplaypattern.png);*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -507,10 +606,15 @@ div.login-div h2 {
 }
 
 /* Collection */
+div.page-a {
+  font-size: 24px;
+  color: white;
+}
+
 img.list-img {
-  width: 15px;
+  width: var(--card-size);
   height: auto;
-  position: fixed;
+  position: absolute;
 }
 
 img.list-img:hover {
@@ -572,6 +676,7 @@ i.fa-plus-square {
 
 /* Listings */
 button.selected-button {
+  font-size: 18px;
   padding-left: 20px;
   padding-right: 20px;
   min-width: 100px;
@@ -581,7 +686,7 @@ button.selected-button {
   border-color: black;
   background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
   color: white;
-  height:30px;
+  height: 40px;
 }
 
 button.selected-button:hover {
@@ -610,7 +715,8 @@ select {
   border-color: black;
   background: linear-gradient(to bottom, rgba(20,20,20,.7), rgba(10,10,10,1),rgba(10,10,10,1));
   color: white;
-  height: 30px;
+  font-size: 18px;
+  height: 40px;
 }
 
 select:hover{
@@ -740,6 +846,6 @@ th.vertical-th {
 img.gif-image {
   margin-left: 10%;
   margin-right: 10%;
-  width: 80%;
+  max-width: 80%;
   height: auto;
 }

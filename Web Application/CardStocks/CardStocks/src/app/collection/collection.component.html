@@ -1,11 +1,14 @@
 <div class="form-div" *ngIf="addingCard">
-  <h2 class="center white">Fill in the Card Information:</h2>
+  <h2 class="center white">Automatically (Single/Multiple)</h2>
+  <h5 class="center white">- Uses Google OCR -</h5>
+  <app-upload-page></app-upload-page>
+  <h2 class="center white">Manually (Single Only)</h2>
   <input class="form-input" type="text" placeholder="Name: eg. Lotus Petal" [(ngModel)]="cName" />
   <input class="form-input" type="text" placeholder="Set: eg. Tempest" [(ngModel)]="cSet" />
   <input class="form-input" type="text" placeholder="Condition: NM, PL, HP, DM" [(ngModel)]="cCondition" />
   <br />
   <br />
-  <h2 class="center white">Upload an Image of the Card(optional)</h2>
+  <h5 class="center white">Upload an Image of the Card (optional)</h5>
   <input class="form-input" type="file" id="filePicker" (change)="handleFileSelect($event)">
   <br />
   <br />
@@ -35,23 +38,15 @@
 <div class="main-div" (click)="closeMenu()">
   <h2 class="white">Haves</h2>
      
-    <button class="selected-button left" (click)="toggleAddCard()"><i class="fa fa-plus"></i>&nbsp;Add Card</button>
-    &nbsp;&nbsp;
-    <button class="selected-button left" (click)="exportCards()"><i class="fa fa-sign-out"></i>Export</button>
+    <button class="selected-button left" (click)="toggleAddCard()"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add Card</button>
+    <button class="selected-button left" (click)="exportCards()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Export</button>
     
-    <a [style.color]="getColorList()" (click)="toggleListView()" class="fa fa-list right"></a>
-    <a [style.color]="getColorTile()" (click)="toggleTileView()" class="fa fa-th-large right"></a>
+    <a [style.color]="getColorList()" (click)="toggleListView()" class="right outline-black"><i class="fa fa-list fa-fw"></i></a>
+    <a [style.color]="getColorTile()" (click)="toggleTileView()" class="right outline-black"><i class="fa fa-th-large fa-fw"></i></a>
 
     <div class="clear"></div>
     <br />
-  <!--
-    <input class="form-input" type="text" placeholder="search for a card..." [(ngModel)]="cNameSearch" />
-    <button (click)="searchCard()" class="selected-button margin-left-30" >Search</button>
-    <a (click)="searchBy('name')">Name</a>
-    <a (click)="searchBy('set')">Set</a>
-    <a (click)="searchBy('condition')">Condition</a>
-    <hr />
-        -->
+
     <div *ngIf="listView">
       
       <table class="list-table-center" id="myTable">
@@ -66,7 +61,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let items of cards" >
+          <tr *ngFor="let items of cardsList" >
             <td><i class="fa fa-file-image-o fa-fw"></i><img class="list-img" src={{items.imgBase64}} ></td>
             <td>{{items.cardName}}</td>
             <td>{{items.cardSet}}</td>
@@ -80,6 +75,19 @@
           </tr>
         </tbody>
       </table>
+      <br />
+      <div class="page-a left">
+        items per page:&nbsp;&nbsp;&nbsp;
+        <select (change)="changeItemsPerPage($event.target.value)">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+      <div class="page-a right">
+        pages:&nbsp;&nbsp;&nbsp;
+        <a *ngFor="let items of pages" (click)="selectPage(items)">{{items}}&nbsp;&nbsp;&nbsp;</a>
+      </div>
     </div>
 
     <div *ngIf="!listView">

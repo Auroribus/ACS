@@ -6,12 +6,12 @@
  
      <!-- Navigation -->
     <a (click)="GoToMarket()" class="nav-a left" *ngIf="logdIn && !smallScreen">MARKET</a>
-    <a (click)="GoToCredits()" class="nav-a left" *ngIf="logdIn && !smallScreen">CREDITS</a>
+    <!--<a (click)="GoToCredits()" class="nav-a left" *ngIf="logdIn && !smallScreen">CREDITS</a>-->
     <a (click)="GoToMembership()" class="nav-a left" *ngIf="logdIn && !smallScreen">MEMBERSHIP</a>
     <a (click)="GoToCollection()" class="nav-a left" *ngIf="logdIn && !smallScreen">HAVES</a>
     <a (click)="GoToWishlist()" class="nav-a left" *ngIf="logdIn && !smallScreen">WANTS</a>
-    <a (click)="GoToUpload()" class="nav-a left" *ngIf="logdIn && !smallScreen">UPLOAD</a>
-    <a (click)="GoToACC()" class="nav-a left" *ngIf="logdIn && !smallScreen">ACC</a>
+    <!--<a (click)="GoToUpload()" class="nav-a left" *ngIf="logdIn && !smallScreen">UPLOAD</a>-->
+    <a (click)="GoToACC()" class="nav-a left" *ngIf="logdIn && !smallScreen">ACS</a>
 
     
     <!-- Toggles  -->
@@ -20,7 +20,7 @@
     <a (click)="toggleLogin()" class="nav-a right" *ngIf="!logdIn">LOGIN</a>
 
     <img (click)="GoToDashboard()" src={{dataservice.profileImage_small}} class="profile-image-small" *ngIf="logdIn"/>
-    <a (click)="GoToCredits()" class="nav-a right" *ngIf="logdIn"><i class="fa fa-gg" aria-hidden="true"></i> {{dataservice.credits}}</a>
+    <a (click)="GoToCredits()" class="nav-a right" *ngIf="logdIn"><i class="fa fa-eur" aria-hidden="true"></i>&nbsp;{{dataservice.credits}}</a>
 
     <a (click)="LogOut()" class="nav-a right" *ngIf="logdIn">LOGOUT</a>
     <a (click)="toggleSearch()" class="nav-a right">SEARCH</a>
