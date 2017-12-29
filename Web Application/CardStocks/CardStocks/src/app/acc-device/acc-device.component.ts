@@ -20,7 +20,7 @@ export class AccDeviceComponent implements OnInit {
   device_string: string;
   connected: boolean;
   started: boolean;
-  image_src: string = "assets/LoadingGif4.gif";
+  image_src: string = "assets/LoadingGif5.gif";
 
   cardName: string = "Ajani Steadfast";
   cardSet: string[] = [];
@@ -30,7 +30,15 @@ export class AccDeviceComponent implements OnInit {
   ngOnInit() {
     var id = localStorage.getItem('id');
 
-    this.dataservice.GetLocalApi("Acc").subscribe(data => console.log(data));
+    /* Uncomment to clear ACC Database
+    this.dataservice.GetLocalApi("Acc").subscribe(data => {
+      
+      for (var i = 0; i < data.length; i++) {
+        this.http.delete('api/Acc/' + data[i].accId).subscribe(data => console.log(data));
+      }
+      
+    });
+    */
 
     if (id == null)
     {
@@ -90,7 +98,7 @@ export class AccDeviceComponent implements OnInit {
         
         if (connection == data[this.index_array].accConnectionString)
         {
-          console.log(this.ocr.cardNameLoaded);
+          //console.log(this.ocr.cardNameLoaded);
 
           var array_size = data.length;
 
@@ -104,14 +112,13 @@ export class AccDeviceComponent implements OnInit {
 
           if (this.ocr.cardNameLoaded) {
             this.ocr.cardNameLoaded = false;
-
            
             this.cardSet = [];
 
             this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=' + this.ocr.cardName)
               .subscribe(data => {
 
-                console.log(data);
+                //console.log(data);
 
                 for (var i = 0; i < data.cards[0].printings.length; i++)
                   this.cardSet.push(data.cards[0].printings[i].toLowerCase());
@@ -126,13 +133,14 @@ export class AccDeviceComponent implements OnInit {
               }
             );
 
+            //console.log(this.cardSet);
+
             this.cards.push(cardList[this.index_array]);
             this.index_array += 1;
-            
 
             if (this.index_array > (array_size - 1)) {
               this.dataservice.setFeedbackTextColor("green");
-              this.feedback_start = "Finished... Modify card names and select the Correct Sets per Card";
+              this.feedback_start = "Finished";
               GetACSdataFromDB.unsubscribe();
             }
           }
@@ -181,5 +189,9 @@ export class AccDeviceComponent implements OnInit {
 
     cardList[index].actualSet = item;
     
+  }
+
+  remove_Item(index) {
+    console.log(index);
   }
 }

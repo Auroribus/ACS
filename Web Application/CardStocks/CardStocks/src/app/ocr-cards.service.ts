@@ -59,6 +59,41 @@ export class OcrCardsService {
     }
   }
 
+  //without OCR
+  selectFile_withoutOCR(evt) {
+    files = evt.target.files;
+    var file = files[this.array_index];
+
+    console.log(files);
+
+    if (files.length > 1) {
+      this.multiple_Files = true;
+    }
+
+    if (files && file) {
+      var reader = new FileReader();
+      var r2 = new FileReader();
+
+      r2.onload = (e: any) => {
+        this.imageSrc = e.target.result;
+      }
+
+      r2.readAsDataURL(files[this.array_index]);
+
+      reader.onload = this.file_Loaded_withoutOCR.bind(this);
+
+      reader.readAsBinaryString(file);
+    }
+  }
+
+  file_Loaded_withoutOCR(evt) {
+
+    var binaryString = evt.target.result;
+    this.base64String = btoa(binaryString);
+    this.cardNameLoaded = true;
+  }
+
+  //With OCR
   selectFile(evt) {
 
     files = evt.target.files;
@@ -166,6 +201,39 @@ export class OcrCardsService {
     return this.http.get('https://api.magicthegathering.io/v1/cards?name=' + cardname)
       .map((response) => response.json());
   }
+
+  POST_CardToACC() {
+
+    body = {
+      AccConnectionString: "abcde",
+      ImageBase64String: this.base64String
+    }
+    
+    this.dataservice.PostLocalApi('Acc', body).subscribe(data => {
+      
+      if (this.multiple_Files) {
+        this.array_index += 1;
+
+        if (this.array_index >= files.length) {
+          this.dataservice.setFeedbackTextColor("red");
+          this.feedback_upload = "No More Cards";
+          location.reload();
+        }
+        else {
+          this.dataservice.setFeedbackTextColor("green");
+          this.feedback_upload = "Succesfully Added Card, loading Next Image";
+
+          this.Get_nextFile();
+        }
+      }
+      else if (!this.multiple_Files) {
+        this.dataservice.setFeedbackTextColor("green");
+        this.feedback_upload = "Succesfully Added Card";
+
+        location.reload();
+      }
+    });
+  }
   
   POST_CardToDB() {
 
@@ -174,29 +242,18 @@ export class OcrCardsService {
     console.log("posting to db");
 
     var id = localStorage.getItem('id');
-
-    /*
-    public string AccConnectionString { get; set; }
-    public string ImageBase64String { get; set; }
-    */
-
+    
     body = {
-      AccConnectionString: "abcde",
-      ImageBase64String: this.base64String
-      /*
       cardName: this.cardName,
       cardSet: this.cardSet,
       cardCondition: this.cardCondition,
       userId: id,
       imgBase64: "data:image/png;base64," + this.base64String
-      */
     }
 
     //Cards
-    this.dataservice.PostLocalApi('Acc', body).subscribe(data => {
-      //console.log(data);
-      //location.reload();
-
+    this.dataservice.PostLocalApi('Cards', body).subscribe(data => {
+      
       if (this.multiple_Files)
       {
         this.array_index += 1;

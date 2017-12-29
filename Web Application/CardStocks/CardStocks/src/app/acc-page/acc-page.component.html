@@ -49,9 +49,25 @@
   <button class="selected-button" (click)="GoToAccDevice()">Go To Your Device</button>
 </div>
 
-<div class="main-div">
-  <h2 class="center">Text</h2>
-  <p class="white center">Lorem ipsum dolor sit amet, pri eu fierent consulatu, vis no blandit probatus maiestatis. Pri viris bonorum sadipscing an, an nam modus persecuti. Eam feugiat sententiae ei, an qui oportere theophrastus. No nam vero dicta verterem. Sea in ubique cetero, sed lorem epicurei an.
+<div>
+  <br /><br />
+  <h2 class="center">Send Images to Test ACC</h2>
+  <div>
+    <h2 class="center">Choose one or more Images</h2>
+    <input multiple="multiple" class="form-input white" type="file" id="filePicker" (change)="ocr.selectFile_withoutOCR($event)">
+    <br /><br />
+    <div *ngIf="!ocr.cardNameLoaded">
+      <img class="center-img" src="assets/LoadingGif4.gif" />
+    </div>
 
-An vim soluta altera putant. Vis an mentitum pertinax rationibus, ea unum falli noluisse sit. Qui at ferri minim nihil. In duo ipsum debet luptatum. Theophrastus deterruisset voluptatibus eam at, ei zril efficiendi his, ad option incorrupte vim. Labore appareat antiopam ius an, ubique facilis ei vel</p>
+    <div *ngIf="ocr.cardNameLoaded">
+      <img class="center-img" [src]="ocr.imageSrc" width="200" />
+      <br />
+      <br />
+      <button class="selected-button-large" (click)="ocr.POST_CardToACC()">Confirm</button>4
+      <p class="feedback-text margin-left-30 font-size-30">{{ocr.feedback_upload}}</p>
+    </div>
+  </div>
+  <br />
+  <br />
 </div>

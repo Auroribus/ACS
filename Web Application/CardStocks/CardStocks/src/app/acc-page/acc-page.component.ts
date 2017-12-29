@@ -5,6 +5,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Router } from '@angular/router';
 import { ActivatedRoute, RoutesRecognized } from '@angular/router';
 import { DataService } from '../data.service';
+import { OcrCardsService } from '../ocr-cards.service';
 
 @Component({
   selector: 'app-acc-page',
@@ -16,9 +17,11 @@ export class AccPageComponent implements OnInit {
   AccConnectionString: string;
   feedback_connect: string;
 
-  constructor(private dataservice: DataService, private router: Router) { }
+  constructor(private dataservice: DataService, private router: Router, private ocr : OcrCardsService) { }
 
   ngOnInit() {
+
+    this.dataservice.GetLocalApi('Acc').subscribe(data => console.log(data));
   }
 
   connect() {
