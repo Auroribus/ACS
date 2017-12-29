@@ -16,7 +16,7 @@ export class DataService {
   profileImage_small: string = "assets/ProfilePicture/blank_profile_picture.png";
 
   constructor(private http: Http) {
-    
+        
     var id = localStorage.getItem('id');
 
     if (id == null || id == "") {
@@ -138,7 +138,7 @@ export class DataService {
 
   ValidataPassword(inputtxt) {
 
-    var passw = /[a-z]/;
+    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
     if (inputtxt.match(passw)) {
       //alert('Correct, try another...')
       return true;

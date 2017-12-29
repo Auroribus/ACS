@@ -6,19 +6,24 @@
 @import url("CSS/1200.css");
 
 :root {
-  --primary-text-color: white;
+  --primary-text-color: lightgray;
   --primary-color: black;
   --secondary-text-color: black;
   --primary-bg-color: black;
-  --secondary-bg-color: white;
+  --secondary-bg-color: lightgray;
   --scale: 2;
   --scale-two: 2;
   --scale-ten: 20;
   --profile-image: url(assets/ProfilePicture/blank_profile_picture.png);
   --background-image: url(assets/HydraBackground.jpg);
   --card-size: 15px;
-  --transparent-gray-background: rgba(200,200,200,0.2);
+  --transparent-gray-background: rgba(20,20,20,.4);
   --feedback-text-color: red;
+  --common-background: url(assets/Backgrounds/Angel_zero.jpg);
+  --uncommon-background: url(assets/Backgrounds/Angel_one.jpg);
+  --rare-background: url(assets/Backgrounds/Angel_two.jpg);
+  --mythic-background: url(assets/Backgrounds/Angel_three.jpg);
+  --selected-set-color: orange;
 }
 
 .font-size-30 {
@@ -80,7 +85,7 @@ h2 {
 .center {
   text-align: center;
 }
-.white { color: white; }
+.white { color: lightgray; }
 .green-text { color:green;}
 .red-text { color: red; }
 .left { float: left; }
@@ -161,7 +166,7 @@ td {
   border-width: 1px;
   font-size: 18px;
   padding-left: 10px;
-  color: whitesmoke;
+  color: lightgray;
 }
 
 
@@ -242,7 +247,7 @@ div.top-box {
   color: var(--primary-text-color);
   width: 100%;
   height: 75px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-width: 5px;
   border-bottom: solid;
   border-color: black;
@@ -345,19 +350,29 @@ input.search-card-input {
 }
 
 /* Membership page */
+i.button-i {
+  font-size: 30px;
+}
+
 div.full-panel-div {
+  position: relative;
   width: 25%;
   height: 90vh;
-  color : white;
+  color: lightgray;
+  ;
 }
 
 div.full-panel-div h2 {
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: bolder;
+  color: lightgray;
 }
 
 div.full-panel-div ul {
   margin-top: 40px;
   font-size: 24px;
+  font-weight: bolder;
+  color: lightgray;
 }
 
 div.full-panel-div li {
@@ -369,31 +384,50 @@ div.full-panel-div button {
   margin-left: 20%;
   margin-right: 20%;
   width: 60%;
-  margin-top: 50px;
+  border-radius: 4px;
+  background: rgba(50,50,50,.8);
   font-size: 50px;
 }
 
+button.full-button {
+  position: absolute;
+  bottom: 20px;
+}
+
+div.full-panel-div button:hover {
+  cursor: pointer;
+  background: rgba(150,150,150,0.4);
+}
+
 .common {
-  background: rgba(20,20,20,0.5);
+  background: var(--common-background);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .uncommon {
-  background: rgba(200,200,200,0.5);
+  background: var(--uncommon-background);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .rare {
-  background: rgba(100, 102, 29, 0.5);
+  background: var(--rare-background);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mythic {
-  background: rgba(120, 89, 15, 0.5);
+  background: var(--mythic-background);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 div.panel-div-large {
   height: 500px;
   border: solid;
   border-width: 2px;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-left: 1%;
   margin-right: 1%;
   width: 23%;
@@ -424,10 +458,13 @@ div.panel-div-large {
   }
 
 div.panel-div-small {
+  padding:0;
   height: 100px;
   border: solid;
   border-width: 2px;
-  border-radius: 10px;
+  border-radius: 2px;
+  border-spacing: 0;
+  border-collapse:separate;
   margin-left: 1%;
   margin-right: 1%;
   width: 23%;
@@ -731,7 +768,7 @@ select option {
 input.selected-input {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  height: 30px;
+  height: 40px;
   margin-left: -5px;
 }
 
@@ -757,9 +794,9 @@ table.list-table-center-small {
   border: solid var(--primary-color) 1px;
   border-spacing: 0;
   padding: 1px;
-  width: 40%;
+  width: 60%;
   margin-left: 30%;
-  margin-right: 30%;
+  margin-right: 10%;
 }
 
   table.list-table-center-small tr:nth-child(even) td {
@@ -848,4 +885,8 @@ img.gif-image {
   margin-right: 10%;
   max-width: 80%;
   height: auto;
+}
+
+.test {
+  color: var(--selected-set-color);
 }

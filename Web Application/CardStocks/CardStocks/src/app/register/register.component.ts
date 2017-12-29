@@ -24,6 +24,8 @@ export class RegisterComponent implements OnInit {
   userFound: boolean;
   emailFound: boolean;
 
+  feedback_register: string = "";
+
   constructor(private router: Router, private http: Http, private dataservice: DataService) { }
 
   ngOnInit() {
@@ -37,28 +39,29 @@ export class RegisterComponent implements OnInit {
   SendRegister() {
     if (this.username == null || this.username == "")
     {
-      console.log("name field empty");
+      this.feedback_register = "* Username Field is required";
     }
     else if (this.email == null || this.email == "")
     {
-      console.log("email field empty");
+      this.feedback_register = "* Email Field is required";
     }
     else if (this.password == null || this.password == "")
     {
-      console.log("password field empty");
+      this.feedback_register = "* Password Field is required";
     }
     else if (this.confirm == null || this.confirm == "")
     {
-      console.log("password confirm field empty");
+      this.feedback_register = "* Confirm Password Field is required";
     }
     else if (this.password != this.confirm)
     {
-      console.log("passwords do not match")
+      this.feedback_register = "* Passwords do not match";
     }
     else
     {
       if (this.dataservice.ValidataPassword(this.password))
       {
+        console.log(this.dataservice.ValidataPassword(this.password));
         if (this.dataservice.ValidateEmail(this.email))
         {
           this.http.get('/api/User')
@@ -68,13 +71,13 @@ export class RegisterComponent implements OnInit {
             });
         }
         else {
-          console.log("wrong email input");
+          this.feedback_register = "* Email Field input was wrong";
         }
         
       }
       else
       {
-        console.log("wrong password input");
+        this.feedback_register = "* Password must be 8 characters, including 1 uppercase letter, 1 special character and 1 alphanumeric character";
       }
     }
   
@@ -84,12 +87,13 @@ export class RegisterComponent implements OnInit {
     for (var i = 0; i < data.length; i++) {
       if (data[i].username == this.username) {
         console.log("username already exists")
+        this.feedback_register = "* Username is already being used";
         this.userFound = true;
         break;
       }
       else if (data[i].email == this.email)
       {
-        console.log("an account with this email already exists");
+        this.feedback_register = "* This Email is already being used";
         this.emailFound = true;
         break;
       }

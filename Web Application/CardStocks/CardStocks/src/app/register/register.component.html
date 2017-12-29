@@ -5,6 +5,7 @@
   <input class="form-input" type="password" [(ngModel)]="password" placeholder="password">
   <input class="form-input" type="password" [(ngModel)]="confirm" placeholder="confirm password">
   <input  class="form-input"type="text" [(ngModel)]="email" placeholder="email">
+  <p class="feedback-text margin-left-30">{{feedback_register}}</p>
   <br /><br />
   <button (click)="SendRegister()" class="selected-button margin-left-30">Send <i class="fa fa-chevron-right"></i></button>
   <p class="center">already have an account? Click login in the top right</p>

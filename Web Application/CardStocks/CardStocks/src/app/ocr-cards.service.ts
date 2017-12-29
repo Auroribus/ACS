@@ -16,8 +16,10 @@ var files;
 
 @Injectable()
 export class OcrCardsService {
-
-  constructor(private http: Http, private dataservice : DataService) { }
+    
+  constructor(private http: Http, private dataservice: DataService) {
+    
+  }
   
   base64String: string;
   feedback_upload: string;
@@ -141,6 +143,9 @@ export class OcrCardsService {
       //console.log(nameCard);
 
       this.cardName = nameCard;
+      //remove any numbers from the card name to prevent errors
+      this.cardName = this.cardName.replace(/[0-9]/g, '');
+
       this.cardNameLoaded = true;
 
       this.ADD_ToRemoveTable();
@@ -170,15 +175,25 @@ export class OcrCardsService {
 
     var id = localStorage.getItem('id');
 
+    /*
+    public string AccConnectionString { get; set; }
+    public string ImageBase64String { get; set; }
+    */
+
     body = {
+      AccConnectionString: "abcde",
+      ImageBase64String: this.base64String
+      /*
       cardName: this.cardName,
       cardSet: this.cardSet,
       cardCondition: this.cardCondition,
       userId: id,
       imgBase64: "data:image/png;base64," + this.base64String
+      */
     }
 
-    this.dataservice.PostLocalApi('Cards', body).subscribe(data => {
+    //Cards
+    this.dataservice.PostLocalApi('Acc', body).subscribe(data => {
       //console.log(data);
       //location.reload();
 
@@ -242,6 +257,70 @@ export class OcrCardsService {
       console.log(data);
       location.reload();
     });
+  }
+
+
+  POST_Base64(string64) {
+
+    console.log(string64);
+
+    let body = {
+      "requests": [
+        {
+          "image": {
+            "content": string64
+          },
+          "features": [
+            {
+              "type": "TEXT_DETECTION"
+            }
+          ]
+        }
+      ]
+    };
+    let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAZeN4I1k3t34D94p_Jv2bdTKGLsuYbXx4', body, { headers: headers })
+        .map((response) => response.json())
+        .subscribe(data => {
+
+          console.log(data);
+
+          nameCard = "";
+          this.nameOfCard = [];
+          oldNr = 0;
+
+          var numberOfWordsInTitle = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words.length
+
+          for (var i = 0; i < numberOfWordsInTitle; i++) {
+            //add spacing between two words
+            if (oldNr != i) {
+              oldNr = i;
+              this.nameOfCard.push(" ");
+            }
+
+            var numberOfSymbols = data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols.length;
+
+            for (var j = 0; j < numberOfSymbols; j++) {
+              this.nameOfCard.push(data.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[i].symbols[j].text);
+
+            }
+          }
+          //console.log(this.nameOfCard);
+
+          for (var i = 0; i < this.nameOfCard.length; i++) {
+            nameCard += this.nameOfCard[i];
+          }
+
+          //console.log(nameCard);
+
+          this.cardName = nameCard;
+          //remove any numbers from the card name to prevent errors
+          this.cardName = this.cardName.replace(/[0-9]/g, '');
+
+          this.cardNameLoaded = true;
+          
+    });        
   }
 
 }

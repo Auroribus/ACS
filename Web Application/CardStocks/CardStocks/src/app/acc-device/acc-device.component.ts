@@ -3,8 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { DataService } from '../data.service';
+import { OcrCardsService } from '../ocr-cards.service';
 
 var GetACSdataFromDB;
+var cardList = [];
 
 @Component({
   selector: 'app-acc-device',
@@ -13,7 +15,7 @@ var GetACSdataFromDB;
 })
 export class AccDeviceComponent implements OnInit {
 
-  cards: string[] = [];
+  cards: object[] = [];
 
   device_string: string;
   connected: boolean;
@@ -21,12 +23,14 @@ export class AccDeviceComponent implements OnInit {
   image_src: string = "assets/LoadingGif4.gif";
 
   cardName: string = "Ajani Steadfast";
-  cardSet: string = "Magic 2015";
+  cardSet: string[] = [];
 
-  constructor(private dataservice: DataService, private router: Router) { }
+  constructor(private dataservice: DataService, private router: Router, private ocr : OcrCardsService, private http: Http) { }
 
   ngOnInit() {
     var id = localStorage.getItem('id');
+
+    this.dataservice.GetLocalApi("Acc").subscribe(data => console.log(data));
 
     if (id == null)
     {
@@ -56,6 +60,7 @@ export class AccDeviceComponent implements OnInit {
 
   connectWithDevice() {
     this.connected = true;
+    localStorage.setItem('connectionString', this.device_string);
   }
 
   return() {
@@ -64,6 +69,7 @@ export class AccDeviceComponent implements OnInit {
 
   index_array: number = 0;
   feedback_start: string;
+  arraysizeChanged: boolean = false;
 
   start() {
 
@@ -73,25 +79,66 @@ export class AccDeviceComponent implements OnInit {
     this.started = true;
     this.cards = [];
 
-    GetACSdataFromDB = Observable.interval(1000 * 2).subscribe(x => {
+    var timer = 2000;
+
+    var connection = localStorage.getItem('connectionString');
+    
+    GetACSdataFromDB = Observable.interval(timer * 2).subscribe(x => {
 
       this.feedback_start = "";
-      
-      this.dataservice.GetLocalApi('Cards').subscribe(data => {
-
-        var array_size = data.length;
-
-        console.log("index: " + this.index_array);
-
-        this.cards.push(data[this.index_array]);
-        this.image_src = data[this.index_array].imgBase64;
+      this.dataservice.GetLocalApi('Acc').subscribe(data => {
         
-        this.index_array += 1;
-
-        if (this.index_array > (array_size - 1))
+        if (connection == data[this.index_array].accConnectionString)
         {
-          console.log("end of array");
-          GetACSdataFromDB.unsubscribe();
+          console.log(this.ocr.cardNameLoaded);
+
+          var array_size = data.length;
+
+          if (!this.ocr.cardNameLoaded) {
+            this.image_src = "data:image/png;base64," + data[this.index_array].imageBase64String;
+            this.ocr.getName_fromFile(data[this.index_array].imageBase64String);
+          }
+
+          //remove when using OCR
+          //this.ocr.cardNameLoaded = true;
+
+          if (this.ocr.cardNameLoaded) {
+            this.ocr.cardNameLoaded = false;
+
+           
+            this.cardSet = [];
+
+            this.dataservice.GetExternalApi('https://api.magicthegathering.io/v1/cards?name=' + this.ocr.cardName)
+              .subscribe(data => {
+
+                console.log(data);
+
+                for (var i = 0; i < data.cards[0].printings.length; i++)
+                  this.cardSet.push(data.cards[0].printings[i].toLowerCase());
+              });
+            //add options for sets with symbol
+            cardList.push(
+              {
+                cardName: this.ocr.cardName,
+                cardImage: "data:image/png;base64," + data[this.index_array].imageBase64String,
+                cardSet: this.cardSet,
+                actualSet: "---"
+              }
+            );
+
+            this.cards.push(cardList[this.index_array]);
+            this.index_array += 1;
+            
+
+            if (this.index_array > (array_size - 1)) {
+              this.dataservice.setFeedbackTextColor("green");
+              this.feedback_start = "Finished... Modify card names and select the Correct Sets per Card";
+              GetACSdataFromDB.unsubscribe();
+            }
+          }
+        }
+        else {
+          console.log("not the same");
         }
       })
     });
@@ -103,5 +150,36 @@ export class AccDeviceComponent implements OnInit {
     this.dataservice.setFeedbackTextColor("red");
     this.feedback_start = "Stopping...";
     this.started = false;
+  }
+
+  POST_CardsToDB() {
+
+    cardList = this.cards;
+    console.log(cardList);
+
+    var id = localStorage.getItem('id');
+    this.dataservice.setFeedbackTextColor("green");
+    this.feedback_start = "Adding Cards to your Haves";
+    for (var i = 0; i < cardList.length; i++)
+    {     
+      
+      let body = {
+        cardName: cardList[i].cardName,
+        cardSet: cardList[i].actualSet,
+        userId: id,
+        imgBase64: cardList[i].cardImage,
+        cardCondition: "---",
+      }
+
+      this.dataservice.PostLocalApi('Cards', body).subscribe(data => console.log(data));
+    }
+  }
+  
+  set_cardSet(item, index) {    
+
+    console.log(this.cards);
+
+    cardList[index].actualSet = item;
+    
   }
 }

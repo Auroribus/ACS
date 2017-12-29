@@ -2,8 +2,8 @@
 <div class="main-div" (click)="closeMenu()">
   <h2 class="white">Sell Listings</h2>
   <button class="selected-button left" (click)="toggleAdd()">
-    <p class="fa fa-plus">
-    </p>&nbsp;&nbsp;&nbsp;Add Sell Listing
+    <i class="fa fa-plus">
+    </i>&nbsp;&nbsp;&nbsp;Add Sell Listing
   </button>
     <select (change)="searchChange($event.target.value)">
       <option value="name">Card Name</option>
@@ -34,7 +34,7 @@
           <td>{{items.cardName}}</td>
           <td>{{items.cardSet}}</td>
           <td>{{items.cardCondition}}</td>
-          <td><i class="fa fa-gg" aria-hidden="true"></i> {{items.sellPrice}}</td>          
+          <td><i class="fa fa-eur" aria-hidden="true"></i>&nbsp;{{items.sellPrice}}</td>          
         </tr>
       </tbody>
     </table>

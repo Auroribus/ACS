@@ -1,5 +1,6 @@
 <div class="main-div">
-  <h2 class="center">ACC Device Page</h2>
+
+  <h2 class="center">ACS Device Page</h2>
   <hr />
   <div *ngIf="!connected">
     <h4 class="white">Your Devices:</h4>
@@ -28,14 +29,27 @@
     <table class="list-table-center-small">
       <tr>
         <th>Card Name</th>
-        <th>Card Set</th>
+        <th>Select Set</th>
+        <th>Selected</th>
         <th></th>
       </tr>
-      <tr *ngFor="let items of cards">
+      <tr *ngFor="let items of cards;let i = index">
         <td class="confirm-td"><input class="confirm-input" type="text" [(ngModel)]="items.cardName"/></td>
-        <td class="confirm-td"><input class="confirm-input" type="text" [(ngModel)]="items.cardSet" /></td>
+        <td><a *ngFor="let item of items.cardSet" (click)="set_cardSet(item,i)"> <i class="ss ss-{{item}} ss-grad ss-2x"></i></a></td>
+        <td>{{items.actualSet}}</td>
+    <!--
+        <td>
+          <select  [(ngModel)]="items.actualSet">
+            <option value="---">Select Set...</option>
+            <option *ngFor="let item of items.cardSet" value={{item}}><p class="ss ss-{{items}} ss-grad ss-2x"></p>{{item}}</option>
+           </select>
+        </td>
+        -->
         <td class="confirm-td"><button>remove</button></td>
       </tr>
     </table>
+
+    <button (click)="POST_CardsToDB()" class="selected-button-large">ADD</button>
+
   </div>
 </div>
