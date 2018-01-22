@@ -205,7 +205,7 @@ export class OcrCardsService {
   POST_CardToACC() {
 
     body = {
-      AccConnectionString: "abcde",
+      AccConnectionString: "pi",
       ImageBase64String: this.base64String
     }
     

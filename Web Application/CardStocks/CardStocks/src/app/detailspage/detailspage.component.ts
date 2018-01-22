@@ -58,8 +58,8 @@ export class DetailspageComponent implements OnInit {
 
 
   GetUrl() {
-    console.log(localStorage.getItem('searchName'));
-    console.log(localStorage.getItem('searchSet'));
+  //  console.log(localStorage.getItem('searchName'));
+  //  console.log(localStorage.getItem('searchSet'));
 
     var sName = localStorage.getItem('searchName');
     var sSet = localStorage.getItem('searchSet');
@@ -100,7 +100,7 @@ export class DetailspageComponent implements OnInit {
         //reset arrays
         this.cardSets = [];
 
-        console.log(data.cards[0]);
+        //console.log(data.cards[0]);
         this.cardName = data.cards[0].name;
         this.cardSet = data.cards[0].setName;
         this.cardRarity = data.cards[0].rarity;
@@ -138,8 +138,8 @@ export class DetailspageComponent implements OnInit {
     this.dataservice.GetLocalApi('Cards').subscribe(data => {
       for (var i = 0; i < data.length; i++)
       {
-        console.log(data[i].cardName);
-        console.log(cardName);
+       // console.log(data[i].cardName);
+       // console.log(cardName);
         if (data[i].cardName == cardName)
         {
           this.cardImage = data[i].imgBase64;
@@ -156,7 +156,7 @@ export class DetailspageComponent implements OnInit {
 
   GetSellerName(userId) {
     this.dataservice.GetLocalApi('User/' + userId ).subscribe(data => {
-      console.log(data.username);
+     // console.log(data.username);
       this.sellerList.push(data.username);
       this.sellerRating.push(data.rating);
     });
@@ -165,7 +165,7 @@ export class DetailspageComponent implements OnInit {
   GetSellListings()
   {
     this.dataservice.GetLocalApi('SellList').subscribe(data => {
-      console.log(data);
+     // console.log(data);
 
       this.sellListing = [];
       this.sellerList = [];
@@ -190,13 +190,13 @@ export class DetailspageComponent implements OnInit {
         this.sellerRating.push("---");
         this.sellerList.push("Test");
 
-        console.log(this.sellerList);
+        //console.log(this.sellerList);
       }
     });
   }
 
   GoToOtherSet(itemName) {
-    console.log(itemName);
+    //console.log(itemName);
 
     url = 'https://api.magicthegathering.io/v1/cards?name=' + this.cardName + '&set=' + itemName;
 
@@ -224,7 +224,7 @@ export class DetailspageComponent implements OnInit {
     }
 
     this.dataservice.PostLocalApi('WishLists', body).subscribe(data => {
-      console.log(data);
+    //  console.log(data);
       //this.router.navigate(['wishlist']);
     });
   }
@@ -240,7 +240,7 @@ export class DetailspageComponent implements OnInit {
     }
 
     this.dataservice.PostLocalApi('WishCards', body).subscribe(data => {
-      console.log(data);
+    //  console.log(data);
       this.router.navigate(['wishlist']);
     });
   }

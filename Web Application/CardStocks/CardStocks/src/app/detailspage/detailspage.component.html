@@ -16,13 +16,17 @@
           <td>{{sellerList[i]}}</td>
           <td>{{sellerRating[i]}}</td>
           <td>{{items.sellPrice}}</td>
-          <td class="center"><button class="table-button">Buy</button>
-          <button class="table-button" (click)="AddToWishlist()" >Wishlist</button></td>
+          <td class="center">
+            <button class="table-button">Buy</button>
+          </td>
         </tr>
       </tbody>
     </table>
-
+    
     <div class="clear"></div>
+    <hr />
+    <button class="selected-button" (click)="AddToWishlist()"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add To Wishlist</button>
+    <br />
     <br />
     <h2>Card Information</h2>
     <table class="list-table-center">
@@ -54,7 +58,7 @@
       
     <div class="clear"></div>
     <br />
-    <h2 class="left">Rulings</h2><a (click)="FlipArrowIcon()"><i class="fa fa-angle-{{angleString}} fa-2x fa-fw white left" aria-hidden="true"></i></a>
+    <h2 class="left hover" (click)="FlipArrowIcon()">Rulings</h2><a (click)="FlipArrowIcon()"><i class="fa fa-angle-{{angleString}} fa-2x fa-fw white left" aria-hidden="true"></i></a>
     <table class="list-table-center" *ngIf="showList">
         <tr>
           <th class="rulingsHead">Date</th>

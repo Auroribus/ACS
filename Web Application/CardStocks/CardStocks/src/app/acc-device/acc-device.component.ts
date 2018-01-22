@@ -90,6 +90,7 @@ export class AccDeviceComponent implements OnInit {
     var timer = 2000;
 
     var connection = localStorage.getItem('connectionString');
+    console.log("connection string: " + connection);
     
     GetACSdataFromDB = Observable.interval(timer * 2).subscribe(x => {
 

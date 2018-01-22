@@ -41,8 +41,8 @@
 <div class="clear"></div>
 
 <div class="form-div">
-  <h2 class="center">Connect with Your ACC Device</h2>
-  <input [(ngModel)]="AccConnectionString" class="form-input" placeholder="ACC Connection String goes here..."/>
+  <h2 class="center">Connect with Your ACS Device</h2>
+  <input [(ngModel)]="AccConnectionString" class="form-input" placeholder="ACS Connection String goes here..."/>
   <p class="feedback-text margin-left-30">{{feedback_connect}}</p>
  
   <button (click)="connect()" class="selected-button margin-left-30">Connect</button>
@@ -51,7 +51,7 @@
 
 <div>
   <br /><br />
-  <h2 class="center">Send Images to Test ACC</h2>
+  <h2 class="center">Send Images to Test ACS</h2>
   <div>
     <h2 class="center">Choose one or more Images</h2>
     <input multiple="multiple" class="form-input white" type="file" id="filePicker" (change)="ocr.selectFile_withoutOCR($event)">
