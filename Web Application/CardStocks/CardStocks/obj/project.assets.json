@@ -13209,6 +13209,9 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\Users\\stief\\Dropbox\\AP Year 3\\git_CardStocks\\cardstocks.net\\Web Application\\CardStocks\\CardStocks\\CardStocks.csproj",
       "projectName": "CardStocks",
